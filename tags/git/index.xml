@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Zxq&#39;s Blog</title>
+    <link>https://oxygenbytes.github.io/tags/git/</link>
+    <description>Recent content in Git on Zxq&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sat, 30 Jan 2021 21:49:10 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git 学习</title>
+      <link>https://oxygenbytes.github.io/posts/2021/01/git-%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Sat, 30 Jan 2021 21:49:10 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2021/01/git-%E5%AD%A6%E4%B9%A0/</guid>
+      <description>Git 学习 主要记录一些git学习的笔记内容
+git学习链接
+git分支管理  新建分支 git checkout -b branchname 切换分支 git checkout branchname 查看分支 git branch  比如你现在在dev，克隆下来的是主分支(main)
+如果你要进行什么修改，可以建一个新的分之，比如按照今天的日期
+git checkout -b 190721 git checkout 190721 # 这样就切换到了新分支 新建git仓库，并且推送到github # create a new repository on the command line github官方指导 git init # 仓库初始化，初始化对象是当前目录 git init newrepo # 初始化特定文件夹，并且在newrepo中出现一个.git目录 git add * # 将当前目录中所有文件纳入版本控制，提交到暂存区 git commit -m &amp;#34;first commit&amp;#34; # 提交到版本库 git remote add origin git@github.com:cogitates/Mynote.git # 连接远程仓库 git push -u origin master # 将本地的仓库推送到远程仓库 当系统重装后，如何连接git和github github官方参考链接</description>
+    </item>
+    
+  </channel>
+</rss>

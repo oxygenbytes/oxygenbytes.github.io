@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zxq&#39;s Blog</title>
+    <link>https://oxygenbytes.github.io/</link>
+    <description>Recent content on Zxq&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 14 Jun 2021 14:13:48 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[63]不同路径 II</title>
+      <link>https://oxygenbytes.github.io/leetcode/dp/63%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84-ii-/</link>
+      <pubDate>Mon, 14 Jun 2021 14:13:48 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/dp/63%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84-ii-/</guid>
+      <description>//一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。 // // 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。 // // 现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？ // // // // 网格中的障碍物和空位置分别用 1 和 0 来表示。 // // // // 示例 1： // // //输入：obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]] //输出：2 //解释： //3x3 网格的正中间有一个障碍物。 //从左上角到右下角一共有 2 条不同的路径： //1. 向右 -&amp;gt; 向右 -&amp;gt; 向下 -&amp;gt; 向下 //2. 向下 -&amp;gt; 向下 -&amp;gt; 向右 -&amp;gt; 向右 // // // 示例 2： // // //输入：obstacleGrid = [[0,1],[0,0]] //输出：1 // // // // // 提示： // // // m == obstacleGrid.</description>
+    </item>
+    
+    <item>
+      <title>[96]不同的二叉搜索树</title>
+      <link>https://oxygenbytes.github.io/leetcode/dp/96%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-/</link>
+      <pubDate>Mon, 14 Jun 2021 14:03:03 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/dp/96%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-/</guid>
+      <description>//给你一个整数 n ，求恰由 n 个节点组成且节点值从 1 到 n 互不相同的 二叉搜索树 有多少种？返回满足题意的二叉搜索树的种数。 // // // // 示例 1： // // //输入：n = 3 //输出：5 // // // 示例 2： // // //输入：n = 1 //输出：1 // // // // // 提示： // // // 1 &amp;lt;= n &amp;lt;= 19 // // Related Topics 树 动态规划 // 👍 1190 👎 0  /* * 96 不同的二叉搜索树 * 2021-06-14 14:03:03 * @author oxygenbytes */ #include &amp;#34;leetcode.</description>
+    </item>
+    
+    <item>
+      <title>[200]岛屿数量</title>
+      <link>https://oxygenbytes.github.io/leetcode/dfs/200%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F-/</link>
+      <pubDate>Mon, 14 Jun 2021 13:07:54 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/dfs/200%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F-/</guid>
+      <description>//给你一个由 &amp;#39;1&amp;#39;（陆地）和 &amp;#39;0&amp;#39;（水）组成的的二维网格，请你计算网格中岛屿的数量。 // // 岛屿总是被水包围，并且每座岛屿只能由水平方向和/或竖直方向上相邻的陆地连接形成。 // // 此外，你可以假设该网格的四条边均被水包围。 // // // // 示例 1： // // //输入：grid = [ // [&amp;#34;1&amp;#34;,&amp;#34;1&amp;#34;,&amp;#34;1&amp;#34;,&amp;#34;1&amp;#34;,&amp;#34;0&amp;#34;], // [&amp;#34;1&amp;#34;,&amp;#34;1&amp;#34;,&amp;#34;0&amp;#34;,&amp;#34;1&amp;#34;,&amp;#34;0&amp;#34;], // [&amp;#34;1&amp;#34;,&amp;#34;1&amp;#34;,&amp;#34;0&amp;#34;,&amp;#34;0&amp;#34;,&amp;#34;0&amp;#34;], // [&amp;#34;0&amp;#34;,&amp;#34;0&amp;#34;,&amp;#34;0&amp;#34;,&amp;#34;0&amp;#34;,&amp;#34;0&amp;#34;] //] //输出：1 // // // 示例 2： // // //输入：grid = [ // [&amp;#34;1&amp;#34;,&amp;#34;1&amp;#34;,&amp;#34;0&amp;#34;,&amp;#34;0&amp;#34;,&amp;#34;0&amp;#34;], // [&amp;#34;1&amp;#34;,&amp;#34;1&amp;#34;,&amp;#34;0&amp;#34;,&amp;#34;0&amp;#34;,&amp;#34;0&amp;#34;], // [&amp;#34;0&amp;#34;,&amp;#34;0&amp;#34;,&amp;#34;1&amp;#34;,&amp;#34;0&amp;#34;,&amp;#34;0&amp;#34;], // [&amp;#34;0&amp;#34;,&amp;#34;0&amp;#34;,&amp;#34;0&amp;#34;,&amp;#34;1&amp;#34;,&amp;#34;1&amp;#34;] //] //输出：3 // // // // // 提示： // // // m == grid.length // n == grid[i].length // 1 &amp;lt;= m, n &amp;lt;= 300 // grid[i][j] 的值为 &amp;#39;0&amp;#39; 或 &amp;#39;1&amp;#39; // // Related Topics 深度优先搜索 广度优先搜索 并查集 // 👍 1191 👎 0  /* * 200 岛屿数量 * 2021-06-14 13:07:54 * @author oxygenbytes */ #include &amp;#34;leetcode.</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;标准模板库STL</title>
+      <link>https://oxygenbytes.github.io/posts/2021/06/c-%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93stl/</link>
+      <pubDate>Sun, 13 Jun 2021 20:43:09 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2021/06/c-%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93stl/</guid>
+      <description>注： size()、empty()是所有容器都有的，时间复杂度为 O(1)，并不是结果并非遍历得到，而是原本就有个变 量来存size，直接访问该变量即可
+注：系统为某一程序分配空间时，所需时间与空间大小无关，而是与申请次数有关&amp;mdash;倍增思想的原理
+vector 变长数组，倍增的思想 size() 返回元素个数 empty() 返回是否为空 clear() 清空 front()/back() push_back()/pop_back() begin()/end() [] 即和数组一样，支持随机寻址 支持比较运算，按字典排序: vector &amp;lt;int&amp;gt; a(3, 5), b(5,3); if(a &amp;gt; b) cout &amp;lt;&amp;lt; &amp;#34; a &amp;gt; b &amp;#34;; 遍历方式： //遍历方法一 for(auto x:a) cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &amp;#39; &amp;#39;; //遍历方法二 迭代器可以看成是指针 for(int i = 0; i &amp;lt; a.size(); i ++) cout &amp;lt;&amp;lt; a[i] &amp;lt;&amp;lt; &amp;#39; &amp;#39;; //遍历方法三 迭代器可以看成是指针 for(vector &amp;lt;int&amp;gt; :: iterator i = a.begin(); i !</description>
+    </item>
+    
+    <item>
+      <title>整数二分算法模板</title>
+      <link>https://oxygenbytes.github.io/posts/2021/06/%E6%95%B4%E6%95%B0%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Sun, 13 Jun 2021 20:20:31 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2021/06/%E6%95%B4%E6%95%B0%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/</guid>
+      <description>bool check(int x) {/* ... */} // 检查x是否满足某种性质  // 区间[l, r]被划分成[l, mid]和[mid + 1, r]时使用： int bsearch_1(int l, int r) { while (l &amp;lt; r) { int mid = l + r &amp;gt;&amp;gt; 1; if (check(mid)) r = mid; // check()判断mid是否满足性质  else l = mid + 1; } return l; } // 区间[l, r]被划分成[l, mid - 1]和[mid, r]时使用： int bsearch_2(int l, int r) { while (l &amp;lt; r) { int mid = l + r + 1 &amp;gt;&amp;gt; 1; if (check(mid)) l = mid; else r = mid - 1; } return l; } </description>
+    </item>
+    
+    <item>
+      <title>归并排序模板</title>
+      <link>https://oxygenbytes.github.io/posts/2021/06/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Sun, 13 Jun 2021 20:17:34 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2021/06/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%A8%A1%E6%9D%BF/</guid>
+      <description>void merge_sort(int q[], int l, int r) { if (l &amp;gt;= r) return; int mid = l + r &amp;gt;&amp;gt; 1; merge_sort(q, l, mid); merge_sort(q, mid + 1, r); int k = 0, i = l, j = mid + 1; while (i &amp;lt;= mid &amp;amp;&amp;amp; j &amp;lt;= r) if (q[i] &amp;lt;= q[j]) tmp[k ++ ] = q[i ++ ]; else tmp[k ++ ] = q[j ++ ]; while (i &amp;lt;= mid) tmp[k ++ ] = q[i ++ ]; while (j &amp;lt;= r) tmp[k ++ ] = q[j ++ ]; for (i = l, j = 0; i &amp;lt;= r; i ++, j ++ ) q[i] = tmp[j]; } </description>
+    </item>
+    
+  </channel>
+</rss>
