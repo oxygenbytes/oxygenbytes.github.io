@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="zxq ">
+<meta name="description" content="//给你一个只包含 &amp;#39;(&amp;#39; 和 &amp;#39;)&amp;#39; 的字符串，找出最长有效（格式正确且连续）括号子串的长度。 // // // // // // 示例 1： // // //输入：s = &amp;#34;(()&amp;#34; //输出：2 //解释：最长有效括号子串是 &amp;#34;()&amp;#34; // // // 示例 2： // // //输入：s = &amp;#34;)()())&amp;#34; //输出：4 //解释：最长有效括号子串是 &amp;#34;()()&amp;#34; // // // 示例 3： // // //输入：s = &amp;#34;&amp;#34; //输出：0 // // // // // 提示： // // // 0 &amp;lt;= s.length &amp;lt;= 3 * 104 // s[i] 为 &amp;#39;(&amp;#39; 或 &amp;#39;)&amp;#39; // // // // Related Topics 字符串 动态规划 // 👍 1197 👎 0  /* * 32 最长有效括号 * 2021-03-07 20:40:55 * @author oxygenbytes */ #include &amp;#34;leetcode." />
+<meta name="keywords" content=", Leetcode" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://oxygenbytes.github.io/leetcode/32%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/" />
+
+
+    <title>
+        
+            [32]最长有效括号 :: Zxq&#39;s Blog  — Zxq&#39;s Site
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://oxygenbytes.github.io/main.min.d235e788b40b442aba9cd6c69fdc330353b2dec27dcbc4235961469d2155f5a9.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://oxygenbytes.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://oxygenbytes.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+<meta itemprop="name" content="[32]最长有效括号">
+<meta itemprop="description" content="//给你一个只包含 &#39;(&#39; 和 &#39;)&#39; 的字符串，找出最长有效（格式正确且连续）括号子串的长度。 // // // // // // 示例 1： // // //输入：s = &#34;(()&#34; //输出：2 //解释：最长有效括号子串是 &#34;()&#34; // // // 示例 2： // // //输入：s = &#34;)()())&#34; //输出：4 //解释：最长有效括号子串是 &#34;()()&#34; // // // 示例 3： // // //输入：s = &#34;&#34; //输出：0 // // // // // 提示： // // // 0 &lt;= s.length &lt;= 3 * 104 // s[i] 为 &#39;(&#39; 或 &#39;)&#39; // // // // Related Topics 字符串 动态规划 // 👍 1197 👎 0  /* * 32 最长有效括号 * 2021-03-07 20:40:55 * @author oxygenbytes */ #include &#34;leetcode."><meta itemprop="datePublished" content="2021-03-07T20:40:55+08:00" />
+<meta itemprop="dateModified" content="2021-03-07T20:40:55+08:00" />
+<meta itemprop="wordCount" content="180"><meta itemprop="image" content="https://oxygenbytes.github.io/"/>
+<meta itemprop="keywords" content="Leetcode," /><meta property="og:title" content="[32]最长有效括号" />
+<meta property="og:description" content="//给你一个只包含 &#39;(&#39; 和 &#39;)&#39; 的字符串，找出最长有效（格式正确且连续）括号子串的长度。 // // // // // // 示例 1： // // //输入：s = &#34;(()&#34; //输出：2 //解释：最长有效括号子串是 &#34;()&#34; // // // 示例 2： // // //输入：s = &#34;)()())&#34; //输出：4 //解释：最长有效括号子串是 &#34;()()&#34; // // // 示例 3： // // //输入：s = &#34;&#34; //输出：0 // // // // // 提示： // // // 0 &lt;= s.length &lt;= 3 * 104 // s[i] 为 &#39;(&#39; 或 &#39;)&#39; // // // // Related Topics 字符串 动态规划 // 👍 1197 👎 0  /* * 32 最长有效括号 * 2021-03-07 20:40:55 * @author oxygenbytes */ #include &#34;leetcode." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://oxygenbytes.github.io/leetcode/32%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/" /><meta property="og:image" content="https://oxygenbytes.github.io/"/><meta property="article:section" content="leetcode" />
+<meta property="article:published_time" content="2021-03-07T20:40:55+08:00" />
+<meta property="article:modified_time" content="2021-03-07T20:40:55+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://oxygenbytes.github.io/"/>
+
+<meta name="twitter:title" content="[32]最长有效括号"/>
+<meta name="twitter:description" content="//给你一个只包含 &#39;(&#39; 和 &#39;)&#39; 的字符串，找出最长有效（格式正确且连续）括号子串的长度。 // // // // // // 示例 1： // // //输入：s = &#34;(()&#34; //输出：2 //解释：最长有效括号子串是 &#34;()&#34; // // // 示例 2： // // //输入：s = &#34;)()())&#34; //输出：4 //解释：最长有效括号子串是 &#34;()()&#34; // // // 示例 3： // // //输入：s = &#34;&#34; //输出：0 // // // // // 提示： // // // 0 &lt;= s.length &lt;= 3 * 104 // s[i] 为 &#39;(&#39; 或 &#39;)&#39; // // // // Related Topics 字符串 动态规划 // 👍 1197 👎 0  /* * 32 最长有效括号 * 2021-03-07 20:40:55 * @author oxygenbytes */ #include &#34;leetcode."/>
+
+
+
+
+
+    <meta property="article:published_time" content="2021-03-07 20:40:55 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://oxygenbytes.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$cd /home/zxq/blogs/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#00FF00;
+                   animation-duration:2s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://oxygenbytes.github.io/posts/">Posts</a></li><li><a href="https://oxygenbytes.github.io/leetcode/">Leetcode</a></li><li><a href="https://oxygenbytes.github.io/swordoffer/">SwordOffer</a></li><li><a href="https://oxygenbytes.github.io/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://oxygenbytes.github.io/leetcode/32%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/">[32]最长有效括号</a></h2>
+
+            
+
+            <div class="post-content">
+                <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">//给你一个只包含 &#39;(&#39; 和 &#39;)&#39; 的字符串，找出最长有效（格式正确且连续）括号子串的长度。 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">// 示例 1： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//输入：s = &#34;(()&#34;
+</span><span style="color:#75715e">//输出：2
+</span><span style="color:#75715e">//解释：最长有效括号子串是 &#34;()&#34;
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 示例 2： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//输入：s = &#34;)()())&#34;
+</span><span style="color:#75715e">//输出：4
+</span><span style="color:#75715e">//解释：最长有效括号子串是 &#34;()()&#34;
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 示例 3： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//输入：s = &#34;&#34;
+</span><span style="color:#75715e">//输出：0
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 提示： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">// 0 &lt;= s.length &lt;= 3 * 104 
+</span><span style="color:#75715e">// s[i] 为 &#39;(&#39; 或 &#39;)&#39; 
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">// Related Topics 字符串 动态规划 
+</span><span style="color:#75715e">// 👍 1197 👎 0
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">* 32 最长有效括号
+</span><span style="color:#75715e">* 2021-03-07 20:40:55
+</span><span style="color:#75715e">* @author oxygenbytes
+</span><span style="color:#75715e">*/</span> 
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;leetcode.h&#34; </span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">//leetcode submit region begin(Prohibit modification and deletion)
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/*
+</span><span style="color:#75715e"> * 具体做法是我们始终保持栈底元素为当前已经遍历过的元素中「最后一个没有被匹配的右括号的下标」
+</span><span style="color:#75715e"> * 这样的做法主要是考虑了边界条件的处理，栈里其他元素维护左括号的下标：
+</span><span style="color:#75715e">    对于遇到的每个 (，我们将它的下标放入栈中
+</span><span style="color:#75715e">    对于遇到的每个 )，我们先弹出栈顶元素表示匹配了当前右括号：
+</span><span style="color:#75715e">    如果栈为空，说明当前的右括号为没有被匹配的右括号，我们将其下标放入栈中来更新我们之前提到的「最后一个没有被匹配的右括号的下标」
+</span><span style="color:#75715e">    如果栈不为空，当前右括号的下标减去栈顶元素即为「以该右括号为结尾的最长有效括号的长度」
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">int</span> longestValidParentheses(string s) {
+        <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">int</span> start <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> s.size();
+
+        stack<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> stk;
+        stk.push(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> s.size();i<span style="color:#f92672">++</span>) {
+            <span style="color:#66d9ef">if</span> (s[i] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;(&#39;</span>) stk.push(i);
+            <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">if</span> (s[i] <span style="color:#f92672">==</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>)<span style="color:#960050;background-color:#1e0010">&#39;</span>) {
+                stk.pop();
+                <span style="color:#75715e">// 说明栈底存的是最后一个没有被匹配的右括号的下标，不可用来匹配
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> (stk.empty()) stk.push(i);
+                <span style="color:#66d9ef">else</span>
+                    ans <span style="color:#f92672">=</span> max(ans, i <span style="color:#f92672">-</span> stk.top());
+            }
+        }
+        <span style="color:#66d9ef">return</span> ans;
+    }
+};
+<span style="color:#75715e">//leetcode submit region end(Prohibit modification and deletion)
+</span></code></pre></div>
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://oxygenbytes.github.io/tags/leetcode">Leetcode</a></span>
+  				</p>
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="https://oxygenbytes.github.io/">zxq</a></span>
+            
+            <span><a href="https://oxygenbytes.github.io/" target="_blank" rel="noopener">cd /home/zxq/</a></span>
+            <span> <a href="https://oxygenbytes.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Theme from <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://oxygenbytes.github.io/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+
+
+
+    </body>
+</html>

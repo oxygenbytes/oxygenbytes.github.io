@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="zxq ">
+<meta name="description" content="时间比较久了，重点记一下算法题和答的不好的问题
+笔试 忘记了，大概是4道编程题，全是ACM类型的题目，最后做出来1.4道，进面试了
+一面  介绍自己 讲一下虚拟内存的工作原理，印象里只有这个面试官问过 算法题：连续子数组的最大和，秒了 反问了一下，常用C&#43;&#43;，对java不太熟，而美团以java为主，会不会有影响  二面（2021-03-02 15:00，1小时30分钟）  介绍自己 说一下sql优化方法，我。。。 算法题：找出字符串中最长的回文串，秒了，用了O（n^2）的方法 反问一下工作内容和工作时间  " />
+<meta name="keywords" content=", 面试" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://oxygenbytes.github.io/posts/2021/04/%E7%BE%8E%E5%9B%A2%E4%BC%98%E9%80%89%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/" />
+
+
+    <title>
+        
+            美团优选面试复盘 :: Zxq&#39;s Blog  — Zxq&#39;s Site
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://oxygenbytes.github.io/main.min.d235e788b40b442aba9cd6c69fdc330353b2dec27dcbc4235961469d2155f5a9.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://oxygenbytes.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://oxygenbytes.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+<meta itemprop="name" content="美团优选面试复盘">
+<meta itemprop="description" content="时间比较久了，重点记一下算法题和答的不好的问题
+笔试 忘记了，大概是4道编程题，全是ACM类型的题目，最后做出来1.4道，进面试了
+一面  介绍自己 讲一下虚拟内存的工作原理，印象里只有这个面试官问过 算法题：连续子数组的最大和，秒了 反问了一下，常用C&#43;&#43;，对java不太熟，而美团以java为主，会不会有影响  二面（2021-03-02 15:00，1小时30分钟）  介绍自己 说一下sql优化方法，我。。。 算法题：找出字符串中最长的回文串，秒了，用了O（n^2）的方法 反问一下工作内容和工作时间  "><meta itemprop="datePublished" content="2021-04-20T19:22:23+08:00" />
+<meta itemprop="dateModified" content="2021-04-20T19:22:23+08:00" />
+<meta itemprop="wordCount" content="14"><meta itemprop="image" content="https://oxygenbytes.github.io/"/>
+<meta itemprop="keywords" content="面试," /><meta property="og:title" content="美团优选面试复盘" />
+<meta property="og:description" content="时间比较久了，重点记一下算法题和答的不好的问题
+笔试 忘记了，大概是4道编程题，全是ACM类型的题目，最后做出来1.4道，进面试了
+一面  介绍自己 讲一下虚拟内存的工作原理，印象里只有这个面试官问过 算法题：连续子数组的最大和，秒了 反问了一下，常用C&#43;&#43;，对java不太熟，而美团以java为主，会不会有影响  二面（2021-03-02 15:00，1小时30分钟）  介绍自己 说一下sql优化方法，我。。。 算法题：找出字符串中最长的回文串，秒了，用了O（n^2）的方法 反问一下工作内容和工作时间  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://oxygenbytes.github.io/posts/2021/04/%E7%BE%8E%E5%9B%A2%E4%BC%98%E9%80%89%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/" /><meta property="og:image" content="https://oxygenbytes.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-20T19:22:23+08:00" />
+<meta property="article:modified_time" content="2021-04-20T19:22:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://oxygenbytes.github.io/"/>
+
+<meta name="twitter:title" content="美团优选面试复盘"/>
+<meta name="twitter:description" content="时间比较久了，重点记一下算法题和答的不好的问题
+笔试 忘记了，大概是4道编程题，全是ACM类型的题目，最后做出来1.4道，进面试了
+一面  介绍自己 讲一下虚拟内存的工作原理，印象里只有这个面试官问过 算法题：连续子数组的最大和，秒了 反问了一下，常用C&#43;&#43;，对java不太熟，而美团以java为主，会不会有影响  二面（2021-03-02 15:00，1小时30分钟）  介绍自己 说一下sql优化方法，我。。。 算法题：找出字符串中最长的回文串，秒了，用了O（n^2）的方法 反问一下工作内容和工作时间  "/>
+
+
+
+
+
+    <meta property="article:published_time" content="2021-04-20 19:22:23 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://oxygenbytes.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$cd /home/zxq/blogs/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#00FF00;
+                   animation-duration:2s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://oxygenbytes.github.io/posts/">Posts</a></li><li><a href="https://oxygenbytes.github.io/leetcode/">Leetcode</a></li><li><a href="https://oxygenbytes.github.io/swordoffer/">SwordOffer</a></li><li><a href="https://oxygenbytes.github.io/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>One minute
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title">
+                <a href="https://oxygenbytes.github.io/posts/2021/04/%E7%BE%8E%E5%9B%A2%E4%BC%98%E9%80%89%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/">美团优选面试复盘</a>
+            </h1>
+                <hr />
+                <aside id="toc">
+                <div class="toc-title">Table of Contents</div>
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#笔试">笔试</a></li>
+    <li><a href="#一面">一面</a></li>
+    <li><a href="#二面2021-03-02-15001小时30分钟">二面（2021-03-02 15:00，1小时30分钟）</a></li>
+  </ul>
+</nav>
+                </aside>
+                <hr />
+
+            
+
+            <div class="post-content">
+                <p>时间比较久了，重点记一下算法题和答的不好的问题</p>
+<h2 id="笔试">笔试</h2>
+<p>忘记了，大概是4道编程题，全是ACM类型的题目，最后做出来1.4道，进面试了</p>
+<h2 id="一面">一面</h2>
+<ol>
+<li>介绍自己</li>
+<li>讲一下虚拟内存的工作原理，印象里只有这个面试官问过</li>
+<li>算法题：连续子数组的最大和，秒了</li>
+<li>反问了一下，常用C++，对java不太熟，而美团以java为主，会不会有影响</li>
+</ol>
+<h2 id="二面2021-03-02-15001小时30分钟">二面（2021-03-02 15:00，1小时30分钟）</h2>
+<ol>
+<li>介绍自己</li>
+<li>说一下sql优化方法，我。。。</li>
+<li>算法题：找出字符串中最长的回文串，秒了，用了O（n^2）的方法</li>
+<li>反问一下工作内容和工作时间</li>
+</ol>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://oxygenbytes.github.io/tags/%E9%9D%A2%E8%AF%95">面试</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>14 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2021-04-20 19:22</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="https://oxygenbytes.github.io/posts/2021/05/%E9%AB%98%E9%80%94%E8%B7%9F%E8%B0%81%E5%AD%A6%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">高途跟谁学面试复盘</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="https://oxygenbytes.github.io/posts/2021/04/%E5%8D%8E%E4%B8%BA%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/">
+                                <span class="button__text">华为面试复盘</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="https://oxygenbytes.github.io/">zxq</a></span>
+            
+            <span><a href="https://oxygenbytes.github.io/" target="_blank" rel="noopener">cd /home/zxq/</a></span>
+            <span> <a href="https://oxygenbytes.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Theme from <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://oxygenbytes.github.io/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+
+
+
+    </body>
+</html>

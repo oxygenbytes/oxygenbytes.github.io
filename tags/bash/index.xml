@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bash on Zxq&#39;s Blog</title>
+    <link>https://oxygenbytes.github.io/tags/bash/</link>
+    <description>Recent content in Bash on Zxq&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://oxygenbytes.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cd /home/zxq/&lt;/a&gt;</copyright>
+    <lastBuildDate>Sat, 22 Aug 2020 21:13:42 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于博客的Leetcode代码的格式和生成</title>
+      <link>https://oxygenbytes.github.io/leetcode/leetcodeformat/</link>
+      <pubDate>Sat, 22 Aug 2020 21:13:42 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/leetcodeformat/</guid>
+      <description>刷题时生成C++文件 我以前经常在Vscode中刷leetcode题目，但这种方式的代码不够规范，也比较耗时，因为主力语言是 C++ ,所以现在在 Clion 中利用 leetcode 插件来生成代码。个人认为 C++ 的代码和命名方式优雅。所以决定在博客的 leetcode 板块中使用 C++ 的代码格式。
+其中 Clion 插件 leetcode 的代码模板如下：
+// CodeFileName: [$!{question.frontendQuestionId}]${question.title} //CodeTemplate: /* --- title: &amp;#34;[$!{question.frontendQuestionId}]${question.title}&amp;#34; date: $!velocityTool.date()+08:00 draft: false tags: - Leetcode --- */ ${question.content} /* * ${question.frontendQuestionId} ${question.title} * $!velocityTool.date() * @author oxygenbytes */ \#include &amp;#34;leetcode.h&amp;#34; ${question.code} 其中的 leetcode.h 文件包含了常用头文件和基本数据结构，如下所示：
+// // Created by zxq on 2020/8/13. //  #ifndef LEETCODE_LEETCODE_H #define LEETCODE_LEETCODE_H  #endif //LEETCODE_LEETCODE_H #include &amp;lt;bits/stdc++.</description>
+    </item>
+    
+  </channel>
+</rss>

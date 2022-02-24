@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="zxq ">
+<meta name="description" content="一、解决的问题 由于不同的机器有不同的操作系统，以及不同的库和组件，在将一个应用部署到多台机器上需要进行大量的环境配置操作。
+Docker 主要解决环境配置问题，它是一种虚拟化技术，对进程进行隔离，被隔离的进程独立于宿主操作系统和其它隔离的进程。使用 Docker 可以不修改应用程序代码，不需要开发人员学习特定环境下的技术，就能够将现有的应用程序部署在其他机器中。
+二、与虚拟机的比较 虚拟机也是一种虚拟化技术，它与 Docker 最大的区别在于它是通过模拟硬件，并在硬件上安装操作系统来实现。
+启动速度 启动虚拟机需要启动虚拟机的操作系统，再启动应用，这个过程非常慢；
+而启动 Docker 相当于启动宿主操作系统上的一个进程。
+占用资源 虚拟机是一个完整的操作系统，需要占用大量的磁盘、内存和 CPU，一台机器只能开启几十个的虚拟机。
+而 Docker 只是一个进程，只需要将应用以及相关的组件打包，在运行时占用很少的资源，一台机器可以开启成千上万个 Docker。
+三、优势 除了启动速度快以及占用资源少之外，Docker 具有以下优势：
+更容易迁移 提供一致性的运行环境，可以在不同的机器上进行迁移，而不用担心环境变化导致无法运行。
+更容易维护 使用分层技术和镜像，使得应用可以更容易复用重复部分。复用程度越高，维护工作也越容易。
+更容易扩展 可以使用基础镜像进一步扩展得到新的镜像，并且官方和开源社区提供了大量的镜像，通过扩展这些镜像可以非常容易得到我们想要的镜像。
+四、使用场景 持续集成 持续集成指的是频繁地将代码集成到主干上，这样能够更快地发现错误。
+Docker 具有轻量级以及隔离性的特点，在将代码集成到一个 Docker 中不会对其它 Docker 产生影响。
+提供可伸缩的云服务 根据应用的负载情况，可以很容易地增加或者减少 Docker。
+搭建微服务架构 Docker 轻量级的特点使得它很适合用于部署、维护、组合微服务。
+五、镜像与容器 镜像是一种静态的结构，可以看成面向对象里面的类，而容器是镜像的一个实例。
+镜像包含着容器运行时所需要的代码以及其它组件，它是一种分层结构，每一层都是只读的（read-only layers）。构建镜像时，会一层一层构建，前一层是后一层的基础。镜像的这种分层存储结构很适合镜像的复用以及定制。
+构建容器时，通过在镜像的基础上添加一个可写层（writable layer），用来保存着容器运行过程中的修改。
+Ubuntu上docker的安装和配置 脚本如下：
+#!/bin/sh  # Shell script to add docker-ce to Deepin Linux repositories # Remove old docker sudo apt-get remove -y docker docker-engine docker." />
+<meta name="keywords" content=", Docker, Linux" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://oxygenbytes.github.io/posts/2021/01/docker-%E5%AD%A6%E4%B9%A0/" />
+
+
+    <title>
+        
+            Docker 学习 :: Zxq&#39;s Blog  — Zxq&#39;s Site
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://oxygenbytes.github.io/main.min.d235e788b40b442aba9cd6c69fdc330353b2dec27dcbc4235961469d2155f5a9.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://oxygenbytes.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://oxygenbytes.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+<meta itemprop="name" content="Docker 学习">
+<meta itemprop="description" content="一、解决的问题 由于不同的机器有不同的操作系统，以及不同的库和组件，在将一个应用部署到多台机器上需要进行大量的环境配置操作。
+Docker 主要解决环境配置问题，它是一种虚拟化技术，对进程进行隔离，被隔离的进程独立于宿主操作系统和其它隔离的进程。使用 Docker 可以不修改应用程序代码，不需要开发人员学习特定环境下的技术，就能够将现有的应用程序部署在其他机器中。
+二、与虚拟机的比较 虚拟机也是一种虚拟化技术，它与 Docker 最大的区别在于它是通过模拟硬件，并在硬件上安装操作系统来实现。
+启动速度 启动虚拟机需要启动虚拟机的操作系统，再启动应用，这个过程非常慢；
+而启动 Docker 相当于启动宿主操作系统上的一个进程。
+占用资源 虚拟机是一个完整的操作系统，需要占用大量的磁盘、内存和 CPU，一台机器只能开启几十个的虚拟机。
+而 Docker 只是一个进程，只需要将应用以及相关的组件打包，在运行时占用很少的资源，一台机器可以开启成千上万个 Docker。
+三、优势 除了启动速度快以及占用资源少之外，Docker 具有以下优势：
+更容易迁移 提供一致性的运行环境，可以在不同的机器上进行迁移，而不用担心环境变化导致无法运行。
+更容易维护 使用分层技术和镜像，使得应用可以更容易复用重复部分。复用程度越高，维护工作也越容易。
+更容易扩展 可以使用基础镜像进一步扩展得到新的镜像，并且官方和开源社区提供了大量的镜像，通过扩展这些镜像可以非常容易得到我们想要的镜像。
+四、使用场景 持续集成 持续集成指的是频繁地将代码集成到主干上，这样能够更快地发现错误。
+Docker 具有轻量级以及隔离性的特点，在将代码集成到一个 Docker 中不会对其它 Docker 产生影响。
+提供可伸缩的云服务 根据应用的负载情况，可以很容易地增加或者减少 Docker。
+搭建微服务架构 Docker 轻量级的特点使得它很适合用于部署、维护、组合微服务。
+五、镜像与容器 镜像是一种静态的结构，可以看成面向对象里面的类，而容器是镜像的一个实例。
+镜像包含着容器运行时所需要的代码以及其它组件，它是一种分层结构，每一层都是只读的（read-only layers）。构建镜像时，会一层一层构建，前一层是后一层的基础。镜像的这种分层存储结构很适合镜像的复用以及定制。
+构建容器时，通过在镜像的基础上添加一个可写层（writable layer），用来保存着容器运行过程中的修改。
+Ubuntu上docker的安装和配置 脚本如下：
+#!/bin/sh  # Shell script to add docker-ce to Deepin Linux repositories # Remove old docker sudo apt-get remove -y docker docker-engine docker."><meta itemprop="datePublished" content="2021-01-30T21:49:10+08:00" />
+<meta itemprop="dateModified" content="2021-01-30T21:49:10+08:00" />
+<meta itemprop="wordCount" content="178"><meta itemprop="image" content="https://oxygenbytes.github.io/"/>
+<meta itemprop="keywords" content="Docker,Linux," /><meta property="og:title" content="Docker 学习" />
+<meta property="og:description" content="一、解决的问题 由于不同的机器有不同的操作系统，以及不同的库和组件，在将一个应用部署到多台机器上需要进行大量的环境配置操作。
+Docker 主要解决环境配置问题，它是一种虚拟化技术，对进程进行隔离，被隔离的进程独立于宿主操作系统和其它隔离的进程。使用 Docker 可以不修改应用程序代码，不需要开发人员学习特定环境下的技术，就能够将现有的应用程序部署在其他机器中。
+二、与虚拟机的比较 虚拟机也是一种虚拟化技术，它与 Docker 最大的区别在于它是通过模拟硬件，并在硬件上安装操作系统来实现。
+启动速度 启动虚拟机需要启动虚拟机的操作系统，再启动应用，这个过程非常慢；
+而启动 Docker 相当于启动宿主操作系统上的一个进程。
+占用资源 虚拟机是一个完整的操作系统，需要占用大量的磁盘、内存和 CPU，一台机器只能开启几十个的虚拟机。
+而 Docker 只是一个进程，只需要将应用以及相关的组件打包，在运行时占用很少的资源，一台机器可以开启成千上万个 Docker。
+三、优势 除了启动速度快以及占用资源少之外，Docker 具有以下优势：
+更容易迁移 提供一致性的运行环境，可以在不同的机器上进行迁移，而不用担心环境变化导致无法运行。
+更容易维护 使用分层技术和镜像，使得应用可以更容易复用重复部分。复用程度越高，维护工作也越容易。
+更容易扩展 可以使用基础镜像进一步扩展得到新的镜像，并且官方和开源社区提供了大量的镜像，通过扩展这些镜像可以非常容易得到我们想要的镜像。
+四、使用场景 持续集成 持续集成指的是频繁地将代码集成到主干上，这样能够更快地发现错误。
+Docker 具有轻量级以及隔离性的特点，在将代码集成到一个 Docker 中不会对其它 Docker 产生影响。
+提供可伸缩的云服务 根据应用的负载情况，可以很容易地增加或者减少 Docker。
+搭建微服务架构 Docker 轻量级的特点使得它很适合用于部署、维护、组合微服务。
+五、镜像与容器 镜像是一种静态的结构，可以看成面向对象里面的类，而容器是镜像的一个实例。
+镜像包含着容器运行时所需要的代码以及其它组件，它是一种分层结构，每一层都是只读的（read-only layers）。构建镜像时，会一层一层构建，前一层是后一层的基础。镜像的这种分层存储结构很适合镜像的复用以及定制。
+构建容器时，通过在镜像的基础上添加一个可写层（writable layer），用来保存着容器运行过程中的修改。
+Ubuntu上docker的安装和配置 脚本如下：
+#!/bin/sh  # Shell script to add docker-ce to Deepin Linux repositories # Remove old docker sudo apt-get remove -y docker docker-engine docker." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://oxygenbytes.github.io/posts/2021/01/docker-%E5%AD%A6%E4%B9%A0/" /><meta property="og:image" content="https://oxygenbytes.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-01-30T21:49:10+08:00" />
+<meta property="article:modified_time" content="2021-01-30T21:49:10+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://oxygenbytes.github.io/"/>
+
+<meta name="twitter:title" content="Docker 学习"/>
+<meta name="twitter:description" content="一、解决的问题 由于不同的机器有不同的操作系统，以及不同的库和组件，在将一个应用部署到多台机器上需要进行大量的环境配置操作。
+Docker 主要解决环境配置问题，它是一种虚拟化技术，对进程进行隔离，被隔离的进程独立于宿主操作系统和其它隔离的进程。使用 Docker 可以不修改应用程序代码，不需要开发人员学习特定环境下的技术，就能够将现有的应用程序部署在其他机器中。
+二、与虚拟机的比较 虚拟机也是一种虚拟化技术，它与 Docker 最大的区别在于它是通过模拟硬件，并在硬件上安装操作系统来实现。
+启动速度 启动虚拟机需要启动虚拟机的操作系统，再启动应用，这个过程非常慢；
+而启动 Docker 相当于启动宿主操作系统上的一个进程。
+占用资源 虚拟机是一个完整的操作系统，需要占用大量的磁盘、内存和 CPU，一台机器只能开启几十个的虚拟机。
+而 Docker 只是一个进程，只需要将应用以及相关的组件打包，在运行时占用很少的资源，一台机器可以开启成千上万个 Docker。
+三、优势 除了启动速度快以及占用资源少之外，Docker 具有以下优势：
+更容易迁移 提供一致性的运行环境，可以在不同的机器上进行迁移，而不用担心环境变化导致无法运行。
+更容易维护 使用分层技术和镜像，使得应用可以更容易复用重复部分。复用程度越高，维护工作也越容易。
+更容易扩展 可以使用基础镜像进一步扩展得到新的镜像，并且官方和开源社区提供了大量的镜像，通过扩展这些镜像可以非常容易得到我们想要的镜像。
+四、使用场景 持续集成 持续集成指的是频繁地将代码集成到主干上，这样能够更快地发现错误。
+Docker 具有轻量级以及隔离性的特点，在将代码集成到一个 Docker 中不会对其它 Docker 产生影响。
+提供可伸缩的云服务 根据应用的负载情况，可以很容易地增加或者减少 Docker。
+搭建微服务架构 Docker 轻量级的特点使得它很适合用于部署、维护、组合微服务。
+五、镜像与容器 镜像是一种静态的结构，可以看成面向对象里面的类，而容器是镜像的一个实例。
+镜像包含着容器运行时所需要的代码以及其它组件，它是一种分层结构，每一层都是只读的（read-only layers）。构建镜像时，会一层一层构建，前一层是后一层的基础。镜像的这种分层存储结构很适合镜像的复用以及定制。
+构建容器时，通过在镜像的基础上添加一个可写层（writable layer），用来保存着容器运行过程中的修改。
+Ubuntu上docker的安装和配置 脚本如下：
+#!/bin/sh  # Shell script to add docker-ce to Deepin Linux repositories # Remove old docker sudo apt-get remove -y docker docker-engine docker."/>
+
+
+
+
+
+    <meta property="article:published_time" content="2021-01-30 21:49:10 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://oxygenbytes.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$cd /home/zxq/blogs/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#00FF00;
+                   animation-duration:2s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://oxygenbytes.github.io/posts/">Posts</a></li><li><a href="https://oxygenbytes.github.io/leetcode/">Leetcode</a></li><li><a href="https://oxygenbytes.github.io/swordoffer/">SwordOffer</a></li><li><a href="https://oxygenbytes.github.io/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>One minute
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title">
+                <a href="https://oxygenbytes.github.io/posts/2021/01/docker-%E5%AD%A6%E4%B9%A0/">Docker 学习</a>
+            </h1>
+                <hr />
+                <aside id="toc">
+                <div class="toc-title">Table of Contents</div>
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#启动速度">启动速度</a></li>
+    <li><a href="#占用资源">占用资源</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#更容易迁移">更容易迁移</a></li>
+    <li><a href="#更容易维护">更容易维护</a></li>
+    <li><a href="#更容易扩展">更容易扩展</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#持续集成">持续集成</a></li>
+    <li><a href="#提供可伸缩的云服务">提供可伸缩的云服务</a></li>
+    <li><a href="#搭建微服务架构">搭建微服务架构</a></li>
+  </ul>
+</nav>
+                </aside>
+                <hr />
+
+            
+
+            <div class="post-content">
+                <h1 id="一解决的问题">一、解决的问题</h1>
+<p>由于不同的机器有不同的操作系统，以及不同的库和组件，在将一个应用部署到多台机器上需要进行大量的环境配置操作。</p>
+<p>Docker 主要解决环境配置问题，它是一种虚拟化技术，对进程进行隔离，被隔离的进程独立于宿主操作系统和其它隔离的进程。使用 Docker 可以不修改应用程序代码，不需要开发人员学习特定环境下的技术，就能够将现有的应用程序部署在其他机器中。</p>
+<h1 id="二与虚拟机的比较">二、与虚拟机的比较</h1>
+<p>虚拟机也是一种虚拟化技术，它与 Docker 最大的区别在于它是通过模拟硬件，并在硬件上安装操作系统来实现。</p>
+<h2 id="启动速度">启动速度</h2>
+<p>启动虚拟机需要启动虚拟机的操作系统，再启动应用，这个过程非常慢；</p>
+<p>而启动 Docker 相当于启动宿主操作系统上的一个进程。</p>
+<h2 id="占用资源">占用资源</h2>
+<p>虚拟机是一个完整的操作系统，需要占用大量的磁盘、内存和 CPU，一台机器只能开启几十个的虚拟机。</p>
+<p>而 Docker 只是一个进程，只需要将应用以及相关的组件打包，在运行时占用很少的资源，一台机器可以开启成千上万个 Docker。</p>
+<h1 id="三优势">三、优势</h1>
+<p>除了启动速度快以及占用资源少之外，Docker 具有以下优势：</p>
+<h2 id="更容易迁移">更容易迁移</h2>
+<p>提供一致性的运行环境，可以在不同的机器上进行迁移，而不用担心环境变化导致无法运行。</p>
+<h2 id="更容易维护">更容易维护</h2>
+<p>使用分层技术和镜像，使得应用可以更容易复用重复部分。复用程度越高，维护工作也越容易。</p>
+<h2 id="更容易扩展">更容易扩展</h2>
+<p>可以使用基础镜像进一步扩展得到新的镜像，并且官方和开源社区提供了大量的镜像，通过扩展这些镜像可以非常容易得到我们想要的镜像。</p>
+<h1 id="四使用场景">四、使用场景</h1>
+<h2 id="持续集成">持续集成</h2>
+<p>持续集成指的是频繁地将代码集成到主干上，这样能够更快地发现错误。</p>
+<p>Docker 具有轻量级以及隔离性的特点，在将代码集成到一个 Docker 中不会对其它 Docker 产生影响。</p>
+<h2 id="提供可伸缩的云服务">提供可伸缩的云服务</h2>
+<p>根据应用的负载情况，可以很容易地增加或者减少 Docker。</p>
+<h2 id="搭建微服务架构">搭建微服务架构</h2>
+<p>Docker 轻量级的特点使得它很适合用于部署、维护、组合微服务。</p>
+<h1 id="五镜像与容器">五、镜像与容器</h1>
+<p>镜像是一种静态的结构，可以看成面向对象里面的类，而容器是镜像的一个实例。</p>
+<p>镜像包含着容器运行时所需要的代码以及其它组件，它是一种分层结构，每一层都是只读的（read-only layers）。构建镜像时，会一层一层构建，前一层是后一层的基础。镜像的这种分层存储结构很适合镜像的复用以及定制。</p>
+<p>构建容器时，通过在镜像的基础上添加一个可写层（writable layer），用来保存着容器运行过程中的修改。</p>
+<h1 id="ubuntu上docker的安装和配置">Ubuntu上docker的安装和配置</h1>
+<p>脚本如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e"># Shell script to add docker-ce to Deepin Linux repositories</span>
+
+<span style="color:#75715e"># Remove old docker</span>
+sudo apt-get remove -y docker docker-engine docker.io containerd runc
+
+<span style="color:#75715e"># Install dependencies</span>
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
+    
+<span style="color:#75715e"># Add GPG and fingerprint</span>
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+
+<span style="color:#75715e"># Add debian repository in deepin sources list</span>
+printf <span style="color:#e6db74">&#39;deb [arch=amd64] https://download.docker.com/linux/debian buster stable\n&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>| sudo tee /etc/apt/sources.list.d/docker-ce.list
+
+<span style="color:#75715e"># Update packages and install</span>
+sudo apt-get update -y
+sudo apt-get install -y docker-ce
+
+<span style="color:#75715e"># Add current user to the docker users group (OPTIONAL)</span>
+sudo usermod -aG docker <span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span>
+
+sudo groupadd docker
+sudo gpasswd -a $USER docker 
+newgrp docker
+docker ps 
+
+sudo vim /etc/docker/daemon.json
+</code></pre></div><p>编辑daemon.json文件并配置容器镜像</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#34;registry-mirrors&#34;</span>: <span style="color:#f92672">[</span>
+    <span style="color:#e6db74">&#34;https://hub-mirror.c.163.com&#34;</span>,
+    <span style="color:#e6db74">&#34;https://mirror.baidubce.com&#34;</span>
+  <span style="color:#f92672">]</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://oxygenbytes.github.io/tags/docker">Docker</a></span><span class="tag"><a href="https://oxygenbytes.github.io/tags/linux">Linux</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>178 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2021-01-30 21:49</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="https://oxygenbytes.github.io/posts/2021/02/c-%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">C&#43;&#43;对象模型</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="https://oxygenbytes.github.io/posts/2021/01/git-%E5%AD%A6%E4%B9%A0/">
+                                <span class="button__text">Git 学习</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="https://oxygenbytes.github.io/">zxq</a></span>
+            
+            <span><a href="https://oxygenbytes.github.io/" target="_blank" rel="noopener">cd /home/zxq/</a></span>
+            <span> <a href="https://oxygenbytes.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Theme from <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://oxygenbytes.github.io/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+
+
+
+    </body>
+</html>

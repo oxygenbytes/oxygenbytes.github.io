@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="zxq ">
+<meta name="description" content="//给定字符串 s 和 t ，判断 s 是否为 t 的子序列。 // // 字符串的一个子序列是原始字符串删除一些（也可以不删除）字符而不改变剩余字符相对位置形成的新字符串。（例如，&amp;#34;ace&amp;#34;是&amp;#34;abcde&amp;#34;的一个子序列，而&amp;#34;ae //c&amp;#34;不是）。 // // 进阶： // // 如果有大量输入的 S，称作 S1, S2, ... , Sk 其中 k &amp;gt;= 10亿，你需要依次检查它们是否为 T 的子序列。在这种情况下，你会怎样改变代 //码？ // // 致谢： // // 特别感谢 @pbrother 添加此问题并且创建所有测试用例。 // // // // 示例 1： // // //输入：s = &amp;#34;abc&amp;#34;, t = &amp;#34;ahbgdc&amp;#34; //输出：true // // // 示例 2： // // //输入：s = &amp;#34;axc&amp;#34;, t = &amp;#34;ahbgdc&amp;#34; //输出：false // // // // // 提示： // // // 0 &amp;lt;= s." />
+<meta name="keywords" content=", Leetcode" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://oxygenbytes.github.io/leetcode/392%E5%88%A4%E6%96%AD%E5%AD%90%E5%BA%8F%E5%88%97/" />
+
+
+    <title>
+        
+            [392]判断子序列 :: Zxq&#39;s Blog  — Zxq&#39;s Site
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://oxygenbytes.github.io/main.min.d235e788b40b442aba9cd6c69fdc330353b2dec27dcbc4235961469d2155f5a9.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://oxygenbytes.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://oxygenbytes.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+<meta itemprop="name" content="[392]判断子序列">
+<meta itemprop="description" content="//给定字符串 s 和 t ，判断 s 是否为 t 的子序列。 // // 字符串的一个子序列是原始字符串删除一些（也可以不删除）字符而不改变剩余字符相对位置形成的新字符串。（例如，&#34;ace&#34;是&#34;abcde&#34;的一个子序列，而&#34;ae //c&#34;不是）。 // // 进阶： // // 如果有大量输入的 S，称作 S1, S2, ... , Sk 其中 k &gt;= 10亿，你需要依次检查它们是否为 T 的子序列。在这种情况下，你会怎样改变代 //码？ // // 致谢： // // 特别感谢 @pbrother 添加此问题并且创建所有测试用例。 // // // // 示例 1： // // //输入：s = &#34;abc&#34;, t = &#34;ahbgdc&#34; //输出：true // // // 示例 2： // // //输入：s = &#34;axc&#34;, t = &#34;ahbgdc&#34; //输出：false // // // // // 提示： // // // 0 &lt;= s."><meta itemprop="datePublished" content="2021-03-18T13:36:21+08:00" />
+<meta itemprop="dateModified" content="2021-03-18T13:36:21+08:00" />
+<meta itemprop="wordCount" content="165"><meta itemprop="image" content="https://oxygenbytes.github.io/"/>
+<meta itemprop="keywords" content="Leetcode," /><meta property="og:title" content="[392]判断子序列" />
+<meta property="og:description" content="//给定字符串 s 和 t ，判断 s 是否为 t 的子序列。 // // 字符串的一个子序列是原始字符串删除一些（也可以不删除）字符而不改变剩余字符相对位置形成的新字符串。（例如，&#34;ace&#34;是&#34;abcde&#34;的一个子序列，而&#34;ae //c&#34;不是）。 // // 进阶： // // 如果有大量输入的 S，称作 S1, S2, ... , Sk 其中 k &gt;= 10亿，你需要依次检查它们是否为 T 的子序列。在这种情况下，你会怎样改变代 //码？ // // 致谢： // // 特别感谢 @pbrother 添加此问题并且创建所有测试用例。 // // // // 示例 1： // // //输入：s = &#34;abc&#34;, t = &#34;ahbgdc&#34; //输出：true // // // 示例 2： // // //输入：s = &#34;axc&#34;, t = &#34;ahbgdc&#34; //输出：false // // // // // 提示： // // // 0 &lt;= s." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://oxygenbytes.github.io/leetcode/392%E5%88%A4%E6%96%AD%E5%AD%90%E5%BA%8F%E5%88%97/" /><meta property="og:image" content="https://oxygenbytes.github.io/"/><meta property="article:section" content="leetcode" />
+<meta property="article:published_time" content="2021-03-18T13:36:21+08:00" />
+<meta property="article:modified_time" content="2021-03-18T13:36:21+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://oxygenbytes.github.io/"/>
+
+<meta name="twitter:title" content="[392]判断子序列"/>
+<meta name="twitter:description" content="//给定字符串 s 和 t ，判断 s 是否为 t 的子序列。 // // 字符串的一个子序列是原始字符串删除一些（也可以不删除）字符而不改变剩余字符相对位置形成的新字符串。（例如，&#34;ace&#34;是&#34;abcde&#34;的一个子序列，而&#34;ae //c&#34;不是）。 // // 进阶： // // 如果有大量输入的 S，称作 S1, S2, ... , Sk 其中 k &gt;= 10亿，你需要依次检查它们是否为 T 的子序列。在这种情况下，你会怎样改变代 //码？ // // 致谢： // // 特别感谢 @pbrother 添加此问题并且创建所有测试用例。 // // // // 示例 1： // // //输入：s = &#34;abc&#34;, t = &#34;ahbgdc&#34; //输出：true // // // 示例 2： // // //输入：s = &#34;axc&#34;, t = &#34;ahbgdc&#34; //输出：false // // // // // 提示： // // // 0 &lt;= s."/>
+
+
+
+
+
+    <meta property="article:published_time" content="2021-03-18 13:36:21 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://oxygenbytes.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$cd /home/zxq/blogs/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#00FF00;
+                   animation-duration:2s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://oxygenbytes.github.io/posts/">Posts</a></li><li><a href="https://oxygenbytes.github.io/leetcode/">Leetcode</a></li><li><a href="https://oxygenbytes.github.io/swordoffer/">SwordOffer</a></li><li><a href="https://oxygenbytes.github.io/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://oxygenbytes.github.io/leetcode/392%E5%88%A4%E6%96%AD%E5%AD%90%E5%BA%8F%E5%88%97/">[392]判断子序列</a></h2>
+
+            
+
+            <div class="post-content">
+                <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">//给定字符串 s 和 t ，判断 s 是否为 t 的子序列。 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 字符串的一个子序列是原始字符串删除一些（也可以不删除）字符而不改变剩余字符相对位置形成的新字符串。（例如，&#34;ace&#34;是&#34;abcde&#34;的一个子序列，而&#34;ae
+</span><span style="color:#75715e">//c&#34;不是）。 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 进阶： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 如果有大量输入的 S，称作 S1, S2, ... , Sk 其中 k &gt;= 10亿，你需要依次检查它们是否为 T 的子序列。在这种情况下，你会怎样改变代
+</span><span style="color:#75715e">//码？ 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 致谢： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 特别感谢 @pbrother 添加此问题并且创建所有测试用例。 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 示例 1： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//输入：s = &#34;abc&#34;, t = &#34;ahbgdc&#34;
+</span><span style="color:#75715e">//输出：true
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 示例 2： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//输入：s = &#34;axc&#34;, t = &#34;ahbgdc&#34;
+</span><span style="color:#75715e">//输出：false
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 提示： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">// 0 &lt;= s.length &lt;= 100 
+</span><span style="color:#75715e">// 0 &lt;= t.length &lt;= 10^4 
+</span><span style="color:#75715e">// 两个字符串都只由小写字符组成。 
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">// Related Topics 贪心算法 二分查找 动态规划 
+</span><span style="color:#75715e">// 👍 409 👎 0
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">* 392 判断子序列
+</span><span style="color:#75715e">* 2021-03-18 13:36:21
+</span><span style="color:#75715e">* @author oxygenbytes
+</span><span style="color:#75715e">*/</span> 
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;leetcode.h&#34; </span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">//leetcode submit region begin(Prohibit modification and deletion)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">bool</span> isSubsequence(string s, string t) {
+        <span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;i <span style="color:#f92672">&lt;</span> t.size() <span style="color:#f92672">&amp;&amp;</span> k <span style="color:#f92672">&lt;</span> s.size();i<span style="color:#f92672">++</span>){
+            <span style="color:#66d9ef">if</span>(t[i] <span style="color:#f92672">==</span> s[k]) k<span style="color:#f92672">++</span>;
+        }
+        <span style="color:#66d9ef">return</span> k <span style="color:#f92672">==</span> s.size();
+    }
+};
+<span style="color:#75715e">//leetcode submit region end(Prohibit modification and deletion)
+</span><span style="color:#75715e"></span>     
+</code></pre></div>
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://oxygenbytes.github.io/tags/leetcode">Leetcode</a></span>
+  				</p>
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="https://oxygenbytes.github.io/">zxq</a></span>
+            
+            <span><a href="https://oxygenbytes.github.io/" target="_blank" rel="noopener">cd /home/zxq/</a></span>
+            <span> <a href="https://oxygenbytes.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Theme from <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://oxygenbytes.github.io/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+
+
+
+    </body>
+</html>

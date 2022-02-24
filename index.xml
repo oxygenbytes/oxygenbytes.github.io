@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zxq&#39;s Blog</title>
+    <link>https://oxygenbytes.github.io/</link>
+    <description>Recent content on Zxq&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://oxygenbytes.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cd /home/zxq/&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 03 Jan 2022 23:02:51 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[27]移除元素</title>
+      <link>https://oxygenbytes.github.io/leetcode/array/27%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</link>
+      <pubDate>Mon, 03 Jan 2022 23:02:51 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/array/27%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</guid>
+      <description>Go 版本 package leetcode //给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。 // // 不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并 原地 修改输入数组。 // // 元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。 // // // // 说明: // // 为什么返回数值是整数，但输出的答案是数组呢? // // 请注意，输入数组是以「引用」方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。 // // 你可以想象内部操作如下: // // //// nums 是以“引用”方式传递的。也就是说，不对实参作任何拷贝 //int len = removeElement(nums, val); // //// 在函数里修改输入数组对于调用者是可见的。 //// 根据你的函数返回的长度, 它会打印出数组中 该长度范围内 的所有元素。 //for (int i = 0; i &amp;lt; len; i++) { // print(nums[i]); //} // // // // // 示例 1： // // //输入：nums = [3,2,2,3], val = 3 //输出：2, nums = [2,2] //解释：函数应该返回新的长度 2, 并且 nums 中的前两个元素均为 2。你不需要考虑数组中超出新长度后面的元素。例如，函数返回的新长度为 2 ，而 //nums = [2,2,3,3] 或 nums = [2,2,0,0]，也会被视作正确答案。 // // // 示例 2： // // //输入：nums = [0,1,2,2,3,0,4,2], val = 2 //输出：5, nums = [0,1,4,0,3] //解释：函数应该返回新的长度 5, 并且 nums 中的前五个元素为 0, 1, 3, 0, 4。注意这五个元素可为任意顺序。你不需要考虑数组中超出新长度后面 //的元素。 // // // // // 提示： // // // 0 &amp;lt;= nums.</description>
+    </item>
+    
+    <item>
+      <title>Mysql基础知识</title>
+      <link>https://oxygenbytes.github.io/posts/2021/12/mysql%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Fri, 31 Dec 2021 00:52:39 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2021/12/mysql%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <description>Mysql查询流程 - 基础架构 Mysql更新流程 - 日志系统 与查询流程不一样，更新流程涉及两个重要的日志模块，分别是redo log（重做日志）和 binlog（归档日志）。</description>
+    </item>
+    
+    <item>
+      <title>百度春招面试复盘</title>
+      <link>https://oxygenbytes.github.io/posts/2021/10/%E7%99%BE%E5%BA%A6%E6%98%A5%E6%8B%9B%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <pubDate>Wed, 06 Oct 2021 15:42:45 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2021/10/%E7%99%BE%E5%BA%A6%E6%98%A5%E6%8B%9B%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <description>整个春招，百度总共8面，后端面试都通过了，其中测试开发岗位到二面，莫名奇妙给挂了，可能是说了一句已经有字节的offer， 对测试岗位还有所迟疑吧。。。
+笔试 百度的笔试题目是两道原题，说来也是运气好，考试之前不久刚做过那两道题。印象比较深的一个题目是[130]被围绕的区域。
+测试 测开一面 算法题是 字符串处理，去重规则类似 aaabbc =&amp;gt; abc 答的不错
+测开二面 忘记了，没给过
+MEG策略部门 后端一面 算法题是：二叉树左视图
+后端二面 算法题是：二分查找问题，查找有序数组中数值等于某个数的值的个数
+后端三面 面试官态度不怎么好，一直纠结我在字节实习测试开发的问题 应该是过了，但一直没有发正式offer，在拿到其他offer之后又想来说服我来这个部门
+现在的部门 后端一面，mentor面的 算法题是：1. 接雨水 2. 接雨水的变式：二维接雨水 答的一般哈哈，存储和后端经验不足，需要提高
+后端二面，xx老师面的 算法题是：
+ 链表题： 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;6 =&amp;gt; 1-&amp;gt;6-&amp;gt;2-&amp;gt;5-&amp;gt;3-&amp;gt;4, 融合了链表找中点，链表归并，链表反转三个问题 类似剑指offer上的机器活动范围问题 xx老师问了很多C++，操作系统的问题，这不撞我长处上了吗哈哈  后端三面，经理面的  主要是聊天，沟通一下意向，介绍一下部门业务  HR面 谈薪资，百度还是太抠了</description>
+    </item>
+    
+    <item>
+      <title>字节客户端开发面试复盘</title>
+      <link>https://oxygenbytes.github.io/posts/2021/08/%E5%AD%97%E8%8A%82%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <pubDate>Fri, 06 Aug 2021 15:42:58 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2021/08/%E5%AD%97%E8%8A%82%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <description>虽然最后没有去字节，还是要感谢字节给了很多次面试机会，前两次参加字节面试的时候还什么都不懂 客户端没接触过，可以说靠刷题拿下sp，感谢曾经努力的自己
+客户端一面 算法题： 旋转数组找最小元素 还问了一个代理的原理， http证书和对称加密和非对称加密的问题
+客户端二面 算法题： 螺旋打印二维数组，使用深搜做的
+客户端三面 算法题：
+ 遍历算法vector，删除vector中等于target的元素 给定一个数组 1 2 2 2 3 3 4 4 5 6 7 7 以最快的速度找到target第一次出现的位置  如今只零星记得算法题了，这三轮面试问题贼多，强度很大，一天面完，还都是技术面，临近毕业，工作还没着落，心理压力真的很大</description>
+    </item>
+    
+    <item>
+      <title>Golang安装、配置、学习</title>
+      <link>https://oxygenbytes.github.io/posts/2021/07/golang%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Thu, 01 Jul 2021 20:13:03 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2021/07/golang%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0/</guid>
+      <description>Linux安装 Go 1.16 rm -rf /usr/local/go &amp;amp;&amp;amp; tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz export PATH=$PATH:/usr/local/go/bin reboot go version 配置国内代理 go env -w GO111MODULE=on go env -w GOPROXY=https://goproxy.cn, direct reboot vscode 使用Ctrl + Shift + P 打开命令行 选择Go: Install/Update Tools安装必要的包</description>
+    </item>
+    
+    <item>
+      <title>进程和线程的区别</title>
+      <link>https://oxygenbytes.github.io/posts/2021/06/%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Sat, 26 Jun 2021 03:12:13 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2021/06/%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>进程（Process）和线程（Thread）都是操作系统中的基本概念，它们之间有一些优劣和差异。
+进程基本介绍 进程是程序执行时的一个实例，是系统进行资源分配的基本单位。所有与该进程有关的资源，都被记录在进程控制块(PCB)中。以表示该进程拥有这些资源或正在使用它们。另外，进程也是抢占处理机的调度单位，它拥有一个完整的虚拟地址空间。当进程发生调度时，不同的进程拥有不同的虚拟地址空间，而同一进程内的不同线程共享同一地址空间。
+线程基本介绍 线程，有时也被称为轻量级进程，是程序执行流的最小单元，是进程中的一个实体，是被系统独立调度和分派的基本单位。与进程不同，线程与资源分配无关，线程自己不拥有系统资源，它属于某一个进程，并与进程内的其他线程一起共享进程的资源。线程只由相关堆栈（系统栈或用户栈）寄存器和线程控制表TCB组成。
+进程和线程的关系 通常在一个进程中可以包含若干个线程，它们可以利用进程所拥有的资源。但是，一个线程只属于一个进程。进程间相互独立，同一进程的各线程间共享。某进程内的线程在其它进程不可见。而且需要注意的是，线程不是一个可执行的实体。
+进程和线程的比较 进行和线程之间的差异可以从下面几个方面来阐述：
+ 调度 ：在引入线程的操作系统中，线程是调度和分配的基本单位 ，进程是资源拥有的基本单位 。把传统进程的两个属性分开，线程便能轻装运行，从而可 显著地提高系统的并发程度 。在同一进程中，线程的切换不会引起进程的切换；在由一个进程中的线程切换到另一个进程中的线程时，才会引起进程的切换。 并发性 ：在引入线程的操作系统中，不仅进程之间可以并发执行，而且在一个进程中的多个线程之间亦可并发执行，因而使操作系统具有更好的并发性，从而能 更有效地使用系统资源和提高系统吞吐量。 拥有资源 ：不论是传统的操作系统，还是设有线程的操作系统，进程都是拥有资源的一个独立 单位，它可以拥有自己的资源。一般地说，线程自己不拥有系统资源（只有一些必不可少的资源，但它可以访问其隶属进程的资源。 系统开销：由于在创建或撤消进程时，系统都要为之分配或回收资源，因此，操作系统所付出的开销将显著地大于在创建或撤消线程时的开销。进程切换的开销也远大于线程切换的开销。 通信：进程间通信IPC，线程间可以直接读写进程数据段（如全局变量）来进行通信——需要进程同步和互斥手段的辅助，以保证数据的一致性，因此共享简单。但是线程的数据同步要比进程略复杂。  最后 从上面的分析可以看到，似乎线程有很多优势，比如，数据共享效率高，可应对并发操作，有效利用等待时间等等，但是多线程的编程比多进程要复杂，同时，多进程的可靠性较好，因为进程间不会相互影响。实际情况还是需要自己分析拿捏的。但是一般来说，实际应用中常常采用“进程+线程”结合的方式，而不是非此即彼，因为它们两者没有绝对的好与不好，而是适合于不同场景。</description>
+    </item>
+    
+  </channel>
+</rss>

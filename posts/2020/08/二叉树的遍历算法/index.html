@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="zxq ">
+<meta name="description" content="二叉树的遍历算法是理解递归和搜索的关键算法，也可以用来思考程序状态问题和分类讨论思想。
+二叉树的先序遍历 非递归版本
+class Solution { public: vector&amp;lt;int&amp;gt; preorderTraversal(TreeNode* root) { if(!root) return {}; vector&amp;lt;int&amp;gt; result; stack&amp;lt;TreeNode*&amp;gt; s; TreeNode* ptr = root; while(!s.empty() || ptr){ if(ptr){ result.push_back(ptr-&amp;gt;val); s.push(ptr); ptr = ptr-&amp;gt;left; }else{ ptr = s.top();s.pop(); ptr = ptr-&amp;gt;right; } } return result; } }; 递归版本
+class Solution { public: vector&amp;lt;int&amp;gt; postorderTraversal(TreeNode* root) { vector&amp;lt;int&amp;gt; result; dfs(root, result); return result; } private: void dfs(TreeNode* root, vector&amp;lt;int&amp;gt;&amp;amp; res){ if(root){ dfs(root-&amp;gt;left,res); dfs(root-&amp;gt;right, res); res." />
+<meta name="keywords" content=", " />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://oxygenbytes.github.io/posts/2020/08/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95/" />
+
+
+    <title>
+        
+            二叉树的遍历算法 :: Zxq&#39;s Blog  — Zxq&#39;s Site
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://oxygenbytes.github.io/main.min.d235e788b40b442aba9cd6c69fdc330353b2dec27dcbc4235961469d2155f5a9.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://oxygenbytes.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://oxygenbytes.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+<meta itemprop="name" content="二叉树的遍历算法">
+<meta itemprop="description" content="二叉树的遍历算法是理解递归和搜索的关键算法，也可以用来思考程序状态问题和分类讨论思想。
+二叉树的先序遍历 非递归版本
+class Solution { public: vector&lt;int&gt; preorderTraversal(TreeNode* root) { if(!root) return {}; vector&lt;int&gt; result; stack&lt;TreeNode*&gt; s; TreeNode* ptr = root; while(!s.empty() || ptr){ if(ptr){ result.push_back(ptr-&gt;val); s.push(ptr); ptr = ptr-&gt;left; }else{ ptr = s.top();s.pop(); ptr = ptr-&gt;right; } } return result; } }; 递归版本
+class Solution { public: vector&lt;int&gt; postorderTraversal(TreeNode* root) { vector&lt;int&gt; result; dfs(root, result); return result; } private: void dfs(TreeNode* root, vector&lt;int&gt;&amp; res){ if(root){ dfs(root-&gt;left,res); dfs(root-&gt;right, res); res."><meta itemprop="datePublished" content="2020-08-30T21:49:10+08:00" />
+<meta itemprop="dateModified" content="2020-08-30T21:49:10+08:00" />
+<meta itemprop="wordCount" content="240"><meta itemprop="image" content="https://oxygenbytes.github.io/"/>
+<meta itemprop="keywords" content="," /><meta property="og:title" content="二叉树的遍历算法" />
+<meta property="og:description" content="二叉树的遍历算法是理解递归和搜索的关键算法，也可以用来思考程序状态问题和分类讨论思想。
+二叉树的先序遍历 非递归版本
+class Solution { public: vector&lt;int&gt; preorderTraversal(TreeNode* root) { if(!root) return {}; vector&lt;int&gt; result; stack&lt;TreeNode*&gt; s; TreeNode* ptr = root; while(!s.empty() || ptr){ if(ptr){ result.push_back(ptr-&gt;val); s.push(ptr); ptr = ptr-&gt;left; }else{ ptr = s.top();s.pop(); ptr = ptr-&gt;right; } } return result; } }; 递归版本
+class Solution { public: vector&lt;int&gt; postorderTraversal(TreeNode* root) { vector&lt;int&gt; result; dfs(root, result); return result; } private: void dfs(TreeNode* root, vector&lt;int&gt;&amp; res){ if(root){ dfs(root-&gt;left,res); dfs(root-&gt;right, res); res." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://oxygenbytes.github.io/posts/2020/08/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95/" /><meta property="og:image" content="https://oxygenbytes.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-08-30T21:49:10+08:00" />
+<meta property="article:modified_time" content="2020-08-30T21:49:10+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://oxygenbytes.github.io/"/>
+
+<meta name="twitter:title" content="二叉树的遍历算法"/>
+<meta name="twitter:description" content="二叉树的遍历算法是理解递归和搜索的关键算法，也可以用来思考程序状态问题和分类讨论思想。
+二叉树的先序遍历 非递归版本
+class Solution { public: vector&lt;int&gt; preorderTraversal(TreeNode* root) { if(!root) return {}; vector&lt;int&gt; result; stack&lt;TreeNode*&gt; s; TreeNode* ptr = root; while(!s.empty() || ptr){ if(ptr){ result.push_back(ptr-&gt;val); s.push(ptr); ptr = ptr-&gt;left; }else{ ptr = s.top();s.pop(); ptr = ptr-&gt;right; } } return result; } }; 递归版本
+class Solution { public: vector&lt;int&gt; postorderTraversal(TreeNode* root) { vector&lt;int&gt; result; dfs(root, result); return result; } private: void dfs(TreeNode* root, vector&lt;int&gt;&amp; res){ if(root){ dfs(root-&gt;left,res); dfs(root-&gt;right, res); res."/>
+
+
+
+
+
+    <meta property="article:published_time" content="2020-08-30 21:49:10 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://oxygenbytes.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$cd /home/zxq/blogs/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#00FF00;
+                   animation-duration:2s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://oxygenbytes.github.io/posts/">Posts</a></li><li><a href="https://oxygenbytes.github.io/leetcode/">Leetcode</a></li><li><a href="https://oxygenbytes.github.io/swordoffer/">SwordOffer</a></li><li><a href="https://oxygenbytes.github.io/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>2 minutes
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title">
+                <a href="https://oxygenbytes.github.io/posts/2020/08/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95/">二叉树的遍历算法</a>
+            </h1>
+                <hr />
+                <aside id="toc">
+                <div class="toc-title">Table of Contents</div>
+                    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#二叉树的先序遍历">二叉树的先序遍历</a></li>
+        <li><a href="#中序遍历">中序遍历</a></li>
+        <li><a href="#后序遍历">后序遍历</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </aside>
+                <hr />
+
+            
+
+            <div class="post-content">
+                <p>二叉树的遍历算法是理解递归和搜索的关键算法，也可以用来思考程序状态问题和分类讨论思想。</p>
+<h3 id="二叉树的先序遍历">二叉树的先序遍历</h3>
+<p>非递归版本</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> preorderTraversal(TreeNode<span style="color:#f92672">*</span> root) {
+        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>root) <span style="color:#66d9ef">return</span> {};
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> result;
+        stack<span style="color:#f92672">&lt;</span>TreeNode<span style="color:#f92672">*&gt;</span> s;
+        TreeNode<span style="color:#f92672">*</span> ptr <span style="color:#f92672">=</span> root;
+        <span style="color:#66d9ef">while</span>(<span style="color:#f92672">!</span>s.empty() <span style="color:#f92672">||</span> ptr){
+            <span style="color:#66d9ef">if</span>(ptr){
+                result.push_back(ptr<span style="color:#f92672">-&gt;</span>val);
+                s.push(ptr);
+                ptr <span style="color:#f92672">=</span> ptr<span style="color:#f92672">-&gt;</span>left;
+            }<span style="color:#66d9ef">else</span>{
+                ptr <span style="color:#f92672">=</span> s.top();s.pop();
+                ptr <span style="color:#f92672">=</span> ptr<span style="color:#f92672">-&gt;</span>right;
+            }
+        }
+        <span style="color:#66d9ef">return</span> result;
+    }
+};
+</code></pre></div><p>递归版本</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> postorderTraversal(TreeNode<span style="color:#f92672">*</span> root) {
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> result;
+        dfs(root, result);
+        <span style="color:#66d9ef">return</span> result;
+    }
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">void</span> dfs(TreeNode<span style="color:#f92672">*</span> root, vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> res){
+        <span style="color:#66d9ef">if</span>(root){
+            dfs(root<span style="color:#f92672">-&gt;</span>left,res);
+            dfs(root<span style="color:#f92672">-&gt;</span>right, res);
+            res.push_back(root<span style="color:#f92672">-&gt;</span>val);
+        }
+    }
+};
+</code></pre></div><h3 id="中序遍历">中序遍历</h3>
+<p>非递归版本</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> inorderTraversal(TreeNode<span style="color:#f92672">*</span> root) {
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> result;
+        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>root) <span style="color:#66d9ef">return</span> result;
+        stack<span style="color:#f92672">&lt;</span>TreeNode<span style="color:#f92672">*&gt;</span> s;
+        TreeNode<span style="color:#f92672">*</span> ptr <span style="color:#f92672">=</span> root;
+        <span style="color:#66d9ef">while</span>(<span style="color:#f92672">!</span>s.empty() <span style="color:#f92672">||</span> ptr){ <span style="color:#75715e">// 指针不空或者stack不空
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span>(ptr){ <span style="color:#75715e">// 1. 指针不空，stack空 2.指针不空，stack不空
+</span><span style="color:#75715e"></span>                s.push(ptr);
+                ptr <span style="color:#f92672">=</span> ptr <span style="color:#f92672">-&gt;</span> left;
+            }<span style="color:#66d9ef">else</span>{ <span style="color:#75715e">// 3. 指针空，stack不空  4. 指针空，stack空（这种情况进不了while循环的）
+</span><span style="color:#75715e"></span>                ptr <span style="color:#f92672">=</span> s.top();s.pop();
+                result.push_back(ptr<span style="color:#f92672">-&gt;</span>val);
+                ptr <span style="color:#f92672">=</span> ptr<span style="color:#f92672">-&gt;</span>right;
+            }
+        }
+        <span style="color:#66d9ef">return</span> result;
+    }
+};
+</code></pre></div><p>递归版本</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> inorderTraversal(TreeNode<span style="color:#f92672">*</span> root) {
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> result;
+        dfs(root, result);
+        <span style="color:#66d9ef">return</span> result;
+    }
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">void</span> dfs(TreeNode<span style="color:#f92672">*</span> root, vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> res){
+        <span style="color:#66d9ef">if</span>(root){
+            dfs(root<span style="color:#f92672">-&gt;</span>left,res);
+            res.push_back(root<span style="color:#f92672">-&gt;</span>val);
+            dfs(root<span style="color:#f92672">-&gt;</span>right, res);
+        }
+    }
+};
+</code></pre></div><h3 id="后序遍历">后序遍历</h3>
+<p>非递归版本</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> postorderTraversal(TreeNode<span style="color:#f92672">*</span> root) {
+        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>root) <span style="color:#66d9ef">return</span> {};
+        stack<span style="color:#f92672">&lt;</span>pair<span style="color:#f92672">&lt;</span>TreeNode<span style="color:#f92672">*</span>,<span style="color:#66d9ef">bool</span><span style="color:#f92672">&gt;&gt;</span> s;
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> result;
+        TreeNode<span style="color:#f92672">*</span> ptr <span style="color:#f92672">=</span> root;
+        <span style="color:#66d9ef">while</span>(<span style="color:#f92672">!</span>s.empty() <span style="color:#f92672">||</span> ptr){
+            <span style="color:#66d9ef">if</span>(ptr){
+                s.push(make_pair(ptr,false));
+                ptr <span style="color:#f92672">=</span> ptr<span style="color:#f92672">-&gt;</span>left;
+            }<span style="color:#66d9ef">else</span>{
+                <span style="color:#66d9ef">auto</span> now <span style="color:#f92672">=</span> s.top();s.pop();
+                <span style="color:#66d9ef">if</span>(now.second <span style="color:#f92672">==</span> false){
+                    s.push(make_pair(now.first,true));
+                    ptr <span style="color:#f92672">=</span> now.first<span style="color:#f92672">-&gt;</span>right;
+                }<span style="color:#66d9ef">else</span>{
+                    result.push_back(now.first<span style="color:#f92672">-&gt;</span>val);
+                }
+            }
+        }
+        <span style="color:#66d9ef">return</span> result;
+    }
+};
+</code></pre></div><p>递归版本</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> postorderTraversal(TreeNode<span style="color:#f92672">*</span> root) {
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> result;
+        dfs(root, result);
+        <span style="color:#66d9ef">return</span> result;
+    }
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">void</span> dfs(TreeNode<span style="color:#f92672">*</span> root, vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> res){
+        <span style="color:#66d9ef">if</span>(root){
+            dfs(root<span style="color:#f92672">-&gt;</span>left,res);
+            dfs(root<span style="color:#f92672">-&gt;</span>right, res);
+            res.push_back(root<span style="color:#f92672">-&gt;</span>val);
+        }
+    }
+};
+</code></pre></div>
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://oxygenbytes.github.io/tags/"></a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>240 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-08-30 21:49</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="https://oxygenbytes.github.io/posts/2020/10/java-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">Java 网络编程</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="https://oxygenbytes.github.io/posts/2020/08/termux-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
+                                <span class="button__text">Termux 使用指南</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="https://oxygenbytes.github.io/">zxq</a></span>
+            
+            <span><a href="https://oxygenbytes.github.io/" target="_blank" rel="noopener">cd /home/zxq/</a></span>
+            <span> <a href="https://oxygenbytes.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Theme from <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://oxygenbytes.github.io/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>校招经验总结 on Zxq&#39;s Blog</title>
+    <link>https://oxygenbytes.github.io/tags/%E6%A0%A1%E6%8B%9B%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/</link>
+    <description>Recent content in 校招经验总结 on Zxq&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://oxygenbytes.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cd /home/zxq/&lt;/a&gt;</copyright><atom:link href="https://oxygenbytes.github.io/tags/%E6%A0%A1%E6%8B%9B%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>校招经验总结</title>
+      <link>https://oxygenbytes.github.io/posts/1/01/%E6%A0%A1%E6%8B%9B%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/1/01/%E6%A0%A1%E6%8B%9B%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/</guid>
+      <description>昨天大学室友打算跑路，不想在北京干了，聚了一下，中间聊了下找工作的事情。巧合的是晚上有个大学认识的同学也来问。心血来潮总结一下。仅仅针对互联网技术相关岗位。
+1. 选一个岗位 岗位可以分为技术岗和非技术岗，技术岗基本可以分为前端，后端，客户端，测试，数据，算法。考虑岗位，兴趣第一，发展第二， 薪资第三。非技术岗很多，产品经历，运营等等很多，可以搜索一下。
+2. 选定一门语言 对于技术岗来说，是需要掌握一门编程语言的，前端毫无疑问就是Js， 后端的话可以在Java，C++， Go选择一门，其他岗位各有要求，可以看看岗位JD。 除了掌握一门语言外，建议主力静态语言的学一门动态语言，主力动态语言的学一门静态语言，扩展自己对编程语言的眼界。
+3. 学习语言的语法，标准库，语言特性。 以Go语言为例，需要学习其并发，协程，GC等知识。
+4. 存储 想做后端，数据，需要学习存储知识。从层级来分，建议从下到上学习文件系统，磁盘数据库MySQL， 内存缓存Redis，还可以看看消息队列Kafka等。
+5. 学习计算机基础 网络，操作系统，数据结构，组成原理，编译原理等计算机原理是非常重要的。
+6. 刷题 刷算法题，大量，熟练，题海中保持冷静思考
+7. 面经 面经是面试的重点，建议从面经出发，完善知识体系。
+8. 好好写简历 简历是面试的提纲， 重点突出，少搞花活。
+9. 保持良好的心态 找工作是很看运气的，保持良好的心态，不断更新自己的知识体系，坚持到最后一秒不要放弃</description>
+    </item>
+    
+  </channel>
+</rss>

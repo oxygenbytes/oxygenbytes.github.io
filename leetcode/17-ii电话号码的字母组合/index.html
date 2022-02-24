@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="zxq ">
+<meta name="description" content="//给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。 // // 给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。 // // // // // // 示例 1： // // //输入：digits = &amp;#34;23&amp;#34; //输出：[&amp;#34;ad&amp;#34;,&amp;#34;ae&amp;#34;,&amp;#34;af&amp;#34;,&amp;#34;bd&amp;#34;,&amp;#34;be&amp;#34;,&amp;#34;bf&amp;#34;,&amp;#34;cd&amp;#34;,&amp;#34;ce&amp;#34;,&amp;#34;cf&amp;#34;] // // // 示例 2： // // //输入：digits = &amp;#34;&amp;#34; //输出：[] // // // 示例 3： // // //输入：digits = &amp;#34;2&amp;#34; //输出：[&amp;#34;a&amp;#34;,&amp;#34;b&amp;#34;,&amp;#34;c&amp;#34;] // // // // // 提示： // // // 0 &amp;lt;= digits.length &amp;lt;= 4 // digits[i] 是范围 [&amp;#39;2&amp;#39;, &amp;#39;9&amp;#39;] 的一个数字。 // // Related Topics 深度优先搜索 递归 字符串 回溯算法 // 👍 1145 👎 0  /* * 17 电话号码的字母组合 * 2021-02-26 13:27:27 * @author oxygenbytes */ #include &amp;#34;leetcode." />
+<meta name="keywords" content=", Leetcode" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://oxygenbytes.github.io/leetcode/17-ii%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/" />
+
+
+    <title>
+        
+            [17]电话号码的字母组合 :: Zxq&#39;s Blog  — Zxq&#39;s Site
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://oxygenbytes.github.io/main.min.d235e788b40b442aba9cd6c69fdc330353b2dec27dcbc4235961469d2155f5a9.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://oxygenbytes.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://oxygenbytes.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+<meta itemprop="name" content="[17]电话号码的字母组合">
+<meta itemprop="description" content="//给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。 // // 给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。 // // // // // // 示例 1： // // //输入：digits = &#34;23&#34; //输出：[&#34;ad&#34;,&#34;ae&#34;,&#34;af&#34;,&#34;bd&#34;,&#34;be&#34;,&#34;bf&#34;,&#34;cd&#34;,&#34;ce&#34;,&#34;cf&#34;] // // // 示例 2： // // //输入：digits = &#34;&#34; //输出：[] // // // 示例 3： // // //输入：digits = &#34;2&#34; //输出：[&#34;a&#34;,&#34;b&#34;,&#34;c&#34;] // // // // // 提示： // // // 0 &lt;= digits.length &lt;= 4 // digits[i] 是范围 [&#39;2&#39;, &#39;9&#39;] 的一个数字。 // // Related Topics 深度优先搜索 递归 字符串 回溯算法 // 👍 1145 👎 0  /* * 17 电话号码的字母组合 * 2021-02-26 13:27:27 * @author oxygenbytes */ #include &#34;leetcode."><meta itemprop="datePublished" content="2021-02-26T13:27:27+08:00" />
+<meta itemprop="dateModified" content="2021-02-26T13:27:27+08:00" />
+<meta itemprop="wordCount" content="168"><meta itemprop="image" content="https://oxygenbytes.github.io/"/>
+<meta itemprop="keywords" content="Leetcode," /><meta property="og:title" content="[17]电话号码的字母组合" />
+<meta property="og:description" content="//给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。 // // 给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。 // // // // // // 示例 1： // // //输入：digits = &#34;23&#34; //输出：[&#34;ad&#34;,&#34;ae&#34;,&#34;af&#34;,&#34;bd&#34;,&#34;be&#34;,&#34;bf&#34;,&#34;cd&#34;,&#34;ce&#34;,&#34;cf&#34;] // // // 示例 2： // // //输入：digits = &#34;&#34; //输出：[] // // // 示例 3： // // //输入：digits = &#34;2&#34; //输出：[&#34;a&#34;,&#34;b&#34;,&#34;c&#34;] // // // // // 提示： // // // 0 &lt;= digits.length &lt;= 4 // digits[i] 是范围 [&#39;2&#39;, &#39;9&#39;] 的一个数字。 // // Related Topics 深度优先搜索 递归 字符串 回溯算法 // 👍 1145 👎 0  /* * 17 电话号码的字母组合 * 2021-02-26 13:27:27 * @author oxygenbytes */ #include &#34;leetcode." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://oxygenbytes.github.io/leetcode/17-ii%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/" /><meta property="og:image" content="https://oxygenbytes.github.io/"/><meta property="article:section" content="leetcode" />
+<meta property="article:published_time" content="2021-02-26T13:27:27+08:00" />
+<meta property="article:modified_time" content="2021-02-26T13:27:27+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://oxygenbytes.github.io/"/>
+
+<meta name="twitter:title" content="[17]电话号码的字母组合"/>
+<meta name="twitter:description" content="//给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。 // // 给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。 // // // // // // 示例 1： // // //输入：digits = &#34;23&#34; //输出：[&#34;ad&#34;,&#34;ae&#34;,&#34;af&#34;,&#34;bd&#34;,&#34;be&#34;,&#34;bf&#34;,&#34;cd&#34;,&#34;ce&#34;,&#34;cf&#34;] // // // 示例 2： // // //输入：digits = &#34;&#34; //输出：[] // // // 示例 3： // // //输入：digits = &#34;2&#34; //输出：[&#34;a&#34;,&#34;b&#34;,&#34;c&#34;] // // // // // 提示： // // // 0 &lt;= digits.length &lt;= 4 // digits[i] 是范围 [&#39;2&#39;, &#39;9&#39;] 的一个数字。 // // Related Topics 深度优先搜索 递归 字符串 回溯算法 // 👍 1145 👎 0  /* * 17 电话号码的字母组合 * 2021-02-26 13:27:27 * @author oxygenbytes */ #include &#34;leetcode."/>
+
+
+
+
+
+    <meta property="article:published_time" content="2021-02-26 13:27:27 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://oxygenbytes.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$cd /home/zxq/blogs/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#00FF00;
+                   animation-duration:2s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://oxygenbytes.github.io/posts/">Posts</a></li><li><a href="https://oxygenbytes.github.io/leetcode/">Leetcode</a></li><li><a href="https://oxygenbytes.github.io/swordoffer/">SwordOffer</a></li><li><a href="https://oxygenbytes.github.io/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://oxygenbytes.github.io/leetcode/17-ii%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/">[17]电话号码的字母组合</a></h2>
+
+            
+
+            <div class="post-content">
+                <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">//给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 示例 1： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//输入：digits = &#34;23&#34;
+</span><span style="color:#75715e">//输出：[&#34;ad&#34;,&#34;ae&#34;,&#34;af&#34;,&#34;bd&#34;,&#34;be&#34;,&#34;bf&#34;,&#34;cd&#34;,&#34;ce&#34;,&#34;cf&#34;]
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 示例 2： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//输入：digits = &#34;&#34;
+</span><span style="color:#75715e">//输出：[]
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 示例 3： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//输入：digits = &#34;2&#34;
+</span><span style="color:#75715e">//输出：[&#34;a&#34;,&#34;b&#34;,&#34;c&#34;]
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 提示： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">// 0 &lt;= digits.length &lt;= 4 
+</span><span style="color:#75715e">// digits[i] 是范围 [&#39;2&#39;, &#39;9&#39;] 的一个数字。 
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">// Related Topics 深度优先搜索 递归 字符串 回溯算法 
+</span><span style="color:#75715e">// 👍 1145 👎 0
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">* 17 电话号码的字母组合
+</span><span style="color:#75715e">* 2021-02-26 13:27:27
+</span><span style="color:#75715e">* @author oxygenbytes
+</span><span style="color:#75715e">*/</span> 
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;leetcode.h&#34; </span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">//leetcode submit region begin(Prohibit modification and deletion)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;</span> letterCombinations(string digits) {
+        string symbols[<span style="color:#ae81ff">10</span>] <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;abc&#34;</span>, <span style="color:#e6db74">&#34;def&#34;</span>, <span style="color:#e6db74">&#34;ghi&#34;</span>,
+                              <span style="color:#e6db74">&#34;jkl&#34;</span>, <span style="color:#e6db74">&#34;mno&#34;</span>, <span style="color:#e6db74">&#34;pqrs&#34;</span>, <span style="color:#e6db74">&#34;tuv&#34;</span>,<span style="color:#e6db74">&#34;wxyz&#34;</span>};
+
+        vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;</span> ans;
+        <span style="color:#66d9ef">if</span>(digits.empty()) <span style="color:#66d9ef">return</span> ans;
+
+        ans.push_back(<span style="color:#e6db74">&#34;&#34;</span>);
+
+        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">char</span> ch : digits){
+            <span style="color:#66d9ef">int</span> num <span style="color:#f92672">=</span> ch <span style="color:#f92672">-</span> <span style="color:#e6db74">&#39;0&#39;</span>;
+            vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;</span> new_ans;
+
+            <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">const</span> string<span style="color:#f92672">&amp;</span> str : ans){
+                <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">auto</span> symbol : symbols[num]){
+                    string temp <span style="color:#f92672">=</span> str <span style="color:#f92672">+</span> symbol;
+                    new_ans.push_back(temp);
+                }
+            }
+            ans.swap(new_ans);
+        }
+        <span style="color:#66d9ef">return</span> ans;
+    }
+};
+<span style="color:#75715e">//leetcode submit region end(Prohibit modification and deletion)
+</span><span style="color:#75715e"></span>     
+</code></pre></div>
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://oxygenbytes.github.io/tags/leetcode">Leetcode</a></span>
+  				</p>
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="https://oxygenbytes.github.io/">zxq</a></span>
+            
+            <span><a href="https://oxygenbytes.github.io/" target="_blank" rel="noopener">cd /home/zxq/</a></span>
+            <span> <a href="https://oxygenbytes.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Theme from <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://oxygenbytes.github.io/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+
+
+
+    </body>
+</html>

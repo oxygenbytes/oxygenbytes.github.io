@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="zxq ">
+<meta name="description" content="一面（2021-02-24 18:00，1小时10分钟）  介绍自己 介绍项目，针对项目细节进行提问 浏览器输入一个地址，后面发生了什么？ 进程间通讯方式有哪些？ 死锁，原因与解除 const关键字和static关键字 define和const的区别 STL容器，vector, list, map, unordered_map, set效率及对应的底层结构 Redis与MySQL的区别 TCP的拥塞控制，流量控制，滑动窗口 如果当前面试界面崩溃了，如何排查问题 面向对象的三大特性 考研情况与意向城市 算法题：二叉树的镜像 反问  二面（2021-03-02 15:00，1小时30分钟）  介绍自己 介绍项目，介绍了很久   登录界面如何实现，如何测试 SQL注入 数据库中的表是如何组织的 为什么选用python 消息通知机制是如何实现的，如何改进  毕业设计题目，进度 C&#43;&#43;语法，虚函数，虚函数表 深拷贝和浅拷贝，代码如何实现 引用和指针 分析结构体的内存对齐问题 malloc和free, new和delete，C&#43;&#43;内存模型 迭代器失效的问题 C&#43;&#43;程序的编译过程 计算机网络，DNS，HTTP，ARP，NAT，TCP, ICMP 上线的项目用户报告有问题，如何排查，如何定位问题 代码题：手写一个单例模式 是否了解其他设计模式 算法题：一个二位矩阵，矩阵中每个位置有不一样高的柱子，小球只能往高度相同的柱子或者更低的柱子滚动，判断一个小球能否滚落出矩阵 反问  三面（2021-03-08 11:00, 50分钟）  考研情况 去年面试字节的情况 介绍项目,前端，后端，数据库 用过抖音吗？在抖音买过东西吗？（没&amp;hellip;） 最常用的软件是什么？ （chrome） 如何对搜索引擎的搜索框进行测试 对搜索引擎技术还有那些了解 OSI模型和TCP/IP模型 算法题 给定一个字符串s，和字符串字典strDict，使用strDict中的字符串来组成s，并用|分割 代码写的很快，平时写代码多吗？是不是刷过很多题？为什么刷题？有哪些收获？ 谈到个人博客，为什么写博客？为什么博客打不开？（在github page上, 需要魔法。。） 考研不打算调剂吗？ 反问  HR面（2021-03-09 17:00，10分钟）  面试体验，对前面几位面试官的评价 为什么选择字节？ 为什么选测试开发 offer情况,态度最差的HR，问完之后说我没什么大厂offer，我当时刚开始春招，肯定没offer 城市意向 反问  " />
+<meta name="keywords" content=", 面试" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://oxygenbytes.github.io/posts/2021/03/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/" />
+
+
+    <title>
+        
+            字节跳动面试复盘 :: Zxq&#39;s Blog  — Zxq&#39;s Site
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://oxygenbytes.github.io/main.min.d235e788b40b442aba9cd6c69fdc330353b2dec27dcbc4235961469d2155f5a9.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://oxygenbytes.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://oxygenbytes.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+<meta itemprop="name" content="字节跳动面试复盘">
+<meta itemprop="description" content="一面（2021-02-24 18:00，1小时10分钟）  介绍自己 介绍项目，针对项目细节进行提问 浏览器输入一个地址，后面发生了什么？ 进程间通讯方式有哪些？ 死锁，原因与解除 const关键字和static关键字 define和const的区别 STL容器，vector, list, map, unordered_map, set效率及对应的底层结构 Redis与MySQL的区别 TCP的拥塞控制，流量控制，滑动窗口 如果当前面试界面崩溃了，如何排查问题 面向对象的三大特性 考研情况与意向城市 算法题：二叉树的镜像 反问  二面（2021-03-02 15:00，1小时30分钟）  介绍自己 介绍项目，介绍了很久   登录界面如何实现，如何测试 SQL注入 数据库中的表是如何组织的 为什么选用python 消息通知机制是如何实现的，如何改进  毕业设计题目，进度 C&#43;&#43;语法，虚函数，虚函数表 深拷贝和浅拷贝，代码如何实现 引用和指针 分析结构体的内存对齐问题 malloc和free, new和delete，C&#43;&#43;内存模型 迭代器失效的问题 C&#43;&#43;程序的编译过程 计算机网络，DNS，HTTP，ARP，NAT，TCP, ICMP 上线的项目用户报告有问题，如何排查，如何定位问题 代码题：手写一个单例模式 是否了解其他设计模式 算法题：一个二位矩阵，矩阵中每个位置有不一样高的柱子，小球只能往高度相同的柱子或者更低的柱子滚动，判断一个小球能否滚落出矩阵 反问  三面（2021-03-08 11:00, 50分钟）  考研情况 去年面试字节的情况 介绍项目,前端，后端，数据库 用过抖音吗？在抖音买过东西吗？（没&hellip;） 最常用的软件是什么？ （chrome） 如何对搜索引擎的搜索框进行测试 对搜索引擎技术还有那些了解 OSI模型和TCP/IP模型 算法题 给定一个字符串s，和字符串字典strDict，使用strDict中的字符串来组成s，并用|分割 代码写的很快，平时写代码多吗？是不是刷过很多题？为什么刷题？有哪些收获？ 谈到个人博客，为什么写博客？为什么博客打不开？（在github page上, 需要魔法。。） 考研不打算调剂吗？ 反问  HR面（2021-03-09 17:00，10分钟）  面试体验，对前面几位面试官的评价 为什么选择字节？ 为什么选测试开发 offer情况,态度最差的HR，问完之后说我没什么大厂offer，我当时刚开始春招，肯定没offer 城市意向 反问  "><meta itemprop="datePublished" content="2021-03-09T12:46:52+08:00" />
+<meta itemprop="dateModified" content="2021-03-09T12:46:52+08:00" />
+<meta itemprop="wordCount" content="74"><meta itemprop="image" content="https://oxygenbytes.github.io/"/>
+<meta itemprop="keywords" content="面试," /><meta property="og:title" content="字节跳动面试复盘" />
+<meta property="og:description" content="一面（2021-02-24 18:00，1小时10分钟）  介绍自己 介绍项目，针对项目细节进行提问 浏览器输入一个地址，后面发生了什么？ 进程间通讯方式有哪些？ 死锁，原因与解除 const关键字和static关键字 define和const的区别 STL容器，vector, list, map, unordered_map, set效率及对应的底层结构 Redis与MySQL的区别 TCP的拥塞控制，流量控制，滑动窗口 如果当前面试界面崩溃了，如何排查问题 面向对象的三大特性 考研情况与意向城市 算法题：二叉树的镜像 反问  二面（2021-03-02 15:00，1小时30分钟）  介绍自己 介绍项目，介绍了很久   登录界面如何实现，如何测试 SQL注入 数据库中的表是如何组织的 为什么选用python 消息通知机制是如何实现的，如何改进  毕业设计题目，进度 C&#43;&#43;语法，虚函数，虚函数表 深拷贝和浅拷贝，代码如何实现 引用和指针 分析结构体的内存对齐问题 malloc和free, new和delete，C&#43;&#43;内存模型 迭代器失效的问题 C&#43;&#43;程序的编译过程 计算机网络，DNS，HTTP，ARP，NAT，TCP, ICMP 上线的项目用户报告有问题，如何排查，如何定位问题 代码题：手写一个单例模式 是否了解其他设计模式 算法题：一个二位矩阵，矩阵中每个位置有不一样高的柱子，小球只能往高度相同的柱子或者更低的柱子滚动，判断一个小球能否滚落出矩阵 反问  三面（2021-03-08 11:00, 50分钟）  考研情况 去年面试字节的情况 介绍项目,前端，后端，数据库 用过抖音吗？在抖音买过东西吗？（没&hellip;） 最常用的软件是什么？ （chrome） 如何对搜索引擎的搜索框进行测试 对搜索引擎技术还有那些了解 OSI模型和TCP/IP模型 算法题 给定一个字符串s，和字符串字典strDict，使用strDict中的字符串来组成s，并用|分割 代码写的很快，平时写代码多吗？是不是刷过很多题？为什么刷题？有哪些收获？ 谈到个人博客，为什么写博客？为什么博客打不开？（在github page上, 需要魔法。。） 考研不打算调剂吗？ 反问  HR面（2021-03-09 17:00，10分钟）  面试体验，对前面几位面试官的评价 为什么选择字节？ 为什么选测试开发 offer情况,态度最差的HR，问完之后说我没什么大厂offer，我当时刚开始春招，肯定没offer 城市意向 反问  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://oxygenbytes.github.io/posts/2021/03/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/" /><meta property="og:image" content="https://oxygenbytes.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-09T12:46:52+08:00" />
+<meta property="article:modified_time" content="2021-03-09T12:46:52+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://oxygenbytes.github.io/"/>
+
+<meta name="twitter:title" content="字节跳动面试复盘"/>
+<meta name="twitter:description" content="一面（2021-02-24 18:00，1小时10分钟）  介绍自己 介绍项目，针对项目细节进行提问 浏览器输入一个地址，后面发生了什么？ 进程间通讯方式有哪些？ 死锁，原因与解除 const关键字和static关键字 define和const的区别 STL容器，vector, list, map, unordered_map, set效率及对应的底层结构 Redis与MySQL的区别 TCP的拥塞控制，流量控制，滑动窗口 如果当前面试界面崩溃了，如何排查问题 面向对象的三大特性 考研情况与意向城市 算法题：二叉树的镜像 反问  二面（2021-03-02 15:00，1小时30分钟）  介绍自己 介绍项目，介绍了很久   登录界面如何实现，如何测试 SQL注入 数据库中的表是如何组织的 为什么选用python 消息通知机制是如何实现的，如何改进  毕业设计题目，进度 C&#43;&#43;语法，虚函数，虚函数表 深拷贝和浅拷贝，代码如何实现 引用和指针 分析结构体的内存对齐问题 malloc和free, new和delete，C&#43;&#43;内存模型 迭代器失效的问题 C&#43;&#43;程序的编译过程 计算机网络，DNS，HTTP，ARP，NAT，TCP, ICMP 上线的项目用户报告有问题，如何排查，如何定位问题 代码题：手写一个单例模式 是否了解其他设计模式 算法题：一个二位矩阵，矩阵中每个位置有不一样高的柱子，小球只能往高度相同的柱子或者更低的柱子滚动，判断一个小球能否滚落出矩阵 反问  三面（2021-03-08 11:00, 50分钟）  考研情况 去年面试字节的情况 介绍项目,前端，后端，数据库 用过抖音吗？在抖音买过东西吗？（没&hellip;） 最常用的软件是什么？ （chrome） 如何对搜索引擎的搜索框进行测试 对搜索引擎技术还有那些了解 OSI模型和TCP/IP模型 算法题 给定一个字符串s，和字符串字典strDict，使用strDict中的字符串来组成s，并用|分割 代码写的很快，平时写代码多吗？是不是刷过很多题？为什么刷题？有哪些收获？ 谈到个人博客，为什么写博客？为什么博客打不开？（在github page上, 需要魔法。。） 考研不打算调剂吗？ 反问  HR面（2021-03-09 17:00，10分钟）  面试体验，对前面几位面试官的评价 为什么选择字节？ 为什么选测试开发 offer情况,态度最差的HR，问完之后说我没什么大厂offer，我当时刚开始春招，肯定没offer 城市意向 反问  "/>
+
+
+
+
+
+    <meta property="article:published_time" content="2021-03-09 12:46:52 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://oxygenbytes.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$cd /home/zxq/blogs/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#00FF00;
+                   animation-duration:2s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://oxygenbytes.github.io/posts/">Posts</a></li><li><a href="https://oxygenbytes.github.io/leetcode/">Leetcode</a></li><li><a href="https://oxygenbytes.github.io/swordoffer/">SwordOffer</a></li><li><a href="https://oxygenbytes.github.io/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>One minute
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title">
+                <a href="https://oxygenbytes.github.io/posts/2021/03/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/">字节跳动面试复盘</a>
+            </h1>
+                <hr />
+                <aside id="toc">
+                <div class="toc-title">Table of Contents</div>
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一面2021-02-24-18001小时10分钟">一面（2021-02-24 18:00，1小时10分钟）</a></li>
+    <li><a href="#二面2021-03-02-15001小时30分钟">二面（2021-03-02 15:00，1小时30分钟）</a></li>
+    <li><a href="#三面2021-03-08-1100-50分钟">三面（2021-03-08 11:00, 50分钟）</a></li>
+    <li><a href="#hr面2021-03-09-170010分钟">HR面（2021-03-09 17:00，10分钟）</a></li>
+  </ul>
+</nav>
+                </aside>
+                <hr />
+
+            
+
+            <div class="post-content">
+                <h2 id="一面2021-02-24-18001小时10分钟">一面（2021-02-24 18:00，1小时10分钟）</h2>
+<ol>
+<li>介绍自己</li>
+<li>介绍项目，针对项目细节进行提问</li>
+<li>浏览器输入一个地址，后面发生了什么？</li>
+<li>进程间通讯方式有哪些？</li>
+<li>死锁，原因与解除</li>
+<li>const关键字和static关键字</li>
+<li>define和const的区别</li>
+<li>STL容器，vector, list, map, unordered_map, set效率及对应的底层结构</li>
+<li>Redis与MySQL的区别</li>
+<li>TCP的拥塞控制，流量控制，滑动窗口</li>
+<li>如果当前面试界面崩溃了，如何排查问题</li>
+<li>面向对象的三大特性</li>
+<li>考研情况与意向城市</li>
+<li>算法题：二叉树的镜像</li>
+<li>反问</li>
+</ol>
+<h2 id="二面2021-03-02-15001小时30分钟">二面（2021-03-02 15:00，1小时30分钟）</h2>
+<ol>
+<li>介绍自己</li>
+<li>介绍项目，介绍了很久</li>
+</ol>
+<ul>
+<li>登录界面如何实现，如何测试</li>
+<li>SQL注入</li>
+<li>数据库中的表是如何组织的</li>
+<li>为什么选用python</li>
+<li>消息通知机制是如何实现的，如何改进</li>
+</ul>
+<ol start="3">
+<li>毕业设计题目，进度</li>
+<li>C++语法，虚函数，虚函数表</li>
+<li>深拷贝和浅拷贝，代码如何实现</li>
+<li>引用和指针</li>
+<li>分析结构体的内存对齐问题</li>
+<li>malloc和free, new和delete，C++内存模型</li>
+<li>迭代器失效的问题</li>
+<li>C++程序的编译过程</li>
+<li>计算机网络，DNS，HTTP，ARP，NAT，TCP, ICMP</li>
+<li>上线的项目用户报告有问题，如何排查，如何定位问题</li>
+<li>代码题：手写一个单例模式</li>
+<li>是否了解其他设计模式</li>
+<li>算法题：一个二位矩阵，矩阵中每个位置有不一样高的柱子，小球只能往高度相同的柱子或者更低的柱子滚动，判断一个小球能否滚落出矩阵</li>
+<li>反问</li>
+</ol>
+<h2 id="三面2021-03-08-1100-50分钟">三面（2021-03-08 11:00, 50分钟）</h2>
+<ol>
+<li>考研情况</li>
+<li>去年面试字节的情况</li>
+<li>介绍项目,前端，后端，数据库</li>
+<li>用过抖音吗？在抖音买过东西吗？（没&hellip;）</li>
+<li>最常用的软件是什么？ （chrome）</li>
+<li>如何对搜索引擎的搜索框进行测试</li>
+<li>对搜索引擎技术还有那些了解</li>
+<li>OSI模型和TCP/IP模型</li>
+<li>算法题 给定一个字符串s，和字符串字典strDict，使用strDict中的字符串来组成s，并用|分割</li>
+<li>代码写的很快，平时写代码多吗？是不是刷过很多题？为什么刷题？有哪些收获？</li>
+<li>谈到个人博客，为什么写博客？为什么博客打不开？（在github page上, 需要魔法。。）</li>
+<li>考研不打算调剂吗？</li>
+<li>反问</li>
+</ol>
+<h2 id="hr面2021-03-09-170010分钟">HR面（2021-03-09 17:00，10分钟）</h2>
+<ol>
+<li>面试体验，对前面几位面试官的评价</li>
+<li>为什么选择字节？</li>
+<li>为什么选测试开发</li>
+<li>offer情况,态度最差的HR，问完之后说我没什么大厂offer，我当时刚开始春招，肯定没offer</li>
+<li>城市意向</li>
+<li>反问</li>
+</ol>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://oxygenbytes.github.io/tags/%E9%9D%A2%E8%AF%95">面试</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>74 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2021-03-09 12:46</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="https://oxygenbytes.github.io/posts/2021/04/shoppe%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">Shoppe面试复盘</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="https://oxygenbytes.github.io/posts/2021/03/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+                                <span class="button__text">排序算法</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="https://oxygenbytes.github.io/">zxq</a></span>
+            
+            <span><a href="https://oxygenbytes.github.io/" target="_blank" rel="noopener">cd /home/zxq/</a></span>
+            <span> <a href="https://oxygenbytes.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Theme from <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://oxygenbytes.github.io/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+
+
+
+    </body>
+</html>

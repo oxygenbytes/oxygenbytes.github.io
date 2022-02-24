@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="zxq ">
+<meta name="description" content="//请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串&amp;#34;&#43;100&amp;#34;、&amp;#34;5e2&amp;#34;、&amp;#34;-123&amp;#34;、&amp;#34;3.1416&amp;#34;、&amp;#34;-1E-16&amp;#34;、&amp;#34;012 //3&amp;#34;都表示数值，但&amp;#34;12e&amp;#34;、&amp;#34;1a3.14&amp;#34;、&amp;#34;1.2.3&amp;#34;、&amp;#34;&#43;-5&amp;#34;及&amp;#34;12e&#43;5.4&amp;#34;都不是。 // // // Related Topics 数学 // 👍 148 👎 0  /* * 剑指 Offer 20 表示数值的字符串 * 2021-02-18 11:33:50 * @author oxygenbytes */ #include &amp;#34;leetcode.h&amp;#34; //leetcode submit region begin(Prohibit modification and deletion) /* 先去除行首和行尾空格； 行首如果有一个正负号，直接忽略； 如果字符串为空或只有一个&amp;#39;.&amp;#39;，则不是一个合法数； 循环整个字符串，去掉以下几种情况： (1) &amp;#39;.&amp;#39;或&amp;#39;e&amp;#39;多于1个; (2) &amp;#39;.&amp;#39;在&amp;#39;e&amp;#39;后面出现； (3) &amp;#39;e&amp;#39;后面或前面为空，或者&amp;#39;e&amp;#39;前面紧跟着&amp;#39;.&amp;#39;； (4) &amp;#39;e&amp;#39;后面紧跟着正负号，但正负号后面为空； 剩下的情况都合法； */ class Solution { public: bool isNumber(string s) { int i = 0; while (i &amp;lt; s.size() &amp;amp;&amp;amp; s[i] == &amp;#39; &amp;#39;) i &#43;&#43; ; int j = s." />
+<meta name="keywords" content=", SwordOffer, Leetcode" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-20%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" />
+
+
+    <title>
+        
+            [剑指 Offer 20]表示数值的字符串 :: Zxq&#39;s Blog  — Zxq&#39;s Site
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://oxygenbytes.github.io/main.min.d235e788b40b442aba9cd6c69fdc330353b2dec27dcbc4235961469d2155f5a9.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://oxygenbytes.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://oxygenbytes.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+<meta itemprop="name" content="[剑指 Offer 20]表示数值的字符串">
+<meta itemprop="description" content="//请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串&#34;&#43;100&#34;、&#34;5e2&#34;、&#34;-123&#34;、&#34;3.1416&#34;、&#34;-1E-16&#34;、&#34;012 //3&#34;都表示数值，但&#34;12e&#34;、&#34;1a3.14&#34;、&#34;1.2.3&#34;、&#34;&#43;-5&#34;及&#34;12e&#43;5.4&#34;都不是。 // // // Related Topics 数学 // 👍 148 👎 0  /* * 剑指 Offer 20 表示数值的字符串 * 2021-02-18 11:33:50 * @author oxygenbytes */ #include &#34;leetcode.h&#34; //leetcode submit region begin(Prohibit modification and deletion) /* 先去除行首和行尾空格； 行首如果有一个正负号，直接忽略； 如果字符串为空或只有一个&#39;.&#39;，则不是一个合法数； 循环整个字符串，去掉以下几种情况： (1) &#39;.&#39;或&#39;e&#39;多于1个; (2) &#39;.&#39;在&#39;e&#39;后面出现； (3) &#39;e&#39;后面或前面为空，或者&#39;e&#39;前面紧跟着&#39;.&#39;； (4) &#39;e&#39;后面紧跟着正负号，但正负号后面为空； 剩下的情况都合法； */ class Solution { public: bool isNumber(string s) { int i = 0; while (i &lt; s.size() &amp;&amp; s[i] == &#39; &#39;) i &#43;&#43; ; int j = s."><meta itemprop="datePublished" content="2021-02-18T11:33:50+08:00" />
+<meta itemprop="dateModified" content="2021-02-18T11:33:50+08:00" />
+<meta itemprop="wordCount" content="250"><meta itemprop="image" content="https://oxygenbytes.github.io/"/>
+<meta itemprop="keywords" content="SwordOffer,Leetcode," /><meta property="og:title" content="[剑指 Offer 20]表示数值的字符串" />
+<meta property="og:description" content="//请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串&#34;&#43;100&#34;、&#34;5e2&#34;、&#34;-123&#34;、&#34;3.1416&#34;、&#34;-1E-16&#34;、&#34;012 //3&#34;都表示数值，但&#34;12e&#34;、&#34;1a3.14&#34;、&#34;1.2.3&#34;、&#34;&#43;-5&#34;及&#34;12e&#43;5.4&#34;都不是。 // // // Related Topics 数学 // 👍 148 👎 0  /* * 剑指 Offer 20 表示数值的字符串 * 2021-02-18 11:33:50 * @author oxygenbytes */ #include &#34;leetcode.h&#34; //leetcode submit region begin(Prohibit modification and deletion) /* 先去除行首和行尾空格； 行首如果有一个正负号，直接忽略； 如果字符串为空或只有一个&#39;.&#39;，则不是一个合法数； 循环整个字符串，去掉以下几种情况： (1) &#39;.&#39;或&#39;e&#39;多于1个; (2) &#39;.&#39;在&#39;e&#39;后面出现； (3) &#39;e&#39;后面或前面为空，或者&#39;e&#39;前面紧跟着&#39;.&#39;； (4) &#39;e&#39;后面紧跟着正负号，但正负号后面为空； 剩下的情况都合法； */ class Solution { public: bool isNumber(string s) { int i = 0; while (i &lt; s.size() &amp;&amp; s[i] == &#39; &#39;) i &#43;&#43; ; int j = s." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-20%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" /><meta property="og:image" content="https://oxygenbytes.github.io/"/><meta property="article:section" content="swordoffer" />
+<meta property="article:published_time" content="2021-02-18T11:33:50+08:00" />
+<meta property="article:modified_time" content="2021-02-18T11:33:50+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://oxygenbytes.github.io/"/>
+
+<meta name="twitter:title" content="[剑指 Offer 20]表示数值的字符串"/>
+<meta name="twitter:description" content="//请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串&#34;&#43;100&#34;、&#34;5e2&#34;、&#34;-123&#34;、&#34;3.1416&#34;、&#34;-1E-16&#34;、&#34;012 //3&#34;都表示数值，但&#34;12e&#34;、&#34;1a3.14&#34;、&#34;1.2.3&#34;、&#34;&#43;-5&#34;及&#34;12e&#43;5.4&#34;都不是。 // // // Related Topics 数学 // 👍 148 👎 0  /* * 剑指 Offer 20 表示数值的字符串 * 2021-02-18 11:33:50 * @author oxygenbytes */ #include &#34;leetcode.h&#34; //leetcode submit region begin(Prohibit modification and deletion) /* 先去除行首和行尾空格； 行首如果有一个正负号，直接忽略； 如果字符串为空或只有一个&#39;.&#39;，则不是一个合法数； 循环整个字符串，去掉以下几种情况： (1) &#39;.&#39;或&#39;e&#39;多于1个; (2) &#39;.&#39;在&#39;e&#39;后面出现； (3) &#39;e&#39;后面或前面为空，或者&#39;e&#39;前面紧跟着&#39;.&#39;； (4) &#39;e&#39;后面紧跟着正负号，但正负号后面为空； 剩下的情况都合法； */ class Solution { public: bool isNumber(string s) { int i = 0; while (i &lt; s.size() &amp;&amp; s[i] == &#39; &#39;) i &#43;&#43; ; int j = s."/>
+
+
+
+
+
+    <meta property="article:published_time" content="2021-02-18 11:33:50 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://oxygenbytes.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$cd /home/zxq/blogs/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#00FF00;
+                   animation-duration:2s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://oxygenbytes.github.io/posts/">Posts</a></li><li><a href="https://oxygenbytes.github.io/leetcode/">Leetcode</a></li><li><a href="https://oxygenbytes.github.io/swordoffer/">SwordOffer</a></li><li><a href="https://oxygenbytes.github.io/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-20%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">[剑指 Offer 20]表示数值的字符串</a></h2>
+
+            
+
+            <div class="post-content">
+                <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">//请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串&#34;+100&#34;、&#34;5e2&#34;、&#34;-123&#34;、&#34;3.1416&#34;、&#34;-1E-16&#34;、&#34;012
+</span><span style="color:#75715e">//3&#34;都表示数值，但&#34;12e&#34;、&#34;1a3.14&#34;、&#34;1.2.3&#34;、&#34;+-5&#34;及&#34;12e+5.4&#34;都不是。 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">// Related Topics 数学 
+</span><span style="color:#75715e">// 👍 148 👎 0
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">* 剑指 Offer 20 表示数值的字符串
+</span><span style="color:#75715e">* 2021-02-18 11:33:50
+</span><span style="color:#75715e">* @author oxygenbytes
+</span><span style="color:#75715e">*/</span> 
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;leetcode.h&#34; </span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">//leetcode submit region begin(Prohibit modification and deletion)
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*
+</span><span style="color:#75715e">    先去除行首和行尾空格；
+</span><span style="color:#75715e">    行首如果有一个正负号，直接忽略；
+</span><span style="color:#75715e">    如果字符串为空或只有一个&#39;.&#39;，则不是一个合法数；
+</span><span style="color:#75715e">    循环整个字符串，去掉以下几种情况：
+</span><span style="color:#75715e">    (1) &#39;.&#39;或&#39;e&#39;多于1个;
+</span><span style="color:#75715e">    (2) &#39;.&#39;在&#39;e&#39;后面出现；
+</span><span style="color:#75715e">    (3) &#39;e&#39;后面或前面为空，或者&#39;e&#39;前面紧跟着&#39;.&#39;；
+</span><span style="color:#75715e">    (4) &#39;e&#39;后面紧跟着正负号，但正负号后面为空；
+</span><span style="color:#75715e">    剩下的情况都合法；
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">bool</span> isNumber(string s) {
+        <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">while</span> (i <span style="color:#f92672">&lt;</span> s.size() <span style="color:#f92672">&amp;&amp;</span> s[i] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39; &#39;</span>) i <span style="color:#f92672">++</span> ;
+        <span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> s.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+        <span style="color:#66d9ef">while</span> (j <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> s[j] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39; &#39;</span>) j <span style="color:#f92672">--</span> ;
+        <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">&gt;</span> j) <span style="color:#66d9ef">return</span> false;
+        s <span style="color:#f92672">=</span> s.substr(i, j <span style="color:#f92672">-</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+
+        <span style="color:#66d9ef">if</span> (s[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;-&#39;</span> <span style="color:#f92672">||</span> s[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;+&#39;</span>) s <span style="color:#f92672">=</span> s.substr(<span style="color:#ae81ff">1</span>);
+        <span style="color:#66d9ef">if</span> (s.empty() <span style="color:#f92672">||</span> s[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;.&#39;</span> <span style="color:#f92672">&amp;&amp;</span> s.size() <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> false;
+
+        <span style="color:#66d9ef">int</span> dot <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, e <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> s.size(); i <span style="color:#f92672">++</span> )
+        {
+            <span style="color:#66d9ef">if</span> (s[i] <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">&amp;&amp;</span> s[i] <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;9&#39;</span>);
+            <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">if</span> (s[i] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;.&#39;</span>)
+            {
+                dot <span style="color:#f92672">++</span> ;
+                <span style="color:#66d9ef">if</span> (e <span style="color:#f92672">||</span> dot <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> false;
+            }
+            <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">if</span> (s[i] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;e&#39;</span> <span style="color:#f92672">||</span> s[i] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;E&#39;</span>)
+            {
+                e <span style="color:#f92672">++</span> ;
+                <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> s.size() <span style="color:#f92672">||</span> <span style="color:#f92672">!</span>i <span style="color:#f92672">||</span> e <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> s[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;.&#39;</span>) <span style="color:#66d9ef">return</span> false;
+                <span style="color:#66d9ef">if</span> (s[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;+&#39;</span> <span style="color:#f92672">||</span> s[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;-&#39;</span>)
+                {
+                    <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> s.size()) <span style="color:#66d9ef">return</span> false;
+                    i <span style="color:#f92672">++</span> ;
+                }
+            }
+            <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> false;
+        }
+        <span style="color:#66d9ef">return</span> true;
+    }
+};
+<span style="color:#75715e">//leetcode submit region end(Prohibit modification and deletion)
+</span><span style="color:#75715e"></span>     
+</code></pre></div>
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://oxygenbytes.github.io/tags/swordoffer">SwordOffer</a></span><span class="tag"><a href="https://oxygenbytes.github.io/tags/leetcode">Leetcode</a></span>
+  				</p>
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="https://oxygenbytes.github.io/">zxq</a></span>
+            
+            <span><a href="https://oxygenbytes.github.io/" target="_blank" rel="noopener">cd /home/zxq/</a></span>
+            <span> <a href="https://oxygenbytes.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Theme from <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://oxygenbytes.github.io/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+
+
+
+    </body>
+</html>

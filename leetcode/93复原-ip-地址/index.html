@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="zxq ">
+<meta name="description" content="//给定一个只包含数字的字符串，用以表示一个 IP 地址，返回所有可能从 s 获得的 有效 IP 地址 。你可以按任何顺序返回答案。 // // 有效 IP 地址 正好由四个整数（每个整数位于 0 到 255 之间组成，且不能含有前导 0），整数之间用 &amp;#39;.&amp;#39; 分隔。 // // 例如：&amp;#34;0.1.2.201&amp;#34; 和 &amp;#34;192.168.1.1&amp;#34; 是 有效 IP 地址，但是 &amp;#34;0.011.255.245&amp;#34;、&amp;#34;192.168.1.312&amp;#34; //和 &amp;#34;192.168@1.1&amp;#34; 是 无效 IP 地址。 // // // // 示例 1： // // //输入：s = &amp;#34;25525511135&amp;#34; //输出：[&amp;#34;255.255.11.135&amp;#34;,&amp;#34;255.255.111.35&amp;#34;] // // // 示例 2： // // //输入：s = &amp;#34;0000&amp;#34; //输出：[&amp;#34;0.0.0.0&amp;#34;] // // // 示例 3： // // //输入：s = &amp;#34;1111&amp;#34; //输出：[&amp;#34;1." />
+<meta name="keywords" content=", Leetcode" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://oxygenbytes.github.io/leetcode/93%E5%A4%8D%E5%8E%9F-ip-%E5%9C%B0%E5%9D%80/" />
+
+
+    <title>
+        
+            [93]复原 IP 地址 :: Zxq&#39;s Blog  — Zxq&#39;s Site
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://oxygenbytes.github.io/main.min.d235e788b40b442aba9cd6c69fdc330353b2dec27dcbc4235961469d2155f5a9.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://oxygenbytes.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://oxygenbytes.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+<meta itemprop="name" content="[93]复原 IP 地址">
+<meta itemprop="description" content="//给定一个只包含数字的字符串，用以表示一个 IP 地址，返回所有可能从 s 获得的 有效 IP 地址 。你可以按任何顺序返回答案。 // // 有效 IP 地址 正好由四个整数（每个整数位于 0 到 255 之间组成，且不能含有前导 0），整数之间用 &#39;.&#39; 分隔。 // // 例如：&#34;0.1.2.201&#34; 和 &#34;192.168.1.1&#34; 是 有效 IP 地址，但是 &#34;0.011.255.245&#34;、&#34;192.168.1.312&#34; //和 &#34;192.168@1.1&#34; 是 无效 IP 地址。 // // // // 示例 1： // // //输入：s = &#34;25525511135&#34; //输出：[&#34;255.255.11.135&#34;,&#34;255.255.111.35&#34;] // // // 示例 2： // // //输入：s = &#34;0000&#34; //输出：[&#34;0.0.0.0&#34;] // // // 示例 3： // // //输入：s = &#34;1111&#34; //输出：[&#34;1."><meta itemprop="datePublished" content="2021-03-01T11:39:13+08:00" />
+<meta itemprop="dateModified" content="2021-03-01T11:39:13+08:00" />
+<meta itemprop="wordCount" content="262"><meta itemprop="image" content="https://oxygenbytes.github.io/"/>
+<meta itemprop="keywords" content="Leetcode," /><meta property="og:title" content="[93]复原 IP 地址" />
+<meta property="og:description" content="//给定一个只包含数字的字符串，用以表示一个 IP 地址，返回所有可能从 s 获得的 有效 IP 地址 。你可以按任何顺序返回答案。 // // 有效 IP 地址 正好由四个整数（每个整数位于 0 到 255 之间组成，且不能含有前导 0），整数之间用 &#39;.&#39; 分隔。 // // 例如：&#34;0.1.2.201&#34; 和 &#34;192.168.1.1&#34; 是 有效 IP 地址，但是 &#34;0.011.255.245&#34;、&#34;192.168.1.312&#34; //和 &#34;192.168@1.1&#34; 是 无效 IP 地址。 // // // // 示例 1： // // //输入：s = &#34;25525511135&#34; //输出：[&#34;255.255.11.135&#34;,&#34;255.255.111.35&#34;] // // // 示例 2： // // //输入：s = &#34;0000&#34; //输出：[&#34;0.0.0.0&#34;] // // // 示例 3： // // //输入：s = &#34;1111&#34; //输出：[&#34;1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://oxygenbytes.github.io/leetcode/93%E5%A4%8D%E5%8E%9F-ip-%E5%9C%B0%E5%9D%80/" /><meta property="og:image" content="https://oxygenbytes.github.io/"/><meta property="article:section" content="leetcode" />
+<meta property="article:published_time" content="2021-03-01T11:39:13+08:00" />
+<meta property="article:modified_time" content="2021-03-01T11:39:13+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://oxygenbytes.github.io/"/>
+
+<meta name="twitter:title" content="[93]复原 IP 地址"/>
+<meta name="twitter:description" content="//给定一个只包含数字的字符串，用以表示一个 IP 地址，返回所有可能从 s 获得的 有效 IP 地址 。你可以按任何顺序返回答案。 // // 有效 IP 地址 正好由四个整数（每个整数位于 0 到 255 之间组成，且不能含有前导 0），整数之间用 &#39;.&#39; 分隔。 // // 例如：&#34;0.1.2.201&#34; 和 &#34;192.168.1.1&#34; 是 有效 IP 地址，但是 &#34;0.011.255.245&#34;、&#34;192.168.1.312&#34; //和 &#34;192.168@1.1&#34; 是 无效 IP 地址。 // // // // 示例 1： // // //输入：s = &#34;25525511135&#34; //输出：[&#34;255.255.11.135&#34;,&#34;255.255.111.35&#34;] // // // 示例 2： // // //输入：s = &#34;0000&#34; //输出：[&#34;0.0.0.0&#34;] // // // 示例 3： // // //输入：s = &#34;1111&#34; //输出：[&#34;1."/>
+
+
+
+
+
+    <meta property="article:published_time" content="2021-03-01 11:39:13 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://oxygenbytes.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$cd /home/zxq/blogs/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#00FF00;
+                   animation-duration:2s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://oxygenbytes.github.io/posts/">Posts</a></li><li><a href="https://oxygenbytes.github.io/leetcode/">Leetcode</a></li><li><a href="https://oxygenbytes.github.io/swordoffer/">SwordOffer</a></li><li><a href="https://oxygenbytes.github.io/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://oxygenbytes.github.io/leetcode/93%E5%A4%8D%E5%8E%9F-ip-%E5%9C%B0%E5%9D%80/">[93]复原 IP 地址</a></h2>
+
+            
+
+            <div class="post-content">
+                <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">//给定一个只包含数字的字符串，用以表示一个 IP 地址，返回所有可能从 s 获得的 有效 IP 地址 。你可以按任何顺序返回答案。 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 有效 IP 地址 正好由四个整数（每个整数位于 0 到 255 之间组成，且不能含有前导 0），整数之间用 &#39;.&#39; 分隔。 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 例如：&#34;0.1.2.201&#34; 和 &#34;192.168.1.1&#34; 是 有效 IP 地址，但是 &#34;0.011.255.245&#34;、&#34;192.168.1.312&#34; 
+</span><span style="color:#75715e">//和 &#34;192.168@1.1&#34; 是 无效 IP 地址。 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 示例 1： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//输入：s = &#34;25525511135&#34;
+</span><span style="color:#75715e">//输出：[&#34;255.255.11.135&#34;,&#34;255.255.111.35&#34;]
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 示例 2： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//输入：s = &#34;0000&#34;
+</span><span style="color:#75715e">//输出：[&#34;0.0.0.0&#34;]
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 示例 3： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//输入：s = &#34;1111&#34;
+</span><span style="color:#75715e">//输出：[&#34;1.1.1.1&#34;]
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 示例 4： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//输入：s = &#34;010010&#34;
+</span><span style="color:#75715e">//输出：[&#34;0.10.0.10&#34;,&#34;0.100.1.0&#34;]
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 示例 5： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//输入：s = &#34;101023&#34;
+</span><span style="color:#75715e">//输出：[&#34;1.0.10.23&#34;,&#34;1.0.102.3&#34;,&#34;10.1.0.23&#34;,&#34;10.10.2.3&#34;,&#34;101.0.2.3&#34;]
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 提示： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">// 0 &lt;= s.length &lt;= 3000 
+</span><span style="color:#75715e">// s 仅由数字组成 
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">// Related Topics 字符串 回溯算法 
+</span><span style="color:#75715e">// 👍 511 👎 0
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">* 93 复原 IP 地址
+</span><span style="color:#75715e">* 2021-03-01 11:39:13
+</span><span style="color:#75715e">* @author oxygenbytes
+</span><span style="color:#75715e">*/</span> 
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;leetcode.h&#34; </span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">//leetcode submit region begin(Prohibit modification and deletion)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;</span> ans;
+    string path;
+    vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;</span> restoreIpAddresses(string s) {
+        <span style="color:#66d9ef">if</span>(s.empty() <span style="color:#f92672">||</span> s.size() <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">12</span>) <span style="color:#66d9ef">return</span> {};
+        dfs(s, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
+        <span style="color:#66d9ef">return</span> ans;
+    }
+
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs</span>(string<span style="color:#f92672">&amp;</span> s, <span style="color:#66d9ef">int</span> idx, <span style="color:#66d9ef">int</span> cnt){
+        <span style="color:#66d9ef">if</span>(cnt <span style="color:#f92672">==</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">&amp;&amp;</span> idx <span style="color:#f92672">&gt;=</span> s.size()){
+            ans.push_back(path);
+            <span style="color:#66d9ef">return</span> ;
+        }
+
+        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> len <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;len <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">&amp;&amp;</span> idx <span style="color:#f92672">+</span> len <span style="color:#f92672">&lt;=</span> s.size();len<span style="color:#f92672">++</span>){
+            string cur <span style="color:#f92672">=</span> s.substr(idx, len);
+            <span style="color:#66d9ef">if</span>(cur.size() <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> cur[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;0&#39;</span>) <span style="color:#66d9ef">continue</span>; <span style="color:#75715e">// 一个0是可以的
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">int</span> num <span style="color:#f92672">=</span> stoi(cur);
+
+            <span style="color:#66d9ef">if</span>(num <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> num <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">255</span>){
+                string temp <span style="color:#f92672">=</span> path;
+                path <span style="color:#f92672">+=</span> s.substr(idx, len);
+                <span style="color:#66d9ef">if</span>(idx <span style="color:#f92672">+</span> len <span style="color:#f92672">!=</span> s.size()) path <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#39;.&#39;</span>;
+                dfs(s, idx <span style="color:#f92672">+</span> len, cnt <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+                path <span style="color:#f92672">=</span> temp;
+            }
+        }
+    }
+};
+<span style="color:#75715e">//leetcode submit region end(Prohibit modification and deletion)
+</span><span style="color:#75715e"></span>     
+</code></pre></div>
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://oxygenbytes.github.io/tags/leetcode">Leetcode</a></span>
+  				</p>
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="https://oxygenbytes.github.io/">zxq</a></span>
+            
+            <span><a href="https://oxygenbytes.github.io/" target="_blank" rel="noopener">cd /home/zxq/</a></span>
+            <span> <a href="https://oxygenbytes.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Theme from <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://oxygenbytes.github.io/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+
+
+
+    </body>
+</html>

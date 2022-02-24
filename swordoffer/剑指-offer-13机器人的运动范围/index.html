@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="zxq ">
+<meta name="description" content="//地上有一个m行n列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。一个机器人从坐标 [0, 0] 的格子开始移动，它每次可以向左、右、上、下移动一 //格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于k的格子。例如，当k为18时，机器人能够进入方格 [35, 37] ，因为3&#43;5&#43;3&#43;7=18。但 //它不能进入方格 [35, 38]，因为3&#43;5&#43;3&#43;8=19。请问该机器人能够到达多少个格子？ // // // // 示例 1： // // 输入：m = 2, n = 3, k = 1 //输出：3 // // // 示例 2： // // 输入：m = 3, n = 1, k = 0 //输出：1 // // // 提示： // // // 1 &amp;lt;= n,m &amp;lt;= 100 // 0 &amp;lt;= k &amp;lt;= 20 // // 👍 214 👎 0  /* * 剑指 Offer 13 机器人的运动范围 * 2021-02-18 11:31:20 * @author oxygenbytes */ #include &amp;#34;leetcode." />
+<meta name="keywords" content=", SwordOffer, Leetcode" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-13%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4/" />
+
+
+    <title>
+        
+            [剑指 Offer 13]机器人的运动范围 :: Zxq&#39;s Blog  — Zxq&#39;s Site
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://oxygenbytes.github.io/main.min.d235e788b40b442aba9cd6c69fdc330353b2dec27dcbc4235961469d2155f5a9.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://oxygenbytes.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://oxygenbytes.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+<meta itemprop="name" content="[剑指 Offer 13]机器人的运动范围">
+<meta itemprop="description" content="//地上有一个m行n列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。一个机器人从坐标 [0, 0] 的格子开始移动，它每次可以向左、右、上、下移动一 //格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于k的格子。例如，当k为18时，机器人能够进入方格 [35, 37] ，因为3&#43;5&#43;3&#43;7=18。但 //它不能进入方格 [35, 38]，因为3&#43;5&#43;3&#43;8=19。请问该机器人能够到达多少个格子？ // // // // 示例 1： // // 输入：m = 2, n = 3, k = 1 //输出：3 // // // 示例 2： // // 输入：m = 3, n = 1, k = 0 //输出：1 // // // 提示： // // // 1 &lt;= n,m &lt;= 100 // 0 &lt;= k &lt;= 20 // // 👍 214 👎 0  /* * 剑指 Offer 13 机器人的运动范围 * 2021-02-18 11:31:20 * @author oxygenbytes */ #include &#34;leetcode."><meta itemprop="datePublished" content="2021-02-18T11:31:20+08:00" />
+<meta itemprop="dateModified" content="2021-02-18T11:31:20+08:00" />
+<meta itemprop="wordCount" content="251"><meta itemprop="image" content="https://oxygenbytes.github.io/"/>
+<meta itemprop="keywords" content="SwordOffer,Leetcode," /><meta property="og:title" content="[剑指 Offer 13]机器人的运动范围" />
+<meta property="og:description" content="//地上有一个m行n列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。一个机器人从坐标 [0, 0] 的格子开始移动，它每次可以向左、右、上、下移动一 //格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于k的格子。例如，当k为18时，机器人能够进入方格 [35, 37] ，因为3&#43;5&#43;3&#43;7=18。但 //它不能进入方格 [35, 38]，因为3&#43;5&#43;3&#43;8=19。请问该机器人能够到达多少个格子？ // // // // 示例 1： // // 输入：m = 2, n = 3, k = 1 //输出：3 // // // 示例 2： // // 输入：m = 3, n = 1, k = 0 //输出：1 // // // 提示： // // // 1 &lt;= n,m &lt;= 100 // 0 &lt;= k &lt;= 20 // // 👍 214 👎 0  /* * 剑指 Offer 13 机器人的运动范围 * 2021-02-18 11:31:20 * @author oxygenbytes */ #include &#34;leetcode." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-13%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4/" /><meta property="og:image" content="https://oxygenbytes.github.io/"/><meta property="article:section" content="swordoffer" />
+<meta property="article:published_time" content="2021-02-18T11:31:20+08:00" />
+<meta property="article:modified_time" content="2021-02-18T11:31:20+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://oxygenbytes.github.io/"/>
+
+<meta name="twitter:title" content="[剑指 Offer 13]机器人的运动范围"/>
+<meta name="twitter:description" content="//地上有一个m行n列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。一个机器人从坐标 [0, 0] 的格子开始移动，它每次可以向左、右、上、下移动一 //格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于k的格子。例如，当k为18时，机器人能够进入方格 [35, 37] ，因为3&#43;5&#43;3&#43;7=18。但 //它不能进入方格 [35, 38]，因为3&#43;5&#43;3&#43;8=19。请问该机器人能够到达多少个格子？ // // // // 示例 1： // // 输入：m = 2, n = 3, k = 1 //输出：3 // // // 示例 2： // // 输入：m = 3, n = 1, k = 0 //输出：1 // // // 提示： // // // 1 &lt;= n,m &lt;= 100 // 0 &lt;= k &lt;= 20 // // 👍 214 👎 0  /* * 剑指 Offer 13 机器人的运动范围 * 2021-02-18 11:31:20 * @author oxygenbytes */ #include &#34;leetcode."/>
+
+
+
+
+
+    <meta property="article:published_time" content="2021-02-18 11:31:20 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://oxygenbytes.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$cd /home/zxq/blogs/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#00FF00;
+                   animation-duration:2s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://oxygenbytes.github.io/posts/">Posts</a></li><li><a href="https://oxygenbytes.github.io/leetcode/">Leetcode</a></li><li><a href="https://oxygenbytes.github.io/swordoffer/">SwordOffer</a></li><li><a href="https://oxygenbytes.github.io/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-13%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4/">[剑指 Offer 13]机器人的运动范围</a></h2>
+
+            
+
+            <div class="post-content">
+                <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">//地上有一个m行n列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。一个机器人从坐标 [0, 0] 的格子开始移动，它每次可以向左、右、上、下移动一
+</span><span style="color:#75715e">//格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于k的格子。例如，当k为18时，机器人能够进入方格 [35, 37] ，因为3+5+3+7=18。但
+</span><span style="color:#75715e">//它不能进入方格 [35, 38]，因为3+5+3+8=19。请问该机器人能够到达多少个格子？ 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 示例 1： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 输入：m = 2, n = 3, k = 1
+</span><span style="color:#75715e">//输出：3
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 示例 2： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 输入：m = 3, n = 1, k = 0
+</span><span style="color:#75715e">//输出：1
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 提示： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">// 1 &lt;= n,m &lt;= 100 
+</span><span style="color:#75715e">// 0 &lt;= k &lt;= 20 
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">// 👍 214 👎 0
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">* 剑指 Offer 13 机器人的运动范围
+</span><span style="color:#75715e">* 2021-02-18 11:31:20
+</span><span style="color:#75715e">* @author oxygenbytes
+</span><span style="color:#75715e">*/</span> 
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;leetcode.h&#34; </span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">//leetcode submit region begin(Prohibit modification and deletion)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">int</span> calc(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y){
+        <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">while</span>(x) res <span style="color:#f92672">+=</span> x <span style="color:#f92672">%</span> <span style="color:#ae81ff">10</span>, x <span style="color:#f92672">/=</span> <span style="color:#ae81ff">10</span>;
+        <span style="color:#66d9ef">while</span>(y) res <span style="color:#f92672">+=</span> y <span style="color:#f92672">%</span> <span style="color:#ae81ff">10</span>, y <span style="color:#f92672">/=</span> <span style="color:#ae81ff">10</span>;
+        <span style="color:#66d9ef">return</span> res;
+    }
+    <span style="color:#66d9ef">int</span> m, n, k;
+    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">movingCount</span>(<span style="color:#66d9ef">int</span> _m, <span style="color:#66d9ef">int</span> _n, <span style="color:#66d9ef">int</span> _k) {
+        result <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        m <span style="color:#f92672">=</span> _m, n <span style="color:#f92672">=</span> _n, k <span style="color:#f92672">=</span> _k;
+
+        vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">bool</span><span style="color:#f92672">&gt;&gt;</span> visited(m, vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">bool</span><span style="color:#f92672">&gt;</span>(n, false));
+        dfs(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, visited);
+        <span style="color:#66d9ef">return</span> result;
+    }
+    <span style="color:#66d9ef">int</span> result;
+    <span style="color:#66d9ef">int</span> dx[<span style="color:#ae81ff">4</span>] <span style="color:#f92672">=</span> {<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>};
+    <span style="color:#66d9ef">int</span> dy[<span style="color:#ae81ff">4</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>};
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y, vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">bool</span><span style="color:#f92672">&gt;&gt;&amp;</span> visited){
+        <span style="color:#66d9ef">if</span>(visited[x][y])
+            <span style="color:#66d9ef">return</span> ;
+        <span style="color:#66d9ef">if</span>(calc(x, y) <span style="color:#f92672">&gt;</span> k){
+            visited[x][y] <span style="color:#f92672">=</span> true;
+            <span style="color:#66d9ef">return</span> ;
+        }
+        result <span style="color:#f92672">++</span>;
+        visited[x][y] <span style="color:#f92672">=</span> true;
+        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4</span>;i<span style="color:#f92672">++</span>){
+            <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> dx[i], b <span style="color:#f92672">=</span> y <span style="color:#f92672">+</span> dy[i];
+            <span style="color:#66d9ef">if</span>(a <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> b <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> a <span style="color:#f92672">&lt;</span> m <span style="color:#f92672">&amp;&amp;</span> b <span style="color:#f92672">&lt;</span> n){
+                dfs(a, b, visited);
+            }
+        }
+    }
+};
+<span style="color:#75715e">//leetcode submit region end(Prohibit modification and deletion)
+</span><span style="color:#75715e"></span>     
+</code></pre></div>
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://oxygenbytes.github.io/tags/swordoffer">SwordOffer</a></span><span class="tag"><a href="https://oxygenbytes.github.io/tags/leetcode">Leetcode</a></span>
+  				</p>
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="https://oxygenbytes.github.io/">zxq</a></span>
+            
+            <span><a href="https://oxygenbytes.github.io/" target="_blank" rel="noopener">cd /home/zxq/</a></span>
+            <span> <a href="https://oxygenbytes.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Theme from <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://oxygenbytes.github.io/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+
+
+
+    </body>
+</html>

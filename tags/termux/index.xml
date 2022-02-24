@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Termux on Zxq&#39;s Blog</title>
+    <link>https://oxygenbytes.github.io/tags/termux/</link>
+    <description>Recent content in Termux on Zxq&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://oxygenbytes.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cd /home/zxq/&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 12 Aug 2020 09:30:07 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/termux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Termux 使用指南</title>
+      <link>https://oxygenbytes.github.io/posts/2020/08/termux-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Wed, 12 Aug 2020 09:30:07 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2020/08/termux-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+      <description>安装 Termux 是一款基于 Android 平台的开源 Linux 终端模拟器，使用 pkg(apt) 进行软件包的管理。可以在 Google play 安装最新版的 termux 和 termux-API 。Termux 支持缩放手势来调整字体大小，长按屏幕可以调出菜单选项，可以实现粘贴复制等操作。侧边栏可以新建、切换、重命名会话session。
+安装常用的基本软件
+pkg install termux-api vim -y 配置ssh 首先PC端需要安装 openssh-client, termux中安装 openssh。
+# PC端 sudo apt-get install openssh-client # termux中 pkg install openssh # PC端生成ssh秘钥 ssh-keygen # Termux开启ssh服务 sshd # 将PC端 ~/.ssh/ 目录下的id_rsa.pub中的内容写入termux中的 ~/.ssh/authorized_keys文件内 # 注意： PC端 ~/.ssh/know_hosts文件中不应有与termux的ssh进程重复的条目 # 一旦出现 WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! 的提示，删除PC端 ~/.ssh/know_hosts文件中的对应条目即可 新版本的 termux 已经支持 ssh 的密码登录，可以使用 passwd 初始化 ssh 密码</description>
+    </item>
+    
+  </channel>
+</rss>

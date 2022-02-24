@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Zxq&#39;s Blog</title>
+    <link>https://oxygenbytes.github.io/tags/linux/</link>
+    <description>Recent content in Linux on Zxq&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://oxygenbytes.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cd /home/zxq/&lt;/a&gt;</copyright>
+    <lastBuildDate>Sat, 26 Jun 2021 02:49:11 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deepin配置</title>
+      <link>https://oxygenbytes.github.io/posts/2021/06/deepin%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sat, 26 Jun 2021 02:49:11 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2021/06/deepin%E9%85%8D%E7%BD%AE/</guid>
+      <description>Deepin自带软件卸载 sudo apt purge org.deepin.browser sudo apt purge deepin-album deepin-voice-note deepin-draw sudo apt purge dde-introduction sudo apt purge libreoffice sudo apt purge libreoffice-calc libreoffice-impress libreoffice-writer sudo apt purge libreoffice-common libreoffice-style-colibre libreoffice-style-tango libreoffice-core sudo apt purge deepin-mail sudo apt purge simple-scan sudo apt-get remove dde-printer sudo apt autoremove Deepin更新并安装应用 sudo apt-get install firefox-esr sudo apt-get install g++ gdb make golang nodejs openjdk-11-jdk inetutils-tools zsh Deepin安装docker #!/bin/sh  # Shell script to add docker-ce to Deepin Linux repositories # Remove old docker sudo apt-get remove -y docker docker-engine docker.</description>
+    </item>
+    
+    <item>
+      <title>Docker 学习</title>
+      <link>https://oxygenbytes.github.io/posts/2021/01/docker-%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Sat, 30 Jan 2021 21:49:10 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2021/01/docker-%E5%AD%A6%E4%B9%A0/</guid>
+      <description>一、解决的问题 由于不同的机器有不同的操作系统，以及不同的库和组件，在将一个应用部署到多台机器上需要进行大量的环境配置操作。
+Docker 主要解决环境配置问题，它是一种虚拟化技术，对进程进行隔离，被隔离的进程独立于宿主操作系统和其它隔离的进程。使用 Docker 可以不修改应用程序代码，不需要开发人员学习特定环境下的技术，就能够将现有的应用程序部署在其他机器中。
+二、与虚拟机的比较 虚拟机也是一种虚拟化技术，它与 Docker 最大的区别在于它是通过模拟硬件，并在硬件上安装操作系统来实现。
+启动速度 启动虚拟机需要启动虚拟机的操作系统，再启动应用，这个过程非常慢；
+而启动 Docker 相当于启动宿主操作系统上的一个进程。
+占用资源 虚拟机是一个完整的操作系统，需要占用大量的磁盘、内存和 CPU，一台机器只能开启几十个的虚拟机。
+而 Docker 只是一个进程，只需要将应用以及相关的组件打包，在运行时占用很少的资源，一台机器可以开启成千上万个 Docker。
+三、优势 除了启动速度快以及占用资源少之外，Docker 具有以下优势：
+更容易迁移 提供一致性的运行环境，可以在不同的机器上进行迁移，而不用担心环境变化导致无法运行。
+更容易维护 使用分层技术和镜像，使得应用可以更容易复用重复部分。复用程度越高，维护工作也越容易。
+更容易扩展 可以使用基础镜像进一步扩展得到新的镜像，并且官方和开源社区提供了大量的镜像，通过扩展这些镜像可以非常容易得到我们想要的镜像。
+四、使用场景 持续集成 持续集成指的是频繁地将代码集成到主干上，这样能够更快地发现错误。
+Docker 具有轻量级以及隔离性的特点，在将代码集成到一个 Docker 中不会对其它 Docker 产生影响。
+提供可伸缩的云服务 根据应用的负载情况，可以很容易地增加或者减少 Docker。
+搭建微服务架构 Docker 轻量级的特点使得它很适合用于部署、维护、组合微服务。
+五、镜像与容器 镜像是一种静态的结构，可以看成面向对象里面的类，而容器是镜像的一个实例。
+镜像包含着容器运行时所需要的代码以及其它组件，它是一种分层结构，每一层都是只读的（read-only layers）。构建镜像时，会一层一层构建，前一层是后一层的基础。镜像的这种分层存储结构很适合镜像的复用以及定制。
+构建容器时，通过在镜像的基础上添加一个可写层（writable layer），用来保存着容器运行过程中的修改。
+Ubuntu上docker的安装和配置 脚本如下：
+#!/bin/sh  # Shell script to add docker-ce to Deepin Linux repositories # Remove old docker sudo apt-get remove -y docker docker-engine docker.</description>
+    </item>
+    
+    <item>
+      <title>Git 学习</title>
+      <link>https://oxygenbytes.github.io/posts/2021/01/git-%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Sat, 30 Jan 2021 21:49:10 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2021/01/git-%E5%AD%A6%E4%B9%A0/</guid>
+      <description>本节主要记录一些git学习的笔记内容
+git学习链接
+git分支管理  新建分支 git checkout -b branchname 切换分支 git checkout branchname 查看分支 git branch 查看所有分支 git branch -av  比如你现在在dev，克隆下来的是主分支(main)
+如果你要进行什么修改，可以建一个新的分之，比如按照今天的日期
+git checkout -b 190721 # 创建并切换分支 git checkout 190721 # 直接切换分支 当系统重装后，如何连接git和github github官方参考链接
+先下载git
+sudo apt-get git # deepin sudo pacman -S git #manjaro 然后为本地 git 配置全局的 user 与 email 参数。
+git config ‐‐global user.name &amp;#34;your github account name&amp;#34; git config ‐‐global user.email &amp;#34;your github account email&amp;#34; 为了在后续操作中我们能将本地仓库的代码推送至 github 的仓库上,我们需要在本地生成 SSH 秘钥,并将公钥保存到 github 账户信息中,这样我们在本地提交的时候 github 就能通 过本地的私钥与公钥进行校验。</description>
+    </item>
+    
+    <item>
+      <title>Linux 学习</title>
+      <link>https://oxygenbytes.github.io/posts/2021/01/linux-%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Sat, 30 Jan 2021 21:49:10 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2021/01/linux-%E5%AD%A6%E4%B9%A0/</guid>
+      <description>一、常用操作以及概念 快捷键  Tab：命令和文件名补全； Ctrl+C：中断正在运行的程序； Ctrl+D：结束键盘输入（End Of File，EOF）  求助 1. &amp;ndash;help 指令的基本用法与选项介绍。
+2. man man 是 manual 的缩写，将指令的具体信息显示出来。
+当执行man date时，有 DATE(1) 出现，其中的数字代表指令的类型，常用的数字及其类型如下：
+   代号 类型     1 用户在 shell 环境中可以操作的指令或者可执行文件   5 配置文件   8 系统管理员可以使用的管理指令    3. info info 与 man 类似，但是 info 将文档分成一个个页面，每个页面可以进行跳转。
+4. doc /usr/share/doc 存放着软件的一整套说明文件。
+关机 1. who 在关机前需要先使用 who 命令查看有没有其它用户在线。
+2. sync 为了加快对磁盘文件的读写速度，位于内存中的文件数据不会立即同步到磁盘上，因此关机之前需要先进行 sync 同步操作。</description>
+    </item>
+    
+    <item>
+      <title>Termux 使用指南</title>
+      <link>https://oxygenbytes.github.io/posts/2020/08/termux-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Wed, 12 Aug 2020 09:30:07 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2020/08/termux-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+      <description>安装 Termux 是一款基于 Android 平台的开源 Linux 终端模拟器，使用 pkg(apt) 进行软件包的管理。可以在 Google play 安装最新版的 termux 和 termux-API 。Termux 支持缩放手势来调整字体大小，长按屏幕可以调出菜单选项，可以实现粘贴复制等操作。侧边栏可以新建、切换、重命名会话session。
+安装常用的基本软件
+pkg install termux-api vim -y 配置ssh 首先PC端需要安装 openssh-client, termux中安装 openssh。
+# PC端 sudo apt-get install openssh-client # termux中 pkg install openssh # PC端生成ssh秘钥 ssh-keygen # Termux开启ssh服务 sshd # 将PC端 ~/.ssh/ 目录下的id_rsa.pub中的内容写入termux中的 ~/.ssh/authorized_keys文件内 # 注意： PC端 ~/.ssh/know_hosts文件中不应有与termux的ssh进程重复的条目 # 一旦出现 WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! 的提示，删除PC端 ~/.ssh/know_hosts文件中的对应条目即可 新版本的 termux 已经支持 ssh 的密码登录，可以使用 passwd 初始化 ssh 密码</description>
+    </item>
+    
+  </channel>
+</rss>

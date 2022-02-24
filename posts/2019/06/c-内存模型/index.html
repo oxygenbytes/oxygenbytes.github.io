@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="zxq ">
+<meta name="description" content="内存模型所要表达的内容主要是这么描述： 一个内存操作的效果，在其他线程中的可见性问题。
+C&#43;&#43; 内存模型 C分为四个区：堆，栈，静态全局变量区，常量区
+C&#43;&#43;内存分为5个区域（堆栈全常代）：
+ 堆 heap ： 由new分配的内存块，其释放编译器不去管，由我们程序自己控制（一个new对应一个delete）。如果程序员没有释放掉，在程序结束时OS会自动回收。涉及的问题：“缓冲区溢出”、“内存泄露” 栈 stack ： 是那些编译器在需要时分配，在不需要时自动清除的存储区。存放局部变量、函数参数。 存放在栈中的数据只在当前函数及下一层函数中有效，一旦函数返回了，这些数据也就自动释放了。 全局/静态存储区 （.bss段和.data段） ： 全局和静态变量被分配到同一块内存中。在C语言中，未初始化的放在.bss段中，初始化的放在.data段中；在C&#43;&#43;里则不区分了。 常量存储区 （.rodata段） ： 存放常量，不允许修改（通过非正当手段也可以修改） 代码区 （.text段） ： 存放代码（如函数），不允许修改（类似常量存储区），但可以执行（不同于常量存储区）  根据c/c&#43;&#43;对象生命周期不同，c/c&#43;&#43;的内存模型有三种不同的内存区域，即
+ 自由存储区，动态区、静态区。 自由存储区：局部非静态变量的存储区域，即平常所说的栈 动态区： 用operator new ，malloc分配的内存，即平常所说的堆 静态区：全局变量 静态变量 字符串常量存在位置  而代码虽然占内存，但不属于c/c&#43;&#43;内存模型的一部分
+各个段的关系 一个正在运行着的C编译程序占用的内存分为代码区、初始化数据区、未初始化数据区、堆区 和栈区5个部分。
+（1）代码区（text segment）。代码区指令根据程序设计流程依次执行，对于顺序指令，则只会执行一次（每个进程），如果反复，则需要使用跳转指令，如果进行递归，则需 要借助栈来实现。
+代码区的指令中包括操作码和要操作的对象（或对象地址引用）。如果是立即数（即具体的数值，如5），将直接包含在代码中；如果是局部数据，将在栈区 分配空间，然后引用该数据地址；如果是BSS区和数据区，在代码中同样将引用该数据地址。
+（2）全局初始化数据区/静态数据区（Data Segment）。只初始化一次。
+（3）未初始化数据区（BSS）。在运行时改变其值。
+（4）栈区（stack）。由编译器自动分配释放，存放函数的参数值、局部变量的值等。其操作方式类似于数据结构中的栈。每当一个函数被调用，该函 数返回地址和一些关于调用的信息，比如某些寄存器的内容，被存储到栈区。然后这个被调用的函数再为它的自动变量和临时变量在栈区上分配空间，这就是C实现 函数递归调用的方法。每执行一次递归函数调用，一个新的栈框架就会被使用，这样这个新实例栈里的变量就不会和该函数的另一个实例栈里面的变量混淆。
+（5）堆区（heap）。用于动态内存分配。堆在内存中位于bss区和栈区之间。一般由程序员分配和释放，若程序员不释放，程序结束时有可能由OS 回收。
+之所以分成这么多个区域，主要基于以下考虑：
+一个进程在运行过程中，代码是根据流程依次执行的，只需要访问一次，当然跳转和递归有可能使代码执行多次，而数据一般都需要访问多次，因此单独开辟 空间以方便访问和节约空间。 临时数据及需要再次使用的代码在运行时放入栈区中，生命周期短。 全局数据和静态数据有可能在整个程序执行过程中都需要访问，因此单独存储管理。 堆区由用户自由分配，以便管理。
+下面通过一段简单的代码来查看C程序执行时的内存分配情况。相关数据在运行时的位置如注释所述。
+//main.cpp int a = 0; //a在全局已初始化数据区 char *p1; //p1在BSS区（未初始化全局变量） main() { int b; //b在栈区 char s[] = &amp;#34;abc&amp;#34;; //s为数组变量，存储在栈区， //&amp;#34;abc&amp;#34;为字符串常量，存储在已初始化数据区 char *p1，*p2; //p1、p2在栈区 char *p3 = &amp;#34;123456&amp;#34;; //123456\0在已初始化数据区，p3在栈区 static int c =0； //C为全局（静态）数据，存在于已初始化数据区 //另外，静态数据会自动初始化 p1 = (char *)malloc(10);//分配得来的10个字节的区域在堆区 p2 = (char *)malloc(20);//分配得来的20个字节的区域在堆区 free(p1); free(p2); } C&#43;&#43;内存配置器 标准库中包含一个名为allocator的类，允许我们将分配和初始化分离。使用allocator通常会提供更好的性能和更灵活的内存管理能力。" />
+<meta name="keywords" content=", C&#43;&#43;" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://oxygenbytes.github.io/posts/2019/06/c-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" />
+
+
+    <title>
+        
+            C&#43;&#43;内存模型 :: Zxq&#39;s Blog  — Zxq&#39;s Site
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://oxygenbytes.github.io/main.min.d235e788b40b442aba9cd6c69fdc330353b2dec27dcbc4235961469d2155f5a9.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://oxygenbytes.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://oxygenbytes.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+<meta itemprop="name" content="C&#43;&#43;内存模型">
+<meta itemprop="description" content="内存模型所要表达的内容主要是这么描述： 一个内存操作的效果，在其他线程中的可见性问题。
+C&#43;&#43; 内存模型 C分为四个区：堆，栈，静态全局变量区，常量区
+C&#43;&#43;内存分为5个区域（堆栈全常代）：
+ 堆 heap ： 由new分配的内存块，其释放编译器不去管，由我们程序自己控制（一个new对应一个delete）。如果程序员没有释放掉，在程序结束时OS会自动回收。涉及的问题：“缓冲区溢出”、“内存泄露” 栈 stack ： 是那些编译器在需要时分配，在不需要时自动清除的存储区。存放局部变量、函数参数。 存放在栈中的数据只在当前函数及下一层函数中有效，一旦函数返回了，这些数据也就自动释放了。 全局/静态存储区 （.bss段和.data段） ： 全局和静态变量被分配到同一块内存中。在C语言中，未初始化的放在.bss段中，初始化的放在.data段中；在C&#43;&#43;里则不区分了。 常量存储区 （.rodata段） ： 存放常量，不允许修改（通过非正当手段也可以修改） 代码区 （.text段） ： 存放代码（如函数），不允许修改（类似常量存储区），但可以执行（不同于常量存储区）  根据c/c&#43;&#43;对象生命周期不同，c/c&#43;&#43;的内存模型有三种不同的内存区域，即
+ 自由存储区，动态区、静态区。 自由存储区：局部非静态变量的存储区域，即平常所说的栈 动态区： 用operator new ，malloc分配的内存，即平常所说的堆 静态区：全局变量 静态变量 字符串常量存在位置  而代码虽然占内存，但不属于c/c&#43;&#43;内存模型的一部分
+各个段的关系 一个正在运行着的C编译程序占用的内存分为代码区、初始化数据区、未初始化数据区、堆区 和栈区5个部分。
+（1）代码区（text segment）。代码区指令根据程序设计流程依次执行，对于顺序指令，则只会执行一次（每个进程），如果反复，则需要使用跳转指令，如果进行递归，则需 要借助栈来实现。
+代码区的指令中包括操作码和要操作的对象（或对象地址引用）。如果是立即数（即具体的数值，如5），将直接包含在代码中；如果是局部数据，将在栈区 分配空间，然后引用该数据地址；如果是BSS区和数据区，在代码中同样将引用该数据地址。
+（2）全局初始化数据区/静态数据区（Data Segment）。只初始化一次。
+（3）未初始化数据区（BSS）。在运行时改变其值。
+（4）栈区（stack）。由编译器自动分配释放，存放函数的参数值、局部变量的值等。其操作方式类似于数据结构中的栈。每当一个函数被调用，该函 数返回地址和一些关于调用的信息，比如某些寄存器的内容，被存储到栈区。然后这个被调用的函数再为它的自动变量和临时变量在栈区上分配空间，这就是C实现 函数递归调用的方法。每执行一次递归函数调用，一个新的栈框架就会被使用，这样这个新实例栈里的变量就不会和该函数的另一个实例栈里面的变量混淆。
+（5）堆区（heap）。用于动态内存分配。堆在内存中位于bss区和栈区之间。一般由程序员分配和释放，若程序员不释放，程序结束时有可能由OS 回收。
+之所以分成这么多个区域，主要基于以下考虑：
+一个进程在运行过程中，代码是根据流程依次执行的，只需要访问一次，当然跳转和递归有可能使代码执行多次，而数据一般都需要访问多次，因此单独开辟 空间以方便访问和节约空间。 临时数据及需要再次使用的代码在运行时放入栈区中，生命周期短。 全局数据和静态数据有可能在整个程序执行过程中都需要访问，因此单独存储管理。 堆区由用户自由分配，以便管理。
+下面通过一段简单的代码来查看C程序执行时的内存分配情况。相关数据在运行时的位置如注释所述。
+//main.cpp int a = 0; //a在全局已初始化数据区 char *p1; //p1在BSS区（未初始化全局变量） main() { int b; //b在栈区 char s[] = &#34;abc&#34;; //s为数组变量，存储在栈区， //&#34;abc&#34;为字符串常量，存储在已初始化数据区 char *p1，*p2; //p1、p2在栈区 char *p3 = &#34;123456&#34;; //123456\0在已初始化数据区，p3在栈区 static int c =0； //C为全局（静态）数据，存在于已初始化数据区 //另外，静态数据会自动初始化 p1 = (char *)malloc(10);//分配得来的10个字节的区域在堆区 p2 = (char *)malloc(20);//分配得来的20个字节的区域在堆区 free(p1); free(p2); } C&#43;&#43;内存配置器 标准库中包含一个名为allocator的类，允许我们将分配和初始化分离。使用allocator通常会提供更好的性能和更灵活的内存管理能力。"><meta itemprop="datePublished" content="2019-06-27T09:06:27+08:00" />
+<meta itemprop="dateModified" content="2019-06-27T09:06:27+08:00" />
+<meta itemprop="wordCount" content="154"><meta itemprop="image" content="https://oxygenbytes.github.io/"/>
+<meta itemprop="keywords" content="C&#43;&#43;," /><meta property="og:title" content="C&#43;&#43;内存模型" />
+<meta property="og:description" content="内存模型所要表达的内容主要是这么描述： 一个内存操作的效果，在其他线程中的可见性问题。
+C&#43;&#43; 内存模型 C分为四个区：堆，栈，静态全局变量区，常量区
+C&#43;&#43;内存分为5个区域（堆栈全常代）：
+ 堆 heap ： 由new分配的内存块，其释放编译器不去管，由我们程序自己控制（一个new对应一个delete）。如果程序员没有释放掉，在程序结束时OS会自动回收。涉及的问题：“缓冲区溢出”、“内存泄露” 栈 stack ： 是那些编译器在需要时分配，在不需要时自动清除的存储区。存放局部变量、函数参数。 存放在栈中的数据只在当前函数及下一层函数中有效，一旦函数返回了，这些数据也就自动释放了。 全局/静态存储区 （.bss段和.data段） ： 全局和静态变量被分配到同一块内存中。在C语言中，未初始化的放在.bss段中，初始化的放在.data段中；在C&#43;&#43;里则不区分了。 常量存储区 （.rodata段） ： 存放常量，不允许修改（通过非正当手段也可以修改） 代码区 （.text段） ： 存放代码（如函数），不允许修改（类似常量存储区），但可以执行（不同于常量存储区）  根据c/c&#43;&#43;对象生命周期不同，c/c&#43;&#43;的内存模型有三种不同的内存区域，即
+ 自由存储区，动态区、静态区。 自由存储区：局部非静态变量的存储区域，即平常所说的栈 动态区： 用operator new ，malloc分配的内存，即平常所说的堆 静态区：全局变量 静态变量 字符串常量存在位置  而代码虽然占内存，但不属于c/c&#43;&#43;内存模型的一部分
+各个段的关系 一个正在运行着的C编译程序占用的内存分为代码区、初始化数据区、未初始化数据区、堆区 和栈区5个部分。
+（1）代码区（text segment）。代码区指令根据程序设计流程依次执行，对于顺序指令，则只会执行一次（每个进程），如果反复，则需要使用跳转指令，如果进行递归，则需 要借助栈来实现。
+代码区的指令中包括操作码和要操作的对象（或对象地址引用）。如果是立即数（即具体的数值，如5），将直接包含在代码中；如果是局部数据，将在栈区 分配空间，然后引用该数据地址；如果是BSS区和数据区，在代码中同样将引用该数据地址。
+（2）全局初始化数据区/静态数据区（Data Segment）。只初始化一次。
+（3）未初始化数据区（BSS）。在运行时改变其值。
+（4）栈区（stack）。由编译器自动分配释放，存放函数的参数值、局部变量的值等。其操作方式类似于数据结构中的栈。每当一个函数被调用，该函 数返回地址和一些关于调用的信息，比如某些寄存器的内容，被存储到栈区。然后这个被调用的函数再为它的自动变量和临时变量在栈区上分配空间，这就是C实现 函数递归调用的方法。每执行一次递归函数调用，一个新的栈框架就会被使用，这样这个新实例栈里的变量就不会和该函数的另一个实例栈里面的变量混淆。
+（5）堆区（heap）。用于动态内存分配。堆在内存中位于bss区和栈区之间。一般由程序员分配和释放，若程序员不释放，程序结束时有可能由OS 回收。
+之所以分成这么多个区域，主要基于以下考虑：
+一个进程在运行过程中，代码是根据流程依次执行的，只需要访问一次，当然跳转和递归有可能使代码执行多次，而数据一般都需要访问多次，因此单独开辟 空间以方便访问和节约空间。 临时数据及需要再次使用的代码在运行时放入栈区中，生命周期短。 全局数据和静态数据有可能在整个程序执行过程中都需要访问，因此单独存储管理。 堆区由用户自由分配，以便管理。
+下面通过一段简单的代码来查看C程序执行时的内存分配情况。相关数据在运行时的位置如注释所述。
+//main.cpp int a = 0; //a在全局已初始化数据区 char *p1; //p1在BSS区（未初始化全局变量） main() { int b; //b在栈区 char s[] = &#34;abc&#34;; //s为数组变量，存储在栈区， //&#34;abc&#34;为字符串常量，存储在已初始化数据区 char *p1，*p2; //p1、p2在栈区 char *p3 = &#34;123456&#34;; //123456\0在已初始化数据区，p3在栈区 static int c =0； //C为全局（静态）数据，存在于已初始化数据区 //另外，静态数据会自动初始化 p1 = (char *)malloc(10);//分配得来的10个字节的区域在堆区 p2 = (char *)malloc(20);//分配得来的20个字节的区域在堆区 free(p1); free(p2); } C&#43;&#43;内存配置器 标准库中包含一个名为allocator的类，允许我们将分配和初始化分离。使用allocator通常会提供更好的性能和更灵活的内存管理能力。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://oxygenbytes.github.io/posts/2019/06/c-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" /><meta property="og:image" content="https://oxygenbytes.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-06-27T09:06:27+08:00" />
+<meta property="article:modified_time" content="2019-06-27T09:06:27+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://oxygenbytes.github.io/"/>
+
+<meta name="twitter:title" content="C&#43;&#43;内存模型"/>
+<meta name="twitter:description" content="内存模型所要表达的内容主要是这么描述： 一个内存操作的效果，在其他线程中的可见性问题。
+C&#43;&#43; 内存模型 C分为四个区：堆，栈，静态全局变量区，常量区
+C&#43;&#43;内存分为5个区域（堆栈全常代）：
+ 堆 heap ： 由new分配的内存块，其释放编译器不去管，由我们程序自己控制（一个new对应一个delete）。如果程序员没有释放掉，在程序结束时OS会自动回收。涉及的问题：“缓冲区溢出”、“内存泄露” 栈 stack ： 是那些编译器在需要时分配，在不需要时自动清除的存储区。存放局部变量、函数参数。 存放在栈中的数据只在当前函数及下一层函数中有效，一旦函数返回了，这些数据也就自动释放了。 全局/静态存储区 （.bss段和.data段） ： 全局和静态变量被分配到同一块内存中。在C语言中，未初始化的放在.bss段中，初始化的放在.data段中；在C&#43;&#43;里则不区分了。 常量存储区 （.rodata段） ： 存放常量，不允许修改（通过非正当手段也可以修改） 代码区 （.text段） ： 存放代码（如函数），不允许修改（类似常量存储区），但可以执行（不同于常量存储区）  根据c/c&#43;&#43;对象生命周期不同，c/c&#43;&#43;的内存模型有三种不同的内存区域，即
+ 自由存储区，动态区、静态区。 自由存储区：局部非静态变量的存储区域，即平常所说的栈 动态区： 用operator new ，malloc分配的内存，即平常所说的堆 静态区：全局变量 静态变量 字符串常量存在位置  而代码虽然占内存，但不属于c/c&#43;&#43;内存模型的一部分
+各个段的关系 一个正在运行着的C编译程序占用的内存分为代码区、初始化数据区、未初始化数据区、堆区 和栈区5个部分。
+（1）代码区（text segment）。代码区指令根据程序设计流程依次执行，对于顺序指令，则只会执行一次（每个进程），如果反复，则需要使用跳转指令，如果进行递归，则需 要借助栈来实现。
+代码区的指令中包括操作码和要操作的对象（或对象地址引用）。如果是立即数（即具体的数值，如5），将直接包含在代码中；如果是局部数据，将在栈区 分配空间，然后引用该数据地址；如果是BSS区和数据区，在代码中同样将引用该数据地址。
+（2）全局初始化数据区/静态数据区（Data Segment）。只初始化一次。
+（3）未初始化数据区（BSS）。在运行时改变其值。
+（4）栈区（stack）。由编译器自动分配释放，存放函数的参数值、局部变量的值等。其操作方式类似于数据结构中的栈。每当一个函数被调用，该函 数返回地址和一些关于调用的信息，比如某些寄存器的内容，被存储到栈区。然后这个被调用的函数再为它的自动变量和临时变量在栈区上分配空间，这就是C实现 函数递归调用的方法。每执行一次递归函数调用，一个新的栈框架就会被使用，这样这个新实例栈里的变量就不会和该函数的另一个实例栈里面的变量混淆。
+（5）堆区（heap）。用于动态内存分配。堆在内存中位于bss区和栈区之间。一般由程序员分配和释放，若程序员不释放，程序结束时有可能由OS 回收。
+之所以分成这么多个区域，主要基于以下考虑：
+一个进程在运行过程中，代码是根据流程依次执行的，只需要访问一次，当然跳转和递归有可能使代码执行多次，而数据一般都需要访问多次，因此单独开辟 空间以方便访问和节约空间。 临时数据及需要再次使用的代码在运行时放入栈区中，生命周期短。 全局数据和静态数据有可能在整个程序执行过程中都需要访问，因此单独存储管理。 堆区由用户自由分配，以便管理。
+下面通过一段简单的代码来查看C程序执行时的内存分配情况。相关数据在运行时的位置如注释所述。
+//main.cpp int a = 0; //a在全局已初始化数据区 char *p1; //p1在BSS区（未初始化全局变量） main() { int b; //b在栈区 char s[] = &#34;abc&#34;; //s为数组变量，存储在栈区， //&#34;abc&#34;为字符串常量，存储在已初始化数据区 char *p1，*p2; //p1、p2在栈区 char *p3 = &#34;123456&#34;; //123456\0在已初始化数据区，p3在栈区 static int c =0； //C为全局（静态）数据，存在于已初始化数据区 //另外，静态数据会自动初始化 p1 = (char *)malloc(10);//分配得来的10个字节的区域在堆区 p2 = (char *)malloc(20);//分配得来的20个字节的区域在堆区 free(p1); free(p2); } C&#43;&#43;内存配置器 标准库中包含一个名为allocator的类，允许我们将分配和初始化分离。使用allocator通常会提供更好的性能和更灵活的内存管理能力。"/>
+
+
+
+
+
+    <meta property="article:published_time" content="2019-06-27 09:06:27 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://oxygenbytes.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$cd /home/zxq/blogs/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#00FF00;
+                   animation-duration:2s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://oxygenbytes.github.io/posts/">Posts</a></li><li><a href="https://oxygenbytes.github.io/leetcode/">Leetcode</a></li><li><a href="https://oxygenbytes.github.io/swordoffer/">SwordOffer</a></li><li><a href="https://oxygenbytes.github.io/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>One minute
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title">
+                <a href="https://oxygenbytes.github.io/posts/2019/06/c-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">C++内存模型</a>
+            </h1>
+
+            
+
+            <div class="post-content">
+                <p>内存模型所要表达的内容主要是这么描述： 一个内存操作的效果，在其他线程中的可见性问题。</p>
+<h1 id="c-内存模型">C++ 内存模型</h1>
+<p>C分为四个区：堆，栈，静态全局变量区，常量区</p>
+<p>C++内存分为5个区域（堆栈全常代）：</p>
+<ol>
+<li>堆 heap ：
+由new分配的内存块，其释放编译器不去管，由我们程序自己控制（一个new对应一个delete）。如果程序员没有释放掉，在程序结束时OS会自动回收。涉及的问题：“缓冲区溢出”、“内存泄露”</li>
+<li>栈 stack ：
+是那些编译器在需要时分配，在不需要时自动清除的存储区。存放局部变量、函数参数。
+存放在栈中的数据只在当前函数及下一层函数中有效，一旦函数返回了，这些数据也就自动释放了。</li>
+<li>全局/静态存储区 （.bss段和.data段） ：
+全局和静态变量被分配到同一块内存中。在C语言中，未初始化的放在.bss段中，初始化的放在.data段中；在C++里则不区分了。</li>
+<li>常量存储区 （.rodata段） ：
+存放常量，不允许修改（通过非正当手段也可以修改）</li>
+<li>代码区 （.text段） ：
+存放代码（如函数），不允许修改（类似常量存储区），但可以执行（不同于常量存储区）</li>
+</ol>
+<p>根据c/c++对象生命周期不同，c/c++的内存模型有三种不同的内存区域，即</p>
+<ol>
+<li>自由存储区，动态区、静态区。</li>
+<li>自由存储区：局部非静态变量的存储区域，即平常所说的栈</li>
+<li>动态区： 用operator new ，malloc分配的内存，即平常所说的堆</li>
+<li>静态区：全局变量 静态变量 字符串常量存在位置</li>
+</ol>
+<p>而代码虽然占内存，但不属于c/c++内存模型的一部分</p>
+<h2 id="各个段的关系">各个段的关系</h2>
+<p>一个正在运行着的C编译程序占用的内存分为代码区、初始化数据区、未初始化数据区、堆区 和栈区5个部分。</p>
+<p>（1）代码区（text segment）。代码区指令根据程序设计流程依次执行，对于顺序指令，则只会执行一次（每个进程），如果反复，则需要使用跳转指令，如果进行递归，则需 要借助栈来实现。</p>
+<p>代码区的指令中包括操作码和要操作的对象（或对象地址引用）。如果是立即数（即具体的数值，如5），将直接包含在代码中；如果是局部数据，将在栈区 分配空间，然后引用该数据地址；如果是BSS区和数据区，在代码中同样将引用该数据地址。</p>
+<p>（2）全局初始化数据区/静态数据区（Data Segment）。只初始化一次。</p>
+<p>（3）未初始化数据区（BSS）。在运行时改变其值。</p>
+<p>（4）栈区（stack）。由编译器自动分配释放，存放函数的参数值、局部变量的值等。其操作方式类似于数据结构中的栈。每当一个函数被调用，该函 数返回地址和一些关于调用的信息，比如某些寄存器的内容，被存储到栈区。然后这个被调用的函数再为它的自动变量和临时变量在栈区上分配空间，这就是C实现 函数递归调用的方法。每执行一次递归函数调用，一个新的栈框架就会被使用，这样这个新实例栈里的变量就不会和该函数的另一个实例栈里面的变量混淆。</p>
+<p>（5）堆区（heap）。用于动态内存分配。堆在内存中位于bss区和栈区之间。一般由程序员分配和释放，若程序员不释放，程序结束时有可能由OS 回收。</p>
+<p><strong>之所以分成这么多个区域，主要基于以下考虑：</strong></p>
+<p><strong>一个进程在运行过程中，代码是根据流程依次执行的，只需要访问一次，当然跳转和递归有可能使代码执行多次，而数据一般都需要访问多次，因此单独开辟 空间以方便访问和节约空间。</strong>
+<strong>临时数据及需要再次使用的代码在运行时放入栈区中，生命周期短。</strong>
+<strong>全局数据和静态数据有可能在整个程序执行过程中都需要访问，因此单独存储管理。</strong>
+<strong>堆区由用户自由分配，以便管理。</strong></p>
+<p>下面通过一段简单的代码来查看C程序执行时的内存分配情况。相关数据在运行时的位置如注释所述。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">//main.cpp
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;        <span style="color:#75715e">//a在全局已初始化数据区
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>p1;        <span style="color:#75715e">//p1在BSS区（未初始化全局变量）
+</span><span style="color:#75715e"></span>main()
+{
+<span style="color:#66d9ef">int</span> b;        <span style="color:#75715e">//b在栈区
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">char</span> s[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abc&#34;</span>;  <span style="color:#75715e">//s为数组变量，存储在栈区，
+</span><span style="color:#75715e">//&#34;abc&#34;为字符串常量，存储在已初始化数据区
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>p1<span style="color:#960050;background-color:#1e0010">，</span><span style="color:#f92672">*</span>p2;    <span style="color:#75715e">//p1、p2在栈区
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>p3 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;123456&#34;</span>;  <span style="color:#75715e">//123456\0在已初始化数据区，p3在栈区
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span><span style="color:#ae81ff">0</span><span style="color:#960050;background-color:#1e0010">；</span>    <span style="color:#75715e">//C为全局（静态）数据，存在于已初始化数据区
+</span><span style="color:#75715e">//另外，静态数据会自动初始化
+</span><span style="color:#75715e"></span>p1 <span style="color:#f92672">=</span> (<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>)malloc(<span style="color:#ae81ff">10</span>);<span style="color:#75715e">//分配得来的10个字节的区域在堆区
+</span><span style="color:#75715e"></span>p2 <span style="color:#f92672">=</span> (<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>)malloc(<span style="color:#ae81ff">20</span>);<span style="color:#75715e">//分配得来的20个字节的区域在堆区
+</span><span style="color:#75715e"></span>free(p1);
+free(p2);
+}
+</code></pre></div><h2 id="c内存配置器">C++内存配置器</h2>
+<p>标准库中包含一个名为allocator的类，允许我们将分配和初始化分离。使用allocator通常会提供更好的性能和更灵活的内存管理能力。</p>
+<blockquote>
+<p>new有一些灵活性上的局限，其中一方面表现在它将内存分配和对象构造组合在了一起。类似的，delete将对象析构和内存释放组合在了一起。我们分配单个对象时，通常希望将内存分配和对象初始化组合在一起。因为在这种情况下，我们几乎肯定知道对象应有什么值。当分配一大块内存时，我们通常计划在这块内存上按需构造对象。在此情况下，我们希望将内存分配和对象构造分离。这意味着我们可以分配大块内存，但只在真正需要时才真正执行对象的创建操作(同时付出一定开销)。一般情况下，将内存分配和对象构造组合在一起可能会导致不必要的浪费。</p>
+<p>标准库allocator类定义在头文件memory中，它帮助我们将内存分配和对象构造分离开来。它提供一种类型感知的内存分配方法，它分配的内存是原始的、未构造的。类似vector，allocator是一个模板。为了定义一个allocator对象，我们必须指明这个allocator可以分配的对象类型。当一个allocator对象分配内存时，它会根据给定的对象类型来确定恰当的内存大小和对齐位置。</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;memory&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#75715e">//先熟悉一下提供的allocator用法
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#66d9ef">const</span> <span style="color:#f92672">*</span>argv[])
+{
+    allocator<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> a;
+    <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>ptr<span style="color:#f92672">=</span>a.allocate(<span style="color:#ae81ff">5</span>);
+    a.construct(ptr,<span style="color:#ae81ff">3</span>);
+    a.construct(ptr<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>);
+    a.construct(ptr<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>);
+    a.construct(ptr<span style="color:#f92672">+</span><span style="color:#ae81ff">3</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>);
+    a.construct(ptr<span style="color:#f92672">+</span><span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">3</span>);
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">5</span>;i<span style="color:#f92672">++</span>)
+    {
+        cout<span style="color:#f92672">&lt;&lt;*</span>(ptr<span style="color:#f92672">+</span>i)<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; &#34;</span>;
+        a.destroy(ptr<span style="color:#f92672">+</span>i);
+    }
+    a.deallocate(ptr,<span style="color:#ae81ff">5</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><h2 id="内存屏障">内存屏障</h2>
+<p>内存屏障
+CPU乱序执行在单线程环境下是一种很好的优化手段，但是在多线程环境下，就会出现数据不一致的问题，因此就可以通过内存屏障这个机制来处理这个问题。</p>
+<p>1.写内存屏障(Store Memory Barrier)：在指令后插入Store Barrier，能让写入缓存中最新数据更新写入主内存中，让其他线程可见。强制写入主内存，这种显示调用，不会让CPU去进行指令重排序
+2.读内存屏障(Load Memory Barrier)：在指令后插入Load Barrier，可以让高速缓存中的数据失效，强制重新从主内存中加载数据。也是不会让CPU去进行指令重排。</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://oxygenbytes.github.io/tags/c&#43;&#43;">C&#43;&#43;</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>154 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-06-27 09:06</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="https://oxygenbytes.github.io/posts/2020/07/%E6%B7%B1%E6%90%9C%E5%B9%BF%E6%90%9C/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">深搜&amp;&amp;广搜</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="https://oxygenbytes.github.io/posts/2019/06/c-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                                <span class="button__text">C&#43;&#43;基础知识</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="https://oxygenbytes.github.io/">zxq</a></span>
+            
+            <span><a href="https://oxygenbytes.github.io/" target="_blank" rel="noopener">cd /home/zxq/</a></span>
+            <span> <a href="https://oxygenbytes.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Theme from <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://oxygenbytes.github.io/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+
+
+
+    </body>
+</html>

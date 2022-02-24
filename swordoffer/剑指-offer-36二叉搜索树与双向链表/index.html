@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="zxq ">
+<meta name="description" content="//输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的循环双向链表。要求不能创建任何新的节点，只能调整树中节点指针的指向。 // // // // 为了让您更好地理解问题，以下面的二叉搜索树为例： // // // // // // // // 我们希望将这个二叉搜索树转化为双向循环链表。链表中的每个节点都有一个前驱和后继指针。对于双向循环链表，第一个节点的前驱是最后一个节点，最后一个节点的后继是 //第一个节点。 // // 下图展示了上面的二叉搜索树转化成的链表。“head” 表示指向链表中有最小元素的节点。 // // // // // // // // 特别地，我们希望可以就地完成转换操作。当转化完成以后，树中节点的左指针需要指向前驱，树中节点的右指针需要指向后继。还需要返回链表中的第一个节点的指针。 // // // // 注意：本题与主站 426 题相同：https://leetcode-cn.com/problems/convert-binary-search-tree- //to-sorted-doubly-linked-list/ // // 注意：此题对比原题有改动。 // Related Topics 分治算法 // 👍 181 👎 0  /* * 剑指 Offer 36 二叉搜索树与双向链表 * 2021-02-18 11:39:03 * @author oxygenbytes */ #include &amp;#34;leetcode.h&amp;#34; //leetcode submit region begin(Prohibit modification and deletion) /* // Definition for a Node." />
+<meta name="keywords" content=", SwordOffer, Leetcode" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-36%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" />
+
+
+    <title>
+        
+            [剑指 Offer 36]二叉搜索树与双向链表 :: Zxq&#39;s Blog  — Zxq&#39;s Site
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://oxygenbytes.github.io/main.min.d235e788b40b442aba9cd6c69fdc330353b2dec27dcbc4235961469d2155f5a9.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://oxygenbytes.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://oxygenbytes.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+<meta itemprop="name" content="[剑指 Offer 36]二叉搜索树与双向链表">
+<meta itemprop="description" content="//输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的循环双向链表。要求不能创建任何新的节点，只能调整树中节点指针的指向。 // // // // 为了让您更好地理解问题，以下面的二叉搜索树为例： // // // // // // // // 我们希望将这个二叉搜索树转化为双向循环链表。链表中的每个节点都有一个前驱和后继指针。对于双向循环链表，第一个节点的前驱是最后一个节点，最后一个节点的后继是 //第一个节点。 // // 下图展示了上面的二叉搜索树转化成的链表。“head” 表示指向链表中有最小元素的节点。 // // // // // // // // 特别地，我们希望可以就地完成转换操作。当转化完成以后，树中节点的左指针需要指向前驱，树中节点的右指针需要指向后继。还需要返回链表中的第一个节点的指针。 // // // // 注意：本题与主站 426 题相同：https://leetcode-cn.com/problems/convert-binary-search-tree- //to-sorted-doubly-linked-list/ // // 注意：此题对比原题有改动。 // Related Topics 分治算法 // 👍 181 👎 0  /* * 剑指 Offer 36 二叉搜索树与双向链表 * 2021-02-18 11:39:03 * @author oxygenbytes */ #include &#34;leetcode.h&#34; //leetcode submit region begin(Prohibit modification and deletion) /* // Definition for a Node."><meta itemprop="datePublished" content="2021-02-18T11:39:03+08:00" />
+<meta itemprop="dateModified" content="2021-02-18T11:39:03+08:00" />
+<meta itemprop="wordCount" content="176"><meta itemprop="image" content="https://oxygenbytes.github.io/"/>
+<meta itemprop="keywords" content="SwordOffer,Leetcode," /><meta property="og:title" content="[剑指 Offer 36]二叉搜索树与双向链表" />
+<meta property="og:description" content="//输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的循环双向链表。要求不能创建任何新的节点，只能调整树中节点指针的指向。 // // // // 为了让您更好地理解问题，以下面的二叉搜索树为例： // // // // // // // // 我们希望将这个二叉搜索树转化为双向循环链表。链表中的每个节点都有一个前驱和后继指针。对于双向循环链表，第一个节点的前驱是最后一个节点，最后一个节点的后继是 //第一个节点。 // // 下图展示了上面的二叉搜索树转化成的链表。“head” 表示指向链表中有最小元素的节点。 // // // // // // // // 特别地，我们希望可以就地完成转换操作。当转化完成以后，树中节点的左指针需要指向前驱，树中节点的右指针需要指向后继。还需要返回链表中的第一个节点的指针。 // // // // 注意：本题与主站 426 题相同：https://leetcode-cn.com/problems/convert-binary-search-tree- //to-sorted-doubly-linked-list/ // // 注意：此题对比原题有改动。 // Related Topics 分治算法 // 👍 181 👎 0  /* * 剑指 Offer 36 二叉搜索树与双向链表 * 2021-02-18 11:39:03 * @author oxygenbytes */ #include &#34;leetcode.h&#34; //leetcode submit region begin(Prohibit modification and deletion) /* // Definition for a Node." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-36%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" /><meta property="og:image" content="https://oxygenbytes.github.io/"/><meta property="article:section" content="swordoffer" />
+<meta property="article:published_time" content="2021-02-18T11:39:03+08:00" />
+<meta property="article:modified_time" content="2021-02-18T11:39:03+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://oxygenbytes.github.io/"/>
+
+<meta name="twitter:title" content="[剑指 Offer 36]二叉搜索树与双向链表"/>
+<meta name="twitter:description" content="//输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的循环双向链表。要求不能创建任何新的节点，只能调整树中节点指针的指向。 // // // // 为了让您更好地理解问题，以下面的二叉搜索树为例： // // // // // // // // 我们希望将这个二叉搜索树转化为双向循环链表。链表中的每个节点都有一个前驱和后继指针。对于双向循环链表，第一个节点的前驱是最后一个节点，最后一个节点的后继是 //第一个节点。 // // 下图展示了上面的二叉搜索树转化成的链表。“head” 表示指向链表中有最小元素的节点。 // // // // // // // // 特别地，我们希望可以就地完成转换操作。当转化完成以后，树中节点的左指针需要指向前驱，树中节点的右指针需要指向后继。还需要返回链表中的第一个节点的指针。 // // // // 注意：本题与主站 426 题相同：https://leetcode-cn.com/problems/convert-binary-search-tree- //to-sorted-doubly-linked-list/ // // 注意：此题对比原题有改动。 // Related Topics 分治算法 // 👍 181 👎 0  /* * 剑指 Offer 36 二叉搜索树与双向链表 * 2021-02-18 11:39:03 * @author oxygenbytes */ #include &#34;leetcode.h&#34; //leetcode submit region begin(Prohibit modification and deletion) /* // Definition for a Node."/>
+
+
+
+
+
+    <meta property="article:published_time" content="2021-02-18 11:39:03 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://oxygenbytes.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$cd /home/zxq/blogs/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#00FF00;
+                   animation-duration:2s;">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://oxygenbytes.github.io/posts/">Posts</a></li><li><a href="https://oxygenbytes.github.io/leetcode/">Leetcode</a></li><li><a href="https://oxygenbytes.github.io/swordoffer/">SwordOffer</a></li><li><a href="https://oxygenbytes.github.io/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-36%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/">[剑指 Offer 36]二叉搜索树与双向链表</a></h2>
+
+            
+
+            <div class="post-content">
+                <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">//输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的循环双向链表。要求不能创建任何新的节点，只能调整树中节点指针的指向。 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 为了让您更好地理解问题，以下面的二叉搜索树为例： 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 我们希望将这个二叉搜索树转化为双向循环链表。链表中的每个节点都有一个前驱和后继指针。对于双向循环链表，第一个节点的前驱是最后一个节点，最后一个节点的后继是
+</span><span style="color:#75715e">//第一个节点。 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 下图展示了上面的二叉搜索树转化成的链表。“head” 表示指向链表中有最小元素的节点。 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 特别地，我们希望可以就地完成转换操作。当转化完成以后，树中节点的左指针需要指向前驱，树中节点的右指针需要指向后继。还需要返回链表中的第一个节点的指针。 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 注意：本题与主站 426 题相同：https://leetcode-cn.com/problems/convert-binary-search-tree-
+</span><span style="color:#75715e">//to-sorted-doubly-linked-list/ 
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// 注意：此题对比原题有改动。 
+</span><span style="color:#75715e">// Related Topics 分治算法 
+</span><span style="color:#75715e">// 👍 181 👎 0
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">* 剑指 Offer 36 二叉搜索树与双向链表
+</span><span style="color:#75715e">* 2021-02-18 11:39:03
+</span><span style="color:#75715e">* @author oxygenbytes
+</span><span style="color:#75715e">*/</span> 
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;leetcode.h&#34; </span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">//leetcode submit region begin(Prohibit modification and deletion)
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*
+</span><span style="color:#75715e">// Definition for a Node.
+</span><span style="color:#75715e">class Node {
+</span><span style="color:#75715e">public:
+</span><span style="color:#75715e">    int val;
+</span><span style="color:#75715e">    Node* left;
+</span><span style="color:#75715e">    Node* right;
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    Node() {}
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    Node(int _val) {
+</span><span style="color:#75715e">        val = _val;
+</span><span style="color:#75715e">        left = NULL;
+</span><span style="color:#75715e">        right = NULL;
+</span><span style="color:#75715e">    }
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">    Node(int _val, Node* _left, Node* _right) {
+</span><span style="color:#75715e">        val = _val;
+</span><span style="color:#75715e">        left = _left;
+</span><span style="color:#75715e">        right = _right;
+</span><span style="color:#75715e">    }
+</span><span style="color:#75715e">};
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    Node <span style="color:#f92672">*</span>pre, <span style="color:#f92672">*</span>head;
+    Node<span style="color:#f92672">*</span> <span style="color:#a6e22e">treeToDoublyList</span>(Node<span style="color:#f92672">*</span> root) {
+        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>root) <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nullptr</span>;
+        dfs(root);
+        head<span style="color:#f92672">-&gt;</span>left <span style="color:#f92672">=</span> pre;
+        pre<span style="color:#f92672">-&gt;</span>right <span style="color:#f92672">=</span> head;
+        <span style="color:#66d9ef">return</span> head;
+    }
+
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs</span>(Node<span style="color:#f92672">*</span> root){
+        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>root) <span style="color:#66d9ef">return</span> ;
+        dfs(root<span style="color:#f92672">-&gt;</span>left);
+
+        <span style="color:#66d9ef">if</span>(pre) pre<span style="color:#f92672">-&gt;</span>right <span style="color:#f92672">=</span> root;
+        <span style="color:#66d9ef">else</span> head <span style="color:#f92672">=</span> root;
+        root<span style="color:#f92672">-&gt;</span>left <span style="color:#f92672">=</span> pre;
+        pre <span style="color:#f92672">=</span> root;
+
+        dfs(root<span style="color:#f92672">-&gt;</span>right);
+    }
+};
+<span style="color:#75715e">//leetcode submit region end(Prohibit modification and deletion)
+</span><span style="color:#75715e"></span>     
+</code></pre></div>
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://oxygenbytes.github.io/tags/swordoffer">SwordOffer</a></span><span class="tag"><a href="https://oxygenbytes.github.io/tags/leetcode">Leetcode</a></span>
+  				</p>
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="https://oxygenbytes.github.io/">zxq</a></span>
+            
+            <span><a href="https://oxygenbytes.github.io/" target="_blank" rel="noopener">cd /home/zxq/</a></span>
+            <span> <a href="https://oxygenbytes.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+          }
+        });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Theme from <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://oxygenbytes.github.io/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+
+
+
+    </body>
+</html>

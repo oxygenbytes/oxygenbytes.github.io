@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>db on Zxq&#39;s Blog</title>
+    <link>https://oxygenbytes.github.io/tags/db/</link>
+    <description>Recent content in db on Zxq&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://oxygenbytes.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cd /home/zxq/&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 31 Dec 2021 00:52:39 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/db/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mysql基础知识</title>
+      <link>https://oxygenbytes.github.io/posts/2021/12/mysql%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Fri, 31 Dec 2021 00:52:39 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2021/12/mysql%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <description>Mysql查询流程 - 基础架构 Mysql更新流程 - 日志系统 与查询流程不一样，更新流程涉及两个重要的日志模块，分别是redo log（重做日志）和 binlog（归档日志）。</description>
+    </item>
+    
+  </channel>
+</rss>

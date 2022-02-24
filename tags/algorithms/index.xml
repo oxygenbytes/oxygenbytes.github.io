@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithms on Zxq&#39;s Blog</title>
+    <link>https://oxygenbytes.github.io/tags/algorithms/</link>
+    <description>Recent content in Algorithms on Zxq&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://oxygenbytes.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cd /home/zxq/&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 27 Jul 2020 23:06:27 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>深搜&amp;&amp;广搜</title>
+      <link>https://oxygenbytes.github.io/posts/2020/07/%E6%B7%B1%E6%90%9C%E5%B9%BF%E6%90%9C/</link>
+      <pubDate>Mon, 27 Jul 2020 23:06:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2020/07/%E6%B7%B1%E6%90%9C%E5%B9%BF%E6%90%9C/</guid>
+      <description>深搜和广搜是最重要的几种算法之一，理解深搜和广搜的关键在于理解 递归 ， 状态机 ， 容器适配器--堆&amp;amp;&amp;amp;栈 和 集合分类 四个概念。
+在搜索中，节点的状态有很多种(节点的状态此时主要根据操作来定义)，比如：未被访问的节点，被访问但是后续仍要用于寻找相邻节点的点，被访问并且后续不会被用到的点。其中，第二类点仍有使用的必要，因此将之放入特定容器，也就是队列或者栈。
+深度优先搜索 深度优先搜索是一种用于遍历或搜索图或者树的算法。沿着树的深度遍历树的节点，尽可能深的搜索树的分支。当节点v的所在边都己被探寻过，搜索将回溯到发现节点v的那条边的起始节点。这一过程一直进行到已发现从源节点可达的所有节点为止。如果还存在未被发现的节点，则选择其中一个作为源节点并重复以上过程，整个进程反复进行直到所有节点都被访问为止。属于盲目搜索。
+// 深度优先搜索 vector&amp;lt;int&amp;gt; G[MAX]; bool visit[MAX]; stack&amp;lt;int&amp;gt; stack; void DFS(int u){ visit[u] = 1; for(int i = 0;i &amp;lt; G[u].size();i++){ // 邻接关系  int v = G[u][i]; if(!visit[v]){ DFS(v); } } } void Dfs(int u){ visit[u] = 1; stack.push(u); while(!stack.empty()){ int u = stack.top(); stack.pop(); for(int i = 0;i &amp;lt; G[u].size();i++){ // 邻接关系  int v = G[u][i]; if(!</description>
+    </item>
+    
+    <item>
+      <title>剪绳子问题</title>
+      <link>https://oxygenbytes.github.io/posts/2019/04/%E5%89%AA%E7%BB%B3%E5%AD%90%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/2019/04/%E5%89%AA%E7%BB%B3%E5%AD%90%E9%97%AE%E9%A2%98/</guid>
+      <description>题目描述  给你一根长度为n的绳子，请把绳子剪成整数长的m段（m、n都是整数，n&amp;gt;1并且m&amp;gt;1），每段绳子的长度记为k[0],k[1],&amp;hellip;,k[m]。请问k[0]xk[1]x&amp;hellip;xk[m]可能的最大乘积是多少？
+ 例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
+  题目分析 要让最大乘积最大，则当n &amp;gt; 5时，使用尽可能多的3。
+贪心算法  数学分析  $$ \begin{matrix} if\space x\%3 &amp;amp;numOf2 &amp;amp;numOf3\newline \space\space 0 &amp;amp; 0 &amp;amp; x/3\newline \space\space 1 &amp;amp; 2 &amp;amp; x/3-1\newline \space\space 2 &amp;amp; 1&amp;amp; x/3\newline \end{matrix} $$
+实现代码 public int cutRope2(int target) { if (target &amp;lt; 2) return 0; if (target == 2) return 1; if (target == 3) return 2; int numOf3 = target / 3; int numOf2 = 0; if (target % 3 == 1) { numOf3--; numOf2 = 2; } if(target % 3 == 2){ numOf2 = 1; } // int numOf2 = (target - numOf3*3) / 2;  return (int) (Math.</description>
+    </item>
+    
+  </channel>
+</rss>
