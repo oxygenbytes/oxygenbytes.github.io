@@ -1,84 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Java on Zxq&#39;s Blog</title>
+    <title>Java on Zxq&#39;s Site</title>
     <link>https://oxygenbytes.github.io/tags/java/</link>
-    <description>Recent content in Java on Zxq&#39;s Blog</description>
+    <description>Recent content in Java on Zxq&#39;s Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>&lt;a href=&#34;https://oxygenbytes.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cd /home/zxq/&lt;/a&gt;</copyright>
+    <language>zh-en</language>
     <lastBuildDate>Tue, 27 Oct 2020 23:06:27 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java IO</title>
-      <link>https://oxygenbytes.github.io/posts/2020/10/java-io/</link>
+      <link>https://oxygenbytes.github.io/posts/java/java-io/</link>
       <pubDate>Tue, 27 Oct 2020 23:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2020/10/java-io/</guid>
-      <description>一、概览 Java 的 I/O 大概可以分成以下几类：
- 磁盘操作：File 字节操作：InputStream 和 OutputStream 字符操作：Reader 和 Writer 对象操作：Serializable 网络操作：Socket 新的输入/输出：NIO  二、磁盘操作 File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。
-递归地列出一个目录下所有文件：
-public static void listAllFiles(File dir) { if (dir == null || !dir.exists()) { return; } if (dir.isFile()) { System.out.println(dir.getName()); return; } for (File file : dir.listFiles()) { listAllFiles(file); } } 从 Java7 开始，可以使用 Paths 和 Files 代替 File。
-三、字节操作 实现文件复制 public static void copyFile(String src, String dist) throws IOException { FileInputStream in = new FileInputStream(src); FileOutputStream out = new FileOutputStream(dist); byte[] buffer = new byte[20 * 1024]; int cnt; // read() 最多读取 buffer.</description>
+      <guid>https://oxygenbytes.github.io/posts/java/java-io/</guid>
+      <description>一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 字符操作：Reader 和 Writer 对象操作：Seriali</description>
     </item>
     
     <item>
       <title>Java 基础</title>
-      <link>https://oxygenbytes.github.io/posts/2020/10/java-%E5%9F%BA%E7%A1%80/</link>
+      <link>https://oxygenbytes.github.io/posts/java/java-%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Tue, 27 Oct 2020 23:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2020/10/java-%E5%9F%BA%E7%A1%80/</guid>
-      <description>一、数据类型 基本类型  byte/8 char/16 short/16 int/32 float/32 long/64 double/64 boolean/~  boolean 只有两个值：true、false，可以使用 1 bit 来存储，但是具体大小没有明确规定。JVM 会在编译时期将 boolean 类型的数据转换为 int，使用 1 来表示 true，0 表示 false。
-数据类型转换 从高到低转换 强制转换 从低到高转换 自动转换
-int i = 128; byte b = (byte)i; double d = i; 包装类型 基本类型都有对应的包装类型，基本类型与其对应的包装类型之间的赋值使用自动装箱与拆箱完成。
-Integer x = 2; // 装箱 int y = x; // 拆箱 缓存池 new Integer(123) 与 Integer.valueOf(123) 的区别在于：
- new Integer(123) 每次都会新建一个对象； Integer.valueOf(123) 会使用缓存池中的对象，多次调用会取得同一个对象的引用。  Integer x = new Integer(123); Integer y = new Integer(123); System.</description>
+      <guid>https://oxygenbytes.github.io/posts/java/java-%E5%9F%BA%E7%A1%80/</guid>
+      <description>一、数据类型 基本类型 byte/8 char/16 short/16 int/32 float/32 long/64 double/64 boolean/~ boolean 只有两个值：true、false，可以使用 1 bit 来存储，但是具体大小没有明确规定。JVM 会在编译时期将 boolean</description>
     </item>
     
     <item>
       <title>Java 容器</title>
-      <link>https://oxygenbytes.github.io/posts/2020/10/java-%E5%AE%B9%E5%99%A8/</link>
+      <link>https://oxygenbytes.github.io/posts/java/java-%E5%AE%B9%E5%99%A8/</link>
       <pubDate>Tue, 27 Oct 2020 23:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2020/10/java-%E5%AE%B9%E5%99%A8/</guid>
-      <description>一、概览 容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。
-1. Set   TreeSet：基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如 HashSet，HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。
-  HashSet：基于哈希表实现，支持快速查找，但不支持有序性操作。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的。
-  LinkedHashSet：具有 HashSet 的查找效率，且内部使用双向链表维护元素的插入顺序。
-  2. List   ArrayList：基于动态数组实现，支持随机访问。
-  Vector：和 ArrayList 类似，但它是线程安全的。
-  LinkedList：基于双向链表实现，只能顺序访问，但是可以快速地在链表中间插入和删除元素。不仅如此，LinkedList 还可以用作栈、队列和双向队列。
-  3. Queue   LinkedList：可以用它来实现双向队列。
-  PriorityQueue：基于堆结构实现，可以用它来实现优先队列。
-  Map   TreeMap：基于红黑树实现。
-  HashMap：基于哈希表实现。
-  HashTable：和 HashMap 类似，但它是线程安全的，这意味着同一时刻多个线程可以同时写入 HashTable 并且不会导致数据不一致。它是遗留类，不应该去使用它。现在可以使用 ConcurrentHashMap 来支持线程安全，并且 ConcurrentHashMap 的效率会更高，因为 ConcurrentHashMap 引入了分段锁。</description>
+      <guid>https://oxygenbytes.github.io/posts/java/java-%E5%AE%B9%E5%99%A8/</guid>
+      <description>一、概览 容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。 1. Set TreeSet：基于红黑树实</description>
     </item>
     
     <item>
       <title>Java 网络编程</title>
-      <link>https://oxygenbytes.github.io/posts/2020/10/java-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
+      <link>https://oxygenbytes.github.io/posts/java/java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Tue, 27 Oct 2020 23:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2020/10/java-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
-      <description>HTTP请求过程 以www.baidu.com为例子
-1.chrome自己的缓存,存留时间大概1min
-Notes:chrome://net-internals/#dns中查询 2.chrome搜索操作系统自身的DNS缓存(浏览器没有找到缓存或者缓存已经失效)
-3.读取本地的HOST文件
-4.浏览器发起一个DNS的一个系统调用
-​	- 宽带运营商服务器查看本身的本地缓存
-​	- 运营商服务器发起一个迭代DNS解析请求(-&amp;gt;根-&amp;gt;顶级域名地址-&amp;gt;目标)
-​	- 运营商服务器把结果返回给操作系统内核,同时缓存起来
-​	- 操作系统内核把结果返回浏览器
-​	- 最终浏览器拿到了www.baidu.com对应的IP地址
-5.建立TCP/IP连接
-TCP/IP连接,属于计算机网络的事情,包括运输层的连续ARQ协议,TCP/UDP等,以及IP层路由选择算法(RIP,OSPF),ARP地址解析,再往下CSMA/CD(载波监听,碰撞检测)以及CSMA/CA等&amp;hellip;
-6.TCP/IP 链接建立起来之后,浏览器就可以向服务器发送HTTP请求了使用了.比如说,用HTTP的GET方法请求一个根域名的一个域名,协议可以采用HTTP1.0的一个协议(HTTP1.1 是保持连接,与此有所不同,对于同义词请求中,可以同时包含)
-7.服务器端接受到了这个请求,根据路径参数,经过后端的一些处理后,把处理后的一个结果的数据返回给浏览器,如果是百度的页面,就会把完整的HTML页面代码返回给浏览器
-8.浏览器拿到了完整的HTML页面代码,在解析和渲染这个页面的时候,里面的JS,CSS, 图片静态资源,他们同样也是一个个的HTTP请求,都需要经过上述的主要七个步骤
-9.浏览器根据拿到的资源对页面进行渲染,最终把一个完整的页面呈现给了用户.
-心跳机制简介 在分布式系统中，分布在不同主机上的节点需要检测其他节点的状态，如服务器节点需要检测从节点是否失效。为了检测对方节点的有效性，每隔固定时间就发送一个固定信息给对方，对方回复一个固定信息，如果长时间没有收到对方的回复，则断开与对方的连接。
-发包方既可以是服务端，也可以是客户端，这要看具体实现。因为是每隔固定时间发送一次，类似心跳，所以发送的固定信息称为心跳包。心跳包一般为比较小的包，可根据具体实现。心跳包主要应用于长连接的保持与短线链接。
-一般而言，应该客户端主动向服务器发送心跳包，因为服务器向客户端发送心跳包会影响服务器的性能。
-TCP和UDP的区别 1.对比     UDP TCP     是否连接 无连接 面向连接   是否可靠 不可靠传输，不使用流量控制和拥塞控制 可靠传输，使用流量控制和拥塞控制   连接对象个数 支持一对一，一对多，多对一和多对多交互通信 只能是一对一通信   传输方式 面向报文 面向字节流   首部开销 首部开销小，仅 8 字节 首部最小 20 字节，最大 60 字节   适用场景 适用于实时应用（IP 电话、视频会议、直播等） 适用于要求可靠传输的应用，例如文件传输    2.</description>
+      <guid>https://oxygenbytes.github.io/posts/java/java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
+      <description>HTTP请求过程 以www.baidu.com为例子 1.chrome自己的缓存,存留时间大概1min Notes:chrome://net-in</description>
     </item>
     
   </channel>

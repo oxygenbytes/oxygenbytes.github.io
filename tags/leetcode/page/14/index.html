@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Leetcode | Zxq&#39;s Site</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="https://oxygenbytes.github.io/tags/leetcode/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css" integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://oxygenbytes.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://oxygenbytes.github.io/tags/leetcode/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Leetcode" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://oxygenbytes.github.io/tags/leetcode/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode"/>
+<meta name="twitter:description" content=""/>
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://oxygenbytes.github.io" accesskey="h" title="Zxq&#39;s Site (Alt + H)">Zxq&#39;s Site</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://oxygenbytes.github.io/" title="🏠主页">
+                    <span>🏠主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/posts" title="📚文章">
+                    <span>📚文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/archives/" title="⏱时间轴">
+                    <span>⏱时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/tags" title="🔖标签">
+                    <span>🔖标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/about" title="🙋🏻‍♂️关于">
+                    <span>🙋🏻‍♂️关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://oxygenbytes.github.io">Home</a>&nbsp;»&nbsp;<a href="https://oxygenbytes.github.io/tags/">Tags</a></div>
+  <h1>
+    Leetcode
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[剑指 Offer 43]1～n 整数中 1 出现的次数
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//输入一个整数 n ，求1～n这n个整数的十进制表示中1出现的次数。 // // 例如，输入12，1～12这些整数中包含1 的数字有1、10、11和12，...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-18 11:41:34 +0800 CST'>2021-02-18</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [剑指 Offer 43]1～n 整数中 1 出现的次数" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-431n-%E6%95%B4%E6%95%B0%E4%B8%AD-1-%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[剑指 Offer 42]连续子数组的最大和
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。 // // 要求时间复杂度为O(n)。 // // // // 示例1: // //...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-18 11:41:19 +0800 CST'>2021-02-18</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [剑指 Offer 42]连续子数组的最大和" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-42%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[剑指 Offer 41]数据流中的中位数
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-18 11:41:00 +0800 CST'>2021-02-18</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [剑指 Offer 41]数据流中的中位数" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-41%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[剑指 Offer 40]最小的k个数
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//输入整数数组 arr ，找出其中最小的 k 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。 // // // // 示例...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-18 11:40:47 +0800 CST'>2021-02-18</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [剑指 Offer 40]最小的k个数" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-40%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[剑指 Offer 39]数组中出现次数超过一半的数字
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。 // // // // 你可以假设数组是非空的，并且给定的数组总是存在多数元素。 // // // // 示...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-18 11:40:33 +0800 CST'>2021-02-18</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [剑指 Offer 39]数组中出现次数超过一半的数字" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-39%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[剑指 Offer 38]字符串的排列
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//输入一个字符串，打印出该字符串中字符的所有排列。 // // // // 你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。 // // // // 示例: // // 输入...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-18 11:40:19 +0800 CST'>2021-02-18</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [剑指 Offer 38]字符串的排列" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-38%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[剑指 Offer 37]序列化二叉树
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//请实现两个函数，分别用来序列化和反序列化二叉树。 // // 示例: // // 你可以将以下二叉树： // // 1 // / \ // 2 3 // / \ // 4 5 // //序列化为 &#34;[1,2,3,null,null,4,5]&#34; // // 注意...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-18 11:39:58 +0800 CST'>2021-02-18</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [剑指 Offer 37]序列化二叉树" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-37%E5%BA%8F%E5%88%97%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[剑指 Offer 36]二叉搜索树与双向链表
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的循环双向链表。要求不能创建任何新的节点，只能调整树中节点指针的指向。 // // // // 为了让您更...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-18 11:39:03 +0800 CST'>2021-02-18</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [剑指 Offer 36]二叉搜索树与双向链表" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-36%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[剑指 Offer 35]复杂链表的复制
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//请实现 copyRandomList 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 next 指针指向下一个节点，还有一个 random 指针指 //向链表中的任意节点或者 null...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-18 11:38:35 +0800 CST'>2021-02-18</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [剑指 Offer 35]复杂链表的复制" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-35%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[剑指 Offer 34]二叉树中和为某一值的路径
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//输入一棵二叉树和一个整数，打印出二叉树中节点值的和为输入整数的所有路径。从树的根节点开始往下一直到叶节点所经过的节点形成一条路径。 // // //...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-18 11:38:17 +0800 CST'>2021-02-18</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [剑指 Offer 34]二叉树中和为某一值的路径" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-34%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[剑指 Offer 33]二叉搜索树的后序遍历序列
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果。如果是则返回 true，否则返回 false。假设输入的数组的任意两个数字都互...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-18 11:38:09 +0800 CST'>2021-02-18</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [剑指 Offer 33]二叉搜索树的后序遍历序列" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-33%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[剑指 Offer 32 - III]从上到下打印二叉树 III
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-18 11:37:40 +0800 CST'>2021-02-18</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [剑指 Offer 32 - III]从上到下打印二叉树 III" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-32-iii%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91-iii/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[剑指 Offer 32 - II]从上到下打印二叉树 II
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。 // // // // 例如: //给定二叉树: [3,9,20,null,null,15,7], // // 3 // / \ // 9 20 // / \ // 15...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-18 11:37:25 +0800 CST'>2021-02-18</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [剑指 Offer 32 - II]从上到下打印二叉树 II" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-32-ii%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91-ii/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[剑指 Offer 32 - I]从上到下打印二叉树
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。 // // // // 例如: //给定二叉树: [3,9,20,null,null,15,7], // // 3 // / \ // 9 20 // / \ // 15 7 // // //...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-18 11:37:09 +0800 CST'>2021-02-18</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [剑指 Offer 32 - I]从上到下打印二叉树" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-32-i%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[剑指 Offer 31]栈的压入、弹出序列
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如，序列 {1,2,3,4,5} 是某栈 //...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-18 11:36:59 +0800 CST'>2021-02-18</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [剑指 Offer 31]栈的压入、弹出序列" href="https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-31%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://oxygenbytes.github.io/tags/leetcode/page/13/">
+      «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://oxygenbytes.github.io/tags/leetcode/page/15/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://oxygenbytes.github.io">Zxq&#39;s Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Leetcodes | Zxq&#39;s Site</title>
+<meta name="keywords" content="">
+<meta name="description" content="Leetcodes - Zxq&#39;s Site">
+<meta name="author" content="">
+<link rel="canonical" href="https://oxygenbytes.github.io/leetcode/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css" integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://oxygenbytes.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://oxygenbytes.github.io/leetcode/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Leetcodes" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://oxygenbytes.github.io/leetcode/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcodes"/>
+<meta name="twitter:description" content=""/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Leetcodes",
+      "item": "https://oxygenbytes.github.io/leetcode/"
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://oxygenbytes.github.io" accesskey="h" title="Zxq&#39;s Site (Alt + H)">Zxq&#39;s Site</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://oxygenbytes.github.io/" title="🏠主页">
+                    <span>🏠主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/posts" title="📚文章">
+                    <span>📚文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/archives/" title="⏱时间轴">
+                    <span>⏱时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/tags" title="🔖标签">
+                    <span>🔖标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/about" title="🙋🏻‍♂️关于">
+                    <span>🙋🏻‍♂️关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://oxygenbytes.github.io">Home</a></div>
+  <h1>
+    Leetcodes
+  </h1>
+</header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[198]打家劫舍
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-07 20:36:42 +0800 CST'>2021-03-07</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [198]打家劫舍" href="https://oxygenbytes.github.io/leetcode/198%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[240]搜索二维矩阵 II
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//编写一个高效的算法来搜索 m x n 矩阵 matrix 中的一个目标值 target 。该矩阵具有以下特性： // // // 每行的元素从左到右升序排列。 // 每列的元素从上到下升序排列...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-07 20:25:20 +0800 CST'>2021-03-07</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [240]搜索二维矩阵 II" href="https://oxygenbytes.github.io/leetcode/240%E6%90%9C%E7%B4%A2%E4%BA%8C%E7%BB%B4%E7%9F%A9%E9%98%B5-ii/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[162]寻找峰值
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//峰值元素是指其值大于左右相邻值的元素。 // // 给你一个输入数组 nums，找到峰值元素并返回其索引。数组可能包含多个峰值，在这种情况下，返回 任...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-07 19:36:51 +0800 CST'>2021-03-07</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [162]寻找峰值" href="https://oxygenbytes.github.io/leetcode/162%E5%AF%BB%E6%89%BE%E5%B3%B0%E5%80%BC/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[31]下一个排列
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//实现获取 下一个排列 的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。 // // 如果不存在下一个更大的排列，则将数字重新排列成最...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-07 10:34:32 +0800 CST'>2021-03-07</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [31]下一个排列" href="https://oxygenbytes.github.io/leetcode/31%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[122]买卖股票的最佳时机 II
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。 // // 设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-06 20:51:12 +0800 CST'>2021-03-06</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [122]买卖股票的最佳时机 II" href="https://oxygenbytes.github.io/leetcode/122%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-ii/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[39]组合总和
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。 // // candidates 中的数字可以无限制重复被选取。 // // 说明： // // // 所有数...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-06 19:59:10 +0800 CST'>2021-03-06</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [39]组合总和" href="https://oxygenbytes.github.io/leetcode/39%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[4]寻找两个正序数组的中位数
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。 // // // // 示例 1： // // //输入：num...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-06 11:42:51 +0800 CST'>2021-03-06</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [4]寻找两个正序数组的中位数" href="https://oxygenbytes.github.io/leetcode/4%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[48]旋转图像
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。 // // 你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-06 11:35:24 +0800 CST'>2021-03-06</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [48]旋转图像" href="https://oxygenbytes.github.io/leetcode/48%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[151]翻转字符串里的单词
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定一个字符串，逐个翻转字符串中的每个单词。 // // 说明： // // // 无空格字符构成一个 单词 。 // 输入字符串可以在前面或者后面包含多余的空格，但是反...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-06 11:18:50 +0800 CST'>2021-03-06</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [151]翻转字符串里的单词" href="https://oxygenbytes.github.io/leetcode/151-ii%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[300]最长递增子序列
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。 // // 子序列是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-04 19:43:09 +0800 CST'>2021-03-04</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [300]最长递增子序列" href="https://oxygenbytes.github.io/leetcode/300-ii%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[145]二叉树的后序遍历
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定一个二叉树，返回它的 后序 遍历。 // // 示例: // // 输入: [1,null,2,3] // 1 // \ // 2 // / // 3 // //输出: [3,2,1] // // 进阶: 递归算法很简单，你可以通过迭代算法完...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-04 19:32:32 +0800 CST'>2021-03-04</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [145]二叉树的后序遍历" href="https://oxygenbytes.github.io/leetcode/tree/145%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[139]单词拆分
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定一个非空字符串 s 和一个包含非空单词的列表 wordDict，判定 s 是否可以被空格拆分为一个或多个在字典中出现的单词。 // // 说明： // // // 拆...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-04 19:11:28 +0800 CST'>2021-03-04</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [139]单词拆分" href="https://oxygenbytes.github.io/leetcode/139%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[814]二叉树剪枝
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定二叉树根结点 root ，此外树的每个结点的值要么是 0，要么是 1。 // // 返回移除了所有不包含 1 的子树的原二叉树。 // // ( 节点 X 的子树为 X 本身，以及...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-04 19:05:13 +0800 CST'>2021-03-04</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [814]二叉树剪枝" href="https://oxygenbytes.github.io/leetcode/tree/814%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%AA%E6%9E%9D/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[143]重排链表
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定一个单链表 L：L0→L1→…→Ln-1→Ln ， //将其重新排列后变为： L0→Ln→L1→Ln-1→L2→Ln-2→… // // 你不能只是单...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-04 16:04:59 +0800 CST'>2021-03-04</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [143]重排链表" href="https://oxygenbytes.github.io/leetcode/list/143%E9%87%8D%E6%8E%92%E9%93%BE%E8%A1%A8/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[56]合并区间
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，并返 //回一个不重叠的区间数组，该数组需恰好覆盖输入中的所...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-04 15:53:46 +0800 CST'>2021-03-04</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [56]合并区间" href="https://oxygenbytes.github.io/leetcode/56%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://oxygenbytes.github.io/leetcode/page/3/">
+      «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://oxygenbytes.github.io/leetcode/page/5/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://oxygenbytes.github.io">Zxq&#39;s Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

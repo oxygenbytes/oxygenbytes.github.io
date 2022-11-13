@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>C&#43;&#43;基础知识 | Zxq&#39;s Site</title>
+<meta name="keywords" content="C&#43;&#43;">
+<meta name="description" content="const常引用（const &#43; &amp;）避免函数参数的双向传递 在c&#43;&#43;可以使用引用传递作为函数的形参传入函数，相较于值传递的方式，引用传递">
+<meta name="author" content="">
+<link rel="canonical" href="https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css" integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://oxygenbytes.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="C&#43;&#43;基础知识" />
+<meta property="og:description" content="const常引用（const &#43; &amp;）避免函数参数的双向传递 在c&#43;&#43;可以使用引用传递作为函数的形参传入函数，相较于值传递的方式，引用传递" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-06-27T09:06:27+08:00" />
+<meta property="article:modified_time" content="2019-06-27T09:06:27+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="C&#43;&#43;基础知识"/>
+<meta name="twitter:description" content="const常引用（const &#43; &amp;）避免函数参数的双向传递 在c&#43;&#43;可以使用引用传递作为函数的形参传入函数，相较于值传递的方式，引用传递"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "📚文章",
+      "item": "https://oxygenbytes.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "C++基础知识",
+      "item": "https://oxygenbytes.github.io/posts/cplus/c++%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "C++基础知识",
+  "name": "C\u002b\u002b基础知识",
+  "description": "const常引用（const + \u0026amp;）避免函数参数的双向传递 在c++可以使用引用传递作为函数的形参传入函数，相较于值传递的方式，引用传递",
+  "keywords": [
+    "C++"
+  ],
+  "articleBody": "const常引用（const + \u0026）避免函数参数的双向传递 在c++可以使用引用传递作为函数的形参传入函数，相较于值传递的方式，引用传递能够节省函数使用时的内存分配，不需要像值传递一样拷贝实参。对于普通的数据类型可能看出引用的优势，但是如果函数的传入参数是一个十分复杂的结构体或者类，那么引用传递可以节省很大的内存开销。\n然而，由于引用传递是双向的，当在函数中对于形参的数据进行改变后，实参的值也会进行相应的改变，如下所示：\n#include using namespace std; struct Point { int x; int y; Point(int a, int b) { x=a; y=b; } }; void fun(Point\u0026 point); int main() { Point point(1,1); fun(point); point.x++; point.y++; cout \u003c\u003c \"======main======\" \u003c\u003c endl; cout \u003c\u003c \"点的坐标为(\" \u003c\u003c point.x \u003c\u003c \".\" \u003c\u003c point.y \u003c\u003c \")\" \u003c\u003c endl; return 0; } void fun(Point\u0026 point) { point.x++; point.y++; cout \u003c\u003c \"======fun======\" \u003c\u003c endl; cout \u003c\u003c \"点的坐标为(\" \u003c\u003c point.x \u003c\u003c \",\" \u003c\u003c point.y \u003c\u003c \")\" \u003c\u003c endl; } /* ------fun------- 点的坐标为（2,2） ------main------ 点的坐标为(2,3) 如果我们既不想改变传入参数的值，也不想因为值传递产生太大的开销，那么可以尝试一下使用常引用。可见，使用了常引用之后，传入参数的值就是一个常量了，无法对其内部变量进行修改，保证了传入参数的数据安全性。\n这里引用的作用主要是为了避免值传递，值传递通常会有很大的开销。\nC语言三个结束符有什么不同？ EOF ‘\\0’ ‘\\n’ 网友A: EOF（End of file）是C/C++里面的宏定义，具体定义式是#define EOF -1，表示的是文件的结束标志，值等于-1，一般用在文件读取的函数里面，比如fscanf fgetc fgets等，一旦读取到文件最后就返回EOF标志并结束函数调用 ‘\\0’是转义字符，值等于0，主要用在C风格字符串的末尾，表示字符串结束标志。通常用在和字符串相关的函数里面，如strcmp strcpy等会用到它 ‘\\n’表示换行符，通常用作一些读取函数的读取结束标志，比如scanf,getchar(),gets()等，一旦遇到’\\n’就结束读取并返回\n网友B: EOF 是一个宏定义,一般是-1,用在读文件的时候.因为如果读到字符,这个字符的值一定是正的,所以用负值表示结束 \\0 是ascii码为0,一般表示用在字符串结尾表示空值.一个char a[100]数组,当你用这个数组进行字符串操作时,会把\\0当做结尾.如果没有设置\\0标志,这个字符串很可能出现问题 \\n 好像ascii码是10吧,就是回车的意思,a是1个字符,c也是1个字符,同样的,回车也是1个字符,只不过表现得不那么正常而已\nextern “C” #ifndef __INCvxWorksh /*防止该头文件被重复引用*/ #define __INCvxWorksh #ifdef __cplusplus //__cplusplus是cpp中自定义的一个宏 extern \"C\" { //告诉编译器，这部分代码按C语言的格式进行编译，而不是C++的 #endif /**** some declaration or so *****/ #ifdef __cplusplus } #endif #endif /* __INCvxWorksh */ 2、被extern “C\"修饰的变量和函数是按照C语言方式编译和链接的 首先看看C++中对类似C的函数是怎样编译的。 作为一种面向对象的语言，C++支持函数重载，而过程式语言C则不支持。函数被C++编译后在符号库中的名字与C语言的不同。例如，假设某个函数的原型为： void foo( int x, int y ); 该函数被C编译器编译后在符号库中的名字为_foo，而C++编译器则会产生像_foo_int_int之类的名字（不同的编译器可能生成的名字不同，但是都采用了相同的机制，生成的新名字称为“mangled name”）。 ** _foo_int_int这样的名字包含了函数名、函数参数数量及类型信息，C++就是靠这种机制来实现函数重载的。** 例如，在C++中，函数void foo( int x, int y )与void foo( int x, float y )编译生成的符号是不相同的，后者为_foo_int_float。 同样地，C++中的变量除支持局部变量外，还支持类成员变量和全局变量。用户所编写程序的类成员变量可能与全局变量同名，我们以”.“来区分。而本质上，编译器在进行编译时，与函数的处理相似，也为类中的变量取了一个独一无二的名字，这个名字与用户程序中同名的全局变量名字不同。\nwhile(scanf(\"%d”,\u0026n)!=EOF) 用法 EOF(end of file)就是文件的结束，通常来判断文件的操作是否结束的标志。\nEOF不是特殊字符，而是定义在头文件的常量，一般等于-1；\n#include int main(){ char str[100][100]; int i=0,j; while(scanf(\"%s\", str[i]) != EOF) //在黑框中手动输入时，系统并不知道什么时候到达了所谓的“文件末尾“ //因此需要用\u003c Ctrl + Z \u003e组合键，然后按\u003c Enter \u003e键的方式来告诉系统已经到了 EOF，这样系统才会结束 while i++; //while((str[i]=getchar())!='\\n') for(j=i-1;j\u003e=0;j--){ printf(\"%s\",str[j]); if(j!=0) printf(\" \"); } return 0; } 除了文件结束，做题遇见最多的是标准输入，但是标准输入与文件不一样，无法事先知道输入的长度，必须手动输入一个字符，表示到达EOF：\nLinux中，在新的一行的开头，按下Ctrl-D，就代表EOF（如果在一行的中间按下Ctrl-D，则表示输出“标准输入”的缓存区，所以这时必须按两次Ctrl-D）；\nWindows中，Ctrl-Z表示EOF。 结构体可以用作 map 的键吗？ 答： 可以，结构体是可以作为 map 的键的，但需要满足一定的条件。首先 map 的底层结构是 红黑树 ，属于 平衡二叉查找树 。对于map来说， key必须是有序的， 也就是说， key与key之间必须能比较， 所以需要重载 \u003c 号 。所以当结构体作为 map 的键时，必须要重载 \u003c 运算符。\n#include #include #include using namespace std; struct Info { string name; int score; // 重载 \u003c 运算符 bool operator\u003c (const Info \u0026x) const { return score \u003c x.score; } }; int main() { Info a, b; a.name = \"eric\"; a.score = 90; b.name = \"cat\"; b.score = 85; map\u003cInfo, int\u003e m; m[a] = 1; m[b] = 2; map\u003cInfo, int\u003e::iterator it; for(it = m.begin(); it != m.end(); it++) { cout \u003c\u003c it-\u003efirst.name \u003c\u003c endl; } return 0; C++中虚函数表存储在什么位置？ C++中虚函数表位于只读数据段（.rodata），也就是C++内存模型中的常量区；而虚函数则位于代码段（.text），也就是C++内存模型中的代码区。\nC++中能不能在 main 前执行代码？ 答：可以。\n全局类变量的构造都在main之前。可以通过全局变量来在 main 前面执行代码。 static 标识符标记的全局变量在程序初始化阶段，先于 main 执行。 //全局static变量的初始化在程序初始阶段，先于main函数的执行，所以可以利用这一点。在leetcode里经常见到利用一点，在main之前关闭cin与stdin的同步来“加快”速度的黑科技： static int _ = []{ cin.sync_with_stdio(false); return 0; }(); //_attribute((constructor))是gcc扩展，标记这个函数应当在main函数之前执行。同样有一个__attribute((destructor))，标记函数应当在程序结束之前（main结束之后，或者调用了exit后）执行; 其实想一想 main 无非就是个入口点，只不过是更改入口点而已。\ntypedef 关键字wiki 在C和C++编程语言中，typedef是一个关键字。它用来对一个数据类型取一个别名，目的是为了使源代码更易于阅读和理解。它通常用于简化声明复杂的类型组成的结构 ，但它也常常在各种长度的整数数据类型中看到，例如size_t和time_t。\ntypedef的语法是 :\ntypedef typedeclaration; 和结构体一起使用 typedef struct Node Node; struct Node { int data; Node *nextptr; }; 和指针一起使用 typedef int *intptr; intptr cliff, allen; // both cliff and allen are int* type intptr cliff2, *allen2; // cliff2 is int* type, but allen2 is int** type // same as: intptr cliff2; // intptr *allen2; 和结构体指针一起使用 typedef struct Node Node; struct Node { int data; Node *nextptr; }; 和函数指针一起使用 先来看这段没有使用typedef的代码：\nint do_math(float arg1, int arg2) { return arg2; } int call_a_func(int (*call_this)(float, int)) { int output = call_this(5.5, 7); return output; } int final_result = call_a_func(\u0026do_math); 注意：这里的call_this是指向参数类型为(float, int) ,返回值是int类型的函数指针，另外注意函数指针的用法，\n使用typedef后这段代码可以改写为：\ntypedef int (*MathFunc)(float, int); int do_math(float arg1, int arg2) { return arg2; } int call_a_func(MathFunc call_this) { int output = call_this(5.5, 7); return output; } int final_result = call_a_func(\u0026do_math); 前加一个typedef关键字，这样就定义一个名为MathFunc的函数指针类型，而不是一个MathFunc变量。\n指针 什么是指针？ 我们指知道：C语言中的数组是指 一类 类型，数组具体区分为 int 类型数组，double类型数组,char数组 等等。同样指针 这个概念也泛指 一类 数据类型，int指针类型，double指针类型，char指针类型等等。\n通常，我们用int类型保存一些整型的数据，如 int num = 97 ， 我们也会用char来存储字符： char ch = ‘a’。\n我们也必须知道：任何程序数据载入内存后，在内存都有他们的地址，这就是指针。而为了保存一个数据在内存中的地址，我们就需要指针变量。\n因此：指针是程序数据在内存中的地址，而指针变量是用来保存这些地址的变量。\n指针本身也是一种数据类型\n为什么需要指针？ 指针解决了一些编程中基本的问题。\n第一，指针的使用使得不同区域的代码可以轻易的共享内存数据。当然你也可以通过数据的复制达到相同的效果，但是这样往往效率不太好，因为诸如结构体等大型数据，占用的字节数多，复制很消耗性能。但使用指针就可以很好的避免这个问题，因为任何类型的指针占用的字节数都是一样的（根据平台不同，有4字节或者8字节或者其他可能）。\n第二，指针使得一些复杂的链接性的数据结构的构建成为可能，比如链表，链式二叉树等等。\n第三，有些操作必须使用指针。如操作申请的堆内存。还有：C语言中的一切函数调用中，值传递都是“按值传递(pass by value)”的，如果我们要在函数中修改被传递过来的对象，就必须通过这个对象的指针来完成。\n什么是指针变量？ 指针变量是用来存放指针(地址)的变量。\nint c = 76; int *pointer; //此处int是指针变量的基类型，基类型就是指针变量指向的变量的类型 pointer = \u0026c; //将变量c的地址赋值给指针变量pointer //赋值后，称指针变量pointer指向了变量c 指针运算符 *\n取址运算符\u0026\n指针变量也是变量，是变量就有地址\n关于空指针 void*类型指针\n由于void是空类型，因此void类型的指针只保存了指针的值，而丢失了类型信息，我们不知道他指向的数据是什么类型的，只指定这个数据在内存中的起始地址，如果想要完整的提取指向的数据，程序员就必须对这个指针做出正确的类型转换，然后再解指针。因为，编译器不允许直接对void类型的指针做解指针操作。\n函数指针的几个疑惑 问题：c语言中， 函数名也称为函数的指针，那函数名是否也占内存空间？ 首先你上面的话是错误的，函数名是一段指令的入口地址，它是地址常量，不占用内存空间，只是在编译阶段存在于编译器的符号表中，例如函数的入口地址是0x123456，在翻译成机器指令以后，函数名是不存在的其在本质上对应汇编上的jump指令，在执行函数的时候，跳转到0x123456，这个函数名的本质就是这个地址。\nc语言中其他变量的原理也都是类似的\n#include using namespace std; typedef int (*funcptr)(int, int); int add(int a,int b){ return a+b; } int test(funcptr ptr,int x, int y){ cout\u003c\u003c\"this is a test\"; return ptr(x, y); } int main(){ cout\u003c\u003ctest(add,2,3)\u003c\u003cendl; cout\u003c\u003ctest(\u0026add,3,4)\u003c\u003cendl; cout\u003c\u003c\u0026main; return 0; } 1）其实，MyFun的函数名与FunP函数指针都是一样的，即都是函数指针。MyFun函数名是一个函数指针常量，而FunP是一个函数数指针变量，这是它们的关系。\n2）但函数名调用如果都得如(*MyFun)(10)这样，那书写与读起来都是不方便和不习惯的。所以C语言的设计者们才会设计成又可允许MyFun(10)这种形式地调用（这样方便多了并与数学中的函数形式一样，不是吗？）。\n3）为统一起见，FunP函数指针变量也可以FunP(10)的形式来调用。\n4）赋值时，即可FunP = \u0026MyFun形式，也可FunP = MyFun。\nC++的左值与右值 基本概念 左值与右值的概念在很多地方比较模糊，但其对我们对C++的理解很重要。比如我们看github上的源码的时候会看到std::move等用法，在查找其含义之后得知它功能是将左值转成右值引用，若是我们不理解左值与右值，还是无法知道它到底有什么用。\n我们还会经常在编译错误和警告信息中看到左值右值概念的出现。\n左值与右值的简单定义 lvalue(locator value), 即左值，代表一个在内存中占有确定位置的对象，换句话说就是有一个地址。\nrvalue：一个表达式要么是lvalue，要么是rvalue。所以，不是lvalue的表达式就是rvalue。\n左值是指表达式结束后依然存在的持久对象，右值是指表达式结束时就不再存在的临时对象。一个区分左值与右值的便捷方法是：看能不能对表达式取地址，如果能，则为左值，否则为右值。\nC++ 11中用\u0026表示左值引用，用\u0026\u0026表示右值引用 // Big Block // https://www.nowcoder.com/discuss/418915 #include #include using namespace std; int main() { { std::string s = \"1234\"; cout \u003c\u003c s \u003c\u003c endl; // \"1234\" } { std::string s = \"1234\"; std::move(s); cout \u003c\u003c s \u003c\u003c endl; // \"1234\" } { std::string s = \"1234\"; const auto\u0026 s1 = std::move(s); cout \u003c\u003c s \u003c\u003c ' ' \u003c\u003c s1 \u003c\u003c endl; // \"1234 1234\" } { std::string s = \"1234\"; auto\u0026\u0026 s1 = std::move(s); cout \u003c\u003c s \u003c\u003c ' ' \u003c\u003c s1 \u003c\u003c endl; // \"1234 1234\" } { std::string s = \"1234\"; auto s1 = std::move(s); cout \u003c\u003c s \u003c\u003c ' ' \u003c\u003c s1 \u003c\u003c endl; // \" 1234\" } return 0; } C++迭代器 #include #include using namespace std; int main(){ vector\u003cint\u003e v1; for(int i=0;i\u003c100;i++){ if(i%3 ==0) v1.push_back(i); } vector\u003cint\u003e::iterator it; for(vector\u003cint\u003e::iterator it=v1.begin(); it != v1.end();it++){ *it += 2; cout\u003c\u003c*it\u003c\u003cendl; } return 0; } 注意迭代器的用法\n::不要丢掉，否则语法错误；迭代器的本质是指针，指针在使用之前一定要赋值\n小知识 c语言print()函数的参数 %d ——–dicimal(base 10) %x ——–hexadecimat(base 16) %o ——–octal(base 8) ",
+  "wordCount" : "5093",
+  "inLanguage": "en",
+  "datePublished": "2019-06-27T09:06:27+08:00",
+  "dateModified": "2019-06-27T09:06:27+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://oxygenbytes.github.io/posts/cplus/c++%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zxq's Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://oxygenbytes.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://oxygenbytes.github.io" accesskey="h" title="Zxq&#39;s Site (Alt + H)">Zxq&#39;s Site</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://oxygenbytes.github.io/" title="🏠主页">
+                    <span>🏠主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/posts" title="📚文章">
+                    <span>📚文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/archives/" title="⏱时间轴">
+                    <span>⏱时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/tags" title="🔖标签">
+                    <span>🔖标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/about" title="🙋🏻‍♂️关于">
+                    <span>🙋🏻‍♂️关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://oxygenbytes.github.io">Home</a>&nbsp;»&nbsp;<a href="https://oxygenbytes.github.io/posts/">📚文章</a></div>
+    <h1 class="post-title">
+      C&#43;&#43;基础知识
+    </h1>
+    <div class="post-meta"><span title='2019-06-27 09:06:27 +0800 CST'>2019-06-27</span>&nbsp;·&nbsp;11 min
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul><ul>
+                <li>
+                    <a href="#const%e5%b8%b8%e5%bc%95%e7%94%a8const--%e9%81%bf%e5%85%8d%e5%87%bd%e6%95%b0%e5%8f%82%e6%95%b0%e7%9a%84%e5%8f%8c%e5%90%91%e4%bc%a0%e9%80%92" aria-label="const常引用（const &#43; &amp;amp;）避免函数参数的双向传递">const常引用（const + &amp;）避免函数参数的双向传递</a></li>
+                <li>
+                    <a href="#c%e8%af%ad%e8%a8%80%e4%b8%89%e4%b8%aa%e7%bb%93%e6%9d%9f%e7%ac%a6%e6%9c%89%e4%bb%80%e4%b9%88%e4%b8%8d%e5%90%8c-eof-0-n" aria-label="C语言三个结束符有什么不同？ EOF ‘\0’ &amp;lsquo;\n&amp;rsquo;">C语言三个结束符有什么不同？ EOF ‘\0’ &lsquo;\n&rsquo;</a><ul>
+                        
+                <li>
+                    <a href="#%e7%bd%91%e5%8f%8ba" aria-label="网友A:">网友A:</a></li>
+                <li>
+                    <a href="#%e7%bd%91%e5%8f%8bb" aria-label="网友B:">网友B:</a></li></ul>
+                </li>
+                <li>
+                    <a href="#extern-c" aria-label="extern &amp;ldquo;C&amp;rdquo;">extern &ldquo;C&rdquo;</a></li>
+                <li>
+                    <a href="#whilescanfdneof-%e7%94%a8%e6%b3%95" aria-label="while(scanf(&amp;quot;%d&amp;rdquo;,&amp;amp;n)!=EOF) 用法">while(scanf(&quot;%d&rdquo;,&amp;n)!=EOF) 用法</a></li>
+                <li>
+                    <a href="#%e7%bb%93%e6%9e%84%e4%bd%93%e5%8f%af%e4%bb%a5%e7%94%a8%e4%bd%9c-map-%e7%9a%84%e9%94%ae%e5%90%97" aria-label="结构体可以用作 map 的键吗？">结构体可以用作 <code>map</code> 的键吗？</a></li>
+                <li>
+                    <a href="#c%e4%b8%ad%e8%99%9a%e5%87%bd%e6%95%b0%e8%a1%a8%e5%ad%98%e5%82%a8%e5%9c%a8%e4%bb%80%e4%b9%88%e4%bd%8d%e7%bd%ae" aria-label="C&#43;&#43;中虚函数表存储在什么位置？">C++中虚函数表存储在什么位置？</a></li>
+                <li>
+                    <a href="#c%e4%b8%ad%e8%83%bd%e4%b8%8d%e8%83%bd%e5%9c%a8-main-%e5%89%8d%e6%89%a7%e8%a1%8c%e4%bb%a3%e7%a0%81" aria-label="C&#43;&#43;中能不能在 main 前执行代码？">C++中能不能在 <code>main</code> 前执行代码？</a></li>
+                <li>
+                    <a href="#typedef-%e5%85%b3%e9%94%ae%e5%ad%97wikihttpszhwikipediaorgwikitypedef" aria-label="typedef 关键字wiki">typedef 关键字<a href="https://zh.wikipedia.org/wiki/Typedef">wiki</a></a><ul>
+                        
+                <li>
+                    <a href="#%e5%92%8c%e7%bb%93%e6%9e%84%e4%bd%93%e4%b8%80%e8%b5%b7%e4%bd%bf%e7%94%a8" aria-label="和结构体一起使用">和结构体一起使用</a></li>
+                <li>
+                    <a href="#%e5%92%8c%e6%8c%87%e9%92%88%e4%b8%80%e8%b5%b7%e4%bd%bf%e7%94%a8" aria-label="和指针一起使用">和指针一起使用</a></li>
+                <li>
+                    <a href="#%e5%92%8c%e7%bb%93%e6%9e%84%e4%bd%93%e6%8c%87%e9%92%88%e4%b8%80%e8%b5%b7%e4%bd%bf%e7%94%a8" aria-label="和结构体指针一起使用">和结构体指针一起使用</a></li>
+                <li>
+                    <a href="#%e5%92%8c%e5%87%bd%e6%95%b0%e6%8c%87%e9%92%88%e4%b8%80%e8%b5%b7%e4%bd%bf%e7%94%a8" aria-label="和函数指针一起使用">和函数指针一起使用</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%8c%87%e9%92%88" aria-label="指针">指针</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%af%e6%8c%87%e9%92%88" aria-label="什么是指针？">什么是指针？</a></li>
+                <li>
+                    <a href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e9%9c%80%e8%a6%81%e6%8c%87%e9%92%88" aria-label="为什么需要指针？">为什么需要指针？</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%bb%80%e4%b9%88%e6%98%af%e6%8c%87%e9%92%88%e5%8f%98%e9%87%8f" aria-label="什么是指针变量？">什么是指针变量？</a></li>
+                <li>
+                    <a href="#%e5%85%b3%e4%ba%8e%e7%a9%ba%e6%8c%87%e9%92%88" aria-label="关于空指针">关于空指针</a></li></ul>
+                    
+                <li>
+                    <a href="#%e5%87%bd%e6%95%b0%e6%8c%87%e9%92%88%e7%9a%84%e5%87%a0%e4%b8%aa%e7%96%91%e6%83%91" aria-label="函数指针的几个疑惑">函数指针的几个疑惑</a><ul>
+                        
+                <li>
+                    <a href="#%e9%97%ae%e9%a2%98c%e8%af%ad%e8%a8%80%e4%b8%ad-%e5%87%bd%e6%95%b0%e5%90%8d%e4%b9%9f%e7%a7%b0%e4%b8%ba%e5%87%bd%e6%95%b0%e7%9a%84%e6%8c%87%e9%92%88%e9%82%a3%e5%87%bd%e6%95%b0%e5%90%8d%e6%98%af%e5%90%a6%e4%b9%9f%e5%8d%a0%e5%86%85%e5%ad%98%e7%a9%ba%e9%97%b4" aria-label="问题：c语言中， 函数名也称为函数的指针，那函数名是否也占内存空间？">问题：c语言中， 函数名也称为函数的指针，那函数名是否也占内存空间？</a></li>
+                <li>
+                    <a href="#c%e7%9a%84%e5%b7%a6%e5%80%bc%e4%b8%8e%e5%8f%b3%e5%80%bc" aria-label="C&#43;&#43;的左值与右值">C++的左值与右值</a><ul>
+                        
+                <li>
+                    <a href="#%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5" aria-label="基本概念">基本概念</a></li>
+                <li>
+                    <a href="#%e5%b7%a6%e5%80%bc%e4%b8%8e%e5%8f%b3%e5%80%bc%e7%9a%84%e7%ae%80%e5%8d%95%e5%ae%9a%e4%b9%89" aria-label="左值与右值的简单定义">左值与右值的简单定义</a></li>
+                <li>
+                    <a href="#c-11%e4%b8%ad%e7%94%a8%e8%a1%a8%e7%a4%ba%e5%b7%a6%e5%80%bc%e5%bc%95%e7%94%a8%e7%94%a8%e8%a1%a8%e7%a4%ba%e5%8f%b3%e5%80%bc%e5%bc%95%e7%94%a8" aria-label="C&#43;&#43; 11中用&amp;amp;表示左值引用，用&amp;amp;&amp;amp;表示右值引用">C++ 11中用&amp;表示左值引用，用&amp;&amp;表示右值引用</a></li></ul>
+                </li>
+                <li>
+                    <a href="#c%e8%bf%ad%e4%bb%a3%e5%99%a8" aria-label="C&#43;&#43;迭代器">C++迭代器</a></li>
+                <li>
+                    <a href="#%e5%b0%8f%e7%9f%a5%e8%af%86" aria-label="小知识">小知识</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h3 id="const常引用const--避免函数参数的双向传递">const常引用（const + &amp;）避免函数参数的双向传递<a hidden class="anchor" aria-hidden="true" href="#const常引用const--避免函数参数的双向传递">#</a></h3>
+<p>在c++可以使用引用传递作为函数的形参传入函数，相较于值传递的方式，引用传递能够节省函数使用时的内存分配，不需要像值传递一样拷贝实参。对于普通的数据类型可能看出引用的优势，但是如果函数的传入参数是一个十分复杂的结构体或者类，那么引用传递可以节省很大的内存开销。</p>
+<p>然而，由于引用传递是双向的，当在函数中对于形参的数据进行改变后，实参的值也会进行相应的改变，如下所示：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Point</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> x;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> y;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    Point(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>	x<span style="color:#f92672">=</span>a;
+</span></span><span style="display:flex;"><span>	y<span style="color:#f92672">=</span>b;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fun</span>(Point<span style="color:#f92672">&amp;</span> point);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Point point(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    fun(point);
+</span></span><span style="display:flex;"><span>    point.x<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    point.y<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;======main======&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;点的坐标为(&#34;</span> <span style="color:#f92672">&lt;&lt;</span> point.x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;.&#34;</span> <span style="color:#f92672">&lt;&lt;</span> point.y <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;)&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fun</span>(Point<span style="color:#f92672">&amp;</span> point)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    point.x<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    point.y<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;======fun======&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;点的坐标为(&#34;</span> <span style="color:#f92672">&lt;&lt;</span> point.x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;,&#34;</span> <span style="color:#f92672">&lt;&lt;</span> point.y <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;)&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">------fun-------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">点的坐标为（2,2）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">------main------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">点的坐标为(2,3)
+</span></span></span></code></pre></div><p>如果我们既不想改变传入参数的值，也不想因为值传递产生太大的开销，那么可以尝试一下使用常引用。可见，使用了常引用之后，传入参数的值就是一个常量了，无法对其内部变量进行修改，保证了传入参数的数据安全性。</p>
+<p>这里引用的作用主要是为了避免值传递，值传递通常会有很大的开销。</p>
+<h3 id="c语言三个结束符有什么不同-eof-0-n">C语言三个结束符有什么不同？ EOF ‘\0’ &lsquo;\n&rsquo;<a hidden class="anchor" aria-hidden="true" href="#c语言三个结束符有什么不同-eof-0-n">#</a></h3>
+<h4 id="网友a">网友A:<a hidden class="anchor" aria-hidden="true" href="#网友a">#</a></h4>
+<p>EOF（End of file）是C/C++里面的宏定义，具体定义式是#define EOF -1，表示的是文件的结束标志，值等于-1，一般用在文件读取的函数里面，比如fscanf fgetc fgets等，一旦读取到文件最后就返回EOF标志并结束函数调用
+&lsquo;\0&rsquo;是转义字符，值等于0，主要用在C风格字符串的末尾，表示字符串结束标志。通常用在和字符串相关的函数里面，如strcmp strcpy等会用到它
+&lsquo;\n&rsquo;表示换行符，通常用作一些读取函数的读取结束标志，比如scanf,getchar(),gets()等，一旦遇到&rsquo;\n&rsquo;就结束读取并返回</p>
+<h4 id="网友b">网友B:<a hidden class="anchor" aria-hidden="true" href="#网友b">#</a></h4>
+<p>EOF 是一个宏定义,一般是-1,用在读文件的时候.因为如果读到字符,这个字符的值一定是正的,所以用负值表示结束
+\0 是ascii码为0,一般表示用在字符串结尾表示空值.一个char a[100]数组,当你用这个数组进行字符串操作时,会把\0当做结尾.如果没有设置\0标志,这个字符串很可能出现问题
+\n 好像ascii码是10吧,就是回车的意思,a是1个字符,c也是1个字符,同样的,回车也是1个字符,只不过表现得不那么正常而已</p>
+<h3 id="extern-c">extern &ldquo;C&rdquo;<a hidden class="anchor" aria-hidden="true" href="#extern-c">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#ifndef __INCvxWorksh  </span><span style="color:#75715e">/*防止该头文件被重复引用*/</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define __INCvxWorksh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#ifdef __cplusplus    </span><span style="color:#75715e">//__cplusplus是cpp中自定义的一个宏
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">extern</span> <span style="color:#e6db74">&#34;C&#34;</span> {          <span style="color:#75715e">//告诉编译器，这部分代码按C语言的格式进行编译，而不是C++的
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**** some declaration or so *****/</span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#ifdef __cplusplus
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#endif </span><span style="color:#75715e">/* __INCvxWorksh */</span><span style="color:#75715e">
+</span></span></span></code></pre></div><p><strong>2、被extern &ldquo;C&quot;修饰的变量和函数是按照C语言方式编译和链接的</strong>
+首先看看C++中对类似C的函数是怎样编译的。
+作为一种面向对象的语言，C++支持函数重载，而过程式语言C则不支持。函数被C++编译后在符号库中的名字与C语言的不同。例如，假设某个函数的原型为：
+void foo( int x, int y );
+该函数被C编译器编译后在符号库中的名字为_foo，而C++编译器则会产生像_foo_int_int之类的名字（不同的编译器可能生成的名字不同，但是都采用了相同的机制，生成的新名字称为“mangled name”）。
+** _foo_int_int这样的名字包含了函数名、函数参数数量及类型信息，C++就是靠这种机制来实现函数重载的。** 例如，在C++中，函数void foo( int x, int y )与void foo( int x, float y )编译生成的符号是不相同的，后者为_foo_int_float。
+同样地，C++中的变量除支持局部变量外，还支持类成员变量和全局变量。用户所编写程序的类成员变量可能与全局变量同名，我们以&rdquo;.&ldquo;来区分。而本质上，编译器在进行编译时，与函数的处理相似，也为类中的变量取了一个独一无二的名字，这个名字与用户程序中同名的全局变量名字不同。</p>
+<h3 id="whilescanfdneof-用法">while(scanf(&quot;%d&rdquo;,&amp;n)!=EOF) 用法<a hidden class="anchor" aria-hidden="true" href="#whilescanfdneof-用法">#</a></h3>
+<p>EOF(end of file)就是文件的结束，通常来判断文件的操作是否结束的标志。</p>
+<p>EOF不是特殊字符，而是定义在头文件&lt;stdio.h&gt;的常量，一般等于-1；</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">char</span> str[<span style="color:#ae81ff">100</span>][<span style="color:#ae81ff">100</span>];
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,j;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">while</span>(scanf(<span style="color:#e6db74">&#34;%s&#34;</span>, str[i]) <span style="color:#f92672">!=</span> EOF)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//在黑框中手动输入时，系统并不知道什么时候到达了所谓的“文件末尾“
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">//因此需要用&lt; Ctrl + Z &gt;组合键，然后按&lt; Enter &gt;键的方式来告诉系统已经到了 EOF，这样系统才会结束 while
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	i<span style="color:#f92672">++</span>;                           <span style="color:#75715e">//while((str[i]=getchar())!=&#39;\n&#39;)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span>(j<span style="color:#f92672">=</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;j<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0</span>;j<span style="color:#f92672">--</span>){
+</span></span><span style="display:flex;"><span>		printf(<span style="color:#e6db74">&#34;%s&#34;</span>,str[j]);
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span>(j<span style="color:#f92672">!=</span><span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>			printf(<span style="color:#e6db74">&#34; &#34;</span>);
+</span></span><span style="display:flex;"><span>	} 
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>除了文件结束，做题遇见最多的是标准输入，但是标准输入与文件不一样，无法事先知道输入的长度，必须手动输入一个字符，表示到达EOF：</p>
+<p>Linux中，在新的一行的开头，按下Ctrl-D，就代表EOF（如果在一行的中间按下Ctrl-D，则表示输出“标准输入”的缓存区，所以这时必须按两次Ctrl-D）；</p>
+<p>Windows中，Ctrl-Z表示EOF。 </p>
+<h3 id="结构体可以用作-map-的键吗">结构体可以用作 <code>map</code> 的键吗？<a hidden class="anchor" aria-hidden="true" href="#结构体可以用作-map-的键吗">#</a></h3>
+<p>答： 可以，结构体是可以作为 <code>map</code> 的键的，但需要满足一定的条件。首先 <code>map</code> 的底层结构是 <code>红黑树</code> ，属于 <code>平衡二叉查找树</code> 。<strong>对于map来说， key必须是有序的， 也就是说， key与key之间必须能比较， 所以需要重载  <code>&lt;</code> 号</strong> 。所以当结构体作为 <code>map</code> 的键时，必须要重载 <code>&lt;</code> 运算符。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Info</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    string name;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> score;
+</span></span><span style="display:flex;"><span> 	<span style="color:#75715e">// 重载 &lt; 运算符
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">bool</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">&lt;</span> (<span style="color:#66d9ef">const</span> Info <span style="color:#f92672">&amp;</span>x) <span style="color:#66d9ef">const</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> score <span style="color:#f92672">&lt;</span> x.score;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Info a, b;
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    a.name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;eric&#34;</span>;
+</span></span><span style="display:flex;"><span>    a.score <span style="color:#f92672">=</span> <span style="color:#ae81ff">90</span>;
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    b.name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cat&#34;</span>;
+</span></span><span style="display:flex;"><span>    b.score <span style="color:#f92672">=</span> <span style="color:#ae81ff">85</span>;
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    map<span style="color:#f92672">&lt;</span>Info, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> m;
+</span></span><span style="display:flex;"><span>    m[a] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    m[b] <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    map<span style="color:#f92672">&lt;</span>Info, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;::</span>iterator it;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(it <span style="color:#f92672">=</span> m.begin(); it <span style="color:#f92672">!=</span> m.end(); it<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> it<span style="color:#f92672">-&gt;</span>first.name <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span></code></pre></div><h3 id="c中虚函数表存储在什么位置">C++中虚函数表存储在什么位置？<a hidden class="anchor" aria-hidden="true" href="#c中虚函数表存储在什么位置">#</a></h3>
+<p>C++中<strong>虚函数表位于只读数据段（.rodata），也就是C++内存模型中的常量区；而虚函数则位于代码段（.text），也就是C++内存模型中的代码区。</strong></p>
+<h3 id="c中能不能在-main-前执行代码">C++中能不能在 <code>main</code> 前执行代码？<a hidden class="anchor" aria-hidden="true" href="#c中能不能在-main-前执行代码">#</a></h3>
+<p>答：可以。</p>
+<ol>
+<li>全局类变量的构造都在main之前。可以通过全局变量来在 <code>main</code> 前面执行代码。</li>
+<li><code>static</code> 标识符标记的全局变量在程序初始化阶段，先于 <code>main</code> 执行。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">//全局static变量的初始化在程序初始阶段，先于main函数的执行，所以可以利用这一点。在leetcode里经常见到利用一点，在main之前关闭cin与stdin的同步来“加快”速度的黑科技：
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> _ <span style="color:#f92672">=</span> []{
+</span></span><span style="display:flex;"><span>    cin.sync_with_stdio(false);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//_attribute((constructor))是gcc扩展，标记这个函数应当在main函数之前执行。同样有一个__attribute((destructor))，标记函数应当在程序结束之前（main结束之后，或者调用了exit后）执行;
+</span></span></span></code></pre></div><p>其实想一想 <code>main</code> 无非就是个入口点，只不过是更改入口点而已。</p>
+<h3 id="typedef-关键字wikihttpszhwikipediaorgwikitypedef">typedef 关键字<a href="https://zh.wikipedia.org/wiki/Typedef">wiki</a><a hidden class="anchor" aria-hidden="true" href="#typedef-关键字wikihttpszhwikipediaorgwikitypedef">#</a></h3>
+<blockquote>
+<p>在C和C++编程语言中，typedef是一个关键字。它用来对一个数据类型取一个别名，目的是为了使源代码更易于阅读和理解。它通常用于简化声明复杂的类型组成的结构 ，但它也常常在各种长度的整数数据类型中看到，例如size_t和time_t。</p>
+</blockquote>
+<p>typedef的语法是 :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> typedeclaration;
+</span></span></code></pre></div><h4 id="和结构体一起使用">和结构体一起使用<a hidden class="anchor" aria-hidden="true" href="#和结构体一起使用">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Node Node;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> Node {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> data;
+</span></span><span style="display:flex;"><span>    Node <span style="color:#f92672">*</span>nextptr;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h4 id="和指针一起使用">和指针一起使用<a hidden class="anchor" aria-hidden="true" href="#和指针一起使用">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>intptr;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>intptr cliff, allen;        <span style="color:#75715e">// both cliff and allen are int* type
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>intptr cliff2, <span style="color:#f92672">*</span>allen2;     <span style="color:#75715e">// cliff2 is int* type, but allen2 is int** type
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                            <span style="color:#75715e">// same as: intptr cliff2;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                            <span style="color:#75715e">//          intptr *allen2;
+</span></span></span></code></pre></div><h4 id="和结构体指针一起使用">和结构体指针一起使用<a hidden class="anchor" aria-hidden="true" href="#和结构体指针一起使用">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> Node Node;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> Node {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> data;
+</span></span><span style="display:flex;"><span>    Node <span style="color:#f92672">*</span>nextptr;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h4 id="和函数指针一起使用">和函数指针一起使用<a hidden class="anchor" aria-hidden="true" href="#和函数指针一起使用">#</a></h4>
+<p>先来看这段没有使用typedef的代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">do_math</span>(<span style="color:#66d9ef">float</span> arg1, <span style="color:#66d9ef">int</span> arg2) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> arg2;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">call_a_func</span>(<span style="color:#66d9ef">int</span> (<span style="color:#f92672">*</span>call_this)(<span style="color:#66d9ef">float</span>, <span style="color:#66d9ef">int</span>)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> output <span style="color:#f92672">=</span> call_this(<span style="color:#ae81ff">5.5</span>, <span style="color:#ae81ff">7</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> output;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> final_result <span style="color:#f92672">=</span> call_a_func(<span style="color:#f92672">&amp;</span>do_math);
+</span></span></code></pre></div><p>注意：这里的call_this是指向参数类型为(float, int) ,返回值是int类型的函数指针，另外注意函数指针的用法，</p>
+<p>使用typedef后这段代码可以改写为：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#a6e22e">int</span> (<span style="color:#f92672">*</span>MathFunc)(<span style="color:#66d9ef">float</span>, <span style="color:#66d9ef">int</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">do_math</span>(<span style="color:#66d9ef">float</span> arg1, <span style="color:#66d9ef">int</span> arg2) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> arg2;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">call_a_func</span>(MathFunc call_this) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> output <span style="color:#f92672">=</span> call_this(<span style="color:#ae81ff">5.5</span>, <span style="color:#ae81ff">7</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> output;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> final_result <span style="color:#f92672">=</span> call_a_func(<span style="color:#f92672">&amp;</span>do_math);
+</span></span></code></pre></div><p><strong>前加一个typedef关键字，这样就定义一个名为MathFunc的函数指针类型，而不是一个MathFunc变量。</strong></p>
+<h3 id="指针">指针<a hidden class="anchor" aria-hidden="true" href="#指针">#</a></h3>
+<h4 id="什么是指针">什么是指针？<a hidden class="anchor" aria-hidden="true" href="#什么是指针">#</a></h4>
+<p>我们指知道：C语言中的数组是指 一类 类型，数组具体区分为  int 类型数组，double类型数组,char数组 等等。同样指针 这个概念也泛指 一类 数据类型，int指针类型，double指针类型，char指针类型等等。</p>
+<p>通常，我们用int类型保存一些整型的数据，如 int num = 97 ， 我们也会用char来存储字符： char ch = &lsquo;a&rsquo;。</p>
+<p>我们也必须知道：任何程序数据载入内存后，在内存都有他们的地址，这就是指针。而为了保存一个数据在内存中的地址，我们就需要指针变量。</p>
+<p>因此：<strong>指针是程序数据在内存中的地址，而指针变量是用来保存这些地址的变量。</strong></p>
+<p>指针本身也是一种数据类型</p>
+<h4 id="为什么需要指针">为什么需要指针？<a hidden class="anchor" aria-hidden="true" href="#为什么需要指针">#</a></h4>
+<p>指针解决了一些编程中基本的问题。</p>
+<p>第一，指针的使用使得不同区域的代码可以轻易的共享内存数据。当然你也可以通过数据的复制达到相同的效果，但是这样往往效率不太好，因为诸如结构体等大型数据，占用的字节数多，复制很消耗性能。但使用指针就可以很好的避免这个问题，因为任何类型的指针占用的字节数都是一样的（根据平台不同，有4字节或者8字节或者其他可能）。</p>
+<p>第二，指针使得一些复杂的链接性的数据结构的构建成为可能，比如链表，链式二叉树等等。</p>
+<p>第三，有些操作必须使用指针。如操作申请的堆内存。还有：C语言中的一切函数调用中，值传递都是“按值传递(pass by value)”的，如果我们要在函数中修改被传递过来的对象，就必须通过这个对象的指针来完成。</p>
+<h3 id="什么是指针变量">什么是指针变量？<a hidden class="anchor" aria-hidden="true" href="#什么是指针变量">#</a></h3>
+<p><strong>指针变量是用来存放指针(地址)的变量。</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">76</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>pointer; <span style="color:#75715e">//此处int是指针变量的基类型，基类型就是指针变量指向的变量的类型
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>pointer <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>c;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//将变量c的地址赋值给指针变量pointer
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//赋值后，称指针变量pointer指向了变量c
+</span></span></span></code></pre></div><p>指针运算符 *</p>
+<p>取址运算符&amp;</p>
+<p><strong>指针变量也是变量，是变量就有地址</strong></p>
+<h3 id="关于空指针">关于空指针<a hidden class="anchor" aria-hidden="true" href="#关于空指针">#</a></h3>
+<p><strong>void*类型指针</strong></p>
+<p>由于void是空类型，因此void<em>类型的指针只保存了指针的值，而丢失了类型信息，我们不知道他指向的数据是什么类型的，只指定这个数据在内存中的起始地址，如果想要完整的提取指向的数据，程序员就必须对这个指针做出正确的类型转换，然后再解指针。因为，编译器不允许直接对void</em>类型的指针做解指针操作。</p>
+<h2 id="函数指针的几个疑惑">函数指针的几个疑惑<a hidden class="anchor" aria-hidden="true" href="#函数指针的几个疑惑">#</a></h2>
+<h3 id="问题c语言中-函数名也称为函数的指针那函数名是否也占内存空间">问题：c语言中， 函数名也称为函数的指针，那函数名是否也占内存空间？<a hidden class="anchor" aria-hidden="true" href="#问题c语言中-函数名也称为函数的指针那函数名是否也占内存空间">#</a></h3>
+<blockquote>
+<p>首先你上面的话是错误的，函数名是一段指令的入口地址，它是地址常量，不占用内存空间，只是在编译阶段存在于编译器的符号表中，例如函数的入口地址是0x123456，在翻译成<a href="https://www.baidu.com/s?wd=%E6%9C%BA%E5%99%A8%E6%8C%87%E4%BB%A4&amp;tn=SE_PcZhidaonwhc_ngpagmjz&amp;rsv_dl=gh_pc_zhidao">机器指令</a>以后，函数名是不存在的其在本质上对应汇编上的jump指令，在执行函数的时候，跳转到0x123456，这个函数名的本质就是这个地址。</p>
+</blockquote>
+<p>c语言中其他变量的原理也都是类似的</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#a6e22e">int</span> (<span style="color:#f92672">*</span>funcptr)(<span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">int</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">int</span> a,<span style="color:#66d9ef">int</span> b){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a<span style="color:#f92672">+</span>b;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">test</span>(funcptr ptr,<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y){
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;this is a test&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ptr(x, y);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span>test(add,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>)<span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span>test(<span style="color:#f92672">&amp;</span>add,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>)<span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;&amp;</span>main;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>1）其实，MyFun的函数名与FunP函数指针都是一样的，即都是函数指针。MyFun函数名是一个函数指针常量，而FunP是一个函数数指针变量，这是它们的关系。</p>
+<p>2）但函数名调用如果都得如(*MyFun)(10)这样，那书写与读起来都是不方便和不习惯的。所以C语言的设计者们才会设计成又可允许MyFun(10)这种形式地调用（这样方便多了并与数学中的函数形式一样，不是吗？）。</p>
+<p>3）为统一起见，FunP函数指针变量也可以FunP(10)的形式来调用。</p>
+<p>4）赋值时，即可FunP = &amp;MyFun形式，也可FunP = MyFun。</p>
+<h3 id="c的左值与右值">C++的左值与右值<a hidden class="anchor" aria-hidden="true" href="#c的左值与右值">#</a></h3>
+<h4 id="基本概念">基本概念<a hidden class="anchor" aria-hidden="true" href="#基本概念">#</a></h4>
+<p>左值与右值的概念在很多地方比较模糊，但其对我们对C++的理解很重要。比如我们看github上的源码的时候会看到std::move等用法，在查找其含义之后得知它功能是将左值转成右值引用，若是我们不理解左值与右值，还是无法知道它到底有什么用。</p>
+<p>我们还会经常在编译错误和警告信息中看到左值右值概念的出现。</p>
+<h4 id="左值与右值的简单定义">左值与右值的简单定义<a hidden class="anchor" aria-hidden="true" href="#左值与右值的简单定义">#</a></h4>
+<p>lvalue(locator value), 即左值，代表一个在内存中占有确定位置的对象，换句话说就是有一个地址。</p>
+<p>rvalue：一个表达式要么是lvalue，要么是rvalue。所以，不是lvalue的表达式就是rvalue。</p>
+<p>左值是指表达式结束后依然存在的持久对象，右值是指表达式结束时就不再存在的<strong>临时对象</strong>。一个区分左值与右值的便捷方法是：看能不能对表达式取地址，如果能，则为左值，否则为右值。</p>
+<h4 id="c-11中用表示左值引用用表示右值引用">C++ 11中用&amp;表示左值引用，用&amp;&amp;表示右值引用<a hidden class="anchor" aria-hidden="true" href="#c-11中用表示左值引用用表示右值引用">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// Big Block
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// https://www.nowcoder.com/discuss/418915
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>string s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;1234&#34;</span>;
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> s <span style="color:#f92672">&lt;&lt;</span> endl; <span style="color:#75715e">// &#34;1234&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>string s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;1234&#34;</span>;
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>move(s);
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> s <span style="color:#f92672">&lt;&lt;</span> endl; <span style="color:#75715e">// &#34;1234&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>string s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;1234&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> s1 <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>move(s);
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> s <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">&lt;&lt;</span> s1 <span style="color:#f92672">&lt;&lt;</span> endl; <span style="color:#75715e">// &#34;1234 1234&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>string s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;1234&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;&amp;</span> s1 <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>move(s);
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> s <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">&lt;&lt;</span> s1 <span style="color:#f92672">&lt;&lt;</span> endl; <span style="color:#75715e">// &#34;1234 1234&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>string s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;1234&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">auto</span> s1 <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>move(s);
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> s <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">&lt;&lt;</span> s1 <span style="color:#f92672">&lt;&lt;</span> endl;  <span style="color:#75715e">// &#34; 1234&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> 
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="c迭代器">C++迭代器<a hidden class="anchor" aria-hidden="true" href="#c迭代器">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>using namespace std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> v1;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">100</span>;i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(i<span style="color:#f92672">%</span><span style="color:#ae81ff">3</span> <span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>            v1.push_back(i);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;::</span>iterator it;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;::</span>iterator it<span style="color:#f92672">=</span>v1.begin(); it <span style="color:#f92672">!=</span> v1.end();it<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">*</span>it <span style="color:#f92672">+=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>        cout<span style="color:#f92672">&lt;&lt;*</span>it<span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>注意迭代器的用法</p>
+<p>::不要丢掉，否则语法错误；迭代器的本质是指针，指针在使用之前一定要赋值</p>
+<h3 id="小知识">小知识<a hidden class="anchor" aria-hidden="true" href="#小知识">#</a></h3>
+<ol>
+<li>c语言print()函数的参数
+<ol>
+<li>%d        &mdash;&mdash;&ndash;dicimal(base 10)</li>
+<li>%x         &mdash;&mdash;&ndash;hexadecimat(base 16)</li>
+<li>%o         &mdash;&mdash;&ndash;octal(base 8)</li>
+</ol>
+</li>
+</ol>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://oxygenbytes.github.io/tags/c&#43;&#43;/">C&#43;&#43;</a></li>
+    </ul>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share C&#43;&#43;基础知识 on twitter"
+        href="https://twitter.com/intent/tweet/?text=C%2b%2b%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%86&amp;url=https%3a%2f%2foxygenbytes.github.io%2fposts%2fcplus%2fc%2b%2b%25E5%259F%25BA%25E7%25A1%2580%25E7%259F%25A5%25E8%25AF%2586%2f&amp;hashtags=C%2b%2b">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share C&#43;&#43;基础知识 on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2foxygenbytes.github.io%2fposts%2fcplus%2fc%2b%2b%25E5%259F%25BA%25E7%25A1%2580%25E7%259F%25A5%25E8%25AF%2586%2f&amp;title=C%2b%2b%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%86&amp;summary=C%2b%2b%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%86&amp;source=https%3a%2f%2foxygenbytes.github.io%2fposts%2fcplus%2fc%2b%2b%25E5%259F%25BA%25E7%25A1%2580%25E7%259F%25A5%25E8%25AF%2586%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share C&#43;&#43;基础知识 on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2foxygenbytes.github.io%2fposts%2fcplus%2fc%2b%2b%25E5%259F%25BA%25E7%25A1%2580%25E7%259F%25A5%25E8%25AF%2586%2f&title=C%2b%2b%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%86">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share C&#43;&#43;基础知识 on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2foxygenbytes.github.io%2fposts%2fcplus%2fc%2b%2b%25E5%259F%25BA%25E7%25A1%2580%25E7%259F%25A5%25E8%25AF%2586%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share C&#43;&#43;基础知识 on whatsapp"
+        href="https://api.whatsapp.com/send?text=C%2b%2b%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%86%20-%20https%3a%2f%2foxygenbytes.github.io%2fposts%2fcplus%2fc%2b%2b%25E5%259F%25BA%25E7%25A1%2580%25E7%259F%25A5%25E8%25AF%2586%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share C&#43;&#43;基础知识 on telegram"
+        href="https://telegram.me/share/url?text=C%2b%2b%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%86&amp;url=https%3a%2f%2foxygenbytes.github.io%2fposts%2fcplus%2fc%2b%2b%25E5%259F%25BA%25E7%25A1%2580%25E7%259F%25A5%25E8%25AF%2586%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://oxygenbytes.github.io">Zxq&#39;s Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

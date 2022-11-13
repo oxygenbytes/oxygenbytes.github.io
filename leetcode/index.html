@@ -1,1832 +1,421 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="zxq ">
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<meta name="robots" content="noodp" />
-<meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://oxygenbytes.github.io/leetcode/" />
+<meta name="robots" content="index, follow">
+<title>Leetcodes | Zxq&#39;s Site</title>
+<meta name="keywords" content="">
+<meta name="description" content="Leetcodes - Zxq&#39;s Site">
+<meta name="author" content="">
+<link rel="canonical" href="https://oxygenbytes.github.io/leetcode/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css" integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://oxygenbytes.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://oxygenbytes.github.io/leetcode/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
-    <title>
-        
-            Leetcodes :: Zxq&#39;s Blog  — Zxq&#39;s Site
-        
-    </title>
+            .list {
+                background: var(--theme);
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
-    type="text/css">
-
-
-
-<link rel="stylesheet" href="https://oxygenbytes.github.io/main.min.d235e788b40b442aba9cd6c69fdc330353b2dec27dcbc4235961469d2155f5a9.css">
-
-
-
-
-    <link rel="apple-touch-icon" sizes="180x180" href="https://oxygenbytes.github.io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
-    <link rel="manifest" href="https://oxygenbytes.github.io/site.webmanifest">
-    <link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://oxygenbytes.github.io/favicon.ico">
-    <meta name="msapplication-TileColor" content="#252627">
-    <meta name="theme-color" content="#252627">
-
-<meta itemprop="name" content="Leetcodes">
-<meta itemprop="description" content="Personal Blog Website"><meta property="og:title" content="Leetcodes" />
-<meta property="og:description" content="Personal Blog Website" />
+    </style>
+</noscript><meta property="og:title" content="Leetcodes" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://oxygenbytes.github.io/leetcode/" /><meta property="og:image" content="https://oxygenbytes.github.io/"/>
+<meta property="og:url" content="https://oxygenbytes.github.io/leetcode/" />
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://oxygenbytes.github.io/"/>
-
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcodes"/>
-<meta name="twitter:description" content="Personal Blog Website"/>
+<meta name="twitter:description" content=""/>
 
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Leetcodes",
+      "item": "https://oxygenbytes.github.io/leetcode/"
+    }
+  ]
+}
+</script>
+</head>
 
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
+</script>
 
-
-
-<link rel="alternate" type="application/rss+xml" href="https://oxygenbytes.github.io/leetcode/index.xml" title="Zxq's Blog" />
-
-
-
-
-
-    </head>
-
-    <body class="">
-        <div class="container">
-            <header class="header">
-    <span class="header__inner">
-        <a href="https://oxygenbytes.github.io/" style="text-decoration: none;">
-    <div class="logo">
-        
-            <span class="logo__mark">></span>
-            <span class="logo__text">$cd /home/zxq/blogs/</span>
-            <span class="logo__cursor" style=
-                  "
-                   background-color:#00FF00;
-                   animation-duration:2s;">
-            </span>
-        
-    </div>
-</a>
-
-
-        <span class="header__right">
-            
-                <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://oxygenbytes.github.io/posts/">Posts</a></li><li><a href="https://oxygenbytes.github.io/leetcode/">Leetcode</a></li><li><a href="https://oxygenbytes.github.io/swordoffer/">SwordOffer</a></li><li><a href="https://oxygenbytes.github.io/about/">About</a></li>
-    </ul>
-</nav>
-
-                <span class="menu-trigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://oxygenbytes.github.io" accesskey="h" title="Zxq&#39;s Site (Alt + H)">Zxq&#39;s Site</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                </span>
-            
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
-        </span>
-    </span>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://oxygenbytes.github.io/" title="🏠主页">
+                    <span>🏠主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/posts" title="📚文章">
+                    <span>📚文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/archives/" title="⏱时间轴">
+                    <span>⏱时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/tags" title="🔖标签">
+                    <span>🔖标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/about" title="🙋🏻‍♂️关于">
+                    <span>🙋🏻‍♂️关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://oxygenbytes.github.io">Home</a></div>
+  <h1>
+    Leetcodes
+  </h1>
 </header>
 
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[63]不同路径 II
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。 // // 机器人每次只能向下或者向右移动一步。机器人试图达到网格的...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-14 14:13:48 +0800 CST'>2021-06-14</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [63]不同路径 II" href="https://oxygenbytes.github.io/leetcode/dp/63%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84-ii-/"></a>
+</article>
 
-            <div class="content">
-                
-    <main class="posts">
-        <h1>Leetcodes</h1>
-            <div class="posts-group">
-                <div class="post-year">2022</div>
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[96]不同的二叉搜索树
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给你一个整数 n ，求恰由 n 个节点组成且节点值从 1 到 n 互不相同的 二叉搜索树 有多少种？返回满足题意的二叉搜索树的种数。 // // // // 示例 1： // // //...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-14 14:03:03 +0800 CST'>2021-06-14</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [96]不同的二叉搜索树" href="https://oxygenbytes.github.io/leetcode/dp/96%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-/"></a>
+</article>
 
-                <ul class="posts-list">
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/array/27%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/">
-                                <span class="post-title">[27]移除元素</span>
-                                <span class="post-day">
-                                    
-                                        Jan 3
-                                    
-                                </span>
-                            </a>
-                        </li>
-                </ul>
-            </div>
-            <div class="posts-group">
-                <div class="post-year">2021</div>
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[200]岛屿数量
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给你一个由 &#39;1&#39;（陆地）和 &#39;0&#39;（水）组成的的二维网格，请你计算网格中岛屿的数量。 // // 岛屿总是被水包围，...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-14 13:07:54 +0800 CST'>2021-06-14</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [200]岛屿数量" href="https://oxygenbytes.github.io/leetcode/dfs/200%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F-/"></a>
+</article>
 
-                <ul class="posts-list">
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/dp/63%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84-ii-/">
-                                <span class="post-title">[63]不同路径 II</span>
-                                <span class="post-day">
-                                    
-                                        Jun 14
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/dp/96%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-/">
-                                <span class="post-title">[96]不同的二叉搜索树</span>
-                                <span class="post-day">
-                                    
-                                        Jun 14
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/dfs/200%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F-/">
-                                <span class="post-title">[200]岛屿数量</span>
-                                <span class="post-day">
-                                    
-                                        Jun 14
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/stack/735%E8%A1%8C%E6%98%9F%E7%A2%B0%E6%92%9E-/">
-                                <span class="post-title">[735]行星碰撞</span>
-                                <span class="post-day">
-                                    
-                                        Jun 13
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/stack/739%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6-/">
-                                <span class="post-title">[739]每日温度</span>
-                                <span class="post-day">
-                                    
-                                        Jun 13
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/binarysearch/33-ii%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84-/">
-                                <span class="post-title">[33]搜索旋转排序数组</span>
-                                <span class="post-day">
-                                    
-                                        Jun 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/binarysearch/153-ii%E5%AF%BB%E6%89%BE%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC-/">
-                                <span class="post-title">[153]寻找旋转排序数组中的最小值</span>
-                                <span class="post-day">
-                                    
-                                        Jun 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/binarysearch/34-ii%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE-/">
-                                <span class="post-title">[34]在排序数组中查找元素的第一个和最后一个位置</span>
-                                <span class="post-day">
-                                    
-                                        Jun 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/binarysearch/35-ii%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE-/">
-                                <span class="post-title">[35]搜索插入位置</span>
-                                <span class="post-day">
-                                    
-                                        Jun 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/binarysearch/69-iix-%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9-/">
-                                <span class="post-title">[69]x 的平方根</span>
-                                <span class="post-day">
-                                    
-                                        Jun 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/stack/80%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9-ii-/">
-                                <span class="post-title">[80]删除有序数组中的重复项 II</span>
-                                <span class="post-day">
-                                    
-                                        Jun 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/doublepointer/283-ii%E7%A7%BB%E5%8A%A8%E9%9B%B6-/">
-                                <span class="post-title">[283]移动零</span>
-                                <span class="post-day">
-                                    
-                                        Jun 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/doublepointer/42-ii%E6%8E%A5%E9%9B%A8%E6%B0%B4-/">
-                                <span class="post-title">[42]接雨水</span>
-                                <span class="post-day">
-                                    
-                                        Jun 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/doublepointer/11-ii%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-/">
-                                <span class="post-title">[11]盛最多水的容器</span>
-                                <span class="post-day">
-                                    
-                                        Jun 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/doublepointer/26-ii%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9-/">
-                                <span class="post-title">[26]删除有序数组中的重复项</span>
-                                <span class="post-day">
-                                    
-                                        Jun 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/doublepointer/344%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2-/">
-                                <span class="post-title">[344]反转字符串</span>
-                                <span class="post-day">
-                                    
-                                        Jun 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/stack/84%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2-/">
-                                <span class="post-title">[84]柱状图中最大的矩形</span>
-                                <span class="post-day">
-                                    
-                                        Jun 11
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/114%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B1%95%E5%BC%80%E4%B8%BA%E9%93%BE%E8%A1%A8-/">
-                                <span class="post-title">[114]二叉树展开为链表</span>
-                                <span class="post-day">
-                                    
-                                        Jun 11
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/139-ii%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86-/">
-                                <span class="post-title">[139]单词拆分</span>
-                                <span class="post-day">
-                                    
-                                        Jun 11
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/75%E9%A2%9C%E8%89%B2%E5%88%86%E7%B1%BB-/">
-                                <span class="post-title">[75]颜色分类</span>
-                                <span class="post-day">
-                                    
-                                        Jun 11
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/470-ii%E7%94%A8-rand7-%E5%AE%9E%E7%8E%B0-rand10-/">
-                                <span class="post-title">[470]用 Rand7() 实现 Rand10()</span>
-                                <span class="post-day">
-                                    
-                                        Jun 11
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/459%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2-/">
-                                <span class="post-title">[459]重复的子字符串</span>
-                                <span class="post-day">
-                                    
-                                        Jun 11
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/28%E5%AE%9E%E7%8E%B0-strstr-/">
-                                <span class="post-title">[28]实现 strStr()</span>
-                                <span class="post-day">
-                                    
-                                        Jun 11
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/dp/10%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D-/">
-                                <span class="post-title">[10]正则表达式匹配</span>
-                                <span class="post-day">
-                                    
-                                        Jun 11
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/279-ii%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0-/">
-                                <span class="post-title">[279]完全平方数</span>
-                                <span class="post-day">
-                                    
-                                        Jun 11
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/376%E6%91%86%E5%8A%A8%E5%BA%8F%E5%88%97/">
-                                <span class="post-title">[376]摆动序列</span>
-                                <span class="post-day">
-                                    
-                                        Mar 19
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/45%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F-ii/">
-                                <span class="post-title">[45]跳跃游戏 II</span>
-                                <span class="post-day">
-                                    
-                                        Mar 18
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/55%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/">
-                                <span class="post-title">[55]跳跃游戏</span>
-                                <span class="post-day">
-                                    
-                                        Mar 18
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/455%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2/">
-                                <span class="post-title">[455]分发饼干</span>
-                                <span class="post-day">
-                                    
-                                        Mar 18
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/392%E5%88%A4%E6%96%AD%E5%AD%90%E5%BA%8F%E5%88%97/">
-                                <span class="post-title">[392]判断子序列</span>
-                                <span class="post-day">
-                                    
-                                        Mar 18
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/860%E6%9F%A0%E6%AA%AC%E6%B0%B4%E6%89%BE%E9%9B%B6/">
-                                <span class="post-title">[860]柠檬水找零</span>
-                                <span class="post-day">
-                                    
-                                        Mar 18
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/130%E8%A2%AB%E5%9B%B4%E7%BB%95%E7%9A%84%E5%8C%BA%E5%9F%9F/">
-                                <span class="post-title">[130]被围绕的区域</span>
-                                <span class="post-day">
-                                    
-                                        Mar 16
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/733%E5%9B%BE%E5%83%8F%E6%B8%B2%E6%9F%93/">
-                                <span class="post-title">[733]图像渲染</span>
-                                <span class="post-day">
-                                    
-                                        Mar 16
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/279%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/">
-                                <span class="post-title">[279]完全平方数</span>
-                                <span class="post-day">
-                                    
-                                        Mar 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/111-ii%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%B0%8F%E6%B7%B1%E5%BA%A6/">
-                                <span class="post-title">[111]二叉树的最小深度</span>
-                                <span class="post-day">
-                                    
-                                        Mar 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/371%E4%B8%A4%E6%95%B4%E6%95%B0%E4%B9%8B%E5%92%8C/">
-                                <span class="post-title">[371]两整数之和</span>
-                                <span class="post-day">
-                                    
-                                        Mar 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/260%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97-iii/">
-                                <span class="post-title">[260]只出现一次的数字 III</span>
-                                <span class="post-day">
-                                    
-                                        Mar 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/137%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97-ii/">
-                                <span class="post-title">[137]只出现一次的数字 II</span>
-                                <span class="post-day">
-                                    
-                                        Mar 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/476%E6%95%B0%E5%AD%97%E7%9A%84%E8%A1%A5%E6%95%B0/">
-                                <span class="post-title">[476]数字的补数</span>
-                                <span class="post-day">
-                                    
-                                        Mar 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/136%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/">
-                                <span class="post-title">[136]只出现一次的数字</span>
-                                <span class="post-day">
-                                    
-                                        Mar 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/762%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA%E4%B8%AD%E8%B4%A8%E6%95%B0%E4%B8%AA%E8%AE%A1%E7%AE%97%E7%BD%AE%E4%BD%8D/">
-                                <span class="post-title">[762]二进制表示中质数个计算置位</span>
-                                <span class="post-day">
-                                    
-                                        Mar 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/2312%E7%9A%84%E5%B9%82/">
-                                <span class="post-title">[231]2的幂</span>
-                                <span class="post-day">
-                                    
-                                        Mar 12
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/9%E5%9B%9E%E6%96%87%E6%95%B0/">
-                                <span class="post-title">[9]回文数</span>
-                                <span class="post-day">
-                                    
-                                        Mar 8
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/128%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%BA%8F%E5%88%97/">
-                                <span class="post-title">[128]最长连续序列</span>
-                                <span class="post-day">
-                                    
-                                        Mar 8
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/32%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/">
-                                <span class="post-title">[32]最长有效括号</span>
-                                <span class="post-day">
-                                    
-                                        Mar 7
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/198%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/">
-                                <span class="post-title">[198]打家劫舍</span>
-                                <span class="post-day">
-                                    
-                                        Mar 7
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/240%E6%90%9C%E7%B4%A2%E4%BA%8C%E7%BB%B4%E7%9F%A9%E9%98%B5-ii/">
-                                <span class="post-title">[240]搜索二维矩阵 II</span>
-                                <span class="post-day">
-                                    
-                                        Mar 7
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/162%E5%AF%BB%E6%89%BE%E5%B3%B0%E5%80%BC/">
-                                <span class="post-title">[162]寻找峰值</span>
-                                <span class="post-day">
-                                    
-                                        Mar 7
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/31%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97/">
-                                <span class="post-title">[31]下一个排列</span>
-                                <span class="post-day">
-                                    
-                                        Mar 7
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/122%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-ii/">
-                                <span class="post-title">[122]买卖股票的最佳时机 II</span>
-                                <span class="post-day">
-                                    
-                                        Mar 6
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/39%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C/">
-                                <span class="post-title">[39]组合总和</span>
-                                <span class="post-day">
-                                    
-                                        Mar 6
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/4%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/">
-                                <span class="post-title">[4]寻找两个正序数组的中位数</span>
-                                <span class="post-day">
-                                    
-                                        Mar 6
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/48%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/">
-                                <span class="post-title">[48]旋转图像</span>
-                                <span class="post-day">
-                                    
-                                        Mar 6
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/151-ii%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D/">
-                                <span class="post-title">[151]翻转字符串里的单词</span>
-                                <span class="post-day">
-                                    
-                                        Mar 6
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/300-ii%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">
-                                <span class="post-title">[300]最长递增子序列</span>
-                                <span class="post-day">
-                                    
-                                        Mar 4
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/145%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/">
-                                <span class="post-title">[145]二叉树的后序遍历</span>
-                                <span class="post-day">
-                                    
-                                        Mar 4
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/139%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86/">
-                                <span class="post-title">[139]单词拆分</span>
-                                <span class="post-day">
-                                    
-                                        Mar 4
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/814%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%AA%E6%9E%9D/">
-                                <span class="post-title">[814]二叉树剪枝</span>
-                                <span class="post-day">
-                                    
-                                        Mar 4
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/143%E9%87%8D%E6%8E%92%E9%93%BE%E8%A1%A8/">
-                                <span class="post-title">[143]重排链表</span>
-                                <span class="post-day">
-                                    
-                                        Mar 4
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/56%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/">
-                                <span class="post-title">[56]合并区间</span>
-                                <span class="post-day">
-                                    
-                                        Mar 4
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/300%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">
-                                <span class="post-title">[300]最长递增子序列</span>
-                                <span class="post-day">
-                                    
-                                        Mar 4
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/958%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%AE%8C%E5%85%A8%E6%80%A7%E6%A3%80%E9%AA%8C/">
-                                <span class="post-title">[958]二叉树的完全性检验</span>
-                                <span class="post-day">
-                                    
-                                        Mar 4
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/142-ii%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8-ii/">
-                                <span class="post-title">[142]环形链表 II</span>
-                                <span class="post-day">
-                                    
-                                        Mar 4
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/124%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E5%92%8C/">
-                                <span class="post-title">[124]二叉树中的最大路径和</span>
-                                <span class="post-day">
-                                    
-                                        Mar 4
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/234%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/">
-                                <span class="post-title">[234]回文链表</span>
-                                <span class="post-day">
-                                    
-                                        Mar 4
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/200%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/">
-                                <span class="post-title">[200]岛屿数量</span>
-                                <span class="post-day">
-                                    
-                                        Mar 4
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/41%E7%BC%BA%E5%A4%B1%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%AD%A3%E6%95%B0/">
-                                <span class="post-title">[41]缺失的第一个正数</span>
-                                <span class="post-day">
-                                    
-                                        Mar 4
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/113%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8C-ii/">
-                                <span class="post-title">[113]路径总和 II</span>
-                                <span class="post-day">
-                                    
-                                        Mar 4
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/26%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/">
-                                <span class="post-title">[26]删除排序数组中的重复项</span>
-                                <span class="post-day">
-                                    
-                                        Mar 3
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/88%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/">
-                                <span class="post-title">[88]合并两个有序数组</span>
-                                <span class="post-day">
-                                    
-                                        Mar 3
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/167%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C-ii-%E8%BE%93%E5%85%A5%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/">
-                                <span class="post-title">[167]两数之和 II - 输入有序数组</span>
-                                <span class="post-day">
-                                    
-                                        Mar 3
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/11%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/">
-                                <span class="post-title">[11]盛最多水的容器</span>
-                                <span class="post-day">
-                                    
-                                        Mar 2
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/42%E6%8E%A5%E9%9B%A8%E6%B0%B4/">
-                                <span class="post-title">[42]接雨水</span>
-                                <span class="post-day">
-                                    
-                                        Mar 2
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/54%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/">
-                                <span class="post-title">[54]螺旋矩阵</span>
-                                <span class="post-day">
-                                    
-                                        Mar 1
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/199%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%8F%B3%E8%A7%86%E5%9B%BE/">
-                                <span class="post-title">[199]二叉树的右视图</span>
-                                <span class="post-day">
-                                    
-                                        Mar 1
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/470%E7%94%A8-rand7-%E5%AE%9E%E7%8E%B0-rand10/">
-                                <span class="post-title">[470]用 Rand7() 实现 Rand10()</span>
-                                <span class="post-day">
-                                    
-                                        Mar 1
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/442%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E6%8D%AE/">
-                                <span class="post-title">[442]数组中重复的数据</span>
-                                <span class="post-day">
-                                    
-                                        Mar 1
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/93%E5%A4%8D%E5%8E%9F-ip-%E5%9C%B0%E5%9D%80/">
-                                <span class="post-title">[93]复原 IP 地址</span>
-                                <span class="post-day">
-                                    
-                                        Mar 1
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/24-ii%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/">
-                                <span class="post-title">[24]两两交换链表中的节点</span>
-                                <span class="post-day">
-                                    
-                                        Mar 1
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/146lru-%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/">
-                                <span class="post-title">[146]LRU 缓存机制</span>
-                                <span class="post-day">
-                                    
-                                        Mar 1
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/78-ii%E5%AD%90%E9%9B%86/">
-                                <span class="post-title">[78]子集</span>
-                                <span class="post-day">
-                                    
-                                        Feb 28
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/47%E5%85%A8%E6%8E%92%E5%88%97-ii/">
-                                <span class="post-title">[47]全排列 II</span>
-                                <span class="post-day">
-                                    
-                                        Feb 28
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/147%E5%AF%B9%E9%93%BE%E8%A1%A8%E8%BF%9B%E8%A1%8C%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">
-                                <span class="post-title">[147]对链表进行插入排序</span>
-                                <span class="post-day">
-                                    
-                                        Feb 28
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/79%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/">
-                                <span class="post-title">[79]单词搜索</span>
-                                <span class="post-day">
-                                    
-                                        Feb 28
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/151%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D/">
-                                <span class="post-title">[151]翻转字符串里的单词</span>
-                                <span class="post-day">
-                                    
-                                        Feb 27
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/49%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D%E5%88%86%E7%BB%84/">
-                                <span class="post-title">[49]字母异位词分组</span>
-                                <span class="post-day">
-                                    
-                                        Feb 27
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/38%E5%A4%96%E8%A7%82%E6%95%B0%E5%88%97/">
-                                <span class="post-title">[38]外观数列</span>
-                                <span class="post-day">
-                                    
-                                        Feb 27
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/22%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/">
-                                <span class="post-title">[22]括号生成</span>
-                                <span class="post-day">
-                                    
-                                        Feb 27
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/543-ii%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/">
-                                <span class="post-title">[543]二叉树的直径</span>
-                                <span class="post-day">
-                                    
-                                        Feb 27
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/236%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">
-                                <span class="post-title">[236]二叉树的最近公共祖先</span>
-                                <span class="post-day">
-                                    
-                                        Feb 27
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/105%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                                <span class="post-title">[105]从前序与中序遍历序列构造二叉树</span>
-                                <span class="post-day">
-                                    
-                                        Feb 27
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/101-ii%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                                <span class="post-title">[101]对称二叉树</span>
-                                <span class="post-day">
-                                    
-                                        Feb 27
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/148%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/">
-                                <span class="post-title">[148]排序链表</span>
-                                <span class="post-day">
-                                    
-                                        Feb 27
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/141-ii%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/">
-                                <span class="post-title">[141]环形链表</span>
-                                <span class="post-day">
-                                    
-                                        Feb 27
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/142%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8-ii/">
-                                <span class="post-title">[142]环形链表 II</span>
-                                <span class="post-day">
-                                    
-                                        Feb 27
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/160%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/">
-                                <span class="post-title">[160]相交链表</span>
-                                <span class="post-day">
-                                    
-                                        Feb 26
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/92%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8-ii/">
-                                <span class="post-title">[92]反转链表 II</span>
-                                <span class="post-day">
-                                    
-                                        Feb 26
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/24%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/">
-                                <span class="post-title">[24]两两交换链表中的节点</span>
-                                <span class="post-day">
-                                    
-                                        Feb 26
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/61-ii%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/">
-                                <span class="post-title">[61]旋转链表</span>
-                                <span class="post-day">
-                                    
-                                        Feb 26
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/83%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/">
-                                <span class="post-title">[83]删除排序链表中的重复元素</span>
-                                <span class="post-day">
-                                    
-                                        Feb 26
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/237%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/">
-                                <span class="post-title">[237]删除链表中的节点</span>
-                                <span class="post-day">
-                                    
-                                        Feb 26
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/19-ii%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%AC-n-%E4%B8%AA%E7%BB%93%E7%82%B9/">
-                                <span class="post-title">[19]删除链表的倒数第 N 个结点</span>
-                                <span class="post-day">
-                                    
-                                        Feb 26
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/278%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E7%89%88%E6%9C%AC/">
-                                <span class="post-title">[278]第一个错误的版本</span>
-                                <span class="post-day">
-                                    
-                                        Feb 26
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/33%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/">
-                                <span class="post-title">[33]搜索旋转排序数组</span>
-                                <span class="post-day">
-                                    
-                                        Feb 26
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/153%E5%AF%BB%E6%89%BE%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC/">
-                                <span class="post-title">[153]寻找旋转排序数组中的最小值</span>
-                                <span class="post-day">
-                                    
-                                        Feb 26
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/74%E6%90%9C%E7%B4%A2%E4%BA%8C%E7%BB%B4%E7%9F%A9%E9%98%B5/">
-                                <span class="post-title">[74]搜索二维矩阵</span>
-                                <span class="post-day">
-                                    
-                                        Feb 26
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/69x-%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/">
-                                <span class="post-title">[69]x 的平方根</span>
-                                <span class="post-day">
-                                    
-                                        Feb 26
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/35%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/">
-                                <span class="post-title">[35]搜索插入位置</span>
-                                <span class="post-day">
-                                    
-                                        Feb 26
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/34%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE/">
-                                <span class="post-title">[34]在排序数组中查找元素的第一个和最后一个位置</span>
-                                <span class="post-day">
-                                    
-                                        Feb 26
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/17-ii%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/">
-                                <span class="post-title">[17]电话号码的字母组合</span>
-                                <span class="post-day">
-                                    
-                                        Feb 26
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/18%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/">
-                                <span class="post-title">[18]四数之和</span>
-                                <span class="post-day">
-                                    
-                                        Feb 26
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/468%E9%AA%8C%E8%AF%81ip%E5%9C%B0%E5%9D%80/">
-                                <span class="post-title">[468]验证IP地址</span>
-                                <span class="post-day">
-                                    
-                                        Feb 24
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/1143%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/">
-                                <span class="post-title">[1143]最长公共子序列</span>
-                                <span class="post-day">
-                                    
-                                        Feb 24
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/64%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/">
-                                <span class="post-title">[64]最小路径和</span>
-                                <span class="post-day">
-                                    
-                                        Feb 24
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/25k-%E4%B8%AA%E4%B8%80%E7%BB%84%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8/">
-                                <span class="post-title">[25]K 个一组翻转链表</span>
-                                <span class="post-day">
-                                    
-                                        Feb 24
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/415%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/">
-                                <span class="post-title">[415]字符串相加</span>
-                                <span class="post-day">
-                                    
-                                        Feb 23
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/206-ii%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">
-                                <span class="post-title">[206]反转链表</span>
-                                <span class="post-day">
-                                    
-                                        Feb 23
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/169%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0/">
-                                <span class="post-title">[169]多数元素</span>
-                                <span class="post-day">
-                                    
-                                        Feb 23
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/stack/20%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/">
-                                <span class="post-title">[20]有效的括号</span>
-                                <span class="post-day">
-                                    
-                                        Feb 23
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/17%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/">
-                                <span class="post-title">[17]电话号码的字母组合</span>
-                                <span class="post-day">
-                                    
-                                        Feb 23
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/226%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                                <span class="post-title">[226]翻转二叉树</span>
-                                <span class="post-day">
-                                    
-                                        Feb 23
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/120%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/">
-                                <span class="post-title">[120]三角形最小路径和</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/115%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97/">
-                                <span class="post-title">[115]不同的子序列</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/91%E8%A7%A3%E7%A0%81%E6%96%B9%E6%B3%95/">
-                                <span class="post-title">[91]解码方法</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/82%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0-ii/">
-                                <span class="post-title">[82]删除排序链表中的重复元素 II</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/61%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/">
-                                <span class="post-title">[61]旋转链表</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/72%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/">
-                                <span class="post-title">[72]编辑距离</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/23%E5%90%88%E5%B9%B6k%E4%B8%AA%E5%8D%87%E5%BA%8F%E9%93%BE%E8%A1%A8/">
-                                <span class="post-title">[23]合并K个升序链表</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/19%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%AC-n-%E4%B8%AA%E7%BB%93%E7%82%B9/">
-                                <span class="post-title">[19]删除链表的倒数第 N 个结点</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/doublepointer/5%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/">
-                                <span class="post-title">[5]最长回文子串</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/101%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                                <span class="post-title">[101]对称二叉树</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/46%E5%85%A8%E6%8E%92%E5%88%97/">
-                                <span class="post-title">[46]全排列</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/78%E5%AD%90%E9%9B%86/">
-                                <span class="post-title">[78]子集</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/77%E7%BB%84%E5%90%88/">
-                                <span class="post-title">[77]组合</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/283%E7%A7%BB%E5%8A%A8%E9%9B%B6/">
-                                <span class="post-title">[283]移动零</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/215%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E7%AC%ACk%E4%B8%AA%E6%9C%80%E5%A4%A7%E5%85%83%E7%B4%A0/">
-                                <span class="post-title">[215]数组中的第K个最大元素</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/8%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E6%95%B0-atoi/">
-                                <span class="post-title">[8]字符串转换整数 (atoi)</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/7%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/">
-                                <span class="post-title">[7]整数反转</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/15%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">
-                                <span class="post-title">[15]三数之和</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/144%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86/">
-                                <span class="post-title">[144]二叉树的前序遍历</span>
-                                <span class="post-day">
-                                    
-                                        Feb 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/206%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">
-                                <span class="post-title">[206]反转链表</span>
-                                <span class="post-day">
-                                    
-                                        Feb 21
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/191%E4%BD%8D1%E7%9A%84%E4%B8%AA%E6%95%B0/">
-                                <span class="post-title">[191]位1的个数</span>
-                                <span class="post-day">
-                                    
-                                        Feb 21
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/111%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%B0%8F%E6%B7%B1%E5%BA%A6/">
-                                <span class="post-title">[111]二叉树的最小深度</span>
-                                <span class="post-day">
-                                    
-                                        Feb 21
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/104%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/">
-                                <span class="post-title">[104]二叉树的最大深度</span>
-                                <span class="post-day">
-                                    
-                                        Feb 21
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/102%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/">
-                                <span class="post-title">[102]二叉树的层序遍历</span>
-                                <span class="post-day">
-                                    
-                                        Feb 21
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/94%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/">
-                                <span class="post-title">[94]二叉树的中序遍历</span>
-                                <span class="post-day">
-                                    
-                                        Feb 21
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/617%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                                <span class="post-title">[617]合并二叉树</span>
-                                <span class="post-day">
-                                    
-                                        Feb 21
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/63%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84-ii/">
-                                <span class="post-title">[62]不同路径 II</span>
-                                <span class="post-day">
-                                    
-                                        Feb 21
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/62%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/">
-                                <span class="post-title">[62]不同路径</span>
-                                <span class="post-day">
-                                    
-                                        Feb 21
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/hashmap/3%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/">
-                                <span class="post-title">[3]无重复字符的最长子串</span>
-                                <span class="post-day">
-                                    
-                                        Feb 21
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/687%E6%9C%80%E9%95%BF%E5%90%8C%E5%80%BC%E8%B7%AF%E5%BE%84/">
-                                <span class="post-title">[687]最长同值路径</span>
-                                <span class="post-day">
-                                    
-                                        Feb 21
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/543%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/">
-                                <span class="post-title">[543]二叉树的直径</span>
-                                <span class="post-day">
-                                    
-                                        Feb 21
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/110%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                                <span class="post-title">[110]平衡二叉树</span>
-                                <span class="post-day">
-                                    
-                                        Feb 21
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/98%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/">
-                                <span class="post-title">[98]验证二叉搜索树</span>
-                                <span class="post-day">
-                                    
-                                        Feb 20
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/2%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/">
-                                <span class="post-title">[2]两数相加</span>
-                                <span class="post-day">
-                                    
-                                        Feb 20
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/hashmap/1%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
-                                <span class="post-title">[1]两数之和</span>
-                                <span class="post-day">
-                                    
-                                        Feb 20
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/21%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/">
-                                <span class="post-title">[21]合并两个有序链表</span>
-                                <span class="post-day">
-                                    
-                                        Feb 20
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/70%E7%88%AC%E6%A5%BC%E6%A2%AF/">
-                                <span class="post-title">[70]爬楼梯</span>
-                                <span class="post-day">
-                                    
-                                        Feb 20
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/tree/100%E7%9B%B8%E5%90%8C%E7%9A%84%E6%A0%91/">
-                                <span class="post-title">[100]相同的树</span>
-                                <span class="post-day">
-                                    
-                                        Feb 20
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/list/141%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/">
-                                <span class="post-title">[141]环形链表</span>
-                                <span class="post-day">
-                                    
-                                        Feb 20
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/53%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/">
-                                <span class="post-title">[53]最大子序和</span>
-                                <span class="post-day">
-                                    
-                                        Feb 20
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/14%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/">
-                                <span class="post-title">[14]最长公共前缀</span>
-                                <span class="post-day">
-                                    
-                                        Feb 19
-                                    
-                                </span>
-                            </a>
-                        </li>
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/binarysearch/1760%E8%A2%8B%E5%AD%90%E9%87%8C%E6%9C%80%E5%B0%91%E6%95%B0%E7%9B%AE%E7%9A%84%E7%90%83/">
-                                <span class="post-title">[1760]袋子里最少数目的球</span>
-                                <span class="post-day">
-                                    
-                                        Feb 19
-                                    
-                                </span>
-                            </a>
-                        </li>
-                </ul>
-            </div>
-            <div class="posts-group">
-                <div class="post-year">2020</div>
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[735]行星碰撞
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定一个整数数组 asteroids，表示在同一行的行星。 // // 对于数组中的每一个元素，其绝对值表示行星的大小，正负表示行星的移动方向（正表...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-13 18:37:15 +0800 CST'>2021-06-13</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [735]行星碰撞" href="https://oxygenbytes.github.io/leetcode/stack/735%E8%A1%8C%E6%98%9F%E7%A2%B0%E6%92%9E-/"></a>
+</article>
 
-                <ul class="posts-list">
-                        <li class="post-item">
-                            <a href="https://oxygenbytes.github.io/leetcode/leetcodeformat/">
-                                <span class="post-title">关于博客的Leetcode代码的格式和生成</span>
-                                <span class="post-day">
-                                    
-                                        Aug 22
-                                    
-                                </span>
-                            </a>
-                        </li>
-                </ul>
-            </div>
-    </main>
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[739]每日温度
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-13 18:08:44 +0800 CST'>2021-06-13</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [739]每日温度" href="https://oxygenbytes.github.io/leetcode/stack/739%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6-/"></a>
+</article>
 
-            </div>
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[33]搜索旋转排序数组
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//整数数组 nums 按升序排列，数组中的值 互不相同 。 // // 在传递给函数之前，nums 在预先未知的某个下标 k（0 &lt;= k &lt; nums.length）上进行了...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-12 19:49:19 +0800 CST'>2021-06-12</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [33]搜索旋转排序数组" href="https://oxygenbytes.github.io/leetcode/binarysearch/33-ii%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84-/"></a>
+</article>
 
-            
-                <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2022</span>
-            
-                <span><a href="https://oxygenbytes.github.io/">zxq</a></span>
-            
-            <span><a href="https://oxygenbytes.github.io/" target="_blank" rel="noopener">cd /home/zxq/</a></span>
-            <span> <a href="https://oxygenbytes.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
-        </div>
-    </div>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-          tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            processEscapes: true
-          }
-        });
-      </script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
-    
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Theme from <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-        </div>
-    </div>
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[153]寻找旋转排序数组中的最小值
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//已知一个长度为 n 的数组，预先按照升序排列，经由 1 到 n 次 旋转 后，得到输入数组。例如，原数组 nums = [0,1,2,4,5,6,7] 在变 //化后可能得到： // // 若旋转 4 次，则可...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-12 19:39:39 +0800 CST'>2021-06-12</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [153]寻找旋转排序数组中的最小值" href="https://oxygenbytes.github.io/leetcode/binarysearch/153-ii%E5%AF%BB%E6%89%BE%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC-/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[34]在排序数组中查找元素的第一个和最后一个位置
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。 // // 如果数组中不存在目标值...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-12 19:26:39 +0800 CST'>2021-06-12</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [34]在排序数组中查找元素的第一个和最后一个位置" href="https://oxygenbytes.github.io/leetcode/binarysearch/34-ii%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE-/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[35]搜索插入位置
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。 // // 你可以假设数...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-12 19:20:09 +0800 CST'>2021-06-12</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [35]搜索插入位置" href="https://oxygenbytes.github.io/leetcode/binarysearch/35-ii%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE-/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[69]x 的平方根
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//实现 int sqrt(int x) 函数。 // // 计算并返回 x 的平方根，其中 x 是非负整数。 // // 由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。 // // 示例 1: //...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-12 19:07:35 +0800 CST'>2021-06-12</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [69]x 的平方根" href="https://oxygenbytes.github.io/leetcode/binarysearch/69-iix-%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9-/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[80]删除有序数组中的重复项 II
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 最多出现两次 ，返回删除后数组的新长度。 // // 不要使用额外的数组空间，你必须在 原地...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-12 14:44:00 +0800 CST'>2021-06-12</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [80]删除有序数组中的重复项 II" href="https://oxygenbytes.github.io/leetcode/stack/80%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9-ii-/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[283]移动零
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。 // // 示例: // // 输入: [0,1,0,3,12] //输出: [1,3,12,0,0] // // 说明: // //...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-12 14:43:50 +0800 CST'>2021-06-12</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [283]移动零" href="https://oxygenbytes.github.io/leetcode/doublepointers/283-ii%E7%A7%BB%E5%8A%A8%E9%9B%B6-/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[42]接雨水
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。 // // // // 示例 1： // // // // //输入：height...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-12 14:43:45 +0800 CST'>2021-06-12</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [42]接雨水" href="https://oxygenbytes.github.io/leetcode/doublepointers/42-ii%E6%8E%A5%E9%9B%A8%E6%B0%B4-/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[11]盛最多水的容器
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给你 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, //ai) 和 (i, 0) 。找出其...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-12 14:43:40 +0800 CST'>2021-06-12</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [11]盛最多水的容器" href="https://oxygenbytes.github.io/leetcode/doublepointers/11-ii%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[26]删除有序数组中的重复项
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。 // // 不要使用额外的数组空间，你必须在 原地 修...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-12 14:34:45 +0800 CST'>2021-06-12</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [26]删除有序数组中的重复项" href="https://oxygenbytes.github.io/leetcode/doublepointers/26-ii%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9-/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://oxygenbytes.github.io/leetcode/page/2/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
 </footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://oxygenbytes.github.io">Zxq&#39;s Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-            
-        </div>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
-        
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
+</script>
+</body>
 
-<script type="text/javascript" src="https://oxygenbytes.github.io/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
-
-
-
-    </body>
 </html>

@@ -1,83 +1,2452 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Zxq&#39;s Blog</title>
+    <title>Zxq&#39;s Site</title>
     <link>https://oxygenbytes.github.io/</link>
-    <description>Recent content on Zxq&#39;s Blog</description>
+    <description>Recent content on Zxq&#39;s Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>&lt;a href=&#34;https://oxygenbytes.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cd /home/zxq/&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 03 Jan 2022 23:02:51 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-en</language>
+    <lastBuildDate>Mon, 14 Jun 2021 14:13:48 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[27]移除元素</title>
-      <link>https://oxygenbytes.github.io/leetcode/array/27%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</link>
-      <pubDate>Mon, 03 Jan 2022 23:02:51 +0800</pubDate>
+      <title>[63]不同路径 II</title>
+      <link>https://oxygenbytes.github.io/leetcode/dp/63%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84-ii-/</link>
+      <pubDate>Mon, 14 Jun 2021 14:13:48 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/leetcode/array/27%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/</guid>
-      <description>Go 版本 package leetcode //给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。 // // 不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并 原地 修改输入数组。 // // 元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。 // // // // 说明: // // 为什么返回数值是整数，但输出的答案是数组呢? // // 请注意，输入数组是以「引用」方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。 // // 你可以想象内部操作如下: // // //// nums 是以“引用”方式传递的。也就是说，不对实参作任何拷贝 //int len = removeElement(nums, val); // //// 在函数里修改输入数组对于调用者是可见的。 //// 根据你的函数返回的长度, 它会打印出数组中 该长度范围内 的所有元素。 //for (int i = 0; i &amp;lt; len; i++) { // print(nums[i]); //} // // // // // 示例 1： // // //输入：nums = [3,2,2,3], val = 3 //输出：2, nums = [2,2] //解释：函数应该返回新的长度 2, 并且 nums 中的前两个元素均为 2。你不需要考虑数组中超出新长度后面的元素。例如，函数返回的新长度为 2 ，而 //nums = [2,2,3,3] 或 nums = [2,2,0,0]，也会被视作正确答案。 // // // 示例 2： // // //输入：nums = [0,1,2,2,3,0,4,2], val = 2 //输出：5, nums = [0,1,4,0,3] //解释：函数应该返回新的长度 5, 并且 nums 中的前五个元素为 0, 1, 3, 0, 4。注意这五个元素可为任意顺序。你不需要考虑数组中超出新长度后面 //的元素。 // // // // // 提示： // // // 0 &amp;lt;= nums.</description>
+      <guid>https://oxygenbytes.github.io/leetcode/dp/63%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84-ii-/</guid>
+      <description>//一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。 // // 机器人每次只能向下或者向右移动一步。机器人试图达到网格的</description>
     </item>
     
     <item>
-      <title>Mysql基础知识</title>
-      <link>https://oxygenbytes.github.io/posts/2021/12/mysql%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
-      <pubDate>Fri, 31 Dec 2021 00:52:39 +0800</pubDate>
+      <title>[96]不同的二叉搜索树</title>
+      <link>https://oxygenbytes.github.io/leetcode/dp/96%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-/</link>
+      <pubDate>Mon, 14 Jun 2021 14:03:03 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2021/12/mysql%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
-      <description>Mysql查询流程 - 基础架构 Mysql更新流程 - 日志系统 与查询流程不一样，更新流程涉及两个重要的日志模块，分别是redo log（重做日志）和 binlog（归档日志）。</description>
+      <guid>https://oxygenbytes.github.io/leetcode/dp/96%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-/</guid>
+      <description>//给你一个整数 n ，求恰由 n 个节点组成且节点值从 1 到 n 互不相同的 二叉搜索树 有多少种？返回满足题意的二叉搜索树的种数。 // // // // 示例 1： // // //</description>
     </item>
     
     <item>
-      <title>百度春招面试复盘</title>
-      <link>https://oxygenbytes.github.io/posts/2021/10/%E7%99%BE%E5%BA%A6%E6%98%A5%E6%8B%9B%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
-      <pubDate>Wed, 06 Oct 2021 15:42:45 +0800</pubDate>
+      <title>[200]岛屿数量</title>
+      <link>https://oxygenbytes.github.io/leetcode/dfs/200%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F-/</link>
+      <pubDate>Mon, 14 Jun 2021 13:07:54 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2021/10/%E7%99%BE%E5%BA%A6%E6%98%A5%E6%8B%9B%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
-      <description>整个春招，百度总共8面，后端面试都通过了，其中测试开发岗位到二面，莫名奇妙给挂了，可能是说了一句已经有字节的offer， 对测试岗位还有所迟疑吧。。。
-笔试 百度的笔试题目是两道原题，说来也是运气好，考试之前不久刚做过那两道题。印象比较深的一个题目是[130]被围绕的区域。
-测试 测开一面 算法题是 字符串处理，去重规则类似 aaabbc =&amp;gt; abc 答的不错
-测开二面 忘记了，没给过
-MEG策略部门 后端一面 算法题是：二叉树左视图
-后端二面 算法题是：二分查找问题，查找有序数组中数值等于某个数的值的个数
-后端三面 面试官态度不怎么好，一直纠结我在字节实习测试开发的问题 应该是过了，但一直没有发正式offer，在拿到其他offer之后又想来说服我来这个部门
-现在的部门 后端一面，mentor面的 算法题是：1. 接雨水 2. 接雨水的变式：二维接雨水 答的一般哈哈，存储和后端经验不足，需要提高
-后端二面，xx老师面的 算法题是：
- 链表题： 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;6 =&amp;gt; 1-&amp;gt;6-&amp;gt;2-&amp;gt;5-&amp;gt;3-&amp;gt;4, 融合了链表找中点，链表归并，链表反转三个问题 类似剑指offer上的机器活动范围问题 xx老师问了很多C++，操作系统的问题，这不撞我长处上了吗哈哈  后端三面，经理面的  主要是聊天，沟通一下意向，介绍一下部门业务  HR面 谈薪资，百度还是太抠了</description>
+      <guid>https://oxygenbytes.github.io/leetcode/dfs/200%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F-/</guid>
+      <description>//给你一个由 &amp;#39;1&amp;#39;（陆地）和 &amp;#39;0&amp;#39;（水）组成的的二维网格，请你计算网格中岛屿的数量。 // // 岛屿总是被水包围，</description>
     </item>
     
     <item>
-      <title>字节客户端开发面试复盘</title>
-      <link>https://oxygenbytes.github.io/posts/2021/08/%E5%AD%97%E8%8A%82%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
-      <pubDate>Fri, 06 Aug 2021 15:42:58 +0800</pubDate>
+      <title>C&#43;&#43;标准模板库STL</title>
+      <link>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93stl/</link>
+      <pubDate>Sun, 13 Jun 2021 20:43:09 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2021/08/%E5%AD%97%E8%8A%82%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
-      <description>虽然最后没有去字节，还是要感谢字节给了很多次面试机会，前两次参加字节面试的时候还什么都不懂 客户端没接触过，可以说靠刷题拿下sp，感谢曾经努力的自己
-客户端一面 算法题： 旋转数组找最小元素 还问了一个代理的原理， http证书和对称加密和非对称加密的问题
-客户端二面 算法题： 螺旋打印二维数组，使用深搜做的
-客户端三面 算法题：
- 遍历算法vector，删除vector中等于target的元素 给定一个数组 1 2 2 2 3 3 4 4 5 6 7 7 以最快的速度找到target第一次出现的位置  如今只零星记得算法题了，这三轮面试问题贼多，强度很大，一天面完，还都是技术面，临近毕业，工作还没着落，心理压力真的很大</description>
+      <guid>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93stl/</guid>
+      <description>注： size()、empty()是所有容器都有的，时间复杂度为 O(1)，并不是结果并非遍历得到，而是原本就有个变 量来存size，直接访问该变</description>
     </item>
     
     <item>
-      <title>Golang安装、配置、学习</title>
-      <link>https://oxygenbytes.github.io/posts/2021/07/golang%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0/</link>
-      <pubDate>Thu, 01 Jul 2021 20:13:03 +0800</pubDate>
+      <title>整数二分算法模板</title>
+      <link>https://oxygenbytes.github.io/posts/template/%E6%95%B4%E6%95%B0%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Sun, 13 Jun 2021 20:20:31 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2021/07/golang%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%AD%A6%E4%B9%A0/</guid>
-      <description>Linux安装 Go 1.16 rm -rf /usr/local/go &amp;amp;&amp;amp; tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz export PATH=$PATH:/usr/local/go/bin reboot go version 配置国内代理 go env -w GO111MODULE=on go env -w GOPROXY=https://goproxy.cn, direct reboot vscode 使用Ctrl + Shift + P 打开命令行 选择Go: Install/Update Tools安装必要的包</description>
+      <guid>https://oxygenbytes.github.io/posts/template/%E6%95%B4%E6%95%B0%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/</guid>
+      <description>bool check(int x) {/* ... */} // 检查x是否满足某种性质 // 区间[l, r]被划分成[l, mid]和[mid + 1, r]时使用： int bsearch_1(int l, int r) { while (l &amp;lt; r) { int mid = l + r &amp;gt;&amp;gt; 1; if</description>
     </item>
     
     <item>
-      <title>进程和线程的区别</title>
-      <link>https://oxygenbytes.github.io/posts/2021/06/%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
-      <pubDate>Sat, 26 Jun 2021 03:12:13 +0800</pubDate>
+      <title>归并排序模板</title>
+      <link>https://oxygenbytes.github.io/posts/template/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Sun, 13 Jun 2021 20:17:34 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2021/06/%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
-      <description>进程（Process）和线程（Thread）都是操作系统中的基本概念，它们之间有一些优劣和差异。
-进程基本介绍 进程是程序执行时的一个实例，是系统进行资源分配的基本单位。所有与该进程有关的资源，都被记录在进程控制块(PCB)中。以表示该进程拥有这些资源或正在使用它们。另外，进程也是抢占处理机的调度单位，它拥有一个完整的虚拟地址空间。当进程发生调度时，不同的进程拥有不同的虚拟地址空间，而同一进程内的不同线程共享同一地址空间。
-线程基本介绍 线程，有时也被称为轻量级进程，是程序执行流的最小单元，是进程中的一个实体，是被系统独立调度和分派的基本单位。与进程不同，线程与资源分配无关，线程自己不拥有系统资源，它属于某一个进程，并与进程内的其他线程一起共享进程的资源。线程只由相关堆栈（系统栈或用户栈）寄存器和线程控制表TCB组成。
-进程和线程的关系 通常在一个进程中可以包含若干个线程，它们可以利用进程所拥有的资源。但是，一个线程只属于一个进程。进程间相互独立，同一进程的各线程间共享。某进程内的线程在其它进程不可见。而且需要注意的是，线程不是一个可执行的实体。
-进程和线程的比较 进行和线程之间的差异可以从下面几个方面来阐述：
- 调度 ：在引入线程的操作系统中，线程是调度和分配的基本单位 ，进程是资源拥有的基本单位 。把传统进程的两个属性分开，线程便能轻装运行，从而可 显著地提高系统的并发程度 。在同一进程中，线程的切换不会引起进程的切换；在由一个进程中的线程切换到另一个进程中的线程时，才会引起进程的切换。 并发性 ：在引入线程的操作系统中，不仅进程之间可以并发执行，而且在一个进程中的多个线程之间亦可并发执行，因而使操作系统具有更好的并发性，从而能 更有效地使用系统资源和提高系统吞吐量。 拥有资源 ：不论是传统的操作系统，还是设有线程的操作系统，进程都是拥有资源的一个独立 单位，它可以拥有自己的资源。一般地说，线程自己不拥有系统资源（只有一些必不可少的资源，但它可以访问其隶属进程的资源。 系统开销：由于在创建或撤消进程时，系统都要为之分配或回收资源，因此，操作系统所付出的开销将显著地大于在创建或撤消线程时的开销。进程切换的开销也远大于线程切换的开销。 通信：进程间通信IPC，线程间可以直接读写进程数据段（如全局变量）来进行通信——需要进程同步和互斥手段的辅助，以保证数据的一致性，因此共享简单。但是线程的数据同步要比进程略复杂。  最后 从上面的分析可以看到，似乎线程有很多优势，比如，数据共享效率高，可应对并发操作，有效利用等待时间等等，但是多线程的编程比多进程要复杂，同时，多进程的可靠性较好，因为进程间不会相互影响。实际情况还是需要自己分析拿捏的。但是一般来说，实际应用中常常采用“进程+线程”结合的方式，而不是非此即彼，因为它们两者没有绝对的好与不好，而是适合于不同场景。</description>
+      <guid>https://oxygenbytes.github.io/posts/template/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%A8%A1%E6%9D%BF/</guid>
+      <description>void merge_sort(int q[], int l, int r) { if (l &amp;gt;= r) return; int mid = l + r &amp;gt;&amp;gt; 1; merge_sort(q, l, mid); merge_sort(q, mid + 1, r); int k = 0, i = l, j = mid + 1; while (i &amp;lt;= mid &amp;amp;&amp;amp; j &amp;lt;= r) if (q[i] &amp;lt;= q[j]) tmp[k ++ ] = q[i ++ ]; else tmp[k ++ ] = q[j ++ ]; while (i</description>
     </item>
+    
+    <item>
+      <title>快速排序模板</title>
+      <link>https://oxygenbytes.github.io/posts/template/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Sun, 13 Jun 2021 20:16:14 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/template/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E6%A8%A1%E6%9D%BF/</guid>
+      <description>void quick_sort(int q[], int l, int r) { if (l &amp;gt;= r) return; int i = l - 1, j = r + 1, x = q[l + r &amp;gt;&amp;gt; 1]; while (i &amp;lt; j) { do i ++ ; while (q[i] &amp;lt; x); do j -- ; while (q[j] &amp;gt; x); if (i &amp;lt; j) swap(q[i], q[j]); } quick_sort(q, l, j), quick_sort(q, j + 1, r); }</description>
+    </item>
+    
+    <item>
+      <title>快速幂模板</title>
+      <link>https://oxygenbytes.github.io/posts/template/%E5%BF%AB%E9%80%9F%E5%B9%82%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Sun, 13 Jun 2021 20:07:37 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/template/%E5%BF%AB%E9%80%9F%E5%B9%82%E6%A8%A1%E6%9D%BF/</guid>
+      <description>求 $ m^k \bmod p $ int qmi(int m, int k, int p) { int res = 1 % p, t = m; while (k) { if (k&amp;amp;1) res = res * t % p; t = t * t % p; k &amp;gt;&amp;gt;= 1; } return res; }</description>
+    </item>
+    
+    <item>
+      <title>[735]行星碰撞</title>
+      <link>https://oxygenbytes.github.io/leetcode/stack/735%E8%A1%8C%E6%98%9F%E7%A2%B0%E6%92%9E-/</link>
+      <pubDate>Sun, 13 Jun 2021 18:37:15 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/stack/735%E8%A1%8C%E6%98%9F%E7%A2%B0%E6%92%9E-/</guid>
+      <description>//给定一个整数数组 asteroids，表示在同一行的行星。 // // 对于数组中的每一个元素，其绝对值表示行星的大小，正负表示行星的移动方向（正表</description>
+    </item>
+    
+    <item>
+      <title>[739]每日温度</title>
+      <link>https://oxygenbytes.github.io/leetcode/stack/739%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6-/</link>
+      <pubDate>Sun, 13 Jun 2021 18:08:44 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/stack/739%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6-/</guid>
+      <description>//请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置</description>
+    </item>
+    
+    <item>
+      <title>[33]搜索旋转排序数组</title>
+      <link>https://oxygenbytes.github.io/leetcode/binarysearch/33-ii%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84-/</link>
+      <pubDate>Sat, 12 Jun 2021 19:49:19 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/binarysearch/33-ii%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84-/</guid>
+      <description>//整数数组 nums 按升序排列，数组中的值 互不相同 。 // // 在传递给函数之前，nums 在预先未知的某个下标 k（0 &amp;lt;= k &amp;lt; nums.length）上进行了</description>
+    </item>
+    
+    <item>
+      <title>[153]寻找旋转排序数组中的最小值</title>
+      <link>https://oxygenbytes.github.io/leetcode/binarysearch/153-ii%E5%AF%BB%E6%89%BE%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC-/</link>
+      <pubDate>Sat, 12 Jun 2021 19:39:39 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/binarysearch/153-ii%E5%AF%BB%E6%89%BE%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC-/</guid>
+      <description>//已知一个长度为 n 的数组，预先按照升序排列，经由 1 到 n 次 旋转 后，得到输入数组。例如，原数组 nums = [0,1,2,4,5,6,7] 在变 //化后可能得到： // // 若旋转 4 次，则可</description>
+    </item>
+    
+    <item>
+      <title>[34]在排序数组中查找元素的第一个和最后一个位置</title>
+      <link>https://oxygenbytes.github.io/leetcode/binarysearch/34-ii%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE-/</link>
+      <pubDate>Sat, 12 Jun 2021 19:26:39 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/binarysearch/34-ii%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE-/</guid>
+      <description>//给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。 // // 如果数组中不存在目标值</description>
+    </item>
+    
+    <item>
+      <title>[35]搜索插入位置</title>
+      <link>https://oxygenbytes.github.io/leetcode/binarysearch/35-ii%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE-/</link>
+      <pubDate>Sat, 12 Jun 2021 19:20:09 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/binarysearch/35-ii%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE-/</guid>
+      <description>//给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。 // // 你可以假设数</description>
+    </item>
+    
+    <item>
+      <title>[69]x 的平方根</title>
+      <link>https://oxygenbytes.github.io/leetcode/binarysearch/69-iix-%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9-/</link>
+      <pubDate>Sat, 12 Jun 2021 19:07:35 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/binarysearch/69-iix-%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9-/</guid>
+      <description>//实现 int sqrt(int x) 函数。 // // 计算并返回 x 的平方根，其中 x 是非负整数。 // // 由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。 // // 示例 1: //</description>
+    </item>
+    
+    <item>
+      <title>[80]删除有序数组中的重复项 II</title>
+      <link>https://oxygenbytes.github.io/leetcode/stack/80%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9-ii-/</link>
+      <pubDate>Sat, 12 Jun 2021 14:44:00 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/stack/80%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9-ii-/</guid>
+      <description>//给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 最多出现两次 ，返回删除后数组的新长度。 // // 不要使用额外的数组空间，你必须在 原地</description>
+    </item>
+    
+    <item>
+      <title>[283]移动零</title>
+      <link>https://oxygenbytes.github.io/leetcode/doublepointers/283-ii%E7%A7%BB%E5%8A%A8%E9%9B%B6-/</link>
+      <pubDate>Sat, 12 Jun 2021 14:43:50 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/doublepointers/283-ii%E7%A7%BB%E5%8A%A8%E9%9B%B6-/</guid>
+      <description>//给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。 // // 示例: // // 输入: [0,1,0,3,12] //输出: [1,3,12,0,0] // // 说明: // //</description>
+    </item>
+    
+    <item>
+      <title>[42]接雨水</title>
+      <link>https://oxygenbytes.github.io/leetcode/doublepointers/42-ii%E6%8E%A5%E9%9B%A8%E6%B0%B4-/</link>
+      <pubDate>Sat, 12 Jun 2021 14:43:45 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/doublepointers/42-ii%E6%8E%A5%E9%9B%A8%E6%B0%B4-/</guid>
+      <description>//给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。 // // // // 示例 1： // // // // //输入：height</description>
+    </item>
+    
+    <item>
+      <title>[11]盛最多水的容器</title>
+      <link>https://oxygenbytes.github.io/leetcode/doublepointers/11-ii%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-/</link>
+      <pubDate>Sat, 12 Jun 2021 14:43:40 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/doublepointers/11-ii%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-/</guid>
+      <description>//给你 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, //ai) 和 (i, 0) 。找出其</description>
+    </item>
+    
+    <item>
+      <title>[26]删除有序数组中的重复项</title>
+      <link>https://oxygenbytes.github.io/leetcode/doublepointers/26-ii%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9-/</link>
+      <pubDate>Sat, 12 Jun 2021 14:34:45 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/doublepointers/26-ii%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9-/</guid>
+      <description>//给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。 // // 不要使用额外的数组空间，你必须在 原地 修</description>
+    </item>
+    
+    <item>
+      <title>[344]反转字符串</title>
+      <link>https://oxygenbytes.github.io/leetcode/doublepointers/344%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2-/</link>
+      <pubDate>Sat, 12 Jun 2021 14:31:58 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/doublepointers/344%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2-/</guid>
+      <description>//编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 char[] 的形式给出。 // // 不要给另外的数组分配额外的空间，你必须原地修改输入数</description>
+    </item>
+    
+    <item>
+      <title>[84]柱状图中最大的矩形</title>
+      <link>https://oxygenbytes.github.io/leetcode/stack/84%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2-/</link>
+      <pubDate>Fri, 11 Jun 2021 21:17:57 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/stack/84%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AD%E6%9C%80%E5%A4%A7%E7%9A%84%E7%9F%A9%E5%BD%A2-/</guid>
+      <description>//给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。 // // 求在该柱状图中，能够勾勒出来的矩形的最大面积。 // // //</description>
+    </item>
+    
+    <item>
+      <title>[114]二叉树展开为链表</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/114%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B1%95%E5%BC%80%E4%B8%BA%E9%93%BE%E8%A1%A8-/</link>
+      <pubDate>Fri, 11 Jun 2021 21:08:58 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/114%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B1%95%E5%BC%80%E4%B8%BA%E9%93%BE%E8%A1%A8-/</guid>
+      <description>//给你二叉树的根结点 root ，请你将它展开为一个单链表： // // // 展开后的单链表应该同样使用 TreeNode ，其中 right 子指针指向链表中下一个结点，而左子指针始终为 null</description>
+    </item>
+    
+    <item>
+      <title>[139]单词拆分</title>
+      <link>https://oxygenbytes.github.io/leetcode/139-ii%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86-/</link>
+      <pubDate>Fri, 11 Jun 2021 20:47:22 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/139-ii%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86-/</guid>
+      <description>//给定一个非空字符串 s 和一个包含非空单词的列表 wordDict，判定 s 是否可以被空格拆分为一个或多个在字典中出现的单词。 // // 说明： // // // 拆</description>
+    </item>
+    
+    <item>
+      <title>[75]颜色分类</title>
+      <link>https://oxygenbytes.github.io/leetcode/75%E9%A2%9C%E8%89%B2%E5%88%86%E7%B1%BB-/</link>
+      <pubDate>Fri, 11 Jun 2021 20:37:01 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/75%E9%A2%9C%E8%89%B2%E5%88%86%E7%B1%BB-/</guid>
+      <description>//给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。 // // 此题中</description>
+    </item>
+    
+    <item>
+      <title>[470]用 Rand7() 实现 Rand10()</title>
+      <link>https://oxygenbytes.github.io/leetcode/470-ii%E7%94%A8-rand7-%E5%AE%9E%E7%8E%B0-rand10-/</link>
+      <pubDate>Fri, 11 Jun 2021 20:19:42 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/470-ii%E7%94%A8-rand7-%E5%AE%9E%E7%8E%B0-rand10-/</guid>
+      <description>//已有方法 rand7 可生成 1 到 7 范围内的均匀随机整数，试写一个方法 rand10 生成 1 到 10 范围内的均匀随机整数。 // // 不要使用系统的 Math.random() 方法。 // // // // // // // 示例 1:</description>
+    </item>
+    
+    <item>
+      <title>[459]重复的子字符串</title>
+      <link>https://oxygenbytes.github.io/leetcode/459%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2-/</link>
+      <pubDate>Fri, 11 Jun 2021 19:57:37 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/459%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2-/</guid>
+      <description>//给定一个非空的字符串，判断它是否可以由它的一个子串重复多次构成。给定的字符串只含有小写英文字母，并且长度不超过10000。 // // 示例 1: // //</description>
+    </item>
+    
+    <item>
+      <title>[28]实现 strStr()</title>
+      <link>https://oxygenbytes.github.io/leetcode/28%E5%AE%9E%E7%8E%B0-strstr-/</link>
+      <pubDate>Fri, 11 Jun 2021 17:48:58 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/28%E5%AE%9E%E7%8E%B0-strstr-/</guid>
+      <description>//实现 strStr() 函数。 // // 给你两个字符串 haystack 和 needle ，请你在 haystack 字符串中找出 needle 字符串出现的第一个位置（下标从 0 开始）。如 //果不存在，则返回 -1 。 // // // // 说</description>
+    </item>
+    
+    <item>
+      <title>[10]正则表达式匹配</title>
+      <link>https://oxygenbytes.github.io/leetcode/10%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D-/</link>
+      <pubDate>Fri, 11 Jun 2021 17:07:58 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/10%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D-/</guid>
+      <description>//给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 &amp;#39;.&amp;#39; 和 &amp;#39;*&amp;#39; 的正则表达式匹配。 // // // &amp;#39;.&amp;#39; 匹配任意单个字符 // &amp;#39;*&amp;#39; 匹配零个或多个前面的那一个元素 //</description>
+    </item>
+    
+    <item>
+      <title>[279]完全平方数</title>
+      <link>https://oxygenbytes.github.io/leetcode/279-ii%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0-/</link>
+      <pubDate>Fri, 11 Jun 2021 16:14:31 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/279-ii%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0-/</guid>
+      <description>//给定正整数 n，找到若干个完全平方数（比如 1, 4, 9, 16, ...）使得它们的和等于 n。你需要让组成和的完全平方数的个数最少。 // // 给你一个整数 n ，返</description>
+    </item>
+    
+    <item>
+      <title>高途跟谁学面试复盘</title>
+      <link>https://oxygenbytes.github.io/posts/interview/%E9%AB%98%E9%80%94%E8%B7%9F%E8%B0%81%E5%AD%A6%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <pubDate>Mon, 10 May 2021 22:49:50 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/interview/%E9%AB%98%E9%80%94%E8%B7%9F%E8%B0%81%E5%AD%A6%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <description>笔试 忘了，似乎是五道题，有一道最长递增子序列没做出来（因为还让打印出序列），后来还被面试官拿出来鞭尸。。。其他简单题都做出来了 时间比较久了，</description>
+    </item>
+    
+    <item>
+      <title>美团优选面试复盘</title>
+      <link>https://oxygenbytes.github.io/posts/interview/%E7%BE%8E%E5%9B%A2%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <pubDate>Tue, 20 Apr 2021 19:22:23 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/interview/%E7%BE%8E%E5%9B%A2%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <description>时间比较久了，重点记一下算法题和答的不好的问题 笔试 忘记了，大概是4道编程题，全是ACM类型的题目，最后做出来1.4道，进面试了 一面 介绍自己 讲</description>
+    </item>
+    
+    <item>
+      <title>华为面试复盘</title>
+      <link>https://oxygenbytes.github.io/posts/interview/%E5%8D%8E%E4%B8%BA%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <pubDate>Fri, 02 Apr 2021 21:54:01 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/interview/%E5%8D%8E%E4%B8%BA%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <description>投递之后一直无消息，后来被华为财经部门捞了，面试的职位是 财经数字化工程师，凭印象简单写写 笔试（2021.03.24） 3道算法题, 第一题AC，</description>
+    </item>
+    
+    <item>
+      <title>Shoppe面试复盘</title>
+      <link>https://oxygenbytes.github.io/posts/interview/shoppe%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <pubDate>Fri, 02 Apr 2021 09:35:00 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/interview/shoppe%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <description>笔试（2021.03.10） 笔试应该是春招最早的几批，当天Shoppe的笔试平台还崩掉了，在牛客网上还有不少吐嘈，不过不久就恢复正常了，有一</description>
+    </item>
+    
+    <item>
+      <title>[376]摆动序列</title>
+      <link>https://oxygenbytes.github.io/leetcode/376%E6%91%86%E5%8A%A8%E5%BA%8F%E5%88%97/</link>
+      <pubDate>Fri, 19 Mar 2021 13:36:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/376%E6%91%86%E5%8A%A8%E5%BA%8F%E5%88%97/</guid>
+      <description>//如果连续数字之间的差严格地在正数和负数之间交替，则数字序列称为摆动序列。第一个差（如果存在的话）可能是正数或负数。少于两个元素的序列也是</description>
+    </item>
+    
+    <item>
+      <title>[45]跳跃游戏 II</title>
+      <link>https://oxygenbytes.github.io/leetcode/45%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F-ii/</link>
+      <pubDate>Thu, 18 Mar 2021 13:54:50 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/45%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F-ii/</guid>
+      <description>//给定一个非负整数数组，你最初位于数组的第一个位置。 // // 数组中的每个元素代表你在该位置可以跳跃的最大长度。 // // 你的目标是使用最少的跳跃次数</description>
+    </item>
+    
+    <item>
+      <title>[55]跳跃游戏</title>
+      <link>https://oxygenbytes.github.io/leetcode/55%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/</link>
+      <pubDate>Thu, 18 Mar 2021 13:49:38 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/55%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/</guid>
+      <description>//给定一个非负整数数组 nums ，你最初位于数组的 第一个下标 。 // // 数组中的每个元素代表你在该位置可以跳跃的最大长度。 // // 判断你是否能够到达最后一个</description>
+    </item>
+    
+    <item>
+      <title>[455]分发饼干</title>
+      <link>https://oxygenbytes.github.io/leetcode/455%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2/</link>
+      <pubDate>Thu, 18 Mar 2021 13:45:28 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/455%E5%88%86%E5%8F%91%E9%A5%BC%E5%B9%B2/</guid>
+      <description>//假设你是一位很棒的家长，想要给你的孩子们一些小饼干。但是，每个孩子最多只能给一块饼干。 // // 对每个孩子 i，都有一个胃口值 g[i]，这是能让</description>
+    </item>
+    
+    <item>
+      <title>[392]判断子序列</title>
+      <link>https://oxygenbytes.github.io/leetcode/392%E5%88%A4%E6%96%AD%E5%AD%90%E5%BA%8F%E5%88%97/</link>
+      <pubDate>Thu, 18 Mar 2021 13:36:21 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/392%E5%88%A4%E6%96%AD%E5%AD%90%E5%BA%8F%E5%88%97/</guid>
+      <description>//给定字符串 s 和 t ，判断 s 是否为 t 的子序列。 // // 字符串的一个子序列是原始字符串删除一些（也可以不删除）字符而不改变剩余字符相对位置形成的新</description>
+    </item>
+    
+    <item>
+      <title>[860]柠檬水找零</title>
+      <link>https://oxygenbytes.github.io/leetcode/860%E6%9F%A0%E6%AA%AC%E6%B0%B4%E6%89%BE%E9%9B%B6/</link>
+      <pubDate>Thu, 18 Mar 2021 13:26:43 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/860%E6%9F%A0%E6%AA%AC%E6%B0%B4%E6%89%BE%E9%9B%B6/</guid>
+      <description>//在柠檬水摊上，每一杯柠檬水的售价为 5 美元。 // // 顾客排队购买你的产品，（按账单 bills 支付的顺序）一次购买一杯。 // // 每位顾客只买一杯柠檬水，然后</description>
+    </item>
+    
+    <item>
+      <title>[130]被围绕的区域</title>
+      <link>https://oxygenbytes.github.io/leetcode/130%E8%A2%AB%E5%9B%B4%E7%BB%95%E7%9A%84%E5%8C%BA%E5%9F%9F/</link>
+      <pubDate>Tue, 16 Mar 2021 18:49:31 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/130%E8%A2%AB%E5%9B%B4%E7%BB%95%E7%9A%84%E5%8C%BA%E5%9F%9F/</guid>
+      <description>//给你一个 m x n 的矩阵 board ，由若干字符 &amp;#39;X&amp;#39; 和 &amp;#39;O&amp;#39; ，找到所有被 &amp;#39;X&amp;#39; 围绕的区域，并将这些区域里所有的 &amp;#39;O&amp;#39; 用 &amp;#39;X&amp;#39; 填充 //。 // // // // // 示例 1： // // //输入：b</description>
+    </item>
+    
+    <item>
+      <title>[733]图像渲染</title>
+      <link>https://oxygenbytes.github.io/leetcode/733%E5%9B%BE%E5%83%8F%E6%B8%B2%E6%9F%93/</link>
+      <pubDate>Tue, 16 Mar 2021 18:36:49 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/733%E5%9B%BE%E5%83%8F%E6%B8%B2%E6%9F%93/</guid>
+      <description>//有一幅以二维整数数组表示的图画，每一个整数表示该图画的像素值大小，数值在 0 到 65535 之间。 // // 给你一个坐标 (sr, sc) 表示图像渲染开始的像素值（行 ，列</description>
+    </item>
+    
+    <item>
+      <title>[279]完全平方数</title>
+      <link>https://oxygenbytes.github.io/leetcode/279%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/</link>
+      <pubDate>Fri, 12 Mar 2021 15:54:53 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/279%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/</guid>
+      <description>//给定正整数 n，找到若干个完全平方数（比如 1, 4, 9, 16, ...）使得它们的和等于 n。你需要让组成和的完全平方数的个数最少。 // // 给你一个整数 n ，返</description>
+    </item>
+    
+    <item>
+      <title>[111]二叉树的最小深度</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/111-ii%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%B0%8F%E6%B7%B1%E5%BA%A6/</link>
+      <pubDate>Fri, 12 Mar 2021 15:30:40 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/111-ii%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%B0%8F%E6%B7%B1%E5%BA%A6/</guid>
+      <description>//给定一个二叉树，找出其最小深度。 // // 最小深度是从根节点到最近叶子节点的最短路径上的节点数量。 // // 说明：叶子节点是指没有子节点的节点。 // //</description>
+    </item>
+    
+    <item>
+      <title>[371]两整数之和</title>
+      <link>https://oxygenbytes.github.io/leetcode/371%E4%B8%A4%E6%95%B4%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
+      <pubDate>Fri, 12 Mar 2021 15:09:49 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/371%E4%B8%A4%E6%95%B4%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
+      <description>//不使用运算符 + 和 - ，计算两整数 a 、b 之和。 // // 示例 1: // // 输入: a = 1, b = 2 //输出: 3 // // // 示例 2: // // 输入: a = -2, b = 3 //输出: 1 // Related</description>
+    </item>
+    
+    <item>
+      <title>[260]只出现一次的数字 III</title>
+      <link>https://oxygenbytes.github.io/leetcode/260%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97-iii/</link>
+      <pubDate>Fri, 12 Mar 2021 15:01:34 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/260%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97-iii/</guid>
+      <description>//给定一个整数数组 nums，其中恰好有两个元素只出现一次，其余所有元素均出现两次。 找出只出现一次的那两个元素。你可以按 任意顺序 返回答案。 //</description>
+    </item>
+    
+    <item>
+      <title>[137]只出现一次的数字 II</title>
+      <link>https://oxygenbytes.github.io/leetcode/137%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97-ii/</link>
+      <pubDate>Fri, 12 Mar 2021 14:52:10 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/137%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97-ii/</guid>
+      <description>//给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现了三次。找出那个只出现了一次的元素。 // // 说明： // // 你的算法应该具有线</description>
+    </item>
+    
+    <item>
+      <title>[476]数字的补数</title>
+      <link>https://oxygenbytes.github.io/leetcode/476%E6%95%B0%E5%AD%97%E7%9A%84%E8%A1%A5%E6%95%B0/</link>
+      <pubDate>Fri, 12 Mar 2021 14:47:01 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/476%E6%95%B0%E5%AD%97%E7%9A%84%E8%A1%A5%E6%95%B0/</guid>
+      <description>//给你一个 正 整数 num ，输出它的补数。补数是对该数的二进制表示取反。 // // // // // // // 示例 1： // // //输入：num = 5 //输出：2 //解释：5 的二</description>
+    </item>
+    
+    <item>
+      <title>[136]只出现一次的数字</title>
+      <link>https://oxygenbytes.github.io/leetcode/136%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Fri, 12 Mar 2021 14:41:42 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/136%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/</guid>
+      <description>//给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。 // // 说明： // // 你的算法应该具有线性</description>
+    </item>
+    
+    <item>
+      <title>[762]二进制表示中质数个计算置位</title>
+      <link>https://oxygenbytes.github.io/leetcode/762%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA%E4%B8%AD%E8%B4%A8%E6%95%B0%E4%B8%AA%E8%AE%A1%E7%AE%97%E7%BD%AE%E4%BD%8D/</link>
+      <pubDate>Fri, 12 Mar 2021 14:37:03 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/762%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA%E4%B8%AD%E8%B4%A8%E6%95%B0%E4%B8%AA%E8%AE%A1%E7%AE%97%E7%BD%AE%E4%BD%8D/</guid>
+      <description>//给定两个整数 L 和 R ，找到闭区间 [L, R] 范围内，计算置位位数为质数的整数个数。 // // （注意，计算置位代表二进制表示中1的个数。例如 21 的二进制表示</description>
+    </item>
+    
+    <item>
+      <title>[231]2的幂</title>
+      <link>https://oxygenbytes.github.io/leetcode/2312%E7%9A%84%E5%B9%82/</link>
+      <pubDate>Fri, 12 Mar 2021 14:05:09 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/2312%E7%9A%84%E5%B9%82/</guid>
+      <description>//给定一个整数，编写一个函数来判断它是否是 2 的幂次方。 // // 示例 1: // // 输入: 1 //输出: true //解释: 20 = 1 // // 示例 2: // // 输入: 16 //输出: true</description>
+    </item>
+    
+    <item>
+      <title>字节跳动面试复盘</title>
+      <link>https://oxygenbytes.github.io/posts/interview/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <pubDate>Tue, 09 Mar 2021 12:46:52 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/interview/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <description>一面（2021-02-24 18:00，1小时10分钟） 介绍自己 介绍项目，针对项目细节进行提问 浏览器输入一个地址，后面发生了什么？ 进程间通讯方</description>
+    </item>
+    
+    <item>
+      <title>[9]回文数</title>
+      <link>https://oxygenbytes.github.io/leetcode/9%E5%9B%9E%E6%96%87%E6%95%B0/</link>
+      <pubDate>Mon, 08 Mar 2021 18:38:42 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/9%E5%9B%9E%E6%96%87%E6%95%B0/</guid>
+      <description>//给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。 // // 回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，12</description>
+    </item>
+    
+    <item>
+      <title>[128]最长连续序列</title>
+      <link>https://oxygenbytes.github.io/leetcode/128%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%BA%8F%E5%88%97/</link>
+      <pubDate>Mon, 08 Mar 2021 16:44:02 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/128%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%BA%8F%E5%88%97/</guid>
+      <description>//给定一个未排序的整数数组 nums ，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。 // // // // 进阶：你可以设计并实现时间复杂度为 O(n) 的</description>
+    </item>
+    
+    <item>
+      <title>[32]最长有效括号</title>
+      <link>https://oxygenbytes.github.io/leetcode/32%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/</link>
+      <pubDate>Sun, 07 Mar 2021 20:40:55 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/32%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/</guid>
+      <description>//给你一个只包含 &amp;#39;(&amp;#39; 和 &amp;#39;)&amp;#39; 的字符串，找出最长有效（格式正确且连续）括号子串的长度。 // // // // // // 示例 1： // // //输入：s = &amp;#34;(()&amp;#34; //输出：2 //解释</description>
+    </item>
+    
+    <item>
+      <title>[198]打家劫舍</title>
+      <link>https://oxygenbytes.github.io/leetcode/198%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/</link>
+      <pubDate>Sun, 07 Mar 2021 20:36:42 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/198%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/</guid>
+      <description>//你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间</description>
+    </item>
+    
+    <item>
+      <title>[240]搜索二维矩阵 II</title>
+      <link>https://oxygenbytes.github.io/leetcode/240%E6%90%9C%E7%B4%A2%E4%BA%8C%E7%BB%B4%E7%9F%A9%E9%98%B5-ii/</link>
+      <pubDate>Sun, 07 Mar 2021 20:25:20 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/240%E6%90%9C%E7%B4%A2%E4%BA%8C%E7%BB%B4%E7%9F%A9%E9%98%B5-ii/</guid>
+      <description>//编写一个高效的算法来搜索 m x n 矩阵 matrix 中的一个目标值 target 。该矩阵具有以下特性： // // // 每行的元素从左到右升序排列。 // 每列的元素从上到下升序排列</description>
+    </item>
+    
+    <item>
+      <title>[162]寻找峰值</title>
+      <link>https://oxygenbytes.github.io/leetcode/162%E5%AF%BB%E6%89%BE%E5%B3%B0%E5%80%BC/</link>
+      <pubDate>Sun, 07 Mar 2021 19:36:51 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/162%E5%AF%BB%E6%89%BE%E5%B3%B0%E5%80%BC/</guid>
+      <description>//峰值元素是指其值大于左右相邻值的元素。 // // 给你一个输入数组 nums，找到峰值元素并返回其索引。数组可能包含多个峰值，在这种情况下，返回 任</description>
+    </item>
+    
+    <item>
+      <title>[31]下一个排列</title>
+      <link>https://oxygenbytes.github.io/leetcode/31%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97/</link>
+      <pubDate>Sun, 07 Mar 2021 10:34:32 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/31%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97/</guid>
+      <description>//实现获取 下一个排列 的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。 // // 如果不存在下一个更大的排列，则将数字重新排列成最</description>
+    </item>
+    
+    <item>
+      <title>[122]买卖股票的最佳时机 II</title>
+      <link>https://oxygenbytes.github.io/leetcode/122%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-ii/</link>
+      <pubDate>Sat, 06 Mar 2021 20:51:12 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/122%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-ii/</guid>
+      <description>//给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。 // // 设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买</description>
+    </item>
+    
+    <item>
+      <title>[39]组合总和</title>
+      <link>https://oxygenbytes.github.io/leetcode/39%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C/</link>
+      <pubDate>Sat, 06 Mar 2021 19:59:10 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/39%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C/</guid>
+      <description>//给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。 // // candidates 中的数字可以无限制重复被选取。 // // 说明： // // // 所有数</description>
+    </item>
+    
+    <item>
+      <title>[4]寻找两个正序数组的中位数</title>
+      <link>https://oxygenbytes.github.io/leetcode/4%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</link>
+      <pubDate>Sat, 06 Mar 2021 11:42:51 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/4%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</guid>
+      <description>//给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。 // // // // 示例 1： // // //输入：num</description>
+    </item>
+    
+    <item>
+      <title>[48]旋转图像</title>
+      <link>https://oxygenbytes.github.io/leetcode/48%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/</link>
+      <pubDate>Sat, 06 Mar 2021 11:35:24 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/48%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/</guid>
+      <description>//给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。 // // 你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要</description>
+    </item>
+    
+    <item>
+      <title>[151]翻转字符串里的单词</title>
+      <link>https://oxygenbytes.github.io/leetcode/151-ii%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D/</link>
+      <pubDate>Sat, 06 Mar 2021 11:18:50 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/151-ii%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D/</guid>
+      <description>//给定一个字符串，逐个翻转字符串中的每个单词。 // // 说明： // // // 无空格字符构成一个 单词 。 // 输入字符串可以在前面或者后面包含多余的空格，但是反</description>
+    </item>
+    
+    <item>
+      <title>[300]最长递增子序列</title>
+      <link>https://oxygenbytes.github.io/leetcode/300-ii%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/</link>
+      <pubDate>Thu, 04 Mar 2021 19:43:09 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/300-ii%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/</guid>
+      <description>//给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。 // // 子序列是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺</description>
+    </item>
+    
+    <item>
+      <title>[145]二叉树的后序遍历</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/145%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Thu, 04 Mar 2021 19:32:32 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/145%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/</guid>
+      <description>//给定一个二叉树，返回它的 后序 遍历。 // // 示例: // // 输入: [1,null,2,3] // 1 // \ // 2 // / // 3 // //输出: [3,2,1] // // 进阶: 递归算法很简单，你可以通过迭代算法完</description>
+    </item>
+    
+    <item>
+      <title>[139]单词拆分</title>
+      <link>https://oxygenbytes.github.io/leetcode/139%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86/</link>
+      <pubDate>Thu, 04 Mar 2021 19:11:28 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/139%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86/</guid>
+      <description>//给定一个非空字符串 s 和一个包含非空单词的列表 wordDict，判定 s 是否可以被空格拆分为一个或多个在字典中出现的单词。 // // 说明： // // // 拆</description>
+    </item>
+    
+    <item>
+      <title>[814]二叉树剪枝</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/814%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%AA%E6%9E%9D/</link>
+      <pubDate>Thu, 04 Mar 2021 19:05:13 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/814%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%AA%E6%9E%9D/</guid>
+      <description>//给定二叉树根结点 root ，此外树的每个结点的值要么是 0，要么是 1。 // // 返回移除了所有不包含 1 的子树的原二叉树。 // // ( 节点 X 的子树为 X 本身，以及</description>
+    </item>
+    
+    <item>
+      <title>[143]重排链表</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/143%E9%87%8D%E6%8E%92%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Thu, 04 Mar 2021 16:04:59 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/143%E9%87%8D%E6%8E%92%E9%93%BE%E8%A1%A8/</guid>
+      <description>//给定一个单链表 L：L0→L1→…→Ln-1→Ln ， //将其重新排列后变为： L0→Ln→L1→Ln-1→L2→Ln-2→… // // 你不能只是单</description>
+    </item>
+    
+    <item>
+      <title>[56]合并区间</title>
+      <link>https://oxygenbytes.github.io/leetcode/56%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/</link>
+      <pubDate>Thu, 04 Mar 2021 15:53:46 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/56%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/</guid>
+      <description>//以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，并返 //回一个不重叠的区间数组，该数组需恰好覆盖输入中的所</description>
+    </item>
+    
+    <item>
+      <title>[300]最长递增子序列</title>
+      <link>https://oxygenbytes.github.io/leetcode/300%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/</link>
+      <pubDate>Thu, 04 Mar 2021 14:25:33 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/300%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/</guid>
+      <description>//给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。 // // 子序列是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺</description>
+    </item>
+    
+    <item>
+      <title>[958]二叉树的完全性检验</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/958%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%AE%8C%E5%85%A8%E6%80%A7%E6%A3%80%E9%AA%8C/</link>
+      <pubDate>Thu, 04 Mar 2021 14:11:13 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/958%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%AE%8C%E5%85%A8%E6%80%A7%E6%A3%80%E9%AA%8C/</guid>
+      <description>//给定一个二叉树，确定它是否是一个完全二叉树。 // // 百度百科中对完全二叉树的定义如下： // // 若设二叉树的深度为 h，除第 h 层外，其它各层 (1～h</description>
+    </item>
+    
+    <item>
+      <title>[142]环形链表 II</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/142-ii%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8-ii/</link>
+      <pubDate>Thu, 04 Mar 2021 13:46:32 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/142-ii%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8-ii/</guid>
+      <description>//给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。 // // 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链</description>
+    </item>
+    
+    <item>
+      <title>[124]二叉树中的最大路径和</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/124%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E5%92%8C/</link>
+      <pubDate>Thu, 04 Mar 2021 13:43:32 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/124%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E5%92%8C/</guid>
+      <description>//路径 被定义为一条从树中任意节点出发，沿父节点-子节点连接，达到任意节点的序列。同一个节点在一条路径序列中 至多出现一次 。该路径 至少包含一个</description>
+    </item>
+    
+    <item>
+      <title>[234]回文链表</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/234%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Thu, 04 Mar 2021 12:48:36 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/234%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</guid>
+      <description>//请判断一个链表是否为回文链表。 // // 示例 1: // // 输入: 1-&amp;gt;2 //输出: false // // 示例 2: // // 输入: 1-&amp;gt;2-&amp;gt;2-&amp;gt;1 //输出: true // // // 进阶： //你能否用 O(n) 时间复杂度和</description>
+    </item>
+    
+    <item>
+      <title>[200]岛屿数量</title>
+      <link>https://oxygenbytes.github.io/leetcode/200%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/</link>
+      <pubDate>Thu, 04 Mar 2021 12:40:11 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/200%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/</guid>
+      <description>//给你一个由 &amp;#39;1&amp;#39;（陆地）和 &amp;#39;0&amp;#39;（水）组成的的二维网格，请你计算网格中岛屿的数量。 // // 岛屿总是被水包围，</description>
+    </item>
+    
+    <item>
+      <title>[41]缺失的第一个正数</title>
+      <link>https://oxygenbytes.github.io/leetcode/41%E7%BC%BA%E5%A4%B1%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%AD%A3%E6%95%B0/</link>
+      <pubDate>Thu, 04 Mar 2021 12:17:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/41%E7%BC%BA%E5%A4%B1%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%AD%A3%E6%95%B0/</guid>
+      <description>//给你一个未排序的整数数组 nums ，请你找出其中没有出现的最小的正整数。 // // // // 进阶：你可以实现时间复杂度为 O(n) 并且只使用常数级别额外空间的解决方</description>
+    </item>
+    
+    <item>
+      <title>[113]路径总和 II</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/113%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8C-ii/</link>
+      <pubDate>Thu, 04 Mar 2021 12:04:31 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/113%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8C-ii/</guid>
+      <description>//给你二叉树的根节点 root 和一个整数目标和 targetSum ，找出所有 从根节点到叶子节点 路径总和等于给定目标和的路径。 // // 叶子节点 是指没有子节点的节点。 // // //</description>
+    </item>
+    
+    <item>
+      <title>排序算法</title>
+      <link>https://oxygenbytes.github.io/posts/algorithms/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Wed, 03 Mar 2021 22:35:34 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/algorithms/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
+      <description>冒泡排序 #include &amp;lt;bits/stdc++.h&amp;gt; using namespace std; void bubblesort(vector&amp;lt;int&amp;gt;&amp;amp; nums){ int n = nums.size(); for(int i = n - 1;i &amp;gt; 0;i--){ for(int j = 0;j &amp;lt; i;j++){ if(nums[j] &amp;gt; nums[j+1]) swap(nums[j], nums[j+1]); } } } int main(){ vector&amp;lt;int&amp;gt; nums(10); srand(unsigned(time(0))); // srand((unsigned)time(NULL)) 也可以 for(int i = 0;i &amp;lt; 10;i++){ nums[i] = rand() % 20; cout&amp;lt;&amp;lt;nums[i]&amp;lt;&amp;lt;&amp;#34; &amp;#34;; } cout&amp;lt;&amp;lt;endl; bubblesort(nums); for(auto x : nums) cout&amp;lt;&amp;lt;x&amp;lt;&amp;lt;&amp;#34; &amp;#34;;</description>
+    </item>
+    
+    <item>
+      <title>蓝湖面试复盘</title>
+      <link>https://oxygenbytes.github.io/posts/interview/%E8%93%9D%E6%B9%96%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <pubDate>Wed, 03 Mar 2021 19:46:52 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/interview/%E8%93%9D%E6%B9%96%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <description>时间比较久了，重点记一下算法题和答的不好的问题 一面 算法题：实现整数的sqrt函数， 使用二分法做 二面 算法题：算法题找出一个数组中，出现次数最多</description>
+    </item>
+    
+    <item>
+      <title>[26]删除排序数组中的重复项</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/26%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/</link>
+      <pubDate>Wed, 03 Mar 2021 15:19:19 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/26%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/</guid>
+      <description>//给定一个排序数组，你需要在 原地 删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。 // // 不要使用额外的数组空间，你必须在 原</description>
+    </item>
+    
+    <item>
+      <title>[88]合并两个有序数组</title>
+      <link>https://oxygenbytes.github.io/leetcode/88%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/</link>
+      <pubDate>Wed, 03 Mar 2021 15:04:34 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/88%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/</guid>
+      <description>//给你两个有序整数数组 nums1 和 nums2，请你将 nums2 合并到 nums1 中，使 nums1 成为一个有序数组。 // // 初始化 nums1 和 nums2 的元素数量分别为 m 和 n 。你可以假设 nums1 的空间</description>
+    </item>
+    
+    <item>
+      <title>[167]两数之和 II - 输入有序数组</title>
+      <link>https://oxygenbytes.github.io/leetcode/167%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C-ii-%E8%BE%93%E5%85%A5%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/</link>
+      <pubDate>Wed, 03 Mar 2021 14:29:36 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/167%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C-ii-%E8%BE%93%E5%85%A5%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/</guid>
+      <description>//给定一个已按照 升序排列 的整数数组 numbers ，请你从数组中找出两个数满足相加之和等于目标数 target 。 // // 函数应该以长度为 2 的整数数组的形式返回这两个数的</description>
+    </item>
+    
+    <item>
+      <title>[11]盛最多水的容器</title>
+      <link>https://oxygenbytes.github.io/leetcode/11%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/</link>
+      <pubDate>Tue, 02 Mar 2021 09:07:12 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/11%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/</guid>
+      <description>//给你 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, //ai) 和 (i, 0) 。找出其</description>
+    </item>
+    
+    <item>
+      <title>[42]接雨水</title>
+      <link>https://oxygenbytes.github.io/leetcode/42%E6%8E%A5%E9%9B%A8%E6%B0%B4/</link>
+      <pubDate>Tue, 02 Mar 2021 09:06:31 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/42%E6%8E%A5%E9%9B%A8%E6%B0%B4/</guid>
+      <description>//给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。 // // // // 示例 1： // // // // //输入：height</description>
+    </item>
+    
+    <item>
+      <title>[54]螺旋矩阵</title>
+      <link>https://oxygenbytes.github.io/leetcode/54%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/</link>
+      <pubDate>Mon, 01 Mar 2021 14:33:36 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/54%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/</guid>
+      <description>//给你一个 m 行 n 列的矩阵 matrix ，请按照 顺时针螺旋顺序 ，返回矩阵中的所有元素。 // // // // 示例 1： // // //输入：matrix = [[1,2,3],[4,5,6],[7,8,9]] //输出：[1,2,</description>
+    </item>
+    
+    <item>
+      <title>[199]二叉树的右视图</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/199%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%8F%B3%E8%A7%86%E5%9B%BE/</link>
+      <pubDate>Mon, 01 Mar 2021 14:17:44 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/199%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%8F%B3%E8%A7%86%E5%9B%BE/</guid>
+      <description>//给定一棵二叉树，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。 // // 示例: // // 输入: [1,2,3,null,5,null,4] //输出: [1, 3, 4] //解释</description>
+    </item>
+    
+    <item>
+      <title>[470]用 Rand7() 实现 Rand10()</title>
+      <link>https://oxygenbytes.github.io/leetcode/470%E7%94%A8-rand7-%E5%AE%9E%E7%8E%B0-rand10/</link>
+      <pubDate>Mon, 01 Mar 2021 14:00:36 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/470%E7%94%A8-rand7-%E5%AE%9E%E7%8E%B0-rand10/</guid>
+      <description>//已有方法 rand7 可生成 1 到 7 范围内的均匀随机整数，试写一个方法 rand10 生成 1 到 10 范围内的均匀随机整数。 // // 不要使用系统的 Math.random() 方法。 // // // // // // // 示例 1:</description>
+    </item>
+    
+    <item>
+      <title>[442]数组中重复的数据</title>
+      <link>https://oxygenbytes.github.io/leetcode/442%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Mon, 01 Mar 2021 13:20:20 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/442%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E6%8D%AE/</guid>
+      <description>//给定一个整数数组 a，其中1 ≤ a[i] ≤ n （n为数组长度）, 其中有些元素出现两次而其他元素出现一次。 // // 找到所有出现两次的元素。 // // 你可以不用到</description>
+    </item>
+    
+    <item>
+      <title>[93]复原 IP 地址</title>
+      <link>https://oxygenbytes.github.io/leetcode/93%E5%A4%8D%E5%8E%9F-ip-%E5%9C%B0%E5%9D%80/</link>
+      <pubDate>Mon, 01 Mar 2021 11:39:13 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/93%E5%A4%8D%E5%8E%9F-ip-%E5%9C%B0%E5%9D%80/</guid>
+      <description>//给定一个只包含数字的字符串，用以表示一个 IP 地址，返回所有可能从 s 获得的 有效 IP 地址 。你可以按任何顺序返回答案。 // // 有效 IP 地址 正好由四个整数</description>
+    </item>
+    
+    <item>
+      <title>[24]两两交换链表中的节点</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/24-ii%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Mon, 01 Mar 2021 10:53:56 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/24-ii%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/</guid>
+      <description>//给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。 // // 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。 // // // // 示例</description>
+    </item>
+    
+    <item>
+      <title>[146]LRU 缓存机制</title>
+      <link>https://oxygenbytes.github.io/leetcode/146lru-%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/</link>
+      <pubDate>Mon, 01 Mar 2021 10:50:42 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/146lru-%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/</guid>
+      <description>//运用你所掌握的数据结构，设计和实现一个 LRU (最近最少使用) 缓存机制 。 // // // // 实现 LRUCache 类： // // // LRUCache(int capacity) 以正整数作为容量 capacity 初始化 LRU 缓存 // int get(int key) 如果</description>
+    </item>
+    
+    <item>
+      <title>[78]子集</title>
+      <link>https://oxygenbytes.github.io/leetcode/78-ii%E5%AD%90%E9%9B%86/</link>
+      <pubDate>Sun, 28 Feb 2021 14:12:35 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/78-ii%E5%AD%90%E9%9B%86/</guid>
+      <description>//给你一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。 // // 解集 不能 包含重复的子集。你可以按 任意顺序 返回解集。 // // //</description>
+    </item>
+    
+    <item>
+      <title>[47]全排列 II</title>
+      <link>https://oxygenbytes.github.io/leetcode/47%E5%85%A8%E6%8E%92%E5%88%97-ii/</link>
+      <pubDate>Sun, 28 Feb 2021 13:16:50 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/47%E5%85%A8%E6%8E%92%E5%88%97-ii/</guid>
+      <description>//给定一个可包含重复数字的序列 nums ，按任意顺序 返回所有不重复的全排列。 // // // // 示例 1： // // //输入：nums = [1,1,2] //输出： //[[1,1,2], // [1,2,1], // [2,1,1]] // // // 示</description>
+    </item>
+    
+    <item>
+      <title>[147]对链表进行插入排序</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/147%E5%AF%B9%E9%93%BE%E8%A1%A8%E8%BF%9B%E8%A1%8C%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sun, 28 Feb 2021 12:59:22 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/147%E5%AF%B9%E9%93%BE%E8%A1%A8%E8%BF%9B%E8%A1%8C%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</guid>
+      <description>//对链表进行插入排序。 // // //插入排序的动画演示如上。从第一个元素开始，该链表可以被认为已经部分排序（用黑色表示）。 //每次迭代时，从输入</description>
+    </item>
+    
+    <item>
+      <title>[79]单词搜索</title>
+      <link>https://oxygenbytes.github.io/leetcode/79%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/</link>
+      <pubDate>Sun, 28 Feb 2021 11:18:06 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/79%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/</guid>
+      <description>//给定一个二维网格和一个单词，找出该单词是否存在于网格中。 // // 单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些</description>
+    </item>
+    
+    <item>
+      <title>[151]翻转字符串里的单词</title>
+      <link>https://oxygenbytes.github.io/leetcode/151%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D/</link>
+      <pubDate>Sat, 27 Feb 2021 15:59:32 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/151%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D/</guid>
+      <description>//给定一个字符串，逐个翻转字符串中的每个单词。 // // 说明： // // // 无空格字符构成一个 单词 。 // 输入字符串可以在前面或者后面包含多余的空格，但是反</description>
+    </item>
+    
+    <item>
+      <title>[49]字母异位词分组</title>
+      <link>https://oxygenbytes.github.io/leetcode/49%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D%E5%88%86%E7%BB%84/</link>
+      <pubDate>Sat, 27 Feb 2021 15:40:55 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/49%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D%E5%88%86%E7%BB%84/</guid>
+      <description>//给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。 // // 示例: // // 输入: [&amp;#34;eat&amp;#34;, &amp;#34;tea&amp;#34;, &amp;#34;tan&amp;#34;, &amp;#34;ate&amp;#34;, &amp;#34;nat&amp;#34;, &amp;#34;bat&amp;#34;] //输出: //[ // [&amp;#34;ate&amp;#34;,&amp;#34;eat&amp;#34;,&amp;#34;tea&amp;#34;], //</description>
+    </item>
+    
+    <item>
+      <title>[38]外观数列</title>
+      <link>https://oxygenbytes.github.io/leetcode/38%E5%A4%96%E8%A7%82%E6%95%B0%E5%88%97/</link>
+      <pubDate>Sat, 27 Feb 2021 15:19:34 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/38%E5%A4%96%E8%A7%82%E6%95%B0%E5%88%97/</guid>
+      <description>//给定一个正整数 n ，输出外观数列的第 n 项。 // // 「外观数列」是一个整数序列，从数字 1 开始，序列中的每一项都是对前一项的描述。 // // 你可以将其视</description>
+    </item>
+    
+    <item>
+      <title>[22]括号生成</title>
+      <link>https://oxygenbytes.github.io/leetcode/22%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/</link>
+      <pubDate>Sat, 27 Feb 2021 14:54:20 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/22%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/</guid>
+      <description>//数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。 // // // // 示例 1： // // //输入：n = 3 //输出：[&amp;</description>
+    </item>
+    
+    <item>
+      <title>[543]二叉树的直径</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/543-ii%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/</link>
+      <pubDate>Sat, 27 Feb 2021 12:08:51 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/543-ii%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/</guid>
+      <description>//给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。这条路径可能穿过也可能不穿过根结点。 // // //</description>
+    </item>
+    
+    <item>
+      <title>[236]二叉树的最近公共祖先</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/236%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/</link>
+      <pubDate>Sat, 27 Feb 2021 11:56:09 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/236%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/</guid>
+      <description>//给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。 // // 百度百科中最近公共祖先的定义为：“对于有根树 T 的两个节点 p、q，最近公共祖先表</description>
+    </item>
+    
+    <item>
+      <title>[105]从前序与中序遍历序列构造二叉树</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/105%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Sat, 27 Feb 2021 11:45:39 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/105%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>//根据一棵树的前序遍历与中序遍历构造二叉树。 // // 注意: //你可以假设树中没有重复的元素。 // // 例如，给出 // // 前序遍历 preorder = [3,9,20,15,7] //中序遍历 inorder = [9,3,15,20,7]</description>
+    </item>
+    
+    <item>
+      <title>[101]对称二叉树</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/101-ii%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Sat, 27 Feb 2021 11:32:32 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/101-ii%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>//给定一个二叉树，检查它是否是镜像对称的。 // // // // 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。 // // 1 // / \ // 2 2 // / \ / \ //3 4 4 3 // // // // // 但是下面这个 [1,2,2,null,3,null,3] 则不</description>
+    </item>
+    
+    <item>
+      <title>[148]排序链表</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/148%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Sat, 27 Feb 2021 10:22:35 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/148%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/</guid>
+      <description>//给你链表的头结点 head ，请将其按 升序 排列并返回 排序后的链表 。 // // 进阶： // // // 你可以在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序吗？</description>
+    </item>
+    
+    <item>
+      <title>[141]环形链表</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/141-ii%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Sat, 27 Feb 2021 09:51:50 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/141-ii%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</guid>
+      <description>//给定一个链表，判断链表中是否有环。 // // 如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，我们</description>
+    </item>
+    
+    <item>
+      <title>[142]环形链表 II</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/142%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8-ii/</link>
+      <pubDate>Sat, 27 Feb 2021 09:35:11 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/142%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8-ii/</guid>
+      <description>//给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。 // // 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链</description>
+    </item>
+    
+    <item>
+      <title>[160]相交链表</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/160%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Fri, 26 Feb 2021 23:22:11 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/160%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/</guid>
+      <description>//编写一个程序，找到两个单链表相交的起始节点。 // // 如下面的两个链表： // // // // 在节点 c1 开始相交。 // // // // 示例 1： // // // // 输入：interse</description>
+    </item>
+    
+    <item>
+      <title>[92]反转链表 II</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/92%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8-ii/</link>
+      <pubDate>Fri, 26 Feb 2021 22:55:34 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/92%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8-ii/</guid>
+      <description>//反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。 // // 说明: //1 ≤ m ≤ n ≤ 链表长度。 // // 示例: // // 输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, m = 2, n = 4 //输出: 1-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;5-&amp;gt;NULL // Related Topics 链表</description>
+    </item>
+    
+    <item>
+      <title>[24]两两交换链表中的节点</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/24%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Fri, 26 Feb 2021 22:38:38 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/24%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/</guid>
+      <description>//给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。 // // 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。 // // // // 示例</description>
+    </item>
+    
+    <item>
+      <title>[61]旋转链表</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/61-ii%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Fri, 26 Feb 2021 22:24:19 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/61-ii%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
+      <description>//给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。 // // 示例 1: // // 输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, k = 2 //输出: 4-&amp;gt;5-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;NULL //解释: //向右旋转 1</description>
+    </item>
+    
+    <item>
+      <title>[83]删除排序链表中的重复元素</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/83%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/</link>
+      <pubDate>Fri, 26 Feb 2021 20:33:53 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/83%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/</guid>
+      <description>//给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。 // // 示例 1: // // 输入: 1-&amp;gt;1-&amp;gt;2 //输出: 1-&amp;gt;2 // // // 示例 2: // // 输入: 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;3 //输出: 1-&amp;gt;2-&amp;gt;3 // Related</description>
+    </item>
+    
+    <item>
+      <title>[237]删除链表中的节点</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/237%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Fri, 26 Feb 2021 20:27:21 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/237%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/</guid>
+      <description>//请编写一个函数，使其可以删除某个链表中给定的（非末尾）节点。传入函数的唯一参数为 要被删除的节点 。 // // // // 现有一个链表 -- head = [4,5,1,</description>
+    </item>
+    
+    <item>
+      <title>[19]删除链表的倒数第 N 个结点</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/19-ii%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%AC-n-%E4%B8%AA%E7%BB%93%E7%82%B9/</link>
+      <pubDate>Fri, 26 Feb 2021 20:15:55 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/19-ii%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%AC-n-%E4%B8%AA%E7%BB%93%E7%82%B9/</guid>
+      <description>//给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。 // // 进阶：你能尝试使用一趟扫描实现吗？ // // // // 示例 1： // // //输入：hea</description>
+    </item>
+    
+    <item>
+      <title>[278]第一个错误的版本</title>
+      <link>https://oxygenbytes.github.io/leetcode/278%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Fri, 26 Feb 2021 19:57:01 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/278%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E7%89%88%E6%9C%AC/</guid>
+      <description>//你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。由于每个版本都是基于之前的版本开发的，所以</description>
+    </item>
+    
+    <item>
+      <title>[33]搜索旋转排序数组</title>
+      <link>https://oxygenbytes.github.io/leetcode/33%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/</link>
+      <pubDate>Fri, 26 Feb 2021 19:39:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/33%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/</guid>
+      <description>//整数数组 nums 按升序排列，数组中的值 互不相同 。 // // 在传递给函数之前，nums 在预先未知的某个下标 k（0 &amp;lt;= k &amp;lt; nums.length）上进行了</description>
+    </item>
+    
+    <item>
+      <title>[153]寻找旋转排序数组中的最小值</title>
+      <link>https://oxygenbytes.github.io/leetcode/153%E5%AF%BB%E6%89%BE%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC/</link>
+      <pubDate>Fri, 26 Feb 2021 15:40:53 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/153%E5%AF%BB%E6%89%BE%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC/</guid>
+      <description>//假设按照升序排序的数组在预先未知的某个点上进行了旋转。例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] 。 // // 请找出其中最小的元素。 // // // // 示例 1： // // //输入：n</description>
+    </item>
+    
+    <item>
+      <title>[74]搜索二维矩阵</title>
+      <link>https://oxygenbytes.github.io/leetcode/74%E6%90%9C%E7%B4%A2%E4%BA%8C%E7%BB%B4%E7%9F%A9%E9%98%B5/</link>
+      <pubDate>Fri, 26 Feb 2021 15:31:50 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/74%E6%90%9C%E7%B4%A2%E4%BA%8C%E7%BB%B4%E7%9F%A9%E9%98%B5/</guid>
+      <description>//编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性： // // // 每行中的整数从左到右按升序排列。 // 每行的第一个整数大</description>
+    </item>
+    
+    <item>
+      <title>[69]x 的平方根</title>
+      <link>https://oxygenbytes.github.io/leetcode/69x-%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/</link>
+      <pubDate>Fri, 26 Feb 2021 13:41:49 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/69x-%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/</guid>
+      <description>//实现 int sqrt(int x) 函数。 // // 计算并返回 x 的平方根，其中 x 是非负整数。 // // 由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。 // // 示例 1: //</description>
+    </item>
+    
+    <item>
+      <title>[35]搜索插入位置</title>
+      <link>https://oxygenbytes.github.io/leetcode/35%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 26 Feb 2021 13:41:41 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/35%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/</guid>
+      <description>//给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。 // // 你可以假设数</description>
+    </item>
+    
+    <item>
+      <title>[34]在排序数组中查找元素的第一个和最后一个位置</title>
+      <link>https://oxygenbytes.github.io/leetcode/34%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 26 Feb 2021 13:41:40 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/34%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE/</guid>
+      <description>//给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。 // // 如果数组中不存在目标值</description>
+    </item>
+    
+    <item>
+      <title>[17]电话号码的字母组合</title>
+      <link>https://oxygenbytes.github.io/leetcode/17-ii%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/</link>
+      <pubDate>Fri, 26 Feb 2021 13:27:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/17-ii%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/</guid>
+      <description>//给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。 // // 给出数字到字母的映射如下（与电话按键相同）。注意 1</description>
+    </item>
+    
+    <item>
+      <title>[18]四数之和</title>
+      <link>https://oxygenbytes.github.io/leetcode/18%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
+      <pubDate>Fri, 26 Feb 2021 12:51:31 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/18%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
+      <description>//给定一个包含 n 个整数的数组 nums 和一个目标值 target，判断 nums 中是否存在四个元素 a，b，c 和 d ，使得 a + b + c + // d 的值与 target 相等？找出所有</description>
+    </item>
+    
+    <item>
+      <title>[468]验证IP地址</title>
+      <link>https://oxygenbytes.github.io/leetcode/468%E9%AA%8C%E8%AF%81ip%E5%9C%B0%E5%9D%80/</link>
+      <pubDate>Wed, 24 Feb 2021 12:01:34 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/468%E9%AA%8C%E8%AF%81ip%E5%9C%B0%E5%9D%80/</guid>
+      <description>//编写一个函数来验证输入的字符串是否是有效的 IPv4 或 IPv6 地址。 // // // 如果是有效的 IPv4 地址，返回 &amp;#34;IPv4&amp;#34; ； // 如果是有效的 IPv6 地址，返回 &amp;#34;IPv6&amp;#34; ； // 如果不是上述类型</description>
+    </item>
+    
+    <item>
+      <title>[1143]最长公共子序列</title>
+      <link>https://oxygenbytes.github.io/leetcode/1143%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/</link>
+      <pubDate>Wed, 24 Feb 2021 11:42:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/1143%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/</guid>
+      <description>//给定两个字符串 text1 和 text2，返回这两个字符串的最长公共子序列的长度。 // // 一个字符串的 子序列 是指这样一个新的字符串：它是由原字符串在不改</description>
+    </item>
+    
+    <item>
+      <title>[64]最小路径和</title>
+      <link>https://oxygenbytes.github.io/leetcode/64%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/</link>
+      <pubDate>Wed, 24 Feb 2021 11:34:06 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/64%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/</guid>
+      <description>//给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。 // // 说明：每次只能向下或者向右移动一步</description>
+    </item>
+    
+    <item>
+      <title>[25]K 个一组翻转链表</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/25k-%E4%B8%AA%E4%B8%80%E7%BB%84%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Wed, 24 Feb 2021 11:13:31 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/25k-%E4%B8%AA%E4%B8%80%E7%BB%84%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
+      <description>//给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。 // // k 是一个正整数，它的值小于或等于链表的长度。 // // 如果节点总数不是 k 的整数</description>
+    </item>
+    
+    <item>
+      <title>[415]字符串相加</title>
+      <link>https://oxygenbytes.github.io/leetcode/415%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/</link>
+      <pubDate>Tue, 23 Feb 2021 22:36:11 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/415%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/</guid>
+      <description>//给定两个字符串形式的非负整数 num1 和num2 ，计算它们的和。 // // // // 提示： // // // num1 和num2 的长度都小于 5100 // num1 和num2 都只包含数字 0-9 // num1 和</description>
+    </item>
+    
+    <item>
+      <title>[206]反转链表</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/206-ii%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Tue, 23 Feb 2021 22:33:19 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/206-ii%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
+      <description>//反转一个单链表。 // // 示例: // // 输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL //输出: 5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL // // 进阶: //你可以迭代或递归地反转链表。你能否用两种方法解决这道题？ // Related Topics 链表 // 👍 1519</description>
+    </item>
+    
+    <item>
+      <title>[169]多数元素</title>
+      <link>https://oxygenbytes.github.io/leetcode/169%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0/</link>
+      <pubDate>Tue, 23 Feb 2021 22:12:54 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/169%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0/</guid>
+      <description>//给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数 大于 ⌊ n/2 ⌋ 的元素。 // // 你可以假设数组是非空的，并且给定的数组总是</description>
+    </item>
+    
+    <item>
+      <title>[20]有效的括号</title>
+      <link>https://oxygenbytes.github.io/leetcode/stack/20%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/</link>
+      <pubDate>Tue, 23 Feb 2021 21:59:02 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/stack/20%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/</guid>
+      <description>//给定一个只包括 &amp;#39;(&amp;#39;，&amp;#39;)&amp;#39;，&amp;#39;{&amp;#39;，&amp;#39;}&amp;#39;，&amp;#39;[&amp;#39;，&amp;</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;对象模型</title>
+      <link>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Tue, 23 Feb 2021 17:38:43 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/</guid>
+      <description>什么是C++对象模型? 语言中直接支持面向对象程序设计的部分。 对于各种支持的底层实现机制。 对象模型研究的是对象在存储上的空间与时间上的更优，并</description>
+    </item>
+    
+    <item>
+      <title>[17]电话号码的字母组合</title>
+      <link>https://oxygenbytes.github.io/leetcode/17%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/</link>
+      <pubDate>Tue, 23 Feb 2021 10:25:30 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/17%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/</guid>
+      <description>//给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。 // // 给出数字到字母的映射如下（与电话按键相同）。注意 1</description>
+    </item>
+    
+    <item>
+      <title>[226]翻转二叉树</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/226%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Tue, 23 Feb 2021 10:10:03 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/226%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>//翻转一棵二叉树。 // // 示例： // // 输入： // // 4 // / \ // 2 7 // / \ / \ //1 3 6 9 // // 输出： // // 4 // / \ // 7 2 // / \ / \ //9 6 3 1 // // 备注: //这个</description>
+    </item>
+    
+    <item>
+      <title>[120]三角形最小路径和</title>
+      <link>https://oxygenbytes.github.io/leetcode/120%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/</link>
+      <pubDate>Mon, 22 Feb 2021 17:19:50 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/120%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/</guid>
+      <description>//给定一个三角形 triangle ，找出自顶向下的最小路径和。 // // 每一步只能移动到下一行中相邻的结点上。相邻的结点 在这里指的是 下标 与 上一层结点下标 相同或者</description>
+    </item>
+    
+    <item>
+      <title>[115]不同的子序列</title>
+      <link>https://oxygenbytes.github.io/leetcode/115%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97/</link>
+      <pubDate>Mon, 22 Feb 2021 17:19:43 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/115%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97/</guid>
+      <description>//给定一个字符串 s 和一个字符串 t ，计算在 s 的子序列中 t 出现的个数。 // // 字符串的一个 子序列 是指，通过删除一些（也可以不删除）字符且不干扰剩余</description>
+    </item>
+    
+    <item>
+      <title>[91]解码方法</title>
+      <link>https://oxygenbytes.github.io/leetcode/91%E8%A7%A3%E7%A0%81%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 22 Feb 2021 17:19:33 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/91%E8%A7%A3%E7%A0%81%E6%96%B9%E6%B3%95/</guid>
+      <description>//一条包含字母 A-Z 的消息通过以下映射进行了 编码 ： // // //&amp;#39;A&amp;#39; -&amp;gt; 1 //&amp;#39;B&amp;#39; -&amp;gt; 2 //... //&amp;#39;Z&amp;#39; -&amp;gt; 26 // // // 要 解码 已编码的消息，所有数字必须基于上述映射的方法，反向映射回</description>
+    </item>
+    
+    <item>
+      <title>[82]删除排序链表中的重复元素 II</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/82%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0-ii/</link>
+      <pubDate>Mon, 22 Feb 2021 17:19:22 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/82%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0-ii/</guid>
+      <description>//给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中 没有重复出现 的数字。 // // 示例 1: // // 输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5 //输出: 1-&amp;gt;2-&amp;gt;5 // // // 示例 2: // // 输入</description>
+    </item>
+    
+    <item>
+      <title>[61]旋转链表</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/61%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Mon, 22 Feb 2021 17:19:12 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/61%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
+      <description>//给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。 // // 示例 1: // // 输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, k = 2 //输出: 4-&amp;gt;5-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;NULL //解释: //向右旋转 1</description>
+    </item>
+    
+    <item>
+      <title>[72]编辑距离</title>
+      <link>https://oxygenbytes.github.io/leetcode/72%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/</link>
+      <pubDate>Mon, 22 Feb 2021 17:19:02 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/72%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/</guid>
+      <description>//给你两个单词 word1 和 word2，请你计算出将 word1 转换成 word2 所使用的最少操作数 。 // // 你可以对一个单词进行如下三种操作： // // // 插入一个字符 // 删除一个</description>
+    </item>
+    
+    <item>
+      <title>[23]合并K个升序链表</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/23%E5%90%88%E5%B9%B6k%E4%B8%AA%E5%8D%87%E5%BA%8F%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Mon, 22 Feb 2021 17:18:56 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/23%E5%90%88%E5%B9%B6k%E4%B8%AA%E5%8D%87%E5%BA%8F%E9%93%BE%E8%A1%A8/</guid>
+      <description>//给你一个链表数组，每个链表都已经按升序排列。 // // 请你将所有链表合并到一个升序链表中，返回合并后的链表。 // // // // 示例 1： // // 输入：list</description>
+    </item>
+    
+    <item>
+      <title>[19]删除链表的倒数第 N 个结点</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/19%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%AC-n-%E4%B8%AA%E7%BB%93%E7%82%B9/</link>
+      <pubDate>Mon, 22 Feb 2021 17:18:53 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/19%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%AC-n-%E4%B8%AA%E7%BB%93%E7%82%B9/</guid>
+      <description>//给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。 // // 进阶：你能尝试使用一趟扫描实现吗？ // // // // 示例 1： // // //输入：hea</description>
+    </item>
+    
+    <item>
+      <title>[5]最长回文子串</title>
+      <link>https://oxygenbytes.github.io/leetcode/5%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/</link>
+      <pubDate>Mon, 22 Feb 2021 17:18:48 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/5%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/</guid>
+      <description>//给你一个字符串 s，找到 s 中最长的回文子串。 // // // // 示例 1： // // //输入：s = &amp;#34;babad&amp;#34; //输出：&amp;#34;bab&amp;#34; //解释：&amp;#34;a</description>
+    </item>
+    
+    <item>
+      <title>[101]对称二叉树</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/101%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Mon, 22 Feb 2021 17:14:13 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/101%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>//给定一个二叉树，检查它是否是镜像对称的。 // // // // 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。 // // 1 // / \ // 2 2 // / \ / \ //3 4 4 3 // // // // // 但是下面这个 [1,2,2,null,3,null,3] 则不</description>
+    </item>
+    
+    <item>
+      <title>[46]全排列</title>
+      <link>https://oxygenbytes.github.io/leetcode/46%E5%85%A8%E6%8E%92%E5%88%97/</link>
+      <pubDate>Mon, 22 Feb 2021 16:18:01 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/46%E5%85%A8%E6%8E%92%E5%88%97/</guid>
+      <description>//给定一个 没有重复 数字的序列，返回其所有可能的全排列。 // // 示例: // // 输入: [1,2,3] //输出: //[ // [1,2,3], // [1,3,2], // [2,1,3], // [2,3,1], // [3,1,2], // [3,2,1] //] // Related Topics 回溯算法 // 👍 1142 👎 0</description>
+    </item>
+    
+    <item>
+      <title>[78]子集</title>
+      <link>https://oxygenbytes.github.io/leetcode/78%E5%AD%90%E9%9B%86/</link>
+      <pubDate>Mon, 22 Feb 2021 16:17:47 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/78%E5%AD%90%E9%9B%86/</guid>
+      <description>//给你一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。 // // 解集 不能 包含重复的子集。你可以按 任意顺序 返回解集。 // // //</description>
+    </item>
+    
+    <item>
+      <title>[77]组合</title>
+      <link>https://oxygenbytes.github.io/leetcode/77%E7%BB%84%E5%90%88/</link>
+      <pubDate>Mon, 22 Feb 2021 16:17:43 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/77%E7%BB%84%E5%90%88/</guid>
+      <description>//给定两个整数 n 和 k，返回 1 ... n 中所有可能的 k 个数的组合。 // // 示例: // // 输入: n = 4, k = 2 //输出: //[ // [2,4], // [3,4], // [2,3], // [1,2], // [1,3], // [1,4], //] // Related Topics 回溯</description>
+    </item>
+    
+    <item>
+      <title>[283]移动零</title>
+      <link>https://oxygenbytes.github.io/leetcode/283%E7%A7%BB%E5%8A%A8%E9%9B%B6/</link>
+      <pubDate>Mon, 22 Feb 2021 10:43:13 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/283%E7%A7%BB%E5%8A%A8%E9%9B%B6/</guid>
+      <description>//给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。 // // 示例: // // 输入: [0,1,0,3,12] //输出: [1,3,12,0,0] // // 说明: // //</description>
+    </item>
+    
+    <item>
+      <title>[215]数组中的第K个最大元素</title>
+      <link>https://oxygenbytes.github.io/leetcode/215%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E7%AC%ACk%E4%B8%AA%E6%9C%80%E5%A4%A7%E5%85%83%E7%B4%A0/</link>
+      <pubDate>Mon, 22 Feb 2021 10:40:03 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/215%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E7%AC%ACk%E4%B8%AA%E6%9C%80%E5%A4%A7%E5%85%83%E7%B4%A0/</guid>
+      <description>//在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。 // // 示例 1: // // 输入: [3,2,1,5,6,4] 和</description>
+    </item>
+    
+    <item>
+      <title>[8]字符串转换整数 (atoi)</title>
+      <link>https://oxygenbytes.github.io/leetcode/8%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E6%95%B0-atoi/</link>
+      <pubDate>Mon, 22 Feb 2021 09:56:20 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/8%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E6%95%B0-atoi/</guid>
+      <description>//请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。 // // 函数 myAtoi(string s) 的算法如下： // // // 读入字符串并丢弃无用的</description>
+    </item>
+    
+    <item>
+      <title>[7]整数反转</title>
+      <link>https://oxygenbytes.github.io/leetcode/7%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/</link>
+      <pubDate>Mon, 22 Feb 2021 09:46:04 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/7%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/</guid>
+      <description>//给你一个 32 位的有符号整数 x ，返回 x 中每位上的数字反转后的结果。 // // 如果反转后整数超过 32 位的有符号整数的范围 [−231, 231 − 1] ，就返回 0。</description>
+    </item>
+    
+    <item>
+      <title>[15]三数之和</title>
+      <link>https://oxygenbytes.github.io/leetcode/15%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
+      <pubDate>Mon, 22 Feb 2021 09:01:42 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/15%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
+      <description>//给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 0 且不重 //复的三元组。 // //</description>
+    </item>
+    
+    <item>
+      <title>[144]二叉树的前序遍历</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/144%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Mon, 22 Feb 2021 08:51:19 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/144%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86/</guid>
+      <description>//给你二叉树的根节点 root ，返回它节点值的 前序 遍历。 // // // // 示例 1： // // //输入：root = [1,null,2,3] //输出：[1,2,3] // // // 示例 2： // // //输</description>
+    </item>
+    
+    <item>
+      <title>[206]反转链表</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/206%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Sun, 21 Feb 2021 22:36:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/206%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
+      <description>//反转一个单链表。 // // 示例: // // 输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL //输出: 5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL // // 进阶: //你可以迭代或递归地反转链表。你能否用两种方法解决这道题？ // Related Topics 链表 // 👍 1518</description>
+    </item>
+    
+    <item>
+      <title>[191]位1的个数</title>
+      <link>https://oxygenbytes.github.io/leetcode/191%E4%BD%8D1%E7%9A%84%E4%B8%AA%E6%95%B0/</link>
+      <pubDate>Sun, 21 Feb 2021 22:34:05 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/191%E4%BD%8D1%E7%9A%84%E4%B8%AA%E6%95%B0/</guid>
+      <description>//编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 &amp;#39;1&amp;#39; 的个数（也被称为汉明重量）。 // // // // 提示： // // //</description>
+    </item>
+    
+    <item>
+      <title>[111]二叉树的最小深度</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/111%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%B0%8F%E6%B7%B1%E5%BA%A6/</link>
+      <pubDate>Sun, 21 Feb 2021 22:26:17 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/111%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%B0%8F%E6%B7%B1%E5%BA%A6/</guid>
+      <description>//给定一个二叉树，找出其最小深度。 // // 最小深度是从根节点到最近叶子节点的最短路径上的节点数量。 // // 说明：叶子节点是指没有子节点的节点。 // //</description>
+    </item>
+    
+    <item>
+      <title>[104]二叉树的最大深度</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/104%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/</link>
+      <pubDate>Sun, 21 Feb 2021 22:15:34 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/104%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/</guid>
+      <description>//给定一个二叉树，找出其最大深度。 // // 二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。 // // 说明: 叶子节点是指没有子节点的节点。 // //</description>
+    </item>
+    
+    <item>
+      <title>[102]二叉树的层序遍历</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/102%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Sun, 21 Feb 2021 22:15:25 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/102%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/</guid>
+      <description>//给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点）。 // // // // 示例： //二叉树：[3,9,20,null</description>
+    </item>
+    
+    <item>
+      <title>[94]二叉树的中序遍历</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/94%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/</link>
+      <pubDate>Sun, 21 Feb 2021 22:02:35 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/94%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/</guid>
+      <description>//给定一个二叉树的根节点 root ，返回它的 中序 遍历。 // // // // 示例 1： // // //输入：root = [1,null,2,3] //输出：[1,3,2] // // // 示例 2： // // //输入</description>
+    </item>
+    
+    <item>
+      <title>[617]合并二叉树</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/617%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Sun, 21 Feb 2021 21:47:00 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/617%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>//给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。 // // 你需要将他们合并为一个新的二叉树。合并的规则是</description>
+    </item>
+    
+    <item>
+      <title>[62]不同路径</title>
+      <link>https://oxygenbytes.github.io/leetcode/62%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Sun, 21 Feb 2021 21:20:49 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/62%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</guid>
+      <description>//一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。 // // 机器人每次只能向下或者向右移动一步。机器人试图达到网格的</description>
+    </item>
+    
+    <item>
+      <title>[62]不同路径 II</title>
+      <link>https://oxygenbytes.github.io/leetcode/63%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84-ii/</link>
+      <pubDate>Sun, 21 Feb 2021 21:20:49 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/63%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84-ii/</guid>
+      <description>//一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。 // // 机器人每次只能向下或者向右移动一步。机器人试图达到网格的</description>
+    </item>
+    
+    <item>
+      <title>[3]无重复字符的最长子串</title>
+      <link>https://oxygenbytes.github.io/leetcode/3%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/</link>
+      <pubDate>Sun, 21 Feb 2021 20:29:29 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/3%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/</guid>
+      <description>//给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。 // // // // 示例 1: // // //输入: s = &amp;#34;abcabcbb&amp;#34; //输出: 3 //解释: 因为无重复字符的最长</description>
+    </item>
+    
+    <item>
+      <title>[687]最长同值路径</title>
+      <link>https://oxygenbytes.github.io/leetcode/687%E6%9C%80%E9%95%BF%E5%90%8C%E5%80%BC%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Sun, 21 Feb 2021 19:54:43 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/687%E6%9C%80%E9%95%BF%E5%90%8C%E5%80%BC%E8%B7%AF%E5%BE%84/</guid>
+      <description>//给定一个二叉树，找到最长的路径，这个路径中的每个节点具有相同值。 这条路径可以经过也可以不经过根节点。 // // 注意：两个节点之间的路径长度由它</description>
+    </item>
+    
+    <item>
+      <title>[543]二叉树的直径</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/543%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/</link>
+      <pubDate>Sun, 21 Feb 2021 19:45:41 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/543%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/</guid>
+      <description>//给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。这条路径可能穿过也可能不穿过根结点。 // // //</description>
+    </item>
+    
+    <item>
+      <title>[110]平衡二叉树</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/110%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Sun, 21 Feb 2021 19:34:59 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/110%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>//给定一个二叉树，判断它是否是高度平衡的二叉树。 // // 本题中，一棵高度平衡二叉树定义为： // // // 一个二叉树每个节点 的左右两个子树的高度差的绝对</description>
+    </item>
+    
+    <item>
+      <title>[98]验证二叉搜索树</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/98%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</link>
+      <pubDate>Sat, 20 Feb 2021 11:51:32 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/98%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</guid>
+      <description>//给定一个二叉树，判断其是否是一个有效的二叉搜索树。 // // 假设一个二叉搜索树具有如下特征： // // // 节点的左子树只包含小于当前节点的数。 // 节点的</description>
+    </item>
+    
+    <item>
+      <title>[2]两数相加</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/2%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</link>
+      <pubDate>Sat, 20 Feb 2021 11:22:10 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/2%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</guid>
+      <description>//给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。 // // 请你将两个数相加，并以相</description>
+    </item>
+    
+    <item>
+      <title>[1]两数之和</title>
+      <link>https://oxygenbytes.github.io/leetcode/hashmap/1%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
+      <pubDate>Sat, 20 Feb 2021 11:22:07 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/hashmap/1%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
+      <description>//给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。 // // 你可以假设每种输入只</description>
+    </item>
+    
+    <item>
+      <title>[21]合并两个有序链表</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/21%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Sat, 20 Feb 2021 11:15:25 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/21%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/</guid>
+      <description>//将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 // // // // 示例 1： // // //输入：l1 = [1,2,4], l2 = [1,3,4]</description>
+    </item>
+    
+    <item>
+      <title>[70]爬楼梯</title>
+      <link>https://oxygenbytes.github.io/leetcode/70%E7%88%AC%E6%A5%BC%E6%A2%AF/</link>
+      <pubDate>Sat, 20 Feb 2021 11:09:41 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/70%E7%88%AC%E6%A5%BC%E6%A2%AF/</guid>
+      <description>//假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 // // 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？ // // 注意：给定 n 是一个正整数</description>
+    </item>
+    
+    <item>
+      <title>[100]相同的树</title>
+      <link>https://oxygenbytes.github.io/leetcode/tree/100%E7%9B%B8%E5%90%8C%E7%9A%84%E6%A0%91/</link>
+      <pubDate>Sat, 20 Feb 2021 11:05:40 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/tree/100%E7%9B%B8%E5%90%8C%E7%9A%84%E6%A0%91/</guid>
+      <description>//给你两棵二叉树的根节点 p 和 q ，编写一个函数来检验这两棵树是否相同。 // // 如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。</description>
+    </item>
+    
+    <item>
+      <title>[141]环形链表</title>
+      <link>https://oxygenbytes.github.io/leetcode/list/141%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Sat, 20 Feb 2021 10:52:12 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/list/141%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</guid>
+      <description>//给定一个链表，判断链表中是否有环。 // // 如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，我们</description>
+    </item>
+    
+    <item>
+      <title>[53]最大子序和</title>
+      <link>https://oxygenbytes.github.io/leetcode/53%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/</link>
+      <pubDate>Sat, 20 Feb 2021 08:29:45 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/53%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/</guid>
+      <description>//给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。 // // // // 示例 1： // // //输入：nums = [-2,1,-3,4,-1,2,1,-5,4] /</description>
+    </item>
+    
+    <item>
+      <title>[14]最长公共前缀</title>
+      <link>https://oxygenbytes.github.io/leetcode/14%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</link>
+      <pubDate>Fri, 19 Feb 2021 23:04:38 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/14%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</guid>
+      <description>//编写一个函数来查找字符串数组中的最长公共前缀。 // // 如果不存在公共前缀，返回空字符串 &amp;#34;&amp;#34;。 // // // // 示例 1： // // //输入：s</description>
+    </item>
+    
+    <item>
+      <title>[1760]袋子里最少数目的球</title>
+      <link>https://oxygenbytes.github.io/leetcode/binarysearch/1760%E8%A2%8B%E5%AD%90%E9%87%8C%E6%9C%80%E5%B0%91%E6%95%B0%E7%9B%AE%E7%9A%84%E7%90%83/</link>
+      <pubDate>Fri, 19 Feb 2021 22:06:02 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/binarysearch/1760%E8%A2%8B%E5%AD%90%E9%87%8C%E6%9C%80%E5%B0%91%E6%95%B0%E7%9B%AE%E7%9A%84%E7%90%83/</guid>
+      <description>//给你一个整数数组 nums ，其中 nums[i] 表示第 i 个袋子里球的数目。同时给你一个整数 maxOperations 。 // // 你可以进行如下操作至多 maxOperations 次： // // // 选择任意一个袋子，并将袋子</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 68 - II]二叉树的最近公共祖先</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-68-ii%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/</link>
+      <pubDate>Thu, 18 Feb 2021 11:49:40 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-68-ii%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/</guid>
+      <description>//给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。 // // 百度百科中最近公共祖先的定义为：“对于有根树 T 的两个结点 p、q，最近公共祖先表</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 68 - I]二叉搜索树的最近公共祖先</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-68-i%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/</link>
+      <pubDate>Thu, 18 Feb 2021 11:49:18 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-68-i%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/</guid>
+      <description>//给定一个二叉搜索树, 找到该树中两个指定节点的最近公共祖先。 // // 百度百科中最近公共祖先的定义为：“对于有根树 T 的两个结点 p、q，最近公共祖</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 67]把字符串转换成整数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-67%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:49:02 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-67%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0/</guid>
+      <description>//写一个函数 StrToInt，实现把字符串转换成整数这个功能。不能使用 atoi 或者其他类似的库函数。 // // // // 首先，该函数会根据需要丢弃无用的开头</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 66]构建乘积数组</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-66%E6%9E%84%E5%BB%BA%E4%B9%98%E7%A7%AF%E6%95%B0%E7%BB%84/</link>
+      <pubDate>Thu, 18 Feb 2021 11:48:44 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-66%E6%9E%84%E5%BB%BA%E4%B9%98%E7%A7%AF%E6%95%B0%E7%BB%84/</guid>
+      <description>//给定一个数组 A[0,1,…,n-1]，请构建一个数组 B[0,1,…,n-1]，其中 B[i] 的值是数组 A 中除了下标 i 以外的元素的积, 即 B[ //i]</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 64]求1&#43;2&#43;…&#43;n</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-64%E6%B1%821&#43;2&#43;&#43;n/</link>
+      <pubDate>Thu, 18 Feb 2021 11:48:19 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-64%E6%B1%821&#43;2&#43;&#43;n/</guid>
+      <description>//求 1+2+...+n ，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。 // // // // 示例 1</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 65]不用加减乘除做加法</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-65%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95/</link>
+      <pubDate>Thu, 18 Feb 2021 11:48:18 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-65%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95/</guid>
+      <description>//写一个函数，求两个整数之和，要求在函数体内不得使用 “+”、“-”、“*”、“/” 四则运算符号。 // // // // 示例: // // 输入: a = 1, b = 1 //输</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 63]股票的最大利润</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-63%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%88%A9%E6%B6%A6/</link>
+      <pubDate>Thu, 18 Feb 2021 11:48:08 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-63%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%88%A9%E6%B6%A6/</guid>
+      <description>//假设把某股票的价格按照时间先后顺序存储在数组中，请问买卖该股票一次可能获得的最大利润是多少？ // // // // 示例 1: // // 输入: [7,1,5,3,6,4] //输出: 5 //解</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 62]圆圈中最后剩下的数字</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-62%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:47:52 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-62%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97/</guid>
+      <description>//0,1,···,n-1这n个数字排成一个圆圈，从数字0开始，每次从这个圆圈里删除第m个数字（删除后从下一个数字开始计数）。求出这个圆圈里</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 61]扑克牌中的顺子</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-61%E6%89%91%E5%85%8B%E7%89%8C%E4%B8%AD%E7%9A%84%E9%A1%BA%E5%AD%90/</link>
+      <pubDate>Thu, 18 Feb 2021 11:47:36 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-61%E6%89%91%E5%85%8B%E7%89%8C%E4%B8%AD%E7%9A%84%E9%A1%BA%E5%AD%90/</guid>
+      <description>//从扑克牌中随机抽5张牌，判断是不是一个顺子，即这5张牌是不是连续的。2～10为数字本身，A为1，J为11，Q为12，K为13，而大、小王</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 60]n个骰子的点数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-60n%E4%B8%AA%E9%AA%B0%E5%AD%90%E7%9A%84%E7%82%B9%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:47:26 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-60n%E4%B8%AA%E9%AA%B0%E5%AD%90%E7%9A%84%E7%82%B9%E6%95%B0/</guid>
+      <description>//把n个骰子扔在地上，所有骰子朝上一面的点数之和为s。输入n，打印出s的所有可能的值出现的概率。 // // // // 你需要用一个浮点数数组返回答案，其</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 59 - II]队列的最大值</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-59-ii%E9%98%9F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/</link>
+      <pubDate>Thu, 18 Feb 2021 11:47:07 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-59-ii%E9%98%9F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/</guid>
+      <description>//请定义一个队列并实现函数 max_value 得到队列里的最大值，要求函数max_value、push_back 和 pop_front 的均摊时间复杂度都 //是O(1)。 // // 若</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 59 - I]滑动窗口的最大值</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-59-i%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/</link>
+      <pubDate>Thu, 18 Feb 2021 11:46:56 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-59-i%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/</guid>
+      <description>//给定一个数组 nums 和滑动窗口的大小 k，请找出所有滑动窗口里的最大值。 // // 示例: // // 输入: nums = [1,3,-1,-3,5,3,6,7], 和 k = 3 //输出: [3,3,5,5,6,7] //解释: // // 滑动窗口的位</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 58 - II]左旋转字符串</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-58-ii%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Thu, 18 Feb 2021 11:46:46 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-58-ii%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>//字符串的左旋转操作是把字符串前面的若干个字符转移到字符串的尾部。请定义一个函数实现字符串左旋转操作的功能。比如，输入字符串&amp;#34;ab</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 58 - I]翻转单词顺序</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-58-i%E7%BF%BB%E8%BD%AC%E5%8D%95%E8%AF%8D%E9%A1%BA%E5%BA%8F/</link>
+      <pubDate>Thu, 18 Feb 2021 11:46:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-58-i%E7%BF%BB%E8%BD%AC%E5%8D%95%E8%AF%8D%E9%A1%BA%E5%BA%8F/</guid>
+      <description>//输入一个英文句子，翻转句子中单词的顺序，但单词内字符的顺序不变。为简单起见，标点符号和普通字母一样处理。例如输入字符串&amp;#34;I am a student.</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 57 - II]和为s的连续正数序列</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-57-ii%E5%92%8C%E4%B8%BAs%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:46:13 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-57-ii%E5%92%8C%E4%B8%BAs%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97/</guid>
+      <description>//输入一个正整数 target ，输出所有和为 target 的连续正整数序列（至少含有两个数）。 // // 序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。 // //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 57]和为s的两个数字</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-57%E5%92%8C%E4%B8%BAs%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:45:35 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-57%E5%92%8C%E4%B8%BAs%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97/</guid>
+      <description>//输入一个递增排序的数组和一个数字s，在数组中查找两个数，使得它们的和正好是s。如果有多对数字的和等于s，则输出任意一对即可。 // // // // 示例</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 56 - II]数组中数字出现的次数 II</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-56-ii%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0-ii/</link>
+      <pubDate>Thu, 18 Feb 2021 11:45:24 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-56-ii%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0-ii/</guid>
+      <description>//在一个数组 nums 中除一个数字只出现一次之外，其他数字都出现了三次。请找出那个只出现一次的数字。 // // // // 示例 1： // // 输入：nums = [3,4,3,3] //输出</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 56 - I]数组中数字出现的次数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-56-i%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:45:07 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-56-i%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/</guid>
+      <description>//一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 55 - II]平衡二叉树</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-55-ii%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Thu, 18 Feb 2021 11:44:55 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-55-ii%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>//输入一棵二叉树的根节点，判断该树是不是平衡二叉树。如果某二叉树中任意节点的左右子树的深度相差不超过1，那么它就是一棵平衡二叉树。 // // // //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 55 - I]二叉树的深度</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-55-i%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/</link>
+      <pubDate>Thu, 18 Feb 2021 11:44:39 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-55-i%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/</guid>
+      <description>//输入一棵二叉树的根节点，求该树的深度。从根节点到叶节点依次经过的节点（含根、叶节点）形成树的一条路径，最长路径的长度为树的深度。 // // 例如</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 54]二叉搜索树的第k大节点</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-54%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E7%AC%ACk%E5%A4%A7%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Thu, 18 Feb 2021 11:44:28 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-54%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E7%AC%ACk%E5%A4%A7%E8%8A%82%E7%82%B9/</guid>
+      <description>//给定一棵二叉搜索树，请找出其中第k大的节点。 // // // // 示例 1: // // 输入: root = [3,1,4,null,2], k = 1 // 3 // / \ // 1 4 // \ // 2 //输出: 4 // // 示例 2: // // 输入:</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 53 - II]0～n-1中缺失的数字</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-53-ii0n-1%E4%B8%AD%E7%BC%BA%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:44:18 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-53-ii0n-1%E4%B8%AD%E7%BC%BA%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/</guid>
+      <description>//一个长度为n-1的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围0～n-1之内。在范围0～n-1内的n个数字中有且只有一个数字</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 53 - I]在排序数组中查找数字 I</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-53-i%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E6%95%B0%E5%AD%97-i/</link>
+      <pubDate>Thu, 18 Feb 2021 11:44:07 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-53-i%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E6%95%B0%E5%AD%97-i/</guid>
+      <description>//统计一个数字在排序数组中出现的次数。 // // // // 示例 1: // // 输入: nums = [5,7,7,8,8,10], target = 8 //输出: 2 // // 示例 2: // // 输入: nums = [5,7,7,8,8,10], target = 6 //输出: 0 // // // //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 52]两个链表的第一个公共节点</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-52%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Thu, 18 Feb 2021 11:43:49 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-52%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E8%8A%82%E7%82%B9/</guid>
+      <description>//输入两个链表，找出它们的第一个公共节点。 // // 如下面的两个链表： // // // // 在节点 c1 开始相交。 // // // // 示例 1： // // // // 输入：intersect</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 51]数组中的逆序对</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-51%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%80%86%E5%BA%8F%E5%AF%B9/</link>
+      <pubDate>Thu, 18 Feb 2021 11:43:30 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-51%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%80%86%E5%BA%8F%E5%AF%B9/</guid>
+      <description>//在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。 // // // // 示例</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 50]第一个只出现一次的字符</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-50%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/</link>
+      <pubDate>Thu, 18 Feb 2021 11:43:19 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-50%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/</guid>
+      <description>//在字符串 s 中找出第一个只出现一次的字符。如果没有，返回一个单空格。 s 只包含小写字母。 // // 示例: // // s = &amp;#34;abaccdeff&amp;#34; //返回 &amp;#34;b&amp;#34; // //s = &amp;#34;&amp;#34; //返回 &amp;#34; &amp;#34; //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 49]丑数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-49%E4%B8%91%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:43:06 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-49%E4%B8%91%E6%95%B0/</guid>
+      <description>//我们把只包含质因子 2、3 和 5 的数称作丑数（Ugly Number）。求按从小到大的顺序的第 n 个丑数。 // // // // 示例: // // 输入: n = 10 //输出</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 48]最长不含重复字符的子字符串</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-48%E6%9C%80%E9%95%BF%E4%B8%8D%E5%90%AB%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Thu, 18 Feb 2021 11:42:47 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-48%E6%9C%80%E9%95%BF%E4%B8%8D%E5%90%AB%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>//请从字符串中找出一个最长的不包含重复字符的子字符串，计算该最长子字符串的长度。 // // // // 示例 1: // // 输入: &amp;#34;abcabcbb&amp;#34; //输出: 3 //解释: 因为无重复</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 47]礼物的最大价值</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-47%E7%A4%BC%E7%89%A9%E7%9A%84%E6%9C%80%E5%A4%A7%E4%BB%B7%E5%80%BC/</link>
+      <pubDate>Thu, 18 Feb 2021 11:42:34 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-47%E7%A4%BC%E7%89%A9%E7%9A%84%E6%9C%80%E5%A4%A7%E4%BB%B7%E5%80%BC/</guid>
+      <description>//在一个 m*n 的棋盘的每一格都放有一个礼物，每个礼物都有一定的价值（价值大于 0）。你可以从棋盘的左上角开始拿格子里的礼物，并每次向右或者向下移</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 46]把数字翻译成字符串</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-46%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Thu, 18 Feb 2021 11:42:18 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-46%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>//给定一个数字，我们按照如下规则把它翻译为字符串：0 翻译成 “a” ，1 翻译成 “b”，……，11 翻译成 “l”，……，25 翻译成 “z”。一个数字</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 45]把数组排成最小的数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-45%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:42:05 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-45%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/</guid>
+      <description>//输入一个非负整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。 // // // // 示例 1: // // 输入: [10,2] //输出: &amp;#34;102&amp;#34; // //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 44]数字序列中某一位的数字</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-44%E6%95%B0%E5%AD%97%E5%BA%8F%E5%88%97%E4%B8%AD%E6%9F%90%E4%B8%80%E4%BD%8D%E7%9A%84%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:41:52 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-44%E6%95%B0%E5%AD%97%E5%BA%8F%E5%88%97%E4%B8%AD%E6%9F%90%E4%B8%80%E4%BD%8D%E7%9A%84%E6%95%B0%E5%AD%97/</guid>
+      <description>//数字以0123456789101112131415…的格式序列化到一个字符序列中。在这个序列中，第5位（从下标0开始计数）是5，第13位</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 43]1～n 整数中 1 出现的次数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-431n-%E6%95%B4%E6%95%B0%E4%B8%AD-1-%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:41:34 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-431n-%E6%95%B4%E6%95%B0%E4%B8%AD-1-%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/</guid>
+      <description>//输入一个整数 n ，求1～n这n个整数的十进制表示中1出现的次数。 // // 例如，输入12，1～12这些整数中包含1 的数字有1、10、11和12，</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 42]连续子数组的最大和</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-42%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/</link>
+      <pubDate>Thu, 18 Feb 2021 11:41:19 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-42%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/</guid>
+      <description>//输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。 // // 要求时间复杂度为O(n)。 // // // // 示例1: // //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 41]数据流中的中位数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-41%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:41:00 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-41%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</guid>
+      <description>//如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 40]最小的k个数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-40%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:40:47 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-40%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0/</guid>
+      <description>//输入整数数组 arr ，找出其中最小的 k 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。 // // // // 示例</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 39]数组中出现次数超过一半的数字</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-39%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:40:33 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-39%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97/</guid>
+      <description>//数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。 // // // // 你可以假设数组是非空的，并且给定的数组总是存在多数元素。 // // // // 示</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 38]字符串的排列</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-38%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:40:19 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-38%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/</guid>
+      <description>//输入一个字符串，打印出该字符串中字符的所有排列。 // // // // 你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。 // // // // 示例: // // 输入</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 37]序列化二叉树</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-37%E5%BA%8F%E5%88%97%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Thu, 18 Feb 2021 11:39:58 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-37%E5%BA%8F%E5%88%97%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>//请实现两个函数，分别用来序列化和反序列化二叉树。 // // 示例: // // 你可以将以下二叉树： // // 1 // / \ // 2 3 // / \ // 4 5 // //序列化为 &amp;#34;[1,2,3,null,null,4,5]&amp;#34; // // 注意</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 36]二叉搜索树与双向链表</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-36%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Thu, 18 Feb 2021 11:39:03 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-36%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/</guid>
+      <description>//输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的循环双向链表。要求不能创建任何新的节点，只能调整树中节点指针的指向。 // // // // 为了让您更</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 35]复杂链表的复制</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-35%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/</link>
+      <pubDate>Thu, 18 Feb 2021 11:38:35 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-35%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/</guid>
+      <description>//请实现 copyRandomList 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 next 指针指向下一个节点，还有一个 random 指针指 //向链表中的任意节点或者 null</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 34]二叉树中和为某一值的路径</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-34%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Thu, 18 Feb 2021 11:38:17 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-34%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84/</guid>
+      <description>//输入一棵二叉树和一个整数，打印出二叉树中节点值的和为输入整数的所有路径。从树的根节点开始往下一直到叶节点所经过的节点形成一条路径。 // // //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 33]二叉搜索树的后序遍历序列</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-33%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:38:09 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-33%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/</guid>
+      <description>//输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果。如果是则返回 true，否则返回 false。假设输入的数组的任意两个数字都互</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 32 - III]从上到下打印二叉树 III</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-32-iii%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91-iii/</link>
+      <pubDate>Thu, 18 Feb 2021 11:37:40 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-32-iii%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91-iii/</guid>
+      <description>//请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 32 - II]从上到下打印二叉树 II</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-32-ii%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91-ii/</link>
+      <pubDate>Thu, 18 Feb 2021 11:37:25 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-32-ii%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91-ii/</guid>
+      <description>//从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。 // // // // 例如: //给定二叉树: [3,9,20,null,null,15,7], // // 3 // / \ // 9 20 // / \ // 15</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 32 - I]从上到下打印二叉树</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-32-i%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Thu, 18 Feb 2021 11:37:09 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-32-i%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>//从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。 // // // // 例如: //给定二叉树: [3,9,20,null,null,15,7], // // 3 // / \ // 9 20 // / \ // 15 7 // // //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 31]栈的压入、弹出序列</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-31%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:36:59 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-31%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/</guid>
+      <description>//输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如，序列 {1,2,3,4,5} 是某栈 //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 30]包含min函数的栈</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-30%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/</link>
+      <pubDate>Thu, 18 Feb 2021 11:36:32 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-30%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/</guid>
+      <description>//定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。 // // // // 示</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 29]顺时针打印矩阵</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-29%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/</link>
+      <pubDate>Thu, 18 Feb 2021 11:36:05 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-29%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/</guid>
+      <description>//输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。 // // // // 示例 1： // // 输入：matrix = [[1,2,3],[4,5,6],[7,8,9]] //输出：[1,2,3,6,9,</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 28]对称的二叉树</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-28%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Thu, 18 Feb 2021 11:35:51 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-28%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>//请实现一个函数，用来判断一棵二叉树是不是对称的。如果一棵二叉树和它的镜像一样，那么它是对称的。 // // 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。 // // 1 // / \ //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 27]二叉树的镜像</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-27%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Thu, 18 Feb 2021 11:35:20 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-27%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/</guid>
+      <description>//请完成一个函数，输入一个二叉树，该函数输出它的镜像。 // // 例如输入： // // 4 // / \ // 2 7 // / \ / \ //1 3 6 9 //镜像输出： // // 4 // / \ // 7 2 //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 26]树的子结构</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-26%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Thu, 18 Feb 2021 11:35:04 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-26%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</guid>
+      <description>//输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构) // // B是A的子结构， 即 A中有出现和B相同的结构和节点值。</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 25]合并两个排序的链表</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-25%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E7%9A%84%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Thu, 18 Feb 2021 11:34:28 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-25%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E7%9A%84%E9%93%BE%E8%A1%A8/</guid>
+      <description>//输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。 // // 示例1： // // 输入：1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4 //输出：</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 24]反转链表</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-24%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Thu, 18 Feb 2021 11:34:23 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-24%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
+      <description>//定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。 // // // // 示例: // // 输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL //输出: 5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL // // // // 限制： // // 0 &amp;lt;= 节点</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 22]链表中倒数第k个节点</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-22%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Thu, 18 Feb 2021 11:34:11 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-22%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9/</guid>
+      <description>//输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。 // // 例如，一个链表有</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 21]调整数组顺序使奇数位于偶数前面</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-21%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2/</link>
+      <pubDate>Thu, 18 Feb 2021 11:34:00 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-21%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2/</guid>
+      <description>//输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。 // // // // 示例： // // 输</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 20]表示数值的字符串</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-20%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Thu, 18 Feb 2021 11:33:50 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-20%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>//请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串&amp;#34;+100&amp;#34;、&amp;#34;5e2&amp;#34;、&amp;#3</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 19]正则表达式匹配</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-19%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/</link>
+      <pubDate>Thu, 18 Feb 2021 11:32:54 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-19%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/</guid>
+      <description>//请实现一个函数用来匹配包含&amp;#39;. &amp;#39;和&amp;#39;*&amp;#39;的正则表达式。模式中的字符&amp;#39;.&amp;#39;表示任意一个字符</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 18]删除链表的节点</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-18%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Thu, 18 Feb 2021 11:32:41 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-18%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9/</guid>
+      <description>//给定单向链表的头指针和一个要删除的节点的值，定义一个函数删除该节点。 // // 返回删除后的链表的头节点。 // // 注意：此题对比原题有改动 // // 示例 1:</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 17]打印从1到最大的n位数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-17%E6%89%93%E5%8D%B0%E4%BB%8E1%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84n%E4%BD%8D%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:32:29 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-17%E6%89%93%E5%8D%B0%E4%BB%8E1%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84n%E4%BD%8D%E6%95%B0/</guid>
+      <description>//输入数字 n，按顺序打印出从 1 到最大的 n 位十进制数。比如输入 3，则打印出 1、2、3 一直到最大的 3 位数 999。 // // 示例 1: // // 输入: n = 1 //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 16]数值的整数次方</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-16%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9/</link>
+      <pubDate>Thu, 18 Feb 2021 11:32:22 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-16%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9/</guid>
+      <description>//实现函数double Power(double base, int exponent)，求base的exponent次方。不得使用库函数，同时不需要考虑大数 //问题。 // // // // 示例</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 15]二进制中1的个数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-15%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:32:09 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-15%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/</guid>
+      <description>//请实现一个函数，输入一个整数（以二进制串形式），输出该数二进制表示中 1 的个数。例如，把 9 表示成二进制是 1001，有 2 位是 1。因此，如果输</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 14- II]剪绳子 II</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-14-ii%E5%89%AA%E7%BB%B3%E5%AD%90-ii/</link>
+      <pubDate>Thu, 18 Feb 2021 11:31:50 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-14-ii%E5%89%AA%E7%BB%B3%E5%AD%90-ii/</guid>
+      <description>//给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n&amp;gt;1并且m&amp;gt;1），每段绳子的长度记为 k[0],k[1]...k[m - 1] // 。请问 k[0]*k[1]*...*k[m -</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 14- I]剪绳子</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-14-i%E5%89%AA%E7%BB%B3%E5%AD%90/</link>
+      <pubDate>Thu, 18 Feb 2021 11:31:30 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-14-i%E5%89%AA%E7%BB%B3%E5%AD%90/</guid>
+      <description>//给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n&amp;gt;1并且m&amp;gt;1），每段绳子的长度记为 k[0],k[1]...k[m-1] 。 //请问 k[0]*k[1]*...*k[m-1] 可能</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 13]机器人的运动范围</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-13%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4/</link>
+      <pubDate>Thu, 18 Feb 2021 11:31:20 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-13%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4/</guid>
+      <description>//地上有一个m行n列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。一个机器人从坐标 [0, 0] 的格子开始移动，它每次可以向左、右、上、下移动一 //格（不能移动到方格外</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 12]矩阵中的路径</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-12%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Thu, 18 Feb 2021 11:30:56 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-12%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/</guid>
+      <description>//请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一格开始，每一步可以在矩阵中向左、右、</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 11]旋转数组的最小数字</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-11%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:30:29 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-11%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/</guid>
+      <description>//把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组 [3,4,5,1,2</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 10- II]青蛙跳台阶问题</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-10-ii%E9%9D%92%E8%9B%99%E8%B7%B3%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 18 Feb 2021 11:30:15 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-10-ii%E9%9D%92%E8%9B%99%E8%B7%B3%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%98/</guid>
+      <description>//一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。求该青蛙跳上一个 n 级的台阶总共有多少种跳法。 // // 答案需要取模 1e9+7（1000000</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 10- I]斐波那契数列</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-10-i%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:30:00 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-10-i%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/</guid>
+      <description>//写一个函数，输入 n ，求斐波那契（Fibonacci）数列的第 n 项（即 F(N)）。斐波那契数列的定义如下： // // //F(0) = 0, F(1) = 1 //F(N) = F(N - 1) + F(N -</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 09]用两个栈实现队列</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-09%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:29:45 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-09%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</guid>
+      <description>//用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 appendTail 和 deleteHead ，分别完成在队列尾部插入整数和在队列头部删除整数的 //功能。(若队列中没有</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 07]重建二叉树</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-07%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Thu, 18 Feb 2021 11:29:29 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-07%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>//输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。 // // // // 例如，给出 // // 前序</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 06]从尾到头打印链表</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-06%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Thu, 18 Feb 2021 11:29:03 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-06%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/</guid>
+      <description>//输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。 // // // // 示例 1： // // 输入：head = [1,3,2] //输出：[2,3,1] // // //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 05]替换空格</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-05%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/</link>
+      <pubDate>Thu, 18 Feb 2021 11:28:56 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-05%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/</guid>
+      <description>//请实现一个函数，把字符串 s 中的每个空格替换成&amp;#34;%20&amp;#34;。 // // // // 示例 1： // // 输入：s = &amp;#34;We are happy.&amp;#34; //输出：&amp;#34;We%2</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 04]二维数组中的查找</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-04%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/</link>
+      <pubDate>Thu, 18 Feb 2021 11:28:36 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-04%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/</guid>
+      <description>//在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个高效的函数，输入这样的一个二</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 03]数组中重复的数字</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-03%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:26:59 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-03%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/</guid>
+      <description>//找出数组中重复的数字。 // // //在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了</description>
+    </item>
+    
+    <item>
+      <title>Docker 学习</title>
+      <link>https://oxygenbytes.github.io/posts/linux/docker/</link>
+      <pubDate>Sat, 30 Jan 2021 21:49:10 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/linux/docker/</guid>
+      <description>一、解决的问题 由于不同的机器有不同的操作系统，以及不同的库和组件，在将一个应用部署到多台机器上需要进行大量的环境配置操作。 Docker 主要解决环境配置</description>
+    </item>
+    
+    <item>
+      <title>Git 学习</title>
+      <link>https://oxygenbytes.github.io/posts/linux/git/</link>
+      <pubDate>Sat, 30 Jan 2021 21:49:10 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/linux/git/</guid>
+      <description>Git 学习 主要记录一些git学习的笔记内容 git学习链接 git分支管理 新建分支 git checkout -b branchname 切换分支 git checkout branchname 查看分支 git branch 比如你现在在dev，克隆下来的是</description>
+    </item>
+    
+    <item>
+      <title>Linux 学习</title>
+      <link>https://oxygenbytes.github.io/posts/linux/linux/</link>
+      <pubDate>Sat, 30 Jan 2021 21:49:10 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/linux/linux/</guid>
+      <description>一、常用操作以及概念 快捷键 Tab：命令和文件名补全； Ctrl+C：中断正在运行的程序； Ctrl+D：结束键盘输入（End Of File，EOF）</description>
+    </item>
+    
+    <item>
+      <title>二分算法</title>
+      <link>https://oxygenbytes.github.io/posts/algorithms/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 30 Jan 2021 21:49:10 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/algorithms/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/</guid>
+      <description>二分算法 二分模板 二分模板一共有两个，分别适用于不同情况。 版本1 当我们将区间[l, r]划分成[l, mid]和[mid + 1, r]时，其更新操作是r</description>
+    </item>
+    
+    <item>
+      <title>Java IO</title>
+      <link>https://oxygenbytes.github.io/posts/java/java-io/</link>
+      <pubDate>Tue, 27 Oct 2020 23:06:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/java/java-io/</guid>
+      <description>一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 字符操作：Reader 和 Writer 对象操作：Seriali</description>
+    </item>
+    
+    <item>
+      <title>Java 基础</title>
+      <link>https://oxygenbytes.github.io/posts/java/java-%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Tue, 27 Oct 2020 23:06:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/java/java-%E5%9F%BA%E7%A1%80/</guid>
+      <description>一、数据类型 基本类型 byte/8 char/16 short/16 int/32 float/32 long/64 double/64 boolean/~ boolean 只有两个值：true、false，可以使用 1 bit 来存储，但是具体大小没有明确规定。JVM 会在编译时期将 boolean</description>
+    </item>
+    
+    <item>
+      <title>Java 容器</title>
+      <link>https://oxygenbytes.github.io/posts/java/java-%E5%AE%B9%E5%99%A8/</link>
+      <pubDate>Tue, 27 Oct 2020 23:06:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/java/java-%E5%AE%B9%E5%99%A8/</guid>
+      <description>一、概览 容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。 1. Set TreeSet：基于红黑树实</description>
+    </item>
+    
+    <item>
+      <title>Java 网络编程</title>
+      <link>https://oxygenbytes.github.io/posts/java/java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Tue, 27 Oct 2020 23:06:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/java/java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
+      <description>HTTP请求过程 以www.baidu.com为例子 1.chrome自己的缓存,存留时间大概1min Notes:chrome://net-in</description>
+    </item>
+    
+    <item>
+      <title>二叉树的遍历算法</title>
+      <link>https://oxygenbytes.github.io/posts/algorithms/binarytreetraversal/</link>
+      <pubDate>Sun, 30 Aug 2020 21:49:10 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/algorithms/binarytreetraversal/</guid>
+      <description>二叉树的遍历算法是理解递归和搜索的关键算法，也可以用来思考程序状态问题和分类讨论思想。 二叉树的先序遍历 非递归版本 class Solution { public: vector&amp;lt;int&amp;gt; preorderTraversal(TreeNode* root) { if(!root) return {}; vector&amp;lt;int&amp;gt; result; stack&amp;lt;TreeNode*&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>关于博客的Leetcode代码的格式和生成</title>
+      <link>https://oxygenbytes.github.io/leetcode/leetcodeformat/</link>
+      <pubDate>Sat, 22 Aug 2020 21:13:42 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/leetcode/leetcodeformat/</guid>
+      <description>刷题时生成C++文件 我以前经常在Vscode中刷leetcode题目，但这种方式的代码不够规范，也比较耗时，因为主力语言是 C++ ,所以现在在 Clion 中</description>
+    </item>
+    
+    <item>
+      <title>Termux 使用指南</title>
+      <link>https://oxygenbytes.github.io/posts/linux/termux/</link>
+      <pubDate>Wed, 12 Aug 2020 09:30:07 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/linux/termux/</guid>
+      <description>安装 Termux 是一款基于 Android 平台的开源 Linux 终端模拟器，使用 pkg(apt) 进行软件包的管理。可以在 Google play 安装最新版的 termux 和 termux-API 。Termux 支持缩放手势来调整字体大小，长按</description>
+    </item>
+    
+    <item>
+      <title>线性代数的本质</title>
+      <link>https://oxygenbytes.github.io/posts/math/linearalgebra/</link>
+      <pubDate>Thu, 06 Aug 2020 19:42:44 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/math/linearalgebra/</guid>
+      <description>1p 什么是向量？ 定义坐标系 物理系，计算机系，数学系对向量的不同认识 向量可以是任何东西，只要保证两个向量相加以及数字与向量想成是有意义的即可。 可</description>
+    </item>
+    
+    <item>
+      <title>计算机网络中的经典问题</title>
+      <link>https://oxygenbytes.github.io/posts/linux/computernetwork/</link>
+      <pubDate>Thu, 06 Aug 2020 19:25:42 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/linux/computernetwork/</guid>
+      <description>传输层：TCP和UDP 什么是三次握手？ 什么是四次挥手？ TCP如何实现流量控制？ TCP的拥塞控制是怎么实现的？ TCP与UDP的区别 TCP如何保</description>
+    </item>
+    
+    <item>
+      <title>深搜&amp;&amp;广搜</title>
+      <link>https://oxygenbytes.github.io/posts/algorithms/bfsdfs/</link>
+      <pubDate>Mon, 27 Jul 2020 23:06:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/algorithms/bfsdfs/</guid>
+      <description>深搜和广搜是最重要的几种算法之一，理解深搜和广搜的关键在于理解 递归 ， 状态机 ， 容器适配器--堆&amp;amp;&amp;amp;栈 和 集合分类 四个概念。 在搜索</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;内存模型</title>
+      <link>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Thu, 27 Jun 2019 09:06:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</guid>
+      <description>内存模型所要表达的内容主要是这么描述： 一个内存操作的效果，在其他线程中的可见性问题。 C++ 内存模型 C分为四个区：堆，栈，静态全局变量区，常量区 C</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;基础知识</title>
+      <link>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Thu, 27 Jun 2019 09:06:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <description>const常引用（const + &amp;amp;）避免函数参数的双向传递 在c++可以使用引用传递作为函数的形参传入函数，相较于值传递的方式，引用传递</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;输入输出</title>
+      <link>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</link>
+      <pubDate>Thu, 27 Jun 2019 09:06:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</guid>
+      <description>使用cin来读取数据 ​cin 基本用法 ​cin遇到缓冲区中的[enter],[space],[tab]会结束当前输入，并舍弃[enter],[</description>
+    </item>
+    
+    <item>
+      <title>侯捷C&#43;&#43;程序设计</title>
+      <link>https://oxygenbytes.github.io/posts/cplus/%E4%BE%AF%E6%8D%B7c&#43;&#43;%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Thu, 27 Jun 2019 09:06:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/cplus/%E4%BE%AF%E6%8D%B7c&#43;&#43;%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</guid>
+      <description>课程链接 基本语法知识 &amp;lt;iostream&amp;gt; 尖括号是使用标准头文件 &amp;ldquo;matrix.h&amp;rdquo; 调用自给定头文件 构造函数可以重载(overload) 对于没有用到指针的类，一般不用写析构函数 构</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>https://oxygenbytes.github.io/about/</link>
+      <pubDate>Tue, 09 Apr 2019 19:43:28 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/about/</guid>
+      <description>只要一个人明确地，诚挚地针对任何一个主题反思，那么这个人就必然可以和他周围的浮泛思想区隔开来。任何知性上的努力，都可以带我们脱离庸俗，它将引</description>
+    </item>
+    
+    <item>
+      <title>剪绳子问题</title>
+      <link>https://oxygenbytes.github.io/posts/algorithms/cutrode/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/algorithms/cutrode/</guid>
+      <description>题目描述 给你一根长度为n的绳子，请把绳子剪成整数长的m段（m、n都是整数，n&amp;gt;1并且m&amp;gt;1），每段绳子的长度记为k[0],k[1</description>
+    </item>
+    
+    
     
   </channel>
 </rss>

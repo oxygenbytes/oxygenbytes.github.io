@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Leetcodes | Zxq&#39;s Site</title>
+<meta name="keywords" content="">
+<meta name="description" content="Leetcodes - Zxq&#39;s Site">
+<meta name="author" content="">
+<link rel="canonical" href="https://oxygenbytes.github.io/leetcode/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css" integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://oxygenbytes.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://oxygenbytes.github.io/leetcode/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Leetcodes" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://oxygenbytes.github.io/leetcode/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcodes"/>
+<meta name="twitter:description" content=""/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Leetcodes",
+      "item": "https://oxygenbytes.github.io/leetcode/"
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://oxygenbytes.github.io" accesskey="h" title="Zxq&#39;s Site (Alt + H)">Zxq&#39;s Site</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://oxygenbytes.github.io/" title="🏠主页">
+                    <span>🏠主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/posts" title="📚文章">
+                    <span>📚文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/archives/" title="⏱时间轴">
+                    <span>⏱时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/tags" title="🔖标签">
+                    <span>🔖标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/about" title="🙋🏻‍♂️关于">
+                    <span>🙋🏻‍♂️关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://oxygenbytes.github.io">Home</a></div>
+  <h1>
+    Leetcodes
+  </h1>
+</header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[105]从前序与中序遍历序列构造二叉树
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//根据一棵树的前序遍历与中序遍历构造二叉树。 // // 注意: //你可以假设树中没有重复的元素。 // // 例如，给出 // // 前序遍历 preorder = [3,9,20,15,7] //中序遍历 inorder = [9,3,15,20,7]...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-27 11:45:39 +0800 CST'>2021-02-27</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [105]从前序与中序遍历序列构造二叉树" href="https://oxygenbytes.github.io/leetcode/tree/105%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[101]对称二叉树
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定一个二叉树，检查它是否是镜像对称的。 // // // // 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。 // // 1 // / \ // 2 2 // / \ / \ //3 4 4 3 // // // // // 但是下面这个 [1,2,2,null,3,null,3] 则不...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-27 11:32:32 +0800 CST'>2021-02-27</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [101]对称二叉树" href="https://oxygenbytes.github.io/leetcode/tree/101-ii%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[148]排序链表
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给你链表的头结点 head ，请将其按 升序 排列并返回 排序后的链表 。 // // 进阶： // // // 你可以在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序吗？...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-27 10:22:35 +0800 CST'>2021-02-27</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [148]排序链表" href="https://oxygenbytes.github.io/leetcode/list/148%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[141]环形链表
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定一个链表，判断链表中是否有环。 // // 如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，我们...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-27 09:51:50 +0800 CST'>2021-02-27</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [141]环形链表" href="https://oxygenbytes.github.io/leetcode/list/141-ii%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[142]环形链表 II
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。 // // 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-27 09:35:11 +0800 CST'>2021-02-27</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [142]环形链表 II" href="https://oxygenbytes.github.io/leetcode/list/142%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8-ii/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[160]相交链表
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//编写一个程序，找到两个单链表相交的起始节点。 // // 如下面的两个链表： // // // // 在节点 c1 开始相交。 // // // // 示例 1： // // // // 输入：interse...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-26 23:22:11 +0800 CST'>2021-02-26</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to [160]相交链表" href="https://oxygenbytes.github.io/leetcode/list/160%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[92]反转链表 II
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。 // // 说明: //1 ≤ m ≤ n ≤ 链表长度。 // // 示例: // // 输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, m = 2, n = 4 //输出: 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL // Related Topics 链表...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-26 22:55:34 +0800 CST'>2021-02-26</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [92]反转链表 II" href="https://oxygenbytes.github.io/leetcode/list/92%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8-ii/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[24]两两交换链表中的节点
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。 // // 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。 // // // // 示例...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-26 22:38:38 +0800 CST'>2021-02-26</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [24]两两交换链表中的节点" href="https://oxygenbytes.github.io/leetcode/list/24%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[61]旋转链表
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。 // // 示例 1: // // 输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, k = 2 //输出: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL //解释: //向右旋转 1...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-26 22:24:19 +0800 CST'>2021-02-26</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [61]旋转链表" href="https://oxygenbytes.github.io/leetcode/list/61-ii%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[83]删除排序链表中的重复元素
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。 // // 示例 1: // // 输入: 1-&gt;1-&gt;2 //输出: 1-&gt;2 // // // 示例 2: // // 输入: 1-&gt;1-&gt;2-&gt;3-&gt;3 //输出: 1-&gt;2-&gt;3 // Related...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-26 20:33:53 +0800 CST'>2021-02-26</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [83]删除排序链表中的重复元素" href="https://oxygenbytes.github.io/leetcode/list/83%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[237]删除链表中的节点
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//请编写一个函数，使其可以删除某个链表中给定的（非末尾）节点。传入函数的唯一参数为 要被删除的节点 。 // // // // 现有一个链表 -- head = [4,5,1,...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-26 20:27:21 +0800 CST'>2021-02-26</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [237]删除链表中的节点" href="https://oxygenbytes.github.io/leetcode/list/237%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[19]删除链表的倒数第 N 个结点
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。 // // 进阶：你能尝试使用一趟扫描实现吗？ // // // // 示例 1： // // //输入：hea...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-26 20:15:55 +0800 CST'>2021-02-26</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [19]删除链表的倒数第 N 个结点" href="https://oxygenbytes.github.io/leetcode/list/19-ii%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%AC-n-%E4%B8%AA%E7%BB%93%E7%82%B9/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[278]第一个错误的版本
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。由于每个版本都是基于之前的版本开发的，所以...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-26 19:57:01 +0800 CST'>2021-02-26</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [278]第一个错误的版本" href="https://oxygenbytes.github.io/leetcode/278%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E7%89%88%E6%9C%AC/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[33]搜索旋转排序数组
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//整数数组 nums 按升序排列，数组中的值 互不相同 。 // // 在传递给函数之前，nums 在预先未知的某个下标 k（0 &lt;= k &lt; nums.length）上进行了...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-26 19:39:27 +0800 CST'>2021-02-26</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [33]搜索旋转排序数组" href="https://oxygenbytes.github.io/leetcode/33%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>[153]寻找旋转排序数组中的最小值
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>//假设按照升序排序的数组在预先未知的某个点上进行了旋转。例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] 。 // // 请找出其中最小的元素。 // // // // 示例 1： // // //输入：n...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-26 15:40:53 +0800 CST'>2021-02-26</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to [153]寻找旋转排序数组中的最小值" href="https://oxygenbytes.github.io/leetcode/153%E5%AF%BB%E6%89%BE%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://oxygenbytes.github.io/leetcode/page/6/">
+      «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://oxygenbytes.github.io/leetcode/page/8/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://oxygenbytes.github.io">Zxq&#39;s Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

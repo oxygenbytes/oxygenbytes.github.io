@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Git on Zxq&#39;s Blog</title>
+    <title>Git on Zxq&#39;s Site</title>
     <link>https://oxygenbytes.github.io/tags/git/</link>
-    <description>Recent content in Git on Zxq&#39;s Blog</description>
+    <description>Recent content in Git on Zxq&#39;s Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>&lt;a href=&#34;https://oxygenbytes.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cd /home/zxq/&lt;/a&gt;</copyright>
+    <language>zh-en</language>
     <lastBuildDate>Sat, 30 Jan 2021 21:49:10 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git 学习</title>
-      <link>https://oxygenbytes.github.io/posts/2021/01/git-%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://oxygenbytes.github.io/posts/linux/git/</link>
       <pubDate>Sat, 30 Jan 2021 21:49:10 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2021/01/git-%E5%AD%A6%E4%B9%A0/</guid>
-      <description>本节主要记录一些git学习的笔记内容
-git学习链接
-git分支管理  新建分支 git checkout -b branchname 切换分支 git checkout branchname 查看分支 git branch 查看所有分支 git branch -av  比如你现在在dev，克隆下来的是主分支(main)
-如果你要进行什么修改，可以建一个新的分之，比如按照今天的日期
-git checkout -b 190721 # 创建并切换分支 git checkout 190721 # 直接切换分支 当系统重装后，如何连接git和github github官方参考链接
-先下载git
-sudo apt-get git # deepin sudo pacman -S git #manjaro 然后为本地 git 配置全局的 user 与 email 参数。
-git config ‐‐global user.name &amp;#34;your github account name&amp;#34; git config ‐‐global user.email &amp;#34;your github account email&amp;#34; 为了在后续操作中我们能将本地仓库的代码推送至 github 的仓库上,我们需要在本地生成 SSH 秘钥,并将公钥保存到 github 账户信息中,这样我们在本地提交的时候 github 就能通 过本地的私钥与公钥进行校验。</description>
+      <guid>https://oxygenbytes.github.io/posts/linux/git/</guid>
+      <description>Git 学习 主要记录一些git学习的笔记内容 git学习链接 git分支管理 新建分支 git checkout -b branchname 切换分支 git checkout branchname 查看分支 git branch 比如你现在在dev，克隆下来的是</description>
     </item>
     
   </channel>

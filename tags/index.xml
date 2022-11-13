@@ -1,63 +1,198 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on Zxq&#39;s Blog</title>
+    <title>Tags on Zxq&#39;s Site</title>
     <link>https://oxygenbytes.github.io/tags/</link>
-    <description>Recent content in Tags on Zxq&#39;s Blog</description>
+    <description>Recent content in Tags on Zxq&#39;s Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>&lt;a href=&#34;https://oxygenbytes.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cd /home/zxq/&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 03 Jan 2022 23:02:51 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Array</title>
-      <link>https://oxygenbytes.github.io/tags/array/</link>
-      <pubDate>Mon, 03 Jan 2022 23:02:51 +0800</pubDate>
-      
-      <guid>https://oxygenbytes.github.io/tags/array/</guid>
-      <description></description>
-    </item>
-    
+    <language>zh-en</language>
+    <lastBuildDate>Mon, 14 Jun 2021 14:13:48 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Leetcode</title>
       <link>https://oxygenbytes.github.io/tags/leetcode/</link>
-      <pubDate>Mon, 03 Jan 2022 23:02:51 +0800</pubDate>
+      <pubDate>Mon, 14 Jun 2021 14:13:48 +0800</pubDate>
       
       <guid>https://oxygenbytes.github.io/tags/leetcode/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>db</title>
-      <link>https://oxygenbytes.github.io/tags/db/</link>
-      <pubDate>Fri, 31 Dec 2021 00:52:39 +0800</pubDate>
+      <title>untagged</title>
+      <link>https://oxygenbytes.github.io/tags/untagged/</link>
+      <pubDate>Mon, 10 May 2021 22:49:50 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/tags/db/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mysql</title>
-      <link>https://oxygenbytes.github.io/tags/mysql/</link>
-      <pubDate>Fri, 31 Dec 2021 00:52:39 +0800</pubDate>
-      
-      <guid>https://oxygenbytes.github.io/tags/mysql/</guid>
+      <guid>https://oxygenbytes.github.io/tags/untagged/</guid>
       <description></description>
     </item>
     
     <item>
       <title>面试</title>
       <link>https://oxygenbytes.github.io/tags/%E9%9D%A2%E8%AF%95/</link>
-      <pubDate>Wed, 06 Oct 2021 15:42:45 +0800</pubDate>
+      <pubDate>Tue, 20 Apr 2021 19:22:23 +0800</pubDate>
       
       <guid>https://oxygenbytes.github.io/tags/%E9%9D%A2%E8%AF%95/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>golang</title>
-      <link>https://oxygenbytes.github.io/tags/golang/</link>
-      <pubDate>Thu, 01 Jul 2021 20:13:03 +0800</pubDate>
+      <title>排序</title>
+      <link>https://oxygenbytes.github.io/tags/%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Wed, 03 Mar 2021 22:35:34 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/tags/golang/</guid>
+      <guid>https://oxygenbytes.github.io/tags/%E6%8E%92%E5%BA%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>算法</title>
+      <link>https://oxygenbytes.github.io/tags/%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Wed, 03 Mar 2021 22:35:34 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/tags/%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cplus</title>
+      <link>https://oxygenbytes.github.io/tags/cplus/</link>
+      <pubDate>Tue, 23 Feb 2021 17:38:43 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/tags/cplus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SwordOffer</title>
+      <link>https://oxygenbytes.github.io/tags/swordoffer/</link>
+      <pubDate>Thu, 18 Feb 2021 11:49:40 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/tags/swordoffer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://oxygenbytes.github.io/tags/docker/</link>
+      <pubDate>Sat, 30 Jan 2021 21:49:10 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://oxygenbytes.github.io/tags/git/</link>
+      <pubDate>Sat, 30 Jan 2021 21:49:10 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://oxygenbytes.github.io/tags/linux/</link>
+      <pubDate>Sat, 30 Jan 2021 21:49:10 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>二分</title>
+      <link>https://oxygenbytes.github.io/tags/%E4%BA%8C%E5%88%86/</link>
+      <pubDate>Sat, 30 Jan 2021 21:49:10 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/tags/%E4%BA%8C%E5%88%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://oxygenbytes.github.io/tags/java/</link>
+      <pubDate>Tue, 27 Oct 2020 23:06:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bash</title>
+      <link>https://oxygenbytes.github.io/tags/bash/</link>
+      <pubDate>Sat, 22 Aug 2020 21:13:42 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Termux</title>
+      <link>https://oxygenbytes.github.io/tags/termux/</link>
+      <pubDate>Wed, 12 Aug 2020 09:30:07 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/tags/termux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>数学</title>
+      <link>https://oxygenbytes.github.io/tags/%E6%95%B0%E5%AD%A6/</link>
+      <pubDate>Thu, 06 Aug 2020 19:42:44 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/tags/%E6%95%B0%E5%AD%A6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>线性代数</title>
+      <link>https://oxygenbytes.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</link>
+      <pubDate>Thu, 06 Aug 2020 19:42:44 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>计算机网络</title>
+      <link>https://oxygenbytes.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Thu, 06 Aug 2020 19:25:42 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Algorithms</title>
+      <link>https://oxygenbytes.github.io/tags/algorithms/</link>
+      <pubDate>Mon, 27 Jul 2020 23:06:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/tags/algorithms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://oxygenbytes.github.io/tags/c&#43;&#43;/</link>
+      <pubDate>Thu, 27 Jun 2019 09:06:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>递归</title>
+      <link>https://oxygenbytes.github.io/tags/%E9%80%92%E5%BD%92/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/tags/%E9%80%92%E5%BD%92/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>问题</title>
+      <link>https://oxygenbytes.github.io/tags/%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/tags/%E9%97%AE%E9%A2%98/</guid>
       <description></description>
     </item>
     

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Swordoffers on Zxq&#39;s Blog</title>
+    <title>Swordoffers on Zxq&#39;s Site</title>
     <link>https://oxygenbytes.github.io/swordoffer/</link>
-    <description>Recent content in Swordoffers on Zxq&#39;s Blog</description>
+    <description>Recent content in Swordoffers on Zxq&#39;s Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>&lt;a href=&#34;https://oxygenbytes.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cd /home/zxq/&lt;/a&gt;</copyright>
+    <language>zh-en</language>
     <lastBuildDate>Thu, 18 Feb 2021 11:49:40 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/swordoffer/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[剑指 Offer 68 - II]二叉树的最近公共祖先</title>
@@ -13,7 +13,7 @@
       <pubDate>Thu, 18 Feb 2021 11:49:40 +0800</pubDate>
       
       <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-68-ii%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/</guid>
-      <description>//给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。 // // 百度百科中最近公共祖先的定义为：“对于有根树 T 的两个结点 p、q，最近公共祖先表示为一个结点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（ //一个节点也可以是它自己的祖先）。” // // 例如，给定如下二叉树: root = [3,5,1,6,2,0,8,null,null,7,4] // // // // // // 示例 1: // // 输入: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1 //输出: 3 //解释: 节点 5 和节点 1 的最近公共祖先是节点 3。 // // // 示例 2: // // 输入: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4 //输出: 5 //解释: 节点 5 和节点 4 的最近公共祖先是节点 5。因为根据定义最近公共祖先节点可以为节点本身。 // // // // // 说明: // // // 所有节点的值都是唯一的。 // p、q 为不同节点且均存在于给定的二叉树中。 // // // 注意：本题与主站 236 题相同：https://leetcode-cn.</description>
+      <description>//给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。 // // 百度百科中最近公共祖先的定义为：“对于有根树 T 的两个结点 p、q，最近公共祖先表</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Thu, 18 Feb 2021 11:49:18 +0800</pubDate>
       
       <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-68-i%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/</guid>
-      <description>//给定一个二叉搜索树, 找到该树中两个指定节点的最近公共祖先。 // // 百度百科中最近公共祖先的定义为：“对于有根树 T 的两个结点 p、q，最近公共祖先表示为一个结点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（ //一个节点也可以是它自己的祖先）。” // // 例如，给定如下二叉搜索树: root = [6,2,8,0,4,7,9,null,null,3,5] // // // // // // 示例 1: // // 输入: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8 //输出: 6 //解释: 节点 2 和节点 8 的最近公共祖先是 6。 // // // 示例 2: // // 输入: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4 //输出: 2 //解释: 节点 2 和节点 4 的最近公共祖先是 2, 因为根据定义最近公共祖先节点可以为节点本身。 // // // // 说明: // // // 所有节点的值都是唯一的。 // p、q 为不同节点且均存在于给定的二叉搜索树中。 // // // 注意：本题与主站 235 题相同：https://leetcode-cn.</description>
+      <description>//给定一个二叉搜索树, 找到该树中两个指定节点的最近公共祖先。 // // 百度百科中最近公共祖先的定义为：“对于有根树 T 的两个结点 p、q，最近公共祖</description>
     </item>
     
     <item>
@@ -31,7 +31,7 @@
       <pubDate>Thu, 18 Feb 2021 11:49:02 +0800</pubDate>
       
       <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-67%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0/</guid>
-      <description>//写一个函数 StrToInt，实现把字符串转换成整数这个功能。不能使用 atoi 或者其他类似的库函数。 // // // // 首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。 // // 当我们寻找到的第一个非空字符为正或者负号时，则将该符号与之后面尽可能多的连续数字组合起来，作为该整数的正负号；假如第一个非空字符是数字，则直接将其与之后连 //续的数字字符组合起来，形成整数。 // // 该字符串除了有效的整数部分之后也可能会存在多余的字符，这些字符可以被忽略，它们对于函数不应该造成影响。 // // 注意：假如该字符串中的第一个非空格字符不是一个有效整数字符、字符串为空或字符串仅包含空白字符时，则你的函数不需要进行转换。 // // 在任何情况下，若函数不能进行有效的转换时，请返回 0。 // // 说明： // // 假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为 [−231, 231 − 1]。如果数值超过这个范围，请返回 INT_MAX (231 // − 1) 或 INT_MIN (−231) 。 // // 示例 1: // // 输入: &amp;#34;42&amp;#34; //输出: 42 // // // 示例 2: // // 输入: &amp;#34; -42&amp;#34; //输出: -42 //解释: 第一个非空白字符为 &amp;#39;-&amp;#39;, 它是一个负号。 // 我们尽可能将负号与后面所有连续出现的数字组合起来，最后得到 -42 。 // // // 示例 3: // // 输入: &amp;#34;4193 with words&amp;#34; //输出: 4193 //解释: 转换截止于数字 &amp;#39;3&amp;#39; ，因为它的下一个字符不为数字。 // // // 示例 4: // // 输入: &amp;#34;words and 987&amp;#34; //输出: 0 //解释: 第一个非空字符是 &amp;#39;w&amp;#39;, 但它不是数字或正、负号。 // 因此无法执行有效的转换。 // // 示例 5: // // 输入: &amp;#34;-91283472332&amp;#34; //输出: -2147483648 //解释: 数字 &amp;#34;-91283472332&amp;#34; 超过 32 位有符号整数范围。 // 因此返回 INT_MIN (−231) 。 // // // // // 注意：本题与主站 8 题相同：https://leetcode-cn.</description>
+      <description>//写一个函数 StrToInt，实现把字符串转换成整数这个功能。不能使用 atoi 或者其他类似的库函数。 // // // // 首先，该函数会根据需要丢弃无用的开头</description>
     </item>
     
     <item>
@@ -40,7 +40,7 @@
       <pubDate>Thu, 18 Feb 2021 11:48:44 +0800</pubDate>
       
       <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-66%E6%9E%84%E5%BB%BA%E4%B9%98%E7%A7%AF%E6%95%B0%E7%BB%84/</guid>
-      <description>//给定一个数组 A[0,1,…,n-1]，请构建一个数组 B[0,1,…,n-1]，其中 B[i] 的值是数组 A 中除了下标 i 以外的元素的积, 即 B[ //i]=A[0]×A[1]×…×A[i-1]×A[i+1]×…×A[n-1]。不能使用除法。 // // // // 示例: // // //输入: [1,2,3,4,5] //输出: [120,60,40,30,24] // // // // 提示： // // // 所有元素乘积之和不会溢出 32 位整数 // a.length &amp;lt;= 100000 // // 👍 79 👎 0  /* * 剑指 Offer 66 构建乘积数组 * 2021-02-18 11:48:44 * @author oxygenbytes */ #include &amp;#34;leetcode.h&amp;#34; //leetcode submit region begin(Prohibit modification and deletion) class Solution { public: vector&amp;lt;int&amp;gt; constructArr(vector&amp;lt;int&amp;gt;&amp;amp; a) { if(a.</description>
+      <description>//给定一个数组 A[0,1,…,n-1]，请构建一个数组 B[0,1,…,n-1]，其中 B[i] 的值是数组 A 中除了下标 i 以外的元素的积, 即 B[ //i]</description>
     </item>
     
     <item>
@@ -49,7 +49,7 @@
       <pubDate>Thu, 18 Feb 2021 11:48:19 +0800</pubDate>
       
       <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-64%E6%B1%821&#43;2&#43;&#43;n/</guid>
-      <description>//求 1+2+...+n ，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。 // // // // 示例 1： // // 输入: n = 3 //输出: 6 // // // 示例 2： // // 输入: n = 9 //输出: 45 // // // // // 限制： // // // 1 &amp;lt;= n &amp;lt;= 10000 // // 👍 267 👎 0  /* * 剑指 Offer 64 求1+2+…+n * 2021-02-18 11:48:19 * @author oxygenbytes */ #include &amp;#34;leetcode.h&amp;#34; //leetcode submit region begin(Prohibit modification and deletion) class Solution { public: int sumNums(int n) { if(n == 1) return 1; else return sumNums((n-1)) + n; } }; //leetcode submit region end(Prohibit modification and deletion)  </description>
+      <description>//求 1+2+...+n ，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。 // // // // 示例 1</description>
     </item>
     
     <item>
@@ -58,7 +58,628 @@
       <pubDate>Thu, 18 Feb 2021 11:48:18 +0800</pubDate>
       
       <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-65%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95/</guid>
-      <description>//写一个函数，求两个整数之和，要求在函数体内不得使用 “+”、“-”、“*”、“/” 四则运算符号。 // // // // 示例: // // 输入: a = 1, b = 1 //输出: 2 // // // // 提示： // // // a, b 均可能是负数或 0 // 结果不会溢出 32 位整数 // // 👍 117 👎 0  /* * 剑指 Offer 65 不用加减乘除做加法 * 2021-02-18 11:48:18 * @author oxygenbytes */ #include &amp;#34;leetcode.h&amp;#34; //leetcode submit region begin(Prohibit modification and deletion) class Solution { public: int add(int a, int b) { int result = 0; int carry = 0; // + is not allowed to use  // a + b == result + carry , so if b == 0, a is the ans;  while(b){ result = a ^ b; // [ref]:https://www.</description>
+      <description>//写一个函数，求两个整数之和，要求在函数体内不得使用 “+”、“-”、“*”、“/” 四则运算符号。 // // // // 示例: // // 输入: a = 1, b = 1 //输</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 63]股票的最大利润</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-63%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%88%A9%E6%B6%A6/</link>
+      <pubDate>Thu, 18 Feb 2021 11:48:08 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-63%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%88%A9%E6%B6%A6/</guid>
+      <description>//假设把某股票的价格按照时间先后顺序存储在数组中，请问买卖该股票一次可能获得的最大利润是多少？ // // // // 示例 1: // // 输入: [7,1,5,3,6,4] //输出: 5 //解</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 62]圆圈中最后剩下的数字</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-62%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:47:52 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-62%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97/</guid>
+      <description>//0,1,···,n-1这n个数字排成一个圆圈，从数字0开始，每次从这个圆圈里删除第m个数字（删除后从下一个数字开始计数）。求出这个圆圈里</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 61]扑克牌中的顺子</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-61%E6%89%91%E5%85%8B%E7%89%8C%E4%B8%AD%E7%9A%84%E9%A1%BA%E5%AD%90/</link>
+      <pubDate>Thu, 18 Feb 2021 11:47:36 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-61%E6%89%91%E5%85%8B%E7%89%8C%E4%B8%AD%E7%9A%84%E9%A1%BA%E5%AD%90/</guid>
+      <description>//从扑克牌中随机抽5张牌，判断是不是一个顺子，即这5张牌是不是连续的。2～10为数字本身，A为1，J为11，Q为12，K为13，而大、小王</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 60]n个骰子的点数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-60n%E4%B8%AA%E9%AA%B0%E5%AD%90%E7%9A%84%E7%82%B9%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:47:26 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-60n%E4%B8%AA%E9%AA%B0%E5%AD%90%E7%9A%84%E7%82%B9%E6%95%B0/</guid>
+      <description>//把n个骰子扔在地上，所有骰子朝上一面的点数之和为s。输入n，打印出s的所有可能的值出现的概率。 // // // // 你需要用一个浮点数数组返回答案，其</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 59 - II]队列的最大值</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-59-ii%E9%98%9F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/</link>
+      <pubDate>Thu, 18 Feb 2021 11:47:07 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-59-ii%E9%98%9F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/</guid>
+      <description>//请定义一个队列并实现函数 max_value 得到队列里的最大值，要求函数max_value、push_back 和 pop_front 的均摊时间复杂度都 //是O(1)。 // // 若</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 59 - I]滑动窗口的最大值</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-59-i%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/</link>
+      <pubDate>Thu, 18 Feb 2021 11:46:56 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-59-i%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/</guid>
+      <description>//给定一个数组 nums 和滑动窗口的大小 k，请找出所有滑动窗口里的最大值。 // // 示例: // // 输入: nums = [1,3,-1,-3,5,3,6,7], 和 k = 3 //输出: [3,3,5,5,6,7] //解释: // // 滑动窗口的位</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 58 - II]左旋转字符串</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-58-ii%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Thu, 18 Feb 2021 11:46:46 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-58-ii%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>//字符串的左旋转操作是把字符串前面的若干个字符转移到字符串的尾部。请定义一个函数实现字符串左旋转操作的功能。比如，输入字符串&amp;#34;ab</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 58 - I]翻转单词顺序</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-58-i%E7%BF%BB%E8%BD%AC%E5%8D%95%E8%AF%8D%E9%A1%BA%E5%BA%8F/</link>
+      <pubDate>Thu, 18 Feb 2021 11:46:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-58-i%E7%BF%BB%E8%BD%AC%E5%8D%95%E8%AF%8D%E9%A1%BA%E5%BA%8F/</guid>
+      <description>//输入一个英文句子，翻转句子中单词的顺序，但单词内字符的顺序不变。为简单起见，标点符号和普通字母一样处理。例如输入字符串&amp;#34;I am a student.</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 57 - II]和为s的连续正数序列</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-57-ii%E5%92%8C%E4%B8%BAs%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:46:13 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-57-ii%E5%92%8C%E4%B8%BAs%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97/</guid>
+      <description>//输入一个正整数 target ，输出所有和为 target 的连续正整数序列（至少含有两个数）。 // // 序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。 // //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 57]和为s的两个数字</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-57%E5%92%8C%E4%B8%BAs%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:45:35 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-57%E5%92%8C%E4%B8%BAs%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97/</guid>
+      <description>//输入一个递增排序的数组和一个数字s，在数组中查找两个数，使得它们的和正好是s。如果有多对数字的和等于s，则输出任意一对即可。 // // // // 示例</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 56 - II]数组中数字出现的次数 II</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-56-ii%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0-ii/</link>
+      <pubDate>Thu, 18 Feb 2021 11:45:24 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-56-ii%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0-ii/</guid>
+      <description>//在一个数组 nums 中除一个数字只出现一次之外，其他数字都出现了三次。请找出那个只出现一次的数字。 // // // // 示例 1： // // 输入：nums = [3,4,3,3] //输出</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 56 - I]数组中数字出现的次数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-56-i%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:45:07 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-56-i%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/</guid>
+      <description>//一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 55 - II]平衡二叉树</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-55-ii%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Thu, 18 Feb 2021 11:44:55 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-55-ii%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>//输入一棵二叉树的根节点，判断该树是不是平衡二叉树。如果某二叉树中任意节点的左右子树的深度相差不超过1，那么它就是一棵平衡二叉树。 // // // //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 55 - I]二叉树的深度</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-55-i%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/</link>
+      <pubDate>Thu, 18 Feb 2021 11:44:39 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-55-i%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/</guid>
+      <description>//输入一棵二叉树的根节点，求该树的深度。从根节点到叶节点依次经过的节点（含根、叶节点）形成树的一条路径，最长路径的长度为树的深度。 // // 例如</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 54]二叉搜索树的第k大节点</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-54%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E7%AC%ACk%E5%A4%A7%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Thu, 18 Feb 2021 11:44:28 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-54%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E7%AC%ACk%E5%A4%A7%E8%8A%82%E7%82%B9/</guid>
+      <description>//给定一棵二叉搜索树，请找出其中第k大的节点。 // // // // 示例 1: // // 输入: root = [3,1,4,null,2], k = 1 // 3 // / \ // 1 4 // \ // 2 //输出: 4 // // 示例 2: // // 输入:</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 53 - II]0～n-1中缺失的数字</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-53-ii0n-1%E4%B8%AD%E7%BC%BA%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:44:18 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-53-ii0n-1%E4%B8%AD%E7%BC%BA%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/</guid>
+      <description>//一个长度为n-1的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围0～n-1之内。在范围0～n-1内的n个数字中有且只有一个数字</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 53 - I]在排序数组中查找数字 I</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-53-i%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E6%95%B0%E5%AD%97-i/</link>
+      <pubDate>Thu, 18 Feb 2021 11:44:07 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-53-i%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E6%95%B0%E5%AD%97-i/</guid>
+      <description>//统计一个数字在排序数组中出现的次数。 // // // // 示例 1: // // 输入: nums = [5,7,7,8,8,10], target = 8 //输出: 2 // // 示例 2: // // 输入: nums = [5,7,7,8,8,10], target = 6 //输出: 0 // // // //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 52]两个链表的第一个公共节点</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-52%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Thu, 18 Feb 2021 11:43:49 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-52%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E8%8A%82%E7%82%B9/</guid>
+      <description>//输入两个链表，找出它们的第一个公共节点。 // // 如下面的两个链表： // // // // 在节点 c1 开始相交。 // // // // 示例 1： // // // // 输入：intersect</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 51]数组中的逆序对</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-51%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%80%86%E5%BA%8F%E5%AF%B9/</link>
+      <pubDate>Thu, 18 Feb 2021 11:43:30 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-51%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%80%86%E5%BA%8F%E5%AF%B9/</guid>
+      <description>//在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。 // // // // 示例</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 50]第一个只出现一次的字符</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-50%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/</link>
+      <pubDate>Thu, 18 Feb 2021 11:43:19 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-50%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/</guid>
+      <description>//在字符串 s 中找出第一个只出现一次的字符。如果没有，返回一个单空格。 s 只包含小写字母。 // // 示例: // // s = &amp;#34;abaccdeff&amp;#34; //返回 &amp;#34;b&amp;#34; // //s = &amp;#34;&amp;#34; //返回 &amp;#34; &amp;#34; //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 49]丑数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-49%E4%B8%91%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:43:06 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-49%E4%B8%91%E6%95%B0/</guid>
+      <description>//我们把只包含质因子 2、3 和 5 的数称作丑数（Ugly Number）。求按从小到大的顺序的第 n 个丑数。 // // // // 示例: // // 输入: n = 10 //输出</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 48]最长不含重复字符的子字符串</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-48%E6%9C%80%E9%95%BF%E4%B8%8D%E5%90%AB%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Thu, 18 Feb 2021 11:42:47 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-48%E6%9C%80%E9%95%BF%E4%B8%8D%E5%90%AB%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>//请从字符串中找出一个最长的不包含重复字符的子字符串，计算该最长子字符串的长度。 // // // // 示例 1: // // 输入: &amp;#34;abcabcbb&amp;#34; //输出: 3 //解释: 因为无重复</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 47]礼物的最大价值</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-47%E7%A4%BC%E7%89%A9%E7%9A%84%E6%9C%80%E5%A4%A7%E4%BB%B7%E5%80%BC/</link>
+      <pubDate>Thu, 18 Feb 2021 11:42:34 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-47%E7%A4%BC%E7%89%A9%E7%9A%84%E6%9C%80%E5%A4%A7%E4%BB%B7%E5%80%BC/</guid>
+      <description>//在一个 m*n 的棋盘的每一格都放有一个礼物，每个礼物都有一定的价值（价值大于 0）。你可以从棋盘的左上角开始拿格子里的礼物，并每次向右或者向下移</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 46]把数字翻译成字符串</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-46%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Thu, 18 Feb 2021 11:42:18 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-46%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>//给定一个数字，我们按照如下规则把它翻译为字符串：0 翻译成 “a” ，1 翻译成 “b”，……，11 翻译成 “l”，……，25 翻译成 “z”。一个数字</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 45]把数组排成最小的数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-45%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:42:05 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-45%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0/</guid>
+      <description>//输入一个非负整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。 // // // // 示例 1: // // 输入: [10,2] //输出: &amp;#34;102&amp;#34; // //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 44]数字序列中某一位的数字</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-44%E6%95%B0%E5%AD%97%E5%BA%8F%E5%88%97%E4%B8%AD%E6%9F%90%E4%B8%80%E4%BD%8D%E7%9A%84%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:41:52 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-44%E6%95%B0%E5%AD%97%E5%BA%8F%E5%88%97%E4%B8%AD%E6%9F%90%E4%B8%80%E4%BD%8D%E7%9A%84%E6%95%B0%E5%AD%97/</guid>
+      <description>//数字以0123456789101112131415…的格式序列化到一个字符序列中。在这个序列中，第5位（从下标0开始计数）是5，第13位</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 43]1～n 整数中 1 出现的次数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-431n-%E6%95%B4%E6%95%B0%E4%B8%AD-1-%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:41:34 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-431n-%E6%95%B4%E6%95%B0%E4%B8%AD-1-%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/</guid>
+      <description>//输入一个整数 n ，求1～n这n个整数的十进制表示中1出现的次数。 // // 例如，输入12，1～12这些整数中包含1 的数字有1、10、11和12，</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 42]连续子数组的最大和</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-42%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/</link>
+      <pubDate>Thu, 18 Feb 2021 11:41:19 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-42%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/</guid>
+      <description>//输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。 // // 要求时间复杂度为O(n)。 // // // // 示例1: // //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 41]数据流中的中位数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-41%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:41:00 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-41%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</guid>
+      <description>//如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 40]最小的k个数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-40%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:40:47 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-40%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0/</guid>
+      <description>//输入整数数组 arr ，找出其中最小的 k 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。 // // // // 示例</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 39]数组中出现次数超过一半的数字</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-39%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:40:33 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-39%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97/</guid>
+      <description>//数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。 // // // // 你可以假设数组是非空的，并且给定的数组总是存在多数元素。 // // // // 示</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 38]字符串的排列</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-38%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:40:19 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-38%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/</guid>
+      <description>//输入一个字符串，打印出该字符串中字符的所有排列。 // // // // 你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。 // // // // 示例: // // 输入</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 37]序列化二叉树</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-37%E5%BA%8F%E5%88%97%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Thu, 18 Feb 2021 11:39:58 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-37%E5%BA%8F%E5%88%97%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>//请实现两个函数，分别用来序列化和反序列化二叉树。 // // 示例: // // 你可以将以下二叉树： // // 1 // / \ // 2 3 // / \ // 4 5 // //序列化为 &amp;#34;[1,2,3,null,null,4,5]&amp;#34; // // 注意</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 36]二叉搜索树与双向链表</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-36%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Thu, 18 Feb 2021 11:39:03 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-36%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/</guid>
+      <description>//输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的循环双向链表。要求不能创建任何新的节点，只能调整树中节点指针的指向。 // // // // 为了让您更</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 35]复杂链表的复制</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-35%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/</link>
+      <pubDate>Thu, 18 Feb 2021 11:38:35 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-35%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/</guid>
+      <description>//请实现 copyRandomList 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 next 指针指向下一个节点，还有一个 random 指针指 //向链表中的任意节点或者 null</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 34]二叉树中和为某一值的路径</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-34%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Thu, 18 Feb 2021 11:38:17 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-34%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84/</guid>
+      <description>//输入一棵二叉树和一个整数，打印出二叉树中节点值的和为输入整数的所有路径。从树的根节点开始往下一直到叶节点所经过的节点形成一条路径。 // // //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 33]二叉搜索树的后序遍历序列</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-33%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:38:09 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-33%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/</guid>
+      <description>//输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果。如果是则返回 true，否则返回 false。假设输入的数组的任意两个数字都互</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 32 - III]从上到下打印二叉树 III</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-32-iii%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91-iii/</link>
+      <pubDate>Thu, 18 Feb 2021 11:37:40 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-32-iii%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91-iii/</guid>
+      <description>//请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 32 - II]从上到下打印二叉树 II</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-32-ii%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91-ii/</link>
+      <pubDate>Thu, 18 Feb 2021 11:37:25 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-32-ii%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91-ii/</guid>
+      <description>//从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。 // // // // 例如: //给定二叉树: [3,9,20,null,null,15,7], // // 3 // / \ // 9 20 // / \ // 15</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 32 - I]从上到下打印二叉树</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-32-i%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Thu, 18 Feb 2021 11:37:09 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-32-i%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>//从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。 // // // // 例如: //给定二叉树: [3,9,20,null,null,15,7], // // 3 // / \ // 9 20 // / \ // 15 7 // // //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 31]栈的压入、弹出序列</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-31%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:36:59 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-31%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/</guid>
+      <description>//输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如，序列 {1,2,3,4,5} 是某栈 //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 30]包含min函数的栈</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-30%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/</link>
+      <pubDate>Thu, 18 Feb 2021 11:36:32 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-30%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/</guid>
+      <description>//定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。 // // // // 示</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 29]顺时针打印矩阵</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-29%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/</link>
+      <pubDate>Thu, 18 Feb 2021 11:36:05 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-29%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/</guid>
+      <description>//输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。 // // // // 示例 1： // // 输入：matrix = [[1,2,3],[4,5,6],[7,8,9]] //输出：[1,2,3,6,9,</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 28]对称的二叉树</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-28%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Thu, 18 Feb 2021 11:35:51 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-28%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>//请实现一个函数，用来判断一棵二叉树是不是对称的。如果一棵二叉树和它的镜像一样，那么它是对称的。 // // 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。 // // 1 // / \ //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 27]二叉树的镜像</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-27%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Thu, 18 Feb 2021 11:35:20 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-27%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/</guid>
+      <description>//请完成一个函数，输入一个二叉树，该函数输出它的镜像。 // // 例如输入： // // 4 // / \ // 2 7 // / \ / \ //1 3 6 9 //镜像输出： // // 4 // / \ // 7 2 //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 26]树的子结构</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-26%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Thu, 18 Feb 2021 11:35:04 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-26%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</guid>
+      <description>//输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构) // // B是A的子结构， 即 A中有出现和B相同的结构和节点值。</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 25]合并两个排序的链表</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-25%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E7%9A%84%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Thu, 18 Feb 2021 11:34:28 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-25%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E7%9A%84%E9%93%BE%E8%A1%A8/</guid>
+      <description>//输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。 // // 示例1： // // 输入：1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4 //输出：</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 24]反转链表</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-24%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Thu, 18 Feb 2021 11:34:23 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-24%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</guid>
+      <description>//定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。 // // // // 示例: // // 输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL //输出: 5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL // // // // 限制： // // 0 &amp;lt;= 节点</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 22]链表中倒数第k个节点</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-22%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Thu, 18 Feb 2021 11:34:11 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-22%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9/</guid>
+      <description>//输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。 // // 例如，一个链表有</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 21]调整数组顺序使奇数位于偶数前面</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-21%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2/</link>
+      <pubDate>Thu, 18 Feb 2021 11:34:00 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-21%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2/</guid>
+      <description>//输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。 // // // // 示例： // // 输</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 20]表示数值的字符串</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-20%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Thu, 18 Feb 2021 11:33:50 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-20%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>//请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串&amp;#34;+100&amp;#34;、&amp;#34;5e2&amp;#34;、&amp;#3</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 19]正则表达式匹配</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-19%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/</link>
+      <pubDate>Thu, 18 Feb 2021 11:32:54 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-19%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/</guid>
+      <description>//请实现一个函数用来匹配包含&amp;#39;. &amp;#39;和&amp;#39;*&amp;#39;的正则表达式。模式中的字符&amp;#39;.&amp;#39;表示任意一个字符</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 18]删除链表的节点</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-18%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Thu, 18 Feb 2021 11:32:41 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-18%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9/</guid>
+      <description>//给定单向链表的头指针和一个要删除的节点的值，定义一个函数删除该节点。 // // 返回删除后的链表的头节点。 // // 注意：此题对比原题有改动 // // 示例 1:</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 17]打印从1到最大的n位数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-17%E6%89%93%E5%8D%B0%E4%BB%8E1%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84n%E4%BD%8D%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:32:29 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-17%E6%89%93%E5%8D%B0%E4%BB%8E1%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84n%E4%BD%8D%E6%95%B0/</guid>
+      <description>//输入数字 n，按顺序打印出从 1 到最大的 n 位十进制数。比如输入 3，则打印出 1、2、3 一直到最大的 3 位数 999。 // // 示例 1: // // 输入: n = 1 //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 16]数值的整数次方</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-16%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9/</link>
+      <pubDate>Thu, 18 Feb 2021 11:32:22 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-16%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9/</guid>
+      <description>//实现函数double Power(double base, int exponent)，求base的exponent次方。不得使用库函数，同时不需要考虑大数 //问题。 // // // // 示例</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 15]二进制中1的个数</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-15%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/</link>
+      <pubDate>Thu, 18 Feb 2021 11:32:09 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-15%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/</guid>
+      <description>//请实现一个函数，输入一个整数（以二进制串形式），输出该数二进制表示中 1 的个数。例如，把 9 表示成二进制是 1001，有 2 位是 1。因此，如果输</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 14- II]剪绳子 II</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-14-ii%E5%89%AA%E7%BB%B3%E5%AD%90-ii/</link>
+      <pubDate>Thu, 18 Feb 2021 11:31:50 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-14-ii%E5%89%AA%E7%BB%B3%E5%AD%90-ii/</guid>
+      <description>//给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n&amp;gt;1并且m&amp;gt;1），每段绳子的长度记为 k[0],k[1]...k[m - 1] // 。请问 k[0]*k[1]*...*k[m -</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 14- I]剪绳子</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-14-i%E5%89%AA%E7%BB%B3%E5%AD%90/</link>
+      <pubDate>Thu, 18 Feb 2021 11:31:30 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-14-i%E5%89%AA%E7%BB%B3%E5%AD%90/</guid>
+      <description>//给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n&amp;gt;1并且m&amp;gt;1），每段绳子的长度记为 k[0],k[1]...k[m-1] 。 //请问 k[0]*k[1]*...*k[m-1] 可能</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 13]机器人的运动范围</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-13%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4/</link>
+      <pubDate>Thu, 18 Feb 2021 11:31:20 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-13%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4/</guid>
+      <description>//地上有一个m行n列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。一个机器人从坐标 [0, 0] 的格子开始移动，它每次可以向左、右、上、下移动一 //格（不能移动到方格外</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 12]矩阵中的路径</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-12%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Thu, 18 Feb 2021 11:30:56 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-12%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/</guid>
+      <description>//请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一格开始，每一步可以在矩阵中向左、右、</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 11]旋转数组的最小数字</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-11%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:30:29 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-11%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/</guid>
+      <description>//把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组 [3,4,5,1,2</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 10- II]青蛙跳台阶问题</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-10-ii%E9%9D%92%E8%9B%99%E8%B7%B3%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 18 Feb 2021 11:30:15 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-10-ii%E9%9D%92%E8%9B%99%E8%B7%B3%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%98/</guid>
+      <description>//一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。求该青蛙跳上一个 n 级的台阶总共有多少种跳法。 // // 答案需要取模 1e9+7（1000000</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 10- I]斐波那契数列</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-10-i%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:30:00 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-10-i%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/</guid>
+      <description>//写一个函数，输入 n ，求斐波那契（Fibonacci）数列的第 n 项（即 F(N)）。斐波那契数列的定义如下： // // //F(0) = 0, F(1) = 1 //F(N) = F(N - 1) + F(N -</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 09]用两个栈实现队列</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-09%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:29:45 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-09%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</guid>
+      <description>//用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 appendTail 和 deleteHead ，分别完成在队列尾部插入整数和在队列头部删除整数的 //功能。(若队列中没有</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 07]重建二叉树</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-07%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Thu, 18 Feb 2021 11:29:29 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-07%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>//输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。 // // // // 例如，给出 // // 前序</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 06]从尾到头打印链表</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-06%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Thu, 18 Feb 2021 11:29:03 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-06%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/</guid>
+      <description>//输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。 // // // // 示例 1： // // 输入：head = [1,3,2] //输出：[2,3,1] // // //</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 05]替换空格</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-05%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/</link>
+      <pubDate>Thu, 18 Feb 2021 11:28:56 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-05%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/</guid>
+      <description>//请实现一个函数，把字符串 s 中的每个空格替换成&amp;#34;%20&amp;#34;。 // // // // 示例 1： // // 输入：s = &amp;#34;We are happy.&amp;#34; //输出：&amp;#34;We%2</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 04]二维数组中的查找</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-04%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/</link>
+      <pubDate>Thu, 18 Feb 2021 11:28:36 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-04%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/</guid>
+      <description>//在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个高效的函数，输入这样的一个二</description>
+    </item>
+    
+    <item>
+      <title>[剑指 Offer 03]数组中重复的数字</title>
+      <link>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-03%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Thu, 18 Feb 2021 11:26:59 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/swordoffer/%E5%89%91%E6%8C%87-offer-03%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/</guid>
+      <description>//找出数组中重复的数字。 // // //在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了</description>
     </item>
     
   </channel>

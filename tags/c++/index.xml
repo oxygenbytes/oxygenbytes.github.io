@@ -1,77 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>C&#43;&#43; on Zxq&#39;s Blog</title>
+    <title>C&#43;&#43; on Zxq&#39;s Site</title>
     <link>https://oxygenbytes.github.io/tags/c&#43;&#43;/</link>
-    <description>Recent content in C&#43;&#43; on Zxq&#39;s Blog</description>
+    <description>Recent content in C&#43;&#43; on Zxq&#39;s Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>&lt;a href=&#34;https://oxygenbytes.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cd /home/zxq/&lt;/a&gt;</copyright>
+    <language>zh-en</language>
     <lastBuildDate>Thu, 27 Jun 2019 09:06:27 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43;内存模型</title>
-      <link>https://oxygenbytes.github.io/posts/2019/06/c-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</link>
+      <link>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</link>
       <pubDate>Thu, 27 Jun 2019 09:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2019/06/c-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</guid>
-      <description>内存模型所要表达的内容主要是这么描述： 一个内存操作的效果，在其他线程中的可见性问题。
-C++ 内存模型 C分为四个区：堆，栈，静态全局变量区，常量区
-C++内存分为5个区域（堆栈全常代）：
- 堆 heap ： 由new分配的内存块，其释放编译器不去管，由我们程序自己控制（一个new对应一个delete）。如果程序员没有释放掉，在程序结束时OS会自动回收。涉及的问题：“缓冲区溢出”、“内存泄露” 栈 stack ： 是那些编译器在需要时分配，在不需要时自动清除的存储区。存放局部变量、函数参数。 存放在栈中的数据只在当前函数及下一层函数中有效，一旦函数返回了，这些数据也就自动释放了。 全局/静态存储区 （.bss段和.data段） ： 全局和静态变量被分配到同一块内存中。在C语言中，未初始化的放在.bss段中，初始化的放在.data段中；在C++里则不区分了。 常量存储区 （.rodata段） ： 存放常量，不允许修改（通过非正当手段也可以修改） 代码区 （.text段） ： 存放代码（如函数），不允许修改（类似常量存储区），但可以执行（不同于常量存储区）  根据c/c++对象生命周期不同，c/c++的内存模型有三种不同的内存区域，即
- 自由存储区，动态区、静态区。 自由存储区：局部非静态变量的存储区域，即平常所说的栈 动态区： 用operator new ，malloc分配的内存，即平常所说的堆 静态区：全局变量 静态变量 字符串常量存在位置  而代码虽然占内存，但不属于c/c++内存模型的一部分
-各个段的关系 一个正在运行着的C编译程序占用的内存分为代码区、初始化数据区、未初始化数据区、堆区 和栈区5个部分。
-（1）代码区（text segment）。代码区指令根据程序设计流程依次执行，对于顺序指令，则只会执行一次（每个进程），如果反复，则需要使用跳转指令，如果进行递归，则需 要借助栈来实现。
-代码区的指令中包括操作码和要操作的对象（或对象地址引用）。如果是立即数（即具体的数值，如5），将直接包含在代码中；如果是局部数据，将在栈区 分配空间，然后引用该数据地址；如果是BSS区和数据区，在代码中同样将引用该数据地址。
-（2）全局初始化数据区/静态数据区（Data Segment）。只初始化一次。
-（3）未初始化数据区（BSS）。在运行时改变其值。
-（4）栈区（stack）。由编译器自动分配释放，存放函数的参数值、局部变量的值等。其操作方式类似于数据结构中的栈。每当一个函数被调用，该函 数返回地址和一些关于调用的信息，比如某些寄存器的内容，被存储到栈区。然后这个被调用的函数再为它的自动变量和临时变量在栈区上分配空间，这就是C实现 函数递归调用的方法。每执行一次递归函数调用，一个新的栈框架就会被使用，这样这个新实例栈里的变量就不会和该函数的另一个实例栈里面的变量混淆。
-（5）堆区（heap）。用于动态内存分配。堆在内存中位于bss区和栈区之间。一般由程序员分配和释放，若程序员不释放，程序结束时有可能由OS 回收。
-之所以分成这么多个区域，主要基于以下考虑：
-一个进程在运行过程中，代码是根据流程依次执行的，只需要访问一次，当然跳转和递归有可能使代码执行多次，而数据一般都需要访问多次，因此单独开辟 空间以方便访问和节约空间。 临时数据及需要再次使用的代码在运行时放入栈区中，生命周期短。 全局数据和静态数据有可能在整个程序执行过程中都需要访问，因此单独存储管理。 堆区由用户自由分配，以便管理。
-下面通过一段简单的代码来查看C程序执行时的内存分配情况。相关数据在运行时的位置如注释所述。
-//main.cpp int a = 0; //a在全局已初始化数据区 char *p1; //p1在BSS区（未初始化全局变量） main() { int b; //b在栈区 char s[] = &amp;#34;abc&amp;#34;; //s为数组变量，存储在栈区， //&amp;#34;abc&amp;#34;为字符串常量，存储在已初始化数据区 char *p1，*p2; //p1、p2在栈区 char *p3 = &amp;#34;123456&amp;#34;; //123456\0在已初始化数据区，p3在栈区 static int c =0； //C为全局（静态）数据，存在于已初始化数据区 //另外，静态数据会自动初始化 p1 = (char *)malloc(10);//分配得来的10个字节的区域在堆区 p2 = (char *)malloc(20);//分配得来的20个字节的区域在堆区 free(p1); free(p2); } C++内存配置器 标准库中包含一个名为allocator的类，允许我们将分配和初始化分离。使用allocator通常会提供更好的性能和更灵活的内存管理能力。</description>
+      <guid>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</guid>
+      <description>内存模型所要表达的内容主要是这么描述： 一个内存操作的效果，在其他线程中的可见性问题。 C++ 内存模型 C分为四个区：堆，栈，静态全局变量区，常量区 C</description>
     </item>
     
     <item>
       <title>C&#43;&#43;基础知识</title>
-      <link>https://oxygenbytes.github.io/posts/2019/06/c-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <link>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
       <pubDate>Thu, 27 Jun 2019 09:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2019/06/c-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
-      <description>const常引用（const + &amp;amp;）避免函数参数的双向传递 在c++可以使用引用传递作为函数的形参传入函数，相较于值传递的方式，引用传递能够节省函数使用时的内存分配，不需要像值传递一样拷贝实参。对于普通的数据类型可能看出引用的优势，但是如果函数的传入参数是一个十分复杂的结构体或者类，那么引用传递可以节省很大的内存开销。
-然而，由于引用传递是双向的，当在函数中对于形参的数据进行改变后，实参的值也会进行相应的改变，如下所示：
-#include &amp;lt;iostream&amp;gt;using namespace std; struct Point { int x; int y; Point(int a, int b) { x=a; y=b; } }; void fun(Point&amp;amp; point); int main() { Point point(1,1); fun(point); point.x++; point.y++; cout &amp;lt;&amp;lt; &amp;#34;======main======&amp;#34; &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; &amp;#34;点的坐标为(&amp;#34; &amp;lt;&amp;lt; point.x &amp;lt;&amp;lt; &amp;#34;.&amp;#34; &amp;lt;&amp;lt; point.y &amp;lt;&amp;lt; &amp;#34;)&amp;#34; &amp;lt;&amp;lt; endl; return 0; } void fun(Point&amp;amp; point) { point.x++; point.y++; cout &amp;lt;&amp;lt; &amp;#34;======fun======&amp;#34; &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; &amp;#34;点的坐标为(&amp;#34; &amp;lt;&amp;lt; point.</description>
+      <guid>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <description>const常引用（const + &amp;amp;）避免函数参数的双向传递 在c++可以使用引用传递作为函数的形参传入函数，相较于值传递的方式，引用传递</description>
     </item>
     
     <item>
       <title>C&#43;&#43;输入输出</title>
-      <link>https://oxygenbytes.github.io/posts/2019/06/c-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</link>
+      <link>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</link>
       <pubDate>Thu, 27 Jun 2019 09:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2019/06/c-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</guid>
-      <description>使用cin来读取数据 ​cin 基本用法
-​cin遇到缓冲区中的[enter],[space],[tab]会结束当前输入，并舍弃[enter],[space],[tab]，继续下一项输入，当有连续[space],[enter,[tab]会全部舍弃。
-使用getchar()来输入字符 #include &amp;lt;bits/stdc++.h&amp;gt;using namespace std; int main(){ char c; cout&amp;lt;&amp;lt;&amp;#34;enter a sentence:&amp;#34;&amp;lt;&amp;lt;endl; while(c=getchar()) cout&amp;lt;&amp;lt;c; return 0; } getchar不跳过任何字符，包括终止字符Ctrl + D，严格按照函数个数读入字符
-使用cin.get()输入字符 #include &amp;lt;bits/stdc++.h&amp;gt;using namespace std; int main(){ char c; cout&amp;lt;&amp;lt;&amp;#34;enter a sentence:&amp;#34;&amp;lt;&amp;lt;endl; while((c=cin.get()) != EOF) cout&amp;lt;&amp;lt;c; return 0; } cin.get()会读取除了终止字符Ctrl + Z ，Ctrl + D外的任何字符
-使用cin.get()读取字符串 cin.get(ch,10,&amp;#39;\n&amp;#39;); // 读取10-1个字符（包括空格），赋值给特定的字符数组 // 如果在读取10-1个字符之前，遇到制定的终止字符&amp;#39;\n&amp;#39;,则提前停止读取 // 读取成功返回非0值（真），失败返回0值（假） 使用cin.getline()函数读入整行字符串 getline()和get()的区别
-  getline遇到终止字符标志时结束，缓冲区文件指针移到终止字符之后
-  get遇到终止字符后停止读取，缓冲区文件指针不移动
-cin.get()	&amp;mdash;&amp;gt; we are family;</description>
+      <guid>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</guid>
+      <description>使用cin来读取数据 ​cin 基本用法 ​cin遇到缓冲区中的[enter],[space],[tab]会结束当前输入，并舍弃[enter],[</description>
     </item>
     
     <item>
       <title>侯捷C&#43;&#43;程序设计</title>
-      <link>https://oxygenbytes.github.io/posts/2019/06/%E4%BE%AF%E6%8D%B7c-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</link>
+      <link>https://oxygenbytes.github.io/posts/cplus/%E4%BE%AF%E6%8D%B7c&#43;&#43;%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</link>
       <pubDate>Thu, 27 Jun 2019 09:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2019/06/%E4%BE%AF%E6%8D%B7c-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</guid>
-      <description>课程链接
-基本语法知识   &amp;lt;iostream&amp;gt; 尖括号是使用标准头文件
-&amp;ldquo;matrix.h&amp;rdquo; 调用自给定头文件
-  构造函数可以重载(overload)
-  对于没有用到指针的类，一般不用写析构函数
-  构造函数可以放在private里，这就是设计模式中的单例模式(singleton)
-  class Singleton { private: Singleton(); public: static Singleton&amp;amp; instance() { static Singleton INSTANCE; return INSTANCE; } }; 常量成员函数  将const关键字放在函数声明之后,意在强调该函数不可以改变其参数，只有成员函数才可以。
-class Complex{ double re; double im; double real() const {return re}; double imag() return {return im}; }; { Complex c1(2,1); cout&amp;lt;&amp;lt;c1.real()&amp;lt;&amp;lt;endl; //right  const Complex c2(2,1); cout&amp;lt;&amp;lt;c2.imag()&amp;lt;&amp;lt;endl; //wrong } C++引用其底层就是指针，但是这里做了封装     引用既可以作为函数参数，用以避免参数的复制，也可以用于对参数进行改变</description>
+      <guid>https://oxygenbytes.github.io/posts/cplus/%E4%BE%AF%E6%8D%B7c&#43;&#43;%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</guid>
+      <description>课程链接 基本语法知识 &amp;lt;iostream&amp;gt; 尖括号是使用标准头文件 &amp;ldquo;matrix.h&amp;rdquo; 调用自给定头文件 构造函数可以重载(overload) 对于没有用到指针的类，一般不用写析构函数 构</description>
     </item>
     
   </channel>

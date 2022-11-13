@@ -1,85 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>面试 on Zxq&#39;s Blog</title>
+    <title>面试 on Zxq&#39;s Site</title>
     <link>https://oxygenbytes.github.io/tags/%E9%9D%A2%E8%AF%95/</link>
-    <description>Recent content in 面试 on Zxq&#39;s Blog</description>
+    <description>Recent content in 面试 on Zxq&#39;s Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>&lt;a href=&#34;https://oxygenbytes.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cd /home/zxq/&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 06 Oct 2021 15:42:45 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>百度春招面试复盘</title>
-      <link>https://oxygenbytes.github.io/posts/2021/10/%E7%99%BE%E5%BA%A6%E6%98%A5%E6%8B%9B%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
-      <pubDate>Wed, 06 Oct 2021 15:42:45 +0800</pubDate>
-      
-      <guid>https://oxygenbytes.github.io/posts/2021/10/%E7%99%BE%E5%BA%A6%E6%98%A5%E6%8B%9B%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
-      <description>整个春招，百度总共8面，后端面试都通过了，其中测试开发岗位到二面，莫名奇妙给挂了，可能是说了一句已经有字节的offer， 对测试岗位还有所迟疑吧。。。
-笔试 百度的笔试题目是两道原题，说来也是运气好，考试之前不久刚做过那两道题。印象比较深的一个题目是[130]被围绕的区域。
-测试 测开一面 算法题是 字符串处理，去重规则类似 aaabbc =&amp;gt; abc 答的不错
-测开二面 忘记了，没给过
-MEG策略部门 后端一面 算法题是：二叉树左视图
-后端二面 算法题是：二分查找问题，查找有序数组中数值等于某个数的值的个数
-后端三面 面试官态度不怎么好，一直纠结我在字节实习测试开发的问题 应该是过了，但一直没有发正式offer，在拿到其他offer之后又想来说服我来这个部门
-现在的部门 后端一面，mentor面的 算法题是：1. 接雨水 2. 接雨水的变式：二维接雨水 答的一般哈哈，存储和后端经验不足，需要提高
-后端二面，xx老师面的 算法题是：
- 链表题： 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;6 =&amp;gt; 1-&amp;gt;6-&amp;gt;2-&amp;gt;5-&amp;gt;3-&amp;gt;4, 融合了链表找中点，链表归并，链表反转三个问题 类似剑指offer上的机器活动范围问题 xx老师问了很多C++，操作系统的问题，这不撞我长处上了吗哈哈  后端三面，经理面的  主要是聊天，沟通一下意向，介绍一下部门业务  HR面 谈薪资，百度还是太抠了</description>
-    </item>
-    
-    <item>
-      <title>字节客户端开发面试复盘</title>
-      <link>https://oxygenbytes.github.io/posts/2021/08/%E5%AD%97%E8%8A%82%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
-      <pubDate>Fri, 06 Aug 2021 15:42:58 +0800</pubDate>
-      
-      <guid>https://oxygenbytes.github.io/posts/2021/08/%E5%AD%97%E8%8A%82%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
-      <description>虽然最后没有去字节，还是要感谢字节给了很多次面试机会，前两次参加字节面试的时候还什么都不懂 客户端没接触过，可以说靠刷题拿下sp，感谢曾经努力的自己
-客户端一面 算法题： 旋转数组找最小元素 还问了一个代理的原理， http证书和对称加密和非对称加密的问题
-客户端二面 算法题： 螺旋打印二维数组，使用深搜做的
-客户端三面 算法题：
- 遍历算法vector，删除vector中等于target的元素 给定一个数组 1 2 2 2 3 3 4 4 5 6 7 7 以最快的速度找到target第一次出现的位置  如今只零星记得算法题了，这三轮面试问题贼多，强度很大，一天面完，还都是技术面，临近毕业，工作还没着落，心理压力真的很大</description>
-    </item>
-    
+    <language>zh-en</language>
+    <lastBuildDate>Tue, 20 Apr 2021 19:22:23 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>美团优选面试复盘</title>
-      <link>https://oxygenbytes.github.io/posts/2021/04/%E7%BE%8E%E5%9B%A2%E4%BC%98%E9%80%89%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <link>https://oxygenbytes.github.io/posts/interview/%E7%BE%8E%E5%9B%A2%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
       <pubDate>Tue, 20 Apr 2021 19:22:23 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2021/04/%E7%BE%8E%E5%9B%A2%E4%BC%98%E9%80%89%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
-      <description>时间比较久了，重点记一下算法题和答的不好的问题
-笔试 忘记了，大概是4道编程题，全是ACM类型的题目，最后做出来1.4道，进面试了
-一面  介绍自己 讲一下虚拟内存的工作原理，印象里只有这个面试官问过 算法题：连续子数组的最大和，秒了 反问了一下，常用C++，对java不太熟，而美团以java为主，会不会有影响  二面（2021-03-02 15:00，1小时30分钟）  介绍自己 说一下sql优化方法，我。。。 算法题：找出字符串中最长的回文串，秒了，用了O（n^2）的方法 反问一下工作内容和工作时间  </description>
+      <guid>https://oxygenbytes.github.io/posts/interview/%E7%BE%8E%E5%9B%A2%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <description>时间比较久了，重点记一下算法题和答的不好的问题 笔试 忘记了，大概是4道编程题，全是ACM类型的题目，最后做出来1.4道，进面试了 一面 介绍自己 讲</description>
     </item>
     
     <item>
       <title>华为面试复盘</title>
-      <link>https://oxygenbytes.github.io/posts/2021/04/%E5%8D%8E%E4%B8%BA%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <link>https://oxygenbytes.github.io/posts/interview/%E5%8D%8E%E4%B8%BA%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
       <pubDate>Fri, 02 Apr 2021 21:54:01 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2021/04/%E5%8D%8E%E4%B8%BA%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
-      <description>投递之后一直无消息，后来被华为财经部门捞了，面试的职位是 财经数字化工程师，凭印象简单写写
-笔试（2021.03.24） 3道算法题, 第一题AC， 第二题70%， 第三题太长看晕了，直接提交了
-一面(2021.03.29)  自我介绍 简单讲讲项目，项目的难点是什么，怎么解决的 一些基础知识 算法题：最接近目标的三数之和，用了双指针，写的死循环了，本来还想调一下的，但是面试官说思路可以，就走了，真的很忙  二面（2021.03.29,接着一面继续）  介绍项目 学过什么课程 进程和线程，进程通讯方式 C++ STL里面的数据结构 大学里面专业课成绩怎么样？最好的是什么课？算法设计与分析 谈谈递归，深搜，广搜，动态规划 算法题：全排列，说说思路就可以，还谈到子集，组合问题，最后说到这几个问题和树的关系，如何从树的角度去理解这几个问题  主管面（2021.04.02） 我是哈工程的，面试官说自己对哈工程还算了解，因为他是哈工大的。。。
- 大学经历 在学校的成绩 为什么没有实习 疫情对你的影响，因为疫情的感悟 为什么写博客，最大的收获是什么 做算法题最大的收获是什么？ 答：依然很菜，但是逐步消除了对代码的陌生感 对华为的看法和印象 对华为财经的看法，从华为最近拿到支付牌照聊了一下 为什么有些面试者对面向企业内部的软件开发业务不太感兴趣 如果同时拿到华为和互联网的offer，会怎么选择？ 谈一下自己的优缺点 期望薪资 反问了一下本科生在华为的发展和晋升问题  </description>
+      <guid>https://oxygenbytes.github.io/posts/interview/%E5%8D%8E%E4%B8%BA%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <description>投递之后一直无消息，后来被华为财经部门捞了，面试的职位是 财经数字化工程师，凭印象简单写写 笔试（2021.03.24） 3道算法题, 第一题AC，</description>
     </item>
     
     <item>
       <title>Shoppe面试复盘</title>
-      <link>https://oxygenbytes.github.io/posts/2021/04/shoppe%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <link>https://oxygenbytes.github.io/posts/interview/shoppe%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
       <pubDate>Fri, 02 Apr 2021 09:35:00 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2021/04/shoppe%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
-      <description>笔试（2021.03.10） 笔试应该是春招最早的几批，当天Shoppe的笔试平台还崩掉了，在牛客网上还有不少吐嘈，不过不久就恢复正常了，有一说一Shoppe的这个笔试系统还是不错的 笔试是一部分选择 + 3道编程题，选择题目已经记不住了，时间很久了 三道编程题目分别是(之所以能记住是因为有个小伙伴问过)：
- 字符串abc abcabcabc判断第一个串重复n次能不能得到第二个，使用暴力递归处理 通过70% 归并数组 AC 正则表达式匹配， leetcode原题， AC  两轮面试的题目我凭印象大概写写吧
-一面(2021.03.14) 时间也很久了，问的比较基础，是一个小姐姐
- 重点是计算机网络，操作系统，数据库 白盒测试，黑盒测试 算法题：给定数组，将数组元素按出现次数排序并打印 算法题有点简单 SQL题：根据给定的条件写建表语句 差点栽了，因为我自己确实很少写SQL，勉强写了一个 反问  二面（2021.03.20）  介绍项目，项目中的难点 测试预约餐厅小程序的功能，角度尽可能全面，答的一般 算法题目，给定一个字符串，计算字符串中回文串的个数，给出测试用例，还要生成随机字符串来进行验证  分析时间复杂度，有没有更好的办法，答暴力法时间复杂度O(N^3), 还可以使用DP打表计算 如果一个字符串长为100万呢？ 答C++一秒大概执行10^7到10^8, 10^18次方要跑很久很久   wget用过没？ 答可以用来看google有没有连好。。。聊DNS污染，VPN的工作原理，聊网络知识 聊几个Linux命令，问为什么用Linux做桌面系统。。。 反问  HR面（2021.03.26）  经历 考研情况 城市意向 Offer情况 期望薪资 反问  收到意向书（2021年4月2日） 整体来说，整个流程比较常规，二面面试官问的点比较新鲜，面试官态度都很好</description>
+      <guid>https://oxygenbytes.github.io/posts/interview/shoppe%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <description>笔试（2021.03.10） 笔试应该是春招最早的几批，当天Shoppe的笔试平台还崩掉了，在牛客网上还有不少吐嘈，不过不久就恢复正常了，有一</description>
     </item>
     
     <item>
       <title>字节跳动面试复盘</title>
-      <link>https://oxygenbytes.github.io/posts/2021/03/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <link>https://oxygenbytes.github.io/posts/interview/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
       <pubDate>Tue, 09 Mar 2021 12:46:52 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/2021/03/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
-      <description>一面（2021-02-24 18:00，1小时10分钟）  介绍自己 介绍项目，针对项目细节进行提问 浏览器输入一个地址，后面发生了什么？ 进程间通讯方式有哪些？ 死锁，原因与解除 const关键字和static关键字 define和const的区别 STL容器，vector, list, map, unordered_map, set效率及对应的底层结构 Redis与MySQL的区别 TCP的拥塞控制，流量控制，滑动窗口 如果当前面试界面崩溃了，如何排查问题 面向对象的三大特性 考研情况与意向城市 算法题：二叉树的镜像 反问  二面（2021-03-02 15:00，1小时30分钟）  介绍自己 介绍项目，介绍了很久   登录界面如何实现，如何测试 SQL注入 数据库中的表是如何组织的 为什么选用python 消息通知机制是如何实现的，如何改进  毕业设计题目，进度 C++语法，虚函数，虚函数表 深拷贝和浅拷贝，代码如何实现 引用和指针 分析结构体的内存对齐问题 malloc和free, new和delete，C++内存模型 迭代器失效的问题 C++程序的编译过程 计算机网络，DNS，HTTP，ARP，NAT，TCP, ICMP 上线的项目用户报告有问题，如何排查，如何定位问题 代码题：手写一个单例模式 是否了解其他设计模式 算法题：一个二位矩阵，矩阵中每个位置有不一样高的柱子，小球只能往高度相同的柱子或者更低的柱子滚动，判断一个小球能否滚落出矩阵 反问  三面（2021-03-08 11:00, 50分钟）  考研情况 去年面试字节的情况 介绍项目,前端，后端，数据库 用过抖音吗？在抖音买过东西吗？（没&amp;hellip;） 最常用的软件是什么？ （chrome） 如何对搜索引擎的搜索框进行测试 对搜索引擎技术还有那些了解 OSI模型和TCP/IP模型 算法题 给定一个字符串s，和字符串字典strDict，使用strDict中的字符串来组成s，并用|分割 代码写的很快，平时写代码多吗？是不是刷过很多题？为什么刷题？有哪些收获？ 谈到个人博客，为什么写博客？为什么博客打不开？（在github page上, 需要魔法。。） 考研不打算调剂吗？ 反问  HR面（2021-03-09 17:00，10分钟）  面试体验，对前面几位面试官的评价 为什么选择字节？ 为什么选测试开发 offer情况,态度最差的HR，问完之后说我没什么大厂offer，我当时刚开始春招，肯定没offer 城市意向 反问  </description>
+      <guid>https://oxygenbytes.github.io/posts/interview/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <description>一面（2021-02-24 18:00，1小时10分钟） 介绍自己 介绍项目，针对项目细节进行提问 浏览器输入一个地址，后面发生了什么？ 进程间通讯方</description>
+    </item>
+    
+    <item>
+      <title>蓝湖面试复盘</title>
+      <link>https://oxygenbytes.github.io/posts/interview/%E8%93%9D%E6%B9%96%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <pubDate>Wed, 03 Mar 2021 19:46:52 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/interview/%E8%93%9D%E6%B9%96%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <description>时间比较久了，重点记一下算法题和答的不好的问题 一面 算法题：实现整数的sqrt函数， 使用二分法做 二面 算法题：算法题找出一个数组中，出现次数最多</description>
     </item>
     
   </channel>
