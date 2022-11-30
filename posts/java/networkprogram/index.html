@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Java 网络编程 | Zxq&#39;s Site</title>
+<meta name="keywords" content="Java">
+<meta name="description" content="HTTP请求过程 以www.baidu.com为例子 1.chrome自己的缓存,存留时间大概1min Notes:chrome://net-in">
+<meta name="author" content="">
+<link rel="canonical" href="https://oxygenbytes.github.io/posts/java/networkprogram/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css" integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://oxygenbytes.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Java 网络编程" />
+<meta property="og:description" content="HTTP请求过程 以www.baidu.com为例子 1.chrome自己的缓存,存留时间大概1min Notes:chrome://net-in" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://oxygenbytes.github.io/posts/java/networkprogram/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-10-27T23:06:27+08:00" />
+<meta property="article:modified_time" content="2020-10-27T23:06:27+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java 网络编程"/>
+<meta name="twitter:description" content="HTTP请求过程 以www.baidu.com为例子 1.chrome自己的缓存,存留时间大概1min Notes:chrome://net-in"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "📚文章",
+      "item": "https://oxygenbytes.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Java 网络编程",
+      "item": "https://oxygenbytes.github.io/posts/java/networkprogram/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Java 网络编程",
+  "name": "Java 网络编程",
+  "description": "HTTP请求过程 以www.baidu.com为例子 1.chrome自己的缓存,存留时间大概1min Notes:chrome://net-in",
+  "keywords": [
+    "Java"
+  ],
+  "articleBody": " HTTP请求过程 以www.baidu.com为例子\n1.chrome自己的缓存,存留时间大概1min\nNotes:chrome://net-internals/#dns中查询 2.chrome搜索操作系统自身的DNS缓存(浏览器没有找到缓存或者缓存已经失效)\n3.读取本地的HOST文件\n4.浏览器发起一个DNS的一个系统调用\n​\t- 宽带运营商服务器查看本身的本地缓存\n​\t- 运营商服务器发起一个迭代DNS解析请求(-\u003e根-\u003e顶级域名地址-\u003e目标)\n​\t- 运营商服务器把结果返回给操作系统内核,同时缓存起来\n​\t- 操作系统内核把结果返回浏览器\n​\t- 最终浏览器拿到了www.baidu.com对应的IP地址\n5.建立TCP/IP连接\nTCP/IP连接,属于计算机网络的事情,包括运输层的连续ARQ协议,TCP/UDP等,以及IP层路由选择算法(RIP,OSPF),ARP地址解析,再往下CSMA/CD(载波监听,碰撞检测)以及CSMA/CA等…\n6.TCP/IP 链接建立起来之后,浏览器就可以向服务器发送HTTP请求了使用了.比如说,用HTTP的GET方法请求一个根域名的一个域名,协议可以采用HTTP1.0的一个协议(HTTP1.1 是保持连接,与此有所不同,对于同义词请求中,可以同时包含)\n7.服务器端接受到了这个请求,根据路径参数,经过后端的一些处理后,把处理后的一个结果的数据返回给浏览器,如果是百度的页面,就会把完整的HTML页面代码返回给浏览器\n8.浏览器拿到了完整的HTML页面代码,在解析和渲染这个页面的时候,里面的JS,CSS, 图片静态资源,他们同样也是一个个的HTTP请求,都需要经过上述的主要七个步骤\n9.浏览器根据拿到的资源对页面进行渲染,最终把一个完整的页面呈现给了用户.\n心跳机制简介 在分布式系统中，分布在不同主机上的节点需要检测其他节点的状态，如服务器节点需要检测从节点是否失效。为了检测对方节点的有效性，每隔固定时间就发送一个固定信息给对方，对方回复一个固定信息，如果长时间没有收到对方的回复，则断开与对方的连接。\n发包方既可以是服务端，也可以是客户端，这要看具体实现。因为是每隔固定时间发送一次，类似心跳，所以发送的固定信息称为心跳包。心跳包一般为比较小的包，可根据具体实现。心跳包主要应用于长连接的保持与短线链接。\n一般而言，应该客户端主动向服务器发送心跳包，因为服务器向客户端发送心跳包会影响服务器的性能。\nTCP和UDP的区别 1.对比 UDP TCP 是否连接 无连接 面向连接 是否可靠 不可靠传输，不使用流量控制和拥塞控制 可靠传输，使用流量控制和拥塞控制 连接对象个数 支持一对一，一对多，多对一和多对多交互通信 只能是一对一通信 传输方式 面向报文 面向字节流 首部开销 首部开销小，仅 8 字节 首部最小 20 字节，最大 60 字节 适用场景 适用于实时应用（IP 电话、视频会议、直播等） 适用于要求可靠传输的应用，例如文件传输 2.总结 TCP 向上层提供面向连接的可靠服务 ，UDP 向上层提供无连接不可靠服务。 虽然 UDP 并没有 TCP 传输来的准确，但是也能在很多实时性要求高的地方有所作为 对数据准确性要求高，速度可以相对较慢的，可以选用 TCP 流量控制和拥塞控制 拥塞控制 网络拥塞现象是指到达通信子网中某一部分的分组数量过多,使得该部分网络来不及处理,以致引起这部分乃至整个网络性能下降的现象,严重时甚至会导致网络通信业务陷入停顿,即出现死锁现象。拥塞控制是处理网络拥塞现象的一种机制。 流量控制 数据的传送与接收过程当中很可能出现收方来不及接收的情况,这时就需要对发方进行控制,以免数据丢失。 多线程如何同步 windows 线程同步有四种方式：临界区、内核对象、互斥量、信号量。\nLinux 线程同步有最常用的是：互斥锁、条件变量和信号量。\n进程间通讯的方式有哪些，各有什么优缺点 进程间通信 Linux 进程间通信（IPC）以下以几部分发展而来： 早期UNIX进程间通信、基于System V进程间通信、基于Socket进程间通信和POSIX进程间通信。 UNIX进程间通信方式包括：管道、FIFO、信号。 System V进程间通信方式包括：System V消息队列、System V信号灯、System V共享内存、 POSIX进程间通信包括：posix消息队列、posix信号灯、posix共享内存。 现在linux使用的进程间通信方式： （1）管道（pipe）和有名管道（FIFO） （2）信号（signal） （3）消息队列 （4）共享内存 （5）信号量 （6）套接字（socket)\ntcp连接建立的时候3次握手，断开连接的4次握手的具体过程 建立连接采用的3次握手协议，具体是指： 第一次握手是客户端connect连接到server，server accept client的请求之后，向client端发送一个消息，相当于说我都准备好了，你连接上我了，这是第二次握手，第3次握手就是client向server发送的，就是对第二次握手消息的确认。之后client和server就开始通讯了。 断开连接的4次握手,具体如下： 断开连接的一端发送close请求是第一次握手，另外一端接收到断开连接的请求之后需要对close进行确认，发送一个消息，这是第二次握手，发送了确认消息之后还要向对端发送close消息，要关闭对对端的连接，这是第3次握手，而在最初发送断开连接的一端接收到消息之后，进入到一个很重要的状态time_wait状态，这个状态也是面试官经常问道的问题，最后一次握手是最初发送断开连接的一端接收到消息之后。对消息的确认。\nepoll与select的区别 select在一个进程中打开的最大fd是有限制的，由FD_SETSIZE设置，默认值是2048。不过 epoll则没有这个限制，它所支持的fd上限是最大可以打开文件的数目，这个数字一般远大于2048，一般来说内存越大，fd上限越大，1G内存都能达到大约10w左右。\nselect的轮询机制是系统会去查找每个fd是否数据已准备好，当fd很多的时候，效率当然就直线下降了，epoll采用基于事件的通知方式，一旦某个fd数据就绪时，内核会采用类似callback的回调机制，迅速激活这个文件描述符，而不需要不断的去轮询查找就绪的描述符，这就是epoll高效最本质的原因。\n无论是select还是epoll都需要内核把FD消息通知给用户空间，如何避免不必要的内存拷贝就很重要，在这点上，epoll是通过内核于用户空间mmap同一块内存实现的，而select则做了不必要的拷贝\nepoll中et和lt的区别与实现原理 LT：水平触发，效率会低于ET触发，尤其在大并发，大流量的情况下。但是LT对代码编写要求比较低，不容易出现问题。LT模式服务编写上的表现是：只要有数据没有被获取，内核就不断通知你，因此不用担心事件丢失的情况。 ET：边缘触发，效率非常高，在并发，大流量的情况下，会比LT少很多epoll的系统调用，因此效率高。但是对编程要求高，需要细致的处理每个请求，否则容易发生丢失事件的情况。\nconnect方法会阻塞，请问有什么方法可以避免其长时间阻塞？ 答:最通常的方法最有效的是加定时器；也可以采用非阻塞模式。\n网络中，如果客户端突然掉线或者重启，服务器端怎么样才能立刻知道？ 答:若客户端掉线或者重新启动，服务器端会收到复位信号，每一种tcp/ip得实现不一样，控制机制也不一样。\n在子网210.27.48.21/30种有多少个可用地址？分别是什么？ 简: 30表示的是网络号(network number)是30位，剩下2位中11是广播(broadcast)地址，00是multicast地址，只有01和10可以作为host address。\n详: 210.27.48.21/30代表的子网的网络号是30位，即网络号是210.27.48.21 \u0026 255.255.255.251=210.27.48.20，此子网的地址空间是2位，即可以有4个地址：210.27.48.20, 210.27.48.21, 210.27.48.22, 210.27.48.23。第一个地址的主机号(host number/id)是0，而主机号0代表的是multicast地址。最后一个地址的最后两位是11，主机号每一位都为1代表的是广播(broadcast)地址。所以只有中间两个地址可以给host使用。其实那个问题本身不准确，广播或multicast地止也是可以使用的地址，所以回答4也应该正确，当然问的人也可能是想要你回答2。我个人觉得最好的回答是一个广播地址，一个multicast地址，2个unicast地址。\nTTL是什么？有什么用处，通常那些工具会用到它？（ping? traceroute? ifconfig? netstat?） 简:TTL是Time To Live，一般是hup count，每经过一个路由就会被减去一，如果它变成0，包会被丢掉。它的主要目的是防止包在有回路的网络上死转，浪费网络资源。ping和traceroute用到它。\n详:TTL是Time To Live，目前是hup count，当包每经过一个路由器它就会被减去一，如果它变成0，路由器就会把包丢掉。IP网络往往带有环(loop)，比如子网A和子网B有两个路由器相连，它就是一个loop。TTL的主要目的是防止包在有回路的网络上死转，因为包的TTL最终后变成0而使得此包从网上消失(此时往往路由器会送一个ICMP包回来，traceroute就是根据这个做的)。ping会送包出去，所以里面有它，但是ping不一定非要不可它。traceroute则是完全因为有它才能成的。ifconfig是用来配置网卡的，netstat -rn 是用来列路由表的，所以都用不着它\n路由表示做什么用的？在linux环境中怎么来配置一条默认路由？ 简:路由表是用来决定如何将包从一个子网传送到另一个子网的，换局话说就是用来决定从一个网卡接收到的包应该送的哪一张网卡上的。在Linux上可以用“route add default gw \u003c默认路由器IP\u003e”来配置一条默认路由。\n详:路由表是用来决定如何将包从一个子网传送到另一个子网的，换局话说就是用来决定从一个网卡接收到的包应该送的哪一张网卡上的。路由表的每一行至少有目标网络号、netmask、到这个子网应该使用的网卡。当路由器从一个网卡接收到一个包时，它扫描路由表的每一行，用里面的netmask和包里的目标IP地址做并逻辑运算(\u0026)找出目标网络号，如果此网络号和这一行里的网络号相同就将这条路由保留下来做为备用路由，如果已经有备用路由了就在这两条路由里将网络号最长的留下来，另一条丢掉，如此接着扫描下一行直到结束。如果扫描结束任没有找到任何路由，就用默认路由。确定路由后，直接将包送到对应的网卡上去。在具体的实现中，路由表可能包含更多的信息为选路由算法的细节所用。题外话：路由算法其实效率很差，而且不scalable，解决办法是使用IP交换机，比如MPLS。 在Linux上可以用“route add default gw \u003c默认路由器IP\u003e”来配置一条默认路由。\n在网络中有两台主机A和B，并通过路由器和其他交换设备连接起来，已经确认物理连接正确无误，怎么来测试这两台机器是否连通？如果不通，怎么来判断故障点？怎么排除故障？ 答:测试这两台机器是否连通：从一台机器ping另一台机器 如果ping不通，用traceroute可以确定是哪个路由器不能连通，然后再找问题是在交换设备/hup/cable等。\n网络编程中设计并发服务器，使用多进程与多线程 ，请问有什么区别？ 答案一: 1，进程：子进程是父进程的复制品。子进程获得父进程数据空间、堆和栈的复制品。 2，线程：相对与进程而言，线程是一个更加接近与执行体的概念，它可以与同进程的其他线程共享数据，但拥有自己的栈空间，拥有独立的执行序列。 两者都可以提高程序的并发度，提高程序运行效率和响应时间。 线程和进程在使用上各有优缺点：线程执行开销小，但不利于资源管理和保护；而进程正相反。同时，线程适合于在SMP机器上运行，而进程则可以跨机器迁移。\n答案二: 根本区别就一点：用多进程每个进程有自己的地址空间(address space)，线程则共享地址空间。所有其它区别都是由此而来的： 1。速度：线程产生的速度快，线程间的通讯快、切换快等，因为他们在同一个地址空间内。 2。资源利用率：线程的资源利用率比较好也是因为他们在同一个地址空间内。 3。同步问题：线程使用公共变量/内存时需要使用同步机制还是因为他们在同一个地址空间内。 等等\n网络编程的一般步骤 对于TCP连接： 1.服务器端1）创建套接字create；2）绑定端口号bind；3）监听连接listen；4）接受连接请求accept，并返回新的套接字；5）用新返回的套接字recv/send；6）关闭套接字。 2.客户端1）创建套接字create; 2）发起建立连接请求connect; 3）发送/接收数据send/recv；4）关闭套接字。 TCP总结： Server端：create – bind – listen– accept– recv/send– close Client端：create——- conncet——send/recv——close.\n对于UDP连接： 1.服务器端:1）创建套接字create；2）绑定端口号bind；3）接收/发送消息recvfrom/sendto；4）关闭套接字。 2.客户端:1）创建套接字create；2）发送/接收消息sendto/recvfrom；3）关闭套接字. UDP总结: Server端：create—-bind —-recvfrom/sendto—-close Client端：create—- sendto/recvfrom—-close.\nTCP的重发机制是怎么实现的？ 1.滑动窗口机制，确立收发的边界，能让发送方知道已经发送了多少（已确认）、尚未确认的字节数、尚待发送的字节数；让接收方知道（已经确认收到的字节数）。\n2.选择重传，用于对传输出错的序列进行重传。\nTCP为什么不是两次连接？而是三次握手？ 如果A与B两个进程通信，如果仅是两次连接。可能出现的一种情况就是：A发送完请报文以后，由于网络情况不好，出现了网络拥塞，即B延时很长时间后收到报文，即此时A将此报文认定为失效的报文。B收到报文后，会向A发起连接。此时两次握手完毕，B会认为已经建立了连接可以通信，B会一直等到A发送的连接请求，而A对失效的报文回复自然不会处理。依次会陷入B忙等的僵局，造成资源的浪费。\nconnect方法会阻塞，请问有什么方法可以避免其长时间阻塞？ 可以考虑采用异步传输机制，同步传输与异步传输的主要区别在于同步传输中，如果调用recvfrom后会一致阻塞运行，从而导致调用线程暂停运行；异步传输机制则不然，会立即返回。\n网络编程中设计并发服务器，使用多进程与多线程，请问有什么区别？ 答案一: 1，进程：子进程是父进程的复制品。子进程获得父进程数据空间、堆和栈的复制品。 2，线程：相对与进程而言，线程是一个更加接近与执行体的概念，它可以与同进程的其他线程共享数据，但拥有自己的栈空间，拥有独立的执行序列。两者都可以提高程序的并发度，提高程序运行效率和响应时间。 线程和进程在使用上各有优缺点：线程执行开销小，但不利于资源管理和保护；而进程正相反。同时，线程适合于在SMP机器上运行，而进程则可以跨机器迁移。 答案二: 根本区别就一点：用多进程每个进程有自己的地址空间(address space)，线程则共享地址空间。所有其它区别都是由此而来的： 1。速度：线程产生的速度快，线程间的通讯快、切换快等，因为他们在同一个地址空间内。 2。资源利用率：线程的资源利用率比较好也是因为他们在同一个地址空间内。 3。同步问题：线程使用公共变量/内存时需要使用同步机制还是因为他们在同一个地址空间内。 等等\n流量控制和拥塞控制的实现机制 拥塞控制 网络拥塞现象是指到达通信子网中某一部分的分组数量过多,使得该部分网络来不及处理,以致引起这部分乃至整个网络性能下降的现象,严重时甚至会导致网络通信业务陷入停顿,即出现死锁现象。拥塞控制是处理网络拥塞现象的一种机制。 流量控制 数据的传送与接收过程当中很可能出现收方来不及接收的情况,这时就需要对发方进行控制,以免数据丢失。 流量控制机制： 流量控制用于防止在端口阻塞的情况下丢帧，这种方法是当发送或接收缓冲区开始溢出时通过将阻塞信号发送回源地址实现的。流量控制可以有效的防止由于网络中瞬间的大量数据对网络带来的冲击，保证用户网络高效而稳定的运行。\n多线程如何同步： 在这里简单说一下linux多线程同步的方法吧（win上有一定的差别，也有一定的累似） 1：线程数据，每个线程数据创建一个键，它和这个键相关联，在各个线程里，都使用这个键来指代线程数据，但在不同的线程里，这个键代表的数据是不同的，在同一个线程里，它代表同样的数据内容。以此来达到线程安全的目的。 2：互斥锁，就是在各个线程要使用的一些公共数据之前加锁，使用之后释放锁，这个是非常常用的线程安全控制的方法，而频繁的加解锁也对效率有一定的影响。 3：条件变量，而条件变量通过允许线程阻塞和等待另一个线程发送信号的方法弥补了互斥锁的不足，它常和互斥锁一起使用。使用时，条件变量被用来阻塞一个线程，当条件不满足时，线程往往解开相应的互斥锁并等待条件发生变化。一旦其它的某个线程改变了条件变量，它将通知相应的条件变量唤醒一个或多个正被此条件变量阻塞的线程。这些线程将重新锁定互斥锁并重新测试条件是否满足。一般说来，条件变量被用来进行线程间的同步。 4：信号量，信号量本质上是一个非负的整数计数器，它被用来控制对公共资源的访问。当公共资源增加时，调用函数sem_post（）增加信号量。只有当信号量值大于０时，才能使用公共资源，使用后，函数sem_wait（）减少信号量。函数sem_trywait（）和函数pthread_ mutex_trylock（）起同样的作用，它是函数sem_wait（）的非阻塞版本 另外pthread_join也可以等待一个线程的终止。\n进程间通讯的方式有哪些，各有什么优缺点 进程间通信主要包括管道, 系统IPC(包括消息队列,信号量,共享存储), socket.\n管道包括三种:1)普通管道PIPE, 通常有种限制,一是半双工,只能单向传输;二是只能在父子进程间使用. 2)流管道s_pipe: 去除了第一种限制,可以双向传输. 3)命名管道:name_pipe, 去除了第二种限制,可以在许多并不相关的进程之间进行通讯.\n系统IPC的三种方式类同,都是使用了内核里的标识符来识别\n管道: 优点是所有的UNIX实现都支持, 并且在最后一个访问管道的进程终止后,管道就被完全删除;缺陷是管道只允许单向传输或者用于父子进程之间\n系统IPC: 优点是功能强大,能在毫不相关进程之间进行通讯; 缺陷是关键字KEY_T使用了内核标识,占用了内核资源,而且只能被显式删除,而且不能使用SOCKET的一些机制,例如select,epoll等.\nsocket可以跨网络通讯，其他进程间通讯的方式都不可以，只能是本机进程通讯。\ntcp连接建立的时候3次握手的具体过程，以及其中的每一步是为什么 建立连接采用的3次握手协议，具体是指： 第一次握手是客户端connect连接到server，server accept client的请求之后，向client端发送一个消息，相当于说我都准备好了，你连接上我了，这是第二次握手，第3次握手就是client向server发送的，就是对第二次握手消息的确认。之后client和server就开始通讯了。\ntcp断开连接的具体过程，其中每一步是为什么那么做 断开连接的4次握手,具体如下： 断开连接的一端发送close请求是第一次握手，另外一端接收到断开连接的请求之后需要对close进行确认，发送一个消息，这是第二次握手，发送了确认消息之后还要向对端发送close消息，要关闭对对端的连接，这是第3次握手，而在最初发送断开连接的一端接收到消息之后，进入到一个很重要的状态time_wait状态，这个状态也是面试官经常问道的问题，最后一次握手是最初发送断开连接的一端接收到消息之后。对消息的确认。\nsocket编程，如果client断电了，服务器如何快速知道？？？ 有以下几个技术： 使用定时器（适合有数据流动的情况）； 使用socket选项SO_KEEPALIVE（适合没有数据流动的情况）;\nfork()一子进程程后 父进程癿全局变量能不能使用？？？ fork后子进程将会拥有父进程的几乎一切资源，父子进程的都各自有自己的全局变量。不能通用，不同于线程。对于线程，各个线程共享全局变量。\n4G的long型整数中找到一个最大的，如何做？？？？ 我的想法是要找到最大的肯定要遍历所有的数的，而且不能将数据全部读入内存，可能不足。算法的时间复杂度肯定是O（n） 感觉就是遍历，比较。。。。还能怎么改进呢？？？？ 可以改进的地方，就是读入内存的时候，一次多读些。。。。 需 要注意的就是每次从磁盘上尽量多读一些数到内存区，然后处理完之后再读入一批。减少IO次数，自然能够提高效率。而对于类快速排序方法，稍微要麻烦一些： 分批读入，假设是M个数，然后从这M个数中选出n个最大的数缓存起来，直到所有的N个数都分批处理完之后，再将各批次缓存的n个数合并起来再进行一次类快 速排序得到最终的n个最大的数就可以了。在运行过程中，如果缓存数太多，可以不断地将多个缓存合并，保留这些缓存中最大的n个数即可。由于类快速排序的时 间复杂度是O（N），这样分批处理再合并的办法，依然有极大的可能会比堆和败者树更优。当然，在空间上会占用较多的内存。\n此题还有个变种，就是寻找K个最大或者最小的数。有以下几种算法： 容量为K的最大堆/最小堆，假设K可以装入内存； 如果N个数可以装入内存，且都小于MAX，那么可以开辟一个MAX大的数组，类似计数排序。。。从数组尾部扫描K个最大的数，头部扫描K个最小的数。\ntcp三次握手的过程，accept发生在三次握手哪个阶段？ 三次握手：C—–\u003eSYN K S——\u003eACK K+1 SYN J C——-\u003eACK J+1\nDONE! client 的 connect 引起3次握手 server 在socket， bind， listen后，阻塞在accept，三次握手完成后，accept返回一个fd， 因此accept发生在三次握手之后。。。。。。\nTcp流，udp的数据报，之间有什么区别，为什么TCP要叫做数据流？ TCP本身是面向连接的协议，S和C之间要使用TCP，必须先建立连接，数据就在该连接上流动，可以是双向的，没有边界。所以叫数据流 ，占系统资源多 UDP不是面向连接的，不存在建立连接，释放连接，每个数据包都是独立的包，有边界，一般不会合并。 TCP保证数据正确性，UDP可能丢包，TCP保证数据顺序，UDP不保证\nvolatile的含义。 变量可能在编译器的控制或监控之外改变，告诉编译器不要优化该变量，如被系统时钟更新的变量。\n100亿个数，求最大的1万个数，并说出算法的时间复杂度。 用小根堆来实现。注意是小根堆， 读入1万个数，然后做 时间复杂度是O（NlogK）\n设计一个洗牌的算法，并说出算法的时间复杂度。 第一种： for i:=1 to n do swap(a[i], a[random(1,n)]); // 凑合，但不是真正随机 第二种： for i:=1 to n do swap(a[i], a[random(i,n)]); // 真正的随机算法 其中，random(a,b)函数用于返回一个从a到b（包括a和b）的随机整数。 至于怎么证明上两个算法，没想好。 算法复杂度是O（n。。。），要研究下random的实现。\n流量控制与拥塞控制的区别，节点计算机怎样感知网络拥塞了？ 拥塞控制是把整体看成一个处理对象的，流量控制是对单个的节点。 感知的手段应该不少，比如在TCP协议里，TCP报文的重传本身就可以作为拥塞的依据。依据这样的原理， 应该可以设计出很多手段。\nTCP通讯中，select到读事件，但是读到的数据量是0，为什么，如何解决? select 返回0代表超时。select出错返回-1。\nselect到读事件，但是读到的数据量为0，说明对方已经关闭了socket的读端。本端关闭读即可。\n当select出错时，会将接口置为可读又可写。这时就要通过判断select的返回值为-1来区分。\n",
+  "wordCount" : "9679",
+  "inLanguage": "en",
+  "datePublished": "2020-10-27T23:06:27+08:00",
+  "dateModified": "2020-10-27T23:06:27+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://oxygenbytes.github.io/posts/java/networkprogram/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zxq's Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://oxygenbytes.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://oxygenbytes.github.io" accesskey="h" title="Zxq&#39;s Site (Alt + H)">Zxq&#39;s Site</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://oxygenbytes.github.io/" title="🏠主页">
+                    <span>🏠主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/posts" title="📚文章">
+                    <span>📚文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/archives/" title="⏱时间轴">
+                    <span>⏱时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/tags" title="🔖标签">
+                    <span>🔖标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/about" title="🙋🏻‍♂️关于">
+                    <span>🙋🏻‍♂️关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://oxygenbytes.github.io">Home</a>&nbsp;»&nbsp;<a href="https://oxygenbytes.github.io/posts/">📚文章</a></div>
+    <h1 class="post-title">
+      Java 网络编程
+    </h1>
+    <div class="post-meta"><span title='2020-10-27 23:06:27 +0800 CST'>2020-10-27</span>&nbsp;·&nbsp;20 min
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#http%e8%af%b7%e6%b1%82%e8%bf%87%e7%a8%8b" aria-label="HTTP请求过程">HTTP请求过程</a></li>
+                <li>
+                    <a href="#%e5%bf%83%e8%b7%b3%e6%9c%ba%e5%88%b6%e7%ae%80%e4%bb%8b" aria-label="心跳机制简介">心跳机制简介</a></li>
+                <li>
+                    <a href="#tcp%e5%92%8cudp%e7%9a%84%e5%8c%ba%e5%88%ab" aria-label="TCP和UDP的区别">TCP和UDP的区别</a></li>
+                <li>
+                    <a href="#1%e5%af%b9%e6%af%94" aria-label="1.对比">1.对比</a></li>
+                <li>
+                    <a href="#2%e6%80%bb%e7%bb%93" aria-label="2.总结">2.总结</a></li>
+                <li>
+                    <a href="#%e6%b5%81%e9%87%8f%e6%8e%a7%e5%88%b6%e5%92%8c%e6%8b%a5%e5%a1%9e%e6%8e%a7%e5%88%b6" aria-label="流量控制和拥塞控制">流量控制和拥塞控制</a></li>
+                <li>
+                    <a href="#%e5%a4%9a%e7%ba%bf%e7%a8%8b%e5%a6%82%e4%bd%95%e5%90%8c%e6%ad%a5" aria-label="多线程如何同步">多线程如何同步</a></li>
+                <li>
+                    <a href="#%e8%bf%9b%e7%a8%8b%e9%97%b4%e9%80%9a%e8%ae%af%e7%9a%84%e6%96%b9%e5%bc%8f%e6%9c%89%e5%93%aa%e4%ba%9b%e5%90%84%e6%9c%89%e4%bb%80%e4%b9%88%e4%bc%98%e7%bc%ba%e7%82%b9" aria-label="进程间通讯的方式有哪些，各有什么优缺点">进程间通讯的方式有哪些，各有什么优缺点</a></li>
+                <li>
+                    <a href="#tcp%e8%bf%9e%e6%8e%a5%e5%bb%ba%e7%ab%8b%e7%9a%84%e6%97%b6%e5%80%993%e6%ac%a1%e6%8f%a1%e6%89%8b%e6%96%ad%e5%bc%80%e8%bf%9e%e6%8e%a5%e7%9a%844%e6%ac%a1%e6%8f%a1%e6%89%8b%e7%9a%84%e5%85%b7%e4%bd%93%e8%bf%87%e7%a8%8b" aria-label="tcp连接建立的时候3次握手，断开连接的4次握手的具体过程">tcp连接建立的时候3次握手，断开连接的4次握手的具体过程</a></li>
+                <li>
+                    <a href="#epoll%e4%b8%8eselect%e7%9a%84%e5%8c%ba%e5%88%ab" aria-label="epoll与select的区别">epoll与select的区别</a></li>
+                <li>
+                    <a href="#epoll%e4%b8%adet%e5%92%8clt%e7%9a%84%e5%8c%ba%e5%88%ab%e4%b8%8e%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86" aria-label="epoll中et和lt的区别与实现原理">epoll中et和lt的区别与实现原理</a></li>
+                <li>
+                    <a href="#connect%e6%96%b9%e6%b3%95%e4%bc%9a%e9%98%bb%e5%a1%9e%e8%af%b7%e9%97%ae%e6%9c%89%e4%bb%80%e4%b9%88%e6%96%b9%e6%b3%95%e5%8f%af%e4%bb%a5%e9%81%bf%e5%85%8d%e5%85%b6%e9%95%bf%e6%97%b6%e9%97%b4%e9%98%bb%e5%a1%9e" aria-label="connect方法会阻塞，请问有什么方法可以避免其长时间阻塞？">connect方法会阻塞，请问有什么方法可以避免其长时间阻塞？</a></li>
+                <li>
+                    <a href="#%e7%bd%91%e7%bb%9c%e4%b8%ad%e5%a6%82%e6%9e%9c%e5%ae%a2%e6%88%b7%e7%ab%af%e7%aa%81%e7%84%b6%e6%8e%89%e7%ba%bf%e6%88%96%e8%80%85%e9%87%8d%e5%90%af%e6%9c%8d%e5%8a%a1%e5%99%a8%e7%ab%af%e6%80%8e%e4%b9%88%e6%a0%b7%e6%89%8d%e8%83%bd%e7%ab%8b%e5%88%bb%e7%9f%a5%e9%81%93" aria-label="网络中，如果客户端突然掉线或者重启，服务器端怎么样才能立刻知道？">网络中，如果客户端突然掉线或者重启，服务器端怎么样才能立刻知道？</a></li>
+                <li>
+                    <a href="#%e5%9c%a8%e5%ad%90%e7%bd%9121027482130%e7%a7%8d%e6%9c%89%e5%a4%9a%e5%b0%91%e4%b8%aa%e5%8f%af%e7%94%a8%e5%9c%b0%e5%9d%80%e5%88%86%e5%88%ab%e6%98%af%e4%bb%80%e4%b9%88" aria-label="在子网210.27.48.21/30种有多少个可用地址？分别是什么？">在子网210.27.48.21/30种有多少个可用地址？分别是什么？</a></li>
+                <li>
+                    <a href="#ttl%e6%98%af%e4%bb%80%e4%b9%88%e6%9c%89%e4%bb%80%e4%b9%88%e7%94%a8%e5%a4%84%e9%80%9a%e5%b8%b8%e9%82%a3%e4%ba%9b%e5%b7%a5%e5%85%b7%e4%bc%9a%e7%94%a8%e5%88%b0%e5%ae%83ping-traceroute-ifconfig-netstat" aria-label="TTL是什么？有什么用处，通常那些工具会用到它？（ping? traceroute? ifconfig? netstat?）">TTL是什么？有什么用处，通常那些工具会用到它？（ping? traceroute? ifconfig? netstat?）</a></li>
+                <li>
+                    <a href="#%e8%b7%af%e7%94%b1%e8%a1%a8%e7%a4%ba%e5%81%9a%e4%bb%80%e4%b9%88%e7%94%a8%e7%9a%84%e5%9c%a8linux%e7%8e%af%e5%a2%83%e4%b8%ad%e6%80%8e%e4%b9%88%e6%9d%a5%e9%85%8d%e7%bd%ae%e4%b8%80%e6%9d%a1%e9%bb%98%e8%ae%a4%e8%b7%af%e7%94%b1" aria-label="路由表示做什么用的？在linux环境中怎么来配置一条默认路由？">路由表示做什么用的？在linux环境中怎么来配置一条默认路由？</a></li>
+                <li>
+                    <a href="#%e5%9c%a8%e7%bd%91%e7%bb%9c%e4%b8%ad%e6%9c%89%e4%b8%a4%e5%8f%b0%e4%b8%bb%e6%9c%baa%e5%92%8cb%e5%b9%b6%e9%80%9a%e8%bf%87%e8%b7%af%e7%94%b1%e5%99%a8%e5%92%8c%e5%85%b6%e4%bb%96%e4%ba%a4%e6%8d%a2%e8%ae%be%e5%a4%87%e8%bf%9e%e6%8e%a5%e8%b5%b7%e6%9d%a5%e5%b7%b2%e7%bb%8f%e7%a1%ae%e8%ae%a4%e7%89%a9%e7%90%86%e8%bf%9e%e6%8e%a5%e6%ad%a3%e7%a1%ae%e6%97%a0%e8%af%af%e6%80%8e%e4%b9%88%e6%9d%a5%e6%b5%8b%e8%af%95%e8%bf%99%e4%b8%a4%e5%8f%b0%e6%9c%ba%e5%99%a8%e6%98%af%e5%90%a6%e8%bf%9e%e9%80%9a%e5%a6%82%e6%9e%9c%e4%b8%8d%e9%80%9a%e6%80%8e%e4%b9%88%e6%9d%a5%e5%88%a4%e6%96%ad%e6%95%85%e9%9a%9c%e7%82%b9%e6%80%8e%e4%b9%88%e6%8e%92%e9%99%a4%e6%95%85%e9%9a%9c" aria-label="在网络中有两台主机A和B，并通过路由器和其他交换设备连接起来，已经确认物理连接正确无误，怎么来测试这两台机器是否连通？如果不通，怎么来判断故障点？怎么排除故障？">在网络中有两台主机A和B，并通过路由器和其他交换设备连接起来，已经确认物理连接正确无误，怎么来测试这两台机器是否连通？如果不通，怎么来判断故障点？怎么排除故障？</a></li>
+                <li>
+                    <a href="#%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b%e4%b8%ad%e8%ae%be%e8%ae%a1%e5%b9%b6%e5%8f%91%e6%9c%8d%e5%8a%a1%e5%99%a8%e4%bd%bf%e7%94%a8%e5%a4%9a%e8%bf%9b%e7%a8%8b%e4%b8%8e%e5%a4%9a%e7%ba%bf%e7%a8%8b-%e8%af%b7%e9%97%ae%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab" aria-label="网络编程中设计并发服务器，使用多进程与多线程 ，请问有什么区别？">网络编程中设计并发服务器，使用多进程与多线程 ，请问有什么区别？</a></li>
+                <li>
+                    <a href="#%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b%e7%9a%84%e4%b8%80%e8%88%ac%e6%ad%a5%e9%aa%a4" aria-label="网络编程的一般步骤">网络编程的一般步骤</a></li>
+                <li>
+                    <a href="#tcp%e7%9a%84%e9%87%8d%e5%8f%91%e6%9c%ba%e5%88%b6%e6%98%af%e6%80%8e%e4%b9%88%e5%ae%9e%e7%8e%b0%e7%9a%84" aria-label="TCP的重发机制是怎么实现的？">TCP的重发机制是怎么实现的？</a></li>
+                <li>
+                    <a href="#tcp%e4%b8%ba%e4%bb%80%e4%b9%88%e4%b8%8d%e6%98%af%e4%b8%a4%e6%ac%a1%e8%bf%9e%e6%8e%a5%e8%80%8c%e6%98%af%e4%b8%89%e6%ac%a1%e6%8f%a1%e6%89%8b" aria-label="TCP为什么不是两次连接？而是三次握手？">TCP为什么不是两次连接？而是三次握手？</a></li>
+                <li>
+                    <a href="#connect%e6%96%b9%e6%b3%95%e4%bc%9a%e9%98%bb%e5%a1%9e%e8%af%b7%e9%97%ae%e6%9c%89%e4%bb%80%e4%b9%88%e6%96%b9%e6%b3%95%e5%8f%af%e4%bb%a5%e9%81%bf%e5%85%8d%e5%85%b6%e9%95%bf%e6%97%b6%e9%97%b4%e9%98%bb%e5%a1%9e-1" aria-label="connect方法会阻塞，请问有什么方法可以避免其长时间阻塞？">connect方法会阻塞，请问有什么方法可以避免其长时间阻塞？</a></li>
+                <li>
+                    <a href="#%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b%e4%b8%ad%e8%ae%be%e8%ae%a1%e5%b9%b6%e5%8f%91%e6%9c%8d%e5%8a%a1%e5%99%a8%e4%bd%bf%e7%94%a8%e5%a4%9a%e8%bf%9b%e7%a8%8b%e4%b8%8e%e5%a4%9a%e7%ba%bf%e7%a8%8b%e8%af%b7%e9%97%ae%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab" aria-label="网络编程中设计并发服务器，使用多进程与多线程，请问有什么区别？">网络编程中设计并发服务器，使用多进程与多线程，请问有什么区别？</a></li>
+                <li>
+                    <a href="#%e6%b5%81%e9%87%8f%e6%8e%a7%e5%88%b6%e5%92%8c%e6%8b%a5%e5%a1%9e%e6%8e%a7%e5%88%b6%e7%9a%84%e5%ae%9e%e7%8e%b0%e6%9c%ba%e5%88%b6" aria-label="流量控制和拥塞控制的实现机制">流量控制和拥塞控制的实现机制</a></li>
+                <li>
+                    <a href="#%e5%a4%9a%e7%ba%bf%e7%a8%8b%e5%a6%82%e4%bd%95%e5%90%8c%e6%ad%a5-1" aria-label="多线程如何同步：">多线程如何同步：</a></li>
+                <li>
+                    <a href="#%e8%bf%9b%e7%a8%8b%e9%97%b4%e9%80%9a%e8%ae%af%e7%9a%84%e6%96%b9%e5%bc%8f%e6%9c%89%e5%93%aa%e4%ba%9b%e5%90%84%e6%9c%89%e4%bb%80%e4%b9%88%e4%bc%98%e7%bc%ba%e7%82%b9-1" aria-label="进程间通讯的方式有哪些，各有什么优缺点">进程间通讯的方式有哪些，各有什么优缺点</a></li>
+                <li>
+                    <a href="#tcp%e8%bf%9e%e6%8e%a5%e5%bb%ba%e7%ab%8b%e7%9a%84%e6%97%b6%e5%80%993%e6%ac%a1%e6%8f%a1%e6%89%8b%e7%9a%84%e5%85%b7%e4%bd%93%e8%bf%87%e7%a8%8b%e4%bb%a5%e5%8f%8a%e5%85%b6%e4%b8%ad%e7%9a%84%e6%af%8f%e4%b8%80%e6%ad%a5%e6%98%af%e4%b8%ba%e4%bb%80%e4%b9%88" aria-label="tcp连接建立的时候3次握手的具体过程，以及其中的每一步是为什么">tcp连接建立的时候3次握手的具体过程，以及其中的每一步是为什么</a></li>
+                <li>
+                    <a href="#tcp%e6%96%ad%e5%bc%80%e8%bf%9e%e6%8e%a5%e7%9a%84%e5%85%b7%e4%bd%93%e8%bf%87%e7%a8%8b%e5%85%b6%e4%b8%ad%e6%af%8f%e4%b8%80%e6%ad%a5%e6%98%af%e4%b8%ba%e4%bb%80%e4%b9%88%e9%82%a3%e4%b9%88%e5%81%9a" aria-label="tcp断开连接的具体过程，其中每一步是为什么那么做">tcp断开连接的具体过程，其中每一步是为什么那么做</a></li>
+                <li>
+                    <a href="#socket%e7%bc%96%e7%a8%8b%e5%a6%82%e6%9e%9cclient%e6%96%ad%e7%94%b5%e4%ba%86%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%a6%82%e4%bd%95%e5%bf%ab%e9%80%9f%e7%9f%a5%e9%81%93" aria-label="socket编程，如果client断电了，服务器如何快速知道？？？">socket编程，如果client断电了，服务器如何快速知道？？？</a></li>
+                <li>
+                    <a href="#fork%e4%b8%80%e5%ad%90%e8%bf%9b%e7%a8%8b%e7%a8%8b%e5%90%8e-%e7%88%b6%e8%bf%9b%e7%a8%8b%e7%99%bf%e5%85%a8%e5%b1%80%e5%8f%98%e9%87%8f%e8%83%bd%e4%b8%8d%e8%83%bd%e4%bd%bf%e7%94%a8" aria-label="fork()一子进程程后 父进程癿全局变量能不能使用？？？">fork()一子进程程后 父进程癿全局变量能不能使用？？？</a></li>
+                <li>
+                    <a href="#4g%e7%9a%84long%e5%9e%8b%e6%95%b4%e6%95%b0%e4%b8%ad%e6%89%be%e5%88%b0%e4%b8%80%e4%b8%aa%e6%9c%80%e5%a4%a7%e7%9a%84%e5%a6%82%e4%bd%95%e5%81%9a" aria-label="4G的long型整数中找到一个最大的，如何做？？？？">4G的long型整数中找到一个最大的，如何做？？？？</a></li>
+                <li>
+                    <a href="#tcp%e4%b8%89%e6%ac%a1%e6%8f%a1%e6%89%8b%e7%9a%84%e8%bf%87%e7%a8%8baccept%e5%8f%91%e7%94%9f%e5%9c%a8%e4%b8%89%e6%ac%a1%e6%8f%a1%e6%89%8b%e5%93%aa%e4%b8%aa%e9%98%b6%e6%ae%b5" aria-label="tcp三次握手的过程，accept发生在三次握手哪个阶段？">tcp三次握手的过程，accept发生在三次握手哪个阶段？</a></li>
+                <li>
+                    <a href="#tcp%e6%b5%81udp%e7%9a%84%e6%95%b0%e6%8d%ae%e6%8a%a5%e4%b9%8b%e9%97%b4%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab%e4%b8%ba%e4%bb%80%e4%b9%88tcp%e8%a6%81%e5%8f%ab%e5%81%9a%e6%95%b0%e6%8d%ae%e6%b5%81" aria-label="Tcp流，udp的数据报，之间有什么区别，为什么TCP要叫做数据流？">Tcp流，udp的数据报，之间有什么区别，为什么TCP要叫做数据流？</a></li>
+                <li>
+                    <a href="#volatile%e7%9a%84%e5%90%ab%e4%b9%89" aria-label="volatile的含义。">volatile的含义。</a></li>
+                <li>
+                    <a href="#100%e4%ba%bf%e4%b8%aa%e6%95%b0%e6%b1%82%e6%9c%80%e5%a4%a7%e7%9a%841%e4%b8%87%e4%b8%aa%e6%95%b0%e5%b9%b6%e8%af%b4%e5%87%ba%e7%ae%97%e6%b3%95%e7%9a%84%e6%97%b6%e9%97%b4%e5%a4%8d%e6%9d%82%e5%ba%a6" aria-label="100亿个数，求最大的1万个数，并说出算法的时间复杂度。">100亿个数，求最大的1万个数，并说出算法的时间复杂度。</a></li>
+                <li>
+                    <a href="#%e8%ae%be%e8%ae%a1%e4%b8%80%e4%b8%aa%e6%b4%97%e7%89%8c%e7%9a%84%e7%ae%97%e6%b3%95%e5%b9%b6%e8%af%b4%e5%87%ba%e7%ae%97%e6%b3%95%e7%9a%84%e6%97%b6%e9%97%b4%e5%a4%8d%e6%9d%82%e5%ba%a6" aria-label="设计一个洗牌的算法，并说出算法的时间复杂度。">设计一个洗牌的算法，并说出算法的时间复杂度。</a></li>
+                <li>
+                    <a href="#%e6%b5%81%e9%87%8f%e6%8e%a7%e5%88%b6%e4%b8%8e%e6%8b%a5%e5%a1%9e%e6%8e%a7%e5%88%b6%e7%9a%84%e5%8c%ba%e5%88%ab%e8%8a%82%e7%82%b9%e8%ae%a1%e7%ae%97%e6%9c%ba%e6%80%8e%e6%a0%b7%e6%84%9f%e7%9f%a5%e7%bd%91%e7%bb%9c%e6%8b%a5%e5%a1%9e%e4%ba%86" aria-label="流量控制与拥塞控制的区别，节点计算机怎样感知网络拥塞了？">流量控制与拥塞控制的区别，节点计算机怎样感知网络拥塞了？</a></li>
+                <li>
+                    <a href="#tcp%e9%80%9a%e8%ae%af%e4%b8%adselect%e5%88%b0%e8%af%bb%e4%ba%8b%e4%bb%b6%e4%bd%86%e6%98%af%e8%af%bb%e5%88%b0%e7%9a%84%e6%95%b0%e6%8d%ae%e9%87%8f%e6%98%af0%e4%b8%ba%e4%bb%80%e4%b9%88%e5%a6%82%e4%bd%95%e8%a7%a3%e5%86%b3" aria-label="TCP通讯中，select到读事件，但是读到的数据量是0，为什么，如何解决?">TCP通讯中，select到读事件，但是读到的数据量是0，为什么，如何解决?</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><hr>
+<h3 id="http请求过程">HTTP请求过程<a hidden class="anchor" aria-hidden="true" href="#http请求过程">#</a></h3>
+<p>以www.baidu.com为例子</p>
+<p>1.chrome自己的缓存,存留时间大概1min</p>
+<p>Notes:chrome://net-internals/#dns中查询
+2.chrome搜索操作系统自身的DNS缓存(浏览器没有找到缓存或者缓存已经失效)</p>
+<p>3.读取本地的HOST文件</p>
+<p>4.浏览器发起一个DNS的一个系统调用</p>
+<p>​	- 宽带运营商服务器查看本身的本地缓存</p>
+<p>​	- 运营商服务器发起一个迭代DNS解析请求(-&gt;根-&gt;顶级域名地址-&gt;目标)</p>
+<p>​	- 运营商服务器把结果返回给操作系统内核,同时缓存起来</p>
+<p>​	- 操作系统内核把结果返回浏览器</p>
+<p>​	- 最终浏览器拿到了www.baidu.com对应的IP地址</p>
+<p>5.建立TCP/IP连接</p>
+<p>TCP/IP连接,属于计算机网络的事情,包括运输层的连续ARQ协议,TCP/UDP等,以及IP层路由选择算法(RIP,OSPF),ARP地址解析,再往下CSMA/CD(载波监听,碰撞检测)以及CSMA/CA等&hellip;</p>
+<p>6.TCP/IP 链接建立起来之后,浏览器就可以向服务器发送HTTP请求了使用了.比如说,用HTTP的GET方法请求一个根域名的一个域名,协议可以采用HTTP1.0的一个协议(HTTP1.1 是保持连接,与此有所不同,对于同义词请求中,可以同时包含)</p>
+<p>7.服务器端接受到了这个请求,根据路径参数,经过后端的一些处理后,把处理后的一个结果的数据返回给浏览器,如果是百度的页面,就会把完整的HTML页面代码返回给浏览器</p>
+<p>8.浏览器拿到了完整的HTML页面代码,在解析和渲染这个页面的时候,里面的JS,CSS, 图片静态资源,他们同样也是一个个的HTTP请求,都需要经过上述的主要七个步骤</p>
+<p>9.浏览器根据拿到的资源对页面进行渲染,最终把一个完整的页面呈现给了用户.</p>
+<h3 id="心跳机制简介">心跳机制简介<a hidden class="anchor" aria-hidden="true" href="#心跳机制简介">#</a></h3>
+<p>在分布式系统中，分布在不同主机上的节点需要检测其他节点的状态，如服务器节点需要检测从节点是否失效。为了检测对方节点的有效性，每隔固定时间就发送一个固定信息给对方，对方回复一个固定信息，如果长时间没有收到对方的回复，则断开与对方的连接。</p>
+<p>发包方既可以是服务端，也可以是客户端，这要看具体实现。因为是每隔固定时间发送一次，类似心跳，所以发送的固定信息称为心跳包。心跳包一般为比较小的包，可根据具体实现。心跳包主要应用于长连接的保持与短线链接。</p>
+<p>一般而言，应该客户端主动向服务器发送心跳包，因为服务器向客户端发送心跳包会影响服务器的性能。</p>
+<h3 id="tcp和udp的区别">TCP和UDP的区别<a hidden class="anchor" aria-hidden="true" href="#tcp和udp的区别">#</a></h3>
+<h3 id="1对比">1.对比<a hidden class="anchor" aria-hidden="true" href="#1对比">#</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>UDP</th>
+<th>TCP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>是否连接</td>
+<td>无连接</td>
+<td>面向连接</td>
+</tr>
+<tr>
+<td>是否可靠</td>
+<td>不可靠传输，不使用流量控制和拥塞控制</td>
+<td>可靠传输，使用流量控制和拥塞控制</td>
+</tr>
+<tr>
+<td>连接对象个数</td>
+<td>支持一对一，一对多，多对一和多对多交互通信</td>
+<td>只能是一对一通信</td>
+</tr>
+<tr>
+<td>传输方式</td>
+<td>面向报文</td>
+<td>面向字节流</td>
+</tr>
+<tr>
+<td>首部开销</td>
+<td>首部开销小，仅 8 字节</td>
+<td>首部最小 20 字节，最大 60 字节</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>适用于实时应用（IP 电话、视频会议、直播等）</td>
+<td>适用于要求可靠传输的应用，例如文件传输</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2总结">2.总结<a hidden class="anchor" aria-hidden="true" href="#2总结">#</a></h3>
+<ul>
+<li>TCP 向上层提供面向连接的可靠服务 ，UDP 向上层提供无连接不可靠服务。</li>
+<li>虽然 UDP 并没有 TCP 传输来的准确，但是也能在很多实时性要求高的地方有所作为</li>
+<li>对数据准确性要求高，速度可以相对较慢的，可以选用 TCP</li>
+</ul>
+<h3 id="流量控制和拥塞控制">流量控制和拥塞控制<a hidden class="anchor" aria-hidden="true" href="#流量控制和拥塞控制">#</a></h3>
+<ul>
+<li>拥塞控制
+网络拥塞现象是指到达通信子网中某一部分的分组数量过多,使得该部分网络来不及处理,以致引起这部分乃至整个网络性能下降的现象,严重时甚至会导致网络通信业务陷入停顿,即出现死锁现象。拥塞控制是处理网络拥塞现象的一种机制。</li>
+<li>流量控制
+数据的传送与接收过程当中很可能出现收方来不及接收的情况,这时就需要对发方进行控制,以免数据丢失。</li>
+</ul>
+<h3 id="多线程如何同步">多线程如何同步<a hidden class="anchor" aria-hidden="true" href="#多线程如何同步">#</a></h3>
+<ul>
+<li>
+<p>windows
+线程同步有四种方式：临界区、内核对象、互斥量、信号量。</p>
+</li>
+<li>
+<p>Linux
+线程同步有最常用的是：互斥锁、条件变量和信号量。</p>
+</li>
+</ul>
+<h3 id="进程间通讯的方式有哪些各有什么优缺点">进程间通讯的方式有哪些，各有什么优缺点<a hidden class="anchor" aria-hidden="true" href="#进程间通讯的方式有哪些各有什么优缺点">#</a></h3>
+<p>进程间通信
+Linux 进程间通信（IPC）以下以几部分发展而来：
+早期UNIX进程间通信、基于System V进程间通信、基于Socket进程间通信和POSIX进程间通信。
+UNIX进程间通信方式包括：管道、FIFO、信号。
+System V进程间通信方式包括：System V消息队列、System V信号灯、System V共享内存、
+POSIX进程间通信包括：posix消息队列、posix信号灯、posix共享内存。
+现在linux使用的进程间通信方式：
+（1）管道（pipe）和有名管道（FIFO）
+（2）信号（signal）
+（3）消息队列
+（4）共享内存
+（5）信号量
+（6）套接字（socket)</p>
+<h3 id="tcp连接建立的时候3次握手断开连接的4次握手的具体过程">tcp连接建立的时候3次握手，断开连接的4次握手的具体过程<a hidden class="anchor" aria-hidden="true" href="#tcp连接建立的时候3次握手断开连接的4次握手的具体过程">#</a></h3>
+<p>建立连接采用的3次握手协议，具体是指：
+第一次握手是客户端connect连接到server，server accept client的请求之后，向client端发送一个消息，相当于说我都准备好了，你连接上我了，这是第二次握手，第3次握手就是client向server发送的，就是对第二次握手消息的确认。之后client和server就开始通讯了。
+断开连接的4次握手,具体如下：
+断开连接的一端发送close请求是第一次握手，另外一端接收到断开连接的请求之后需要对close进行确认，发送一个消息，这是第二次握手，发送了确认消息之后还要向对端发送close消息，要关闭对对端的连接，这是第3次握手，而在最初发送断开连接的一端接收到消息之后，进入到一个很重要的状态time_wait状态，这个状态也是面试官经常问道的问题，最后一次握手是最初发送断开连接的一端接收到消息之后。对消息的确认。</p>
+<h3 id="epoll与select的区别">epoll与select的区别<a hidden class="anchor" aria-hidden="true" href="#epoll与select的区别">#</a></h3>
+<p>select在一个进程中打开的最大fd是有限制的，由FD_SETSIZE设置，默认值是2048。不过 epoll则没有这个限制，它所支持的fd上限是最大可以打开文件的数目，这个数字一般远大于2048，一般来说内存越大，fd上限越大，1G内存都能达到大约10w左右。</p>
+<p>select的轮询机制是系统会去查找每个fd是否数据已准备好，当fd很多的时候，效率当然就直线下降了，epoll采用基于事件的通知方式，一旦某个fd数据就绪时，内核会采用类似callback的回调机制，迅速激活这个文件描述符，而不需要不断的去轮询查找就绪的描述符，这就是epoll高效最本质的原因。</p>
+<p>无论是select还是epoll都需要内核把FD消息通知给用户空间，如何避免不必要的内存拷贝就很重要，在这点上，epoll是通过内核于用户空间mmap同一块内存实现的，而select则做了不必要的拷贝</p>
+<h3 id="epoll中et和lt的区别与实现原理">epoll中et和lt的区别与实现原理<a hidden class="anchor" aria-hidden="true" href="#epoll中et和lt的区别与实现原理">#</a></h3>
+<p>LT：水平触发，效率会低于ET触发，尤其在大并发，大流量的情况下。但是LT对代码编写要求比较低，不容易出现问题。LT模式服务编写上的表现是：只要有数据没有被获取，内核就不断通知你，因此不用担心事件丢失的情况。
+ET：边缘触发，效率非常高，在并发，大流量的情况下，会比LT少很多epoll的系统调用，因此效率高。但是对编程要求高，需要细致的处理每个请求，否则容易发生丢失事件的情况。</p>
+<h3 id="connect方法会阻塞请问有什么方法可以避免其长时间阻塞">connect方法会阻塞，请问有什么方法可以避免其长时间阻塞？<a hidden class="anchor" aria-hidden="true" href="#connect方法会阻塞请问有什么方法可以避免其长时间阻塞">#</a></h3>
+<p>答:最通常的方法最有效的是加定时器；也可以采用非阻塞模式。</p>
+<h3 id="网络中如果客户端突然掉线或者重启服务器端怎么样才能立刻知道">网络中，如果客户端突然掉线或者重启，服务器端怎么样才能立刻知道？<a hidden class="anchor" aria-hidden="true" href="#网络中如果客户端突然掉线或者重启服务器端怎么样才能立刻知道">#</a></h3>
+<p>答:若客户端掉线或者重新启动，服务器端会收到复位信号，每一种tcp/ip得实现不一样，控制机制也不一样。</p>
+<h3 id="在子网21027482130种有多少个可用地址分别是什么">在子网210.27.48.21/30种有多少个可用地址？分别是什么？<a hidden class="anchor" aria-hidden="true" href="#在子网21027482130种有多少个可用地址分别是什么">#</a></h3>
+<p>简:
+30表示的是网络号(network number)是30位，剩下2位中11是广播(broadcast)地址，00是multicast地址，只有01和10可以作为host address。</p>
+<p>详:
+210.27.48.21/30代表的子网的网络号是30位，即网络号是210.27.48.21 &amp; 255.255.255.251=210.27.48.20，此子网的地址空间是2位，即可以有4个地址：210.27.48.20, 210.27.48.21, 210.27.48.22, 210.27.48.23。第一个地址的主机号(host number/id)是0，而主机号0代表的是multicast地址。最后一个地址的最后两位是11，主机号每一位都为1代表的是广播(broadcast)地址。所以只有中间两个地址可以给host使用。其实那个问题本身不准确，广播或multicast地止也是可以使用的地址，所以回答4也应该正确，当然问的人也可能是想要你回答2。我个人觉得最好的回答是一个广播地址，一个multicast地址，2个unicast地址。</p>
+<h3 id="ttl是什么有什么用处通常那些工具会用到它ping-traceroute-ifconfig-netstat">TTL是什么？有什么用处，通常那些工具会用到它？（ping? traceroute? ifconfig? netstat?）<a hidden class="anchor" aria-hidden="true" href="#ttl是什么有什么用处通常那些工具会用到它ping-traceroute-ifconfig-netstat">#</a></h3>
+<p>简:TTL是Time To Live，一般是hup count，每经过一个路由就会被减去一，如果它变成0，包会被丢掉。它的主要目的是防止包在有回路的网络上死转，浪费网络资源。ping和traceroute用到它。</p>
+<p>详:TTL是Time To Live，目前是hup count，当包每经过一个路由器它就会被减去一，如果它变成0，路由器就会把包丢掉。IP网络往往带有环(loop)，比如子网A和子网B有两个路由器相连，它就是一个loop。TTL的主要目的是防止包在有回路的网络上死转，因为包的TTL最终后变成0而使得此包从网上消失(此时往往路由器会送一个ICMP包回来，traceroute就是根据这个做的)。ping会送包出去，所以里面有它，但是ping不一定非要不可它。traceroute则是完全因为有它才能成的。ifconfig是用来配置网卡的，netstat -rn 是用来列路由表的，所以都用不着它</p>
+<h3 id="路由表示做什么用的在linux环境中怎么来配置一条默认路由">路由表示做什么用的？在linux环境中怎么来配置一条默认路由？<a hidden class="anchor" aria-hidden="true" href="#路由表示做什么用的在linux环境中怎么来配置一条默认路由">#</a></h3>
+<p>简:路由表是用来决定如何将包从一个子网传送到另一个子网的，换局话说就是用来决定从一个网卡接收到的包应该送的哪一张网卡上的。在Linux上可以用“route add default gw &lt;默认路由器IP&gt;”来配置一条默认路由。</p>
+<p>详:路由表是用来决定如何将包从一个子网传送到另一个子网的，换局话说就是用来决定从一个网卡接收到的包应该送的哪一张网卡上的。路由表的每一行至少有目标网络号、netmask、到这个子网应该使用的网卡。当路由器从一个网卡接收到一个包时，它扫描路由表的每一行，用里面的netmask和包里的目标IP地址做并逻辑运算(&amp;)找出目标网络号，如果此网络号和这一行里的网络号相同就将这条路由保留下来做为备用路由，如果已经有备用路由了就在这两条路由里将网络号最长的留下来，另一条丢掉，如此接着扫描下一行直到结束。如果扫描结束任没有找到任何路由，就用默认路由。确定路由后，直接将包送到对应的网卡上去。在具体的实现中，路由表可能包含更多的信息为选路由算法的细节所用。题外话：路由算法其实效率很差，而且不scalable，解决办法是使用IP交换机，比如MPLS。
+在Linux上可以用“route add default gw &lt;默认路由器IP&gt;”来配置一条默认路由。</p>
+<h3 id="在网络中有两台主机a和b并通过路由器和其他交换设备连接起来已经确认物理连接正确无误怎么来测试这两台机器是否连通如果不通怎么来判断故障点怎么排除故障">在网络中有两台主机A和B，并通过路由器和其他交换设备连接起来，已经确认物理连接正确无误，怎么来测试这两台机器是否连通？如果不通，怎么来判断故障点？怎么排除故障？<a hidden class="anchor" aria-hidden="true" href="#在网络中有两台主机a和b并通过路由器和其他交换设备连接起来已经确认物理连接正确无误怎么来测试这两台机器是否连通如果不通怎么来判断故障点怎么排除故障">#</a></h3>
+<p>答:测试这两台机器是否连通：从一台机器ping另一台机器
+如果ping不通，用traceroute可以确定是哪个路由器不能连通，然后再找问题是在交换设备/hup/cable等。</p>
+<h3 id="网络编程中设计并发服务器使用多进程与多线程-请问有什么区别">网络编程中设计并发服务器，使用多进程与多线程 ，请问有什么区别？<a hidden class="anchor" aria-hidden="true" href="#网络编程中设计并发服务器使用多进程与多线程-请问有什么区别">#</a></h3>
+<p>答案一:
+1，进程：子进程是父进程的复制品。子进程获得父进程数据空间、堆和栈的复制品。
+2，线程：相对与进程而言，线程是一个更加接近与执行体的概念，它可以与同进程的其他线程共享数据，但拥有自己的栈空间，拥有独立的执行序列。
+两者都可以提高程序的并发度，提高程序运行效率和响应时间。
+线程和进程在使用上各有优缺点：线程执行开销小，但不利于资源管理和保护；而进程正相反。同时，线程适合于在SMP机器上运行，而进程则可以跨机器迁移。</p>
+<p>答案二:
+根本区别就一点：用多进程每个进程有自己的地址空间(address space)，线程则共享地址空间。所有其它区别都是由此而来的：
+1。速度：线程产生的速度快，线程间的通讯快、切换快等，因为他们在同一个地址空间内。
+2。资源利用率：线程的资源利用率比较好也是因为他们在同一个地址空间内。
+3。同步问题：线程使用公共变量/内存时需要使用同步机制还是因为他们在同一个地址空间内。
+等等</p>
+<h3 id="网络编程的一般步骤">网络编程的一般步骤<a hidden class="anchor" aria-hidden="true" href="#网络编程的一般步骤">#</a></h3>
+<p>对于TCP连接：
+1.服务器端1）创建套接字create；2）绑定端口号bind；3）监听连接listen；4）接受连接请求accept，并返回新的套接字；5）用新返回的套接字recv/send；6）关闭套接字。
+2.客户端1）创建套接字create; 2）发起建立连接请求connect; 3）发送/接收数据send/recv；4）关闭套接字。
+TCP总结：
+Server端：create &ndash; bind &ndash; listen&ndash;  accept&ndash;  recv/send&ndash; close
+Client端：create&mdash;&mdash;- conncet&mdash;&mdash;send/recv&mdash;&mdash;close.</p>
+<p>对于UDP连接：
+1.服务器端:1）创建套接字create；2）绑定端口号bind；3）接收/发送消息recvfrom/sendto；4）关闭套接字。
+2.客户端:1）创建套接字create；2）发送/接收消息sendto/recvfrom；3）关闭套接字.
+UDP总结:
+Server端：create&mdash;-bind &mdash;-recvfrom/sendto&mdash;-close
+Client端：create&mdash;-  sendto/recvfrom&mdash;-close.</p>
+<h3 id="tcp的重发机制是怎么实现的">TCP的重发机制是怎么实现的？<a hidden class="anchor" aria-hidden="true" href="#tcp的重发机制是怎么实现的">#</a></h3>
+<p>1.滑动窗口机制，确立收发的边界，能让发送方知道已经发送了多少（已确认）、尚未确认的字节数、尚待发送的字节数；让接收方知道（已经确认收到的字节数）。</p>
+<p>2.选择重传，用于对传输出错的序列进行重传。</p>
+<h3 id="tcp为什么不是两次连接而是三次握手">TCP为什么不是两次连接？而是三次握手？<a hidden class="anchor" aria-hidden="true" href="#tcp为什么不是两次连接而是三次握手">#</a></h3>
+<p>如果A与B两个进程通信，如果仅是两次连接。可能出现的一种情况就是：A发送完请报文以后，由于网络情况不好，出现了网络拥塞，即B延时很长时间后收到报文，即此时A将此报文认定为失效的报文。B收到报文后，会向A发起连接。此时两次握手完毕，B会认为已经建立了连接可以通信，B会一直等到A发送的连接请求，而A对失效的报文回复自然不会处理。依次会陷入B忙等的僵局，造成资源的浪费。</p>
+<h3 id="connect方法会阻塞请问有什么方法可以避免其长时间阻塞-1">connect方法会阻塞，请问有什么方法可以避免其长时间阻塞？<a hidden class="anchor" aria-hidden="true" href="#connect方法会阻塞请问有什么方法可以避免其长时间阻塞-1">#</a></h3>
+<p>可以考虑采用异步传输机制，同步传输与异步传输的主要区别在于同步传输中，如果调用recvfrom后会一致阻塞运行，从而导致调用线程暂停运行；异步传输机制则不然，会立即返回。</p>
+<h3 id="网络编程中设计并发服务器使用多进程与多线程请问有什么区别">网络编程中设计并发服务器，使用多进程与多线程，请问有什么区别？<a hidden class="anchor" aria-hidden="true" href="#网络编程中设计并发服务器使用多进程与多线程请问有什么区别">#</a></h3>
+<p>答案一:
+1，进程：子进程是父进程的复制品。子进程获得父进程数据空间、堆和栈的复制品。
+2，线程：相对与进程而言，线程是一个更加接近与执行体的概念，它可以与同进程的其他线程共享数据，但拥有自己的栈空间，拥有独立的执行序列。两者都可以提高程序的并发度，提高程序运行效率和响应时间。
+线程和进程在使用上各有优缺点：线程执行开销小，但不利于资源管理和保护；而进程正相反。同时，线程适合于在SMP机器上运行，而进程则可以跨机器迁移。
+答案二:
+根本区别就一点：用多进程每个进程有自己的地址空间(address space)，线程则共享地址空间。所有其它区别都是由此而来的：
+1。速度：线程产生的速度快，线程间的通讯快、切换快等，因为他们在同一个地址空间内。
+2。资源利用率：线程的资源利用率比较好也是因为他们在同一个地址空间内。
+3。同步问题：线程使用公共变量/内存时需要使用同步机制还是因为他们在同一个地址空间内。
+等等</p>
+<h3 id="流量控制和拥塞控制的实现机制">流量控制和拥塞控制的实现机制<a hidden class="anchor" aria-hidden="true" href="#流量控制和拥塞控制的实现机制">#</a></h3>
+<p>拥塞控制
+网络拥塞现象是指到达通信子网中某一部分的分组数量过多,使得该部分网络来不及处理,以致引起这部分乃至整个网络性能下降的现象,严重时甚至会导致网络通信业务陷入停顿,即出现死锁现象。拥塞控制是处理网络拥塞现象的一种机制。
+流量控制
+数据的传送与接收过程当中很可能出现收方来不及接收的情况,这时就需要对发方进行控制,以免数据丢失。
+流量控制机制：
+　　流量控制用于防止在端口阻塞的情况下丢帧，这种方法是当发送或接收缓冲区开始溢出时通过将阻塞信号发送回源地址实现的。流量控制可以有效的防止由于网络中瞬间的大量数据对网络带来的冲击，保证用户网络高效而稳定的运行。</p>
+<h3 id="多线程如何同步-1">多线程如何同步：<a hidden class="anchor" aria-hidden="true" href="#多线程如何同步-1">#</a></h3>
+<p>在这里简单说一下linux多线程同步的方法吧（win上有一定的差别，也有一定的累似）
+1：线程数据，每个线程数据创建一个键，它和这个键相关联，在各个线程里，都使用这个键来指代线程数据，但在不同的线程里，这个键代表的数据是不同的，在同一个线程里，它代表同样的数据内容。以此来达到线程安全的目的。
+2：互斥锁，就是在各个线程要使用的一些公共数据之前加锁，使用之后释放锁，这个是非常常用的线程安全控制的方法，而频繁的加解锁也对效率有一定的影响。
+3：条件变量，而条件变量通过允许线程阻塞和等待另一个线程发送信号的方法弥补了互斥锁的不足，它常和互斥锁一起使用。使用时，条件变量被用来阻塞一个线程，当条件不满足时，线程往往解开相应的互斥锁并等待条件发生变化。一旦其它的某个线程改变了条件变量，它将通知相应的条件变量唤醒一个或多个正被此条件变量阻塞的线程。这些线程将重新锁定互斥锁并重新测试条件是否满足。一般说来，条件变量被用来进行线程间的同步。
+4：信号量，信号量本质上是一个非负的整数计数器，它被用来控制对公共资源的访问。当公共资源增加时，调用函数sem_post（）增加信号量。只有当信号量值大于０时，才能使用公共资源，使用后，函数sem_wait（）减少信号量。函数sem_trywait（）和函数pthread_ mutex_trylock（）起同样的作用，它是函数sem_wait（）的非阻塞版本
+另外pthread_join也可以等待一个线程的终止。</p>
+<h3 id="进程间通讯的方式有哪些各有什么优缺点-1">进程间通讯的方式有哪些，各有什么优缺点<a hidden class="anchor" aria-hidden="true" href="#进程间通讯的方式有哪些各有什么优缺点-1">#</a></h3>
+<p>进程间通信主要包括管道, 系统IPC(包括消息队列,信号量,共享存储), socket.</p>
+<p>管道包括三种:1)普通管道PIPE, 通常有种限制,一是半双工,只能单向传输;二是只能在父子进程间使用. 2)流管道s_pipe: 去除了第一种限制,可以双向传输. 3)命名管道:name_pipe, 去除了第二种限制,可以在许多并不相关的进程之间进行通讯.</p>
+<p>系统IPC的三种方式类同,都是使用了内核里的标识符来识别</p>
+<p>管道: 优点是所有的UNIX实现都支持, 并且在最后一个访问管道的进程终止后,管道就被完全删除;缺陷是管道只允许单向传输或者用于父子进程之间</p>
+<p>系统IPC: 优点是功能强大,能在毫不相关进程之间进行通讯; 缺陷是关键字KEY_T使用了内核标识,占用了内核资源,而且只能被显式删除,而且不能使用SOCKET的一些机制,例如select,epoll等.</p>
+<p>socket可以跨网络通讯，其他进程间通讯的方式都不可以，只能是本机进程通讯。</p>
+<h3 id="tcp连接建立的时候3次握手的具体过程以及其中的每一步是为什么">tcp连接建立的时候3次握手的具体过程，以及其中的每一步是为什么<a hidden class="anchor" aria-hidden="true" href="#tcp连接建立的时候3次握手的具体过程以及其中的每一步是为什么">#</a></h3>
+<p>建立连接采用的3次握手协议，具体是指：
+第一次握手是客户端connect连接到server，server accept client的请求之后，向client端发送一个消息，相当于说我都准备好了，你连接上我了，这是第二次握手，第3次握手就是client向server发送的，就是对第二次握手消息的确认。之后client和server就开始通讯了。</p>
+<h3 id="tcp断开连接的具体过程其中每一步是为什么那么做">tcp断开连接的具体过程，其中每一步是为什么那么做<a hidden class="anchor" aria-hidden="true" href="#tcp断开连接的具体过程其中每一步是为什么那么做">#</a></h3>
+<p>断开连接的4次握手,具体如下：
+断开连接的一端发送close请求是第一次握手，另外一端接收到断开连接的请求之后需要对close进行确认，发送一个消息，这是第二次握手，发送了确认消息之后还要向对端发送close消息，要关闭对对端的连接，这是第3次握手，而在最初发送断开连接的一端接收到消息之后，进入到一个很重要的状态time_wait状态，这个状态也是面试官经常问道的问题，最后一次握手是最初发送断开连接的一端接收到消息之后。对消息的确认。</p>
+<h3 id="socket编程如果client断电了服务器如何快速知道">socket编程，如果client断电了，服务器如何快速知道？？？<a hidden class="anchor" aria-hidden="true" href="#socket编程如果client断电了服务器如何快速知道">#</a></h3>
+<p>有以下几个技术：
+使用定时器（适合有数据流动的情况）； 使用socket选项SO_KEEPALIVE（适合没有数据流动的情况）;</p>
+<h3 id="fork一子进程程后-父进程癿全局变量能不能使用">fork()一子进程程后 父进程癿全局变量能不能使用？？？<a hidden class="anchor" aria-hidden="true" href="#fork一子进程程后-父进程癿全局变量能不能使用">#</a></h3>
+<p>fork后子进程将会拥有父进程的几乎一切资源，父子进程的都各自有自己的全局变量。不能通用，不同于线程。对于线程，各个线程共享全局变量。</p>
+<h3 id="4g的long型整数中找到一个最大的如何做">4G的long型整数中找到一个最大的，如何做？？？？<a hidden class="anchor" aria-hidden="true" href="#4g的long型整数中找到一个最大的如何做">#</a></h3>
+<p>我的想法是要找到最大的肯定要遍历所有的数的，而且不能将数据全部读入内存，可能不足。算法的时间复杂度肯定是O（n）
+感觉就是遍历，比较。。。。还能怎么改进呢？？？？
+可以改进的地方，就是读入内存的时候，一次多读些。。。。
+需 要注意的就是每次从磁盘上尽量多读一些数到内存区，然后处理完之后再读入一批。减少IO次数，自然能够提高效率。而对于类快速排序方法，稍微要麻烦一些： 分批读入，假设是M个数，然后从这M个数中选出n个最大的数缓存起来，直到所有的N个数都分批处理完之后，再将各批次缓存的n个数合并起来再进行一次类快 速排序得到最终的n个最大的数就可以了。在运行过程中，如果缓存数太多，可以不断地将多个缓存合并，保留这些缓存中最大的n个数即可。由于类快速排序的时 间复杂度是O（N），这样分批处理再合并的办法，依然有极大的可能会比堆和败者树更优。当然，在空间上会占用较多的内存。</p>
+<p>此题还有个变种，就是寻找K个最大或者最小的数。有以下几种算法：
+容量为K的最大堆/最小堆，假设K可以装入内存；
+如果N个数可以装入内存，且都小于MAX，那么可以开辟一个MAX大的数组，类似计数排序。。。从数组尾部扫描K个最大的数，头部扫描K个最小的数。</p>
+<h3 id="tcp三次握手的过程accept发生在三次握手哪个阶段">tcp三次握手的过程，accept发生在三次握手哪个阶段？<a hidden class="anchor" aria-hidden="true" href="#tcp三次握手的过程accept发生在三次握手哪个阶段">#</a></h3>
+<p>三次握手：C&mdash;&ndash;&gt;SYN K
+S&mdash;&mdash;&gt;ACK K+1 SYN J
+C&mdash;&mdash;-&gt;ACK J+1<br>
+DONE!
+client 的 connect  引起3次握手
+server 在socket， bind， listen后，阻塞在accept，三次握手完成后，accept返回一个fd，
+因此accept发生在三次握手之后。。。。。。</p>
+<h3 id="tcp流udp的数据报之间有什么区别为什么tcp要叫做数据流">Tcp流，udp的数据报，之间有什么区别，为什么TCP要叫做数据流？<a hidden class="anchor" aria-hidden="true" href="#tcp流udp的数据报之间有什么区别为什么tcp要叫做数据流">#</a></h3>
+<p>TCP本身是面向连接的协议，S和C之间要使用TCP，必须先建立连接，数据就在该连接上流动，可以是双向的，没有边界。所以叫数据流 ，占系统资源多
+UDP不是面向连接的，不存在建立连接，释放连接，每个数据包都是独立的包，有边界，一般不会合并。
+TCP保证数据正确性，UDP可能丢包，TCP保证数据顺序，UDP不保证</p>
+<h3 id="volatile的含义">volatile的含义。<a hidden class="anchor" aria-hidden="true" href="#volatile的含义">#</a></h3>
+<p>变量可能在编译器的控制或监控之外改变，告诉编译器不要优化该变量，如被系统时钟更新的变量。</p>
+<h3 id="100亿个数求最大的1万个数并说出算法的时间复杂度">100亿个数，求最大的1万个数，并说出算法的时间复杂度。<a hidden class="anchor" aria-hidden="true" href="#100亿个数求最大的1万个数并说出算法的时间复杂度">#</a></h3>
+<p>用小根堆来实现。注意是小根堆，
+读入1万个数，然后做
+时间复杂度是O（NlogK）</p>
+<h3 id="设计一个洗牌的算法并说出算法的时间复杂度">设计一个洗牌的算法，并说出算法的时间复杂度。<a hidden class="anchor" aria-hidden="true" href="#设计一个洗牌的算法并说出算法的时间复杂度">#</a></h3>
+<p>第一种： for i:=1 to n do swap(a[i], a[random(1,n)]);  // 凑合，但不是真正随机
+第二种： for i:=1 to n do swap(a[i], a[random(i,n)]);   // 真正的随机算法
+其中，random(a,b)函数用于返回一个从a到b（包括a和b）的随机整数。
+至于怎么证明上两个算法，没想好。
+算法复杂度是O（n。。。），要研究下random的实现。</p>
+<h3 id="流量控制与拥塞控制的区别节点计算机怎样感知网络拥塞了">流量控制与拥塞控制的区别，节点计算机怎样感知网络拥塞了？<a hidden class="anchor" aria-hidden="true" href="#流量控制与拥塞控制的区别节点计算机怎样感知网络拥塞了">#</a></h3>
+<p>拥塞控制是把整体看成一个处理对象的，流量控制是对单个的节点。
+感知的手段应该不少，比如在TCP协议里，TCP报文的重传本身就可以作为拥塞的依据。依据这样的原理， 应该可以设计出很多手段。</p>
+<h3 id="tcp通讯中select到读事件但是读到的数据量是0为什么如何解决">TCP通讯中，select到读事件，但是读到的数据量是0，为什么，如何解决?<a hidden class="anchor" aria-hidden="true" href="#tcp通讯中select到读事件但是读到的数据量是0为什么如何解决">#</a></h3>
+<p>select 返回0代表超时。select出错返回-1。</p>
+<p>select到读事件，但是读到的数据量为0，说明对方已经关闭了socket的读端。本端关闭读即可。</p>
+<p>当select出错时，会将接口置为可读又可写。这时就要通过判断select的返回值为-1来区分。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://oxygenbytes.github.io/tags/java/">Java</a></li>
+    </ul>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Java 网络编程 on twitter"
+        href="https://twitter.com/intent/tweet/?text=Java%20%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b&amp;url=https%3a%2f%2foxygenbytes.github.io%2fposts%2fjava%2fnetworkprogram%2f&amp;hashtags=Java">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Java 网络编程 on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2foxygenbytes.github.io%2fposts%2fjava%2fnetworkprogram%2f&amp;title=Java%20%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b&amp;summary=Java%20%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b&amp;source=https%3a%2f%2foxygenbytes.github.io%2fposts%2fjava%2fnetworkprogram%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Java 网络编程 on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2foxygenbytes.github.io%2fposts%2fjava%2fnetworkprogram%2f&title=Java%20%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Java 网络编程 on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2foxygenbytes.github.io%2fposts%2fjava%2fnetworkprogram%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Java 网络编程 on whatsapp"
+        href="https://api.whatsapp.com/send?text=Java%20%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b%20-%20https%3a%2f%2foxygenbytes.github.io%2fposts%2fjava%2fnetworkprogram%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Java 网络编程 on telegram"
+        href="https://telegram.me/share/url?text=Java%20%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b&amp;url=https%3a%2f%2foxygenbytes.github.io%2fposts%2fjava%2fnetworkprogram%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://oxygenbytes.github.io">Zxq&#39;s Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

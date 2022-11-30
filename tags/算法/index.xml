@@ -9,19 +9,19 @@
     <lastBuildDate>Wed, 03 Mar 2021 22:35:34 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>排序算法</title>
-      <link>https://oxygenbytes.github.io/posts/algorithms/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
+      <link>https://oxygenbytes.github.io/posts/algorithms/sort/</link>
       <pubDate>Wed, 03 Mar 2021 22:35:34 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/algorithms/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://oxygenbytes.github.io/posts/algorithms/sort/</guid>
       <description>冒泡排序 #include &amp;lt;bits/stdc++.h&amp;gt; using namespace std; void bubblesort(vector&amp;lt;int&amp;gt;&amp;amp; nums){ int n = nums.size(); for(int i = n - 1;i &amp;gt; 0;i--){ for(int j = 0;j &amp;lt; i;j++){ if(nums[j] &amp;gt; nums[j+1]) swap(nums[j], nums[j+1]); } } } int main(){ vector&amp;lt;int&amp;gt; nums(10); srand(unsigned(time(0))); // srand((unsigned)time(NULL)) 也可以 for(int i = 0;i &amp;lt; 10;i++){ nums[i] = rand() % 20; cout&amp;lt;&amp;lt;nums[i]&amp;lt;&amp;lt;&amp;#34; &amp;#34;; } cout&amp;lt;&amp;lt;endl; bubblesort(nums); for(auto x : nums) cout&amp;lt;&amp;lt;x&amp;lt;&amp;lt;&amp;#34; &amp;#34;;</description>
     </item>
     
     <item>
       <title>二分算法</title>
-      <link>https://oxygenbytes.github.io/posts/algorithms/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/</link>
+      <link>https://oxygenbytes.github.io/posts/algorithms/binarysearch/</link>
       <pubDate>Sat, 30 Jan 2021 21:49:10 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/algorithms/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://oxygenbytes.github.io/posts/algorithms/binarysearch/</guid>
       <description>二分算法 二分模板 二分模板一共有两个，分别适用于不同情况。 版本1 当我们将区间[l, r]划分成[l, mid]和[mid + 1, r]时，其更新操作是r</description>
     </item>
     

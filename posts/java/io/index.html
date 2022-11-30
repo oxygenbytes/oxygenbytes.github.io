@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Java IO | Zxq&#39;s Site</title>
+<meta name="keywords" content="Java">
+<meta name="description" content="一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 字符操作：Reader 和 Writer 对象操作：Seriali">
+<meta name="author" content="">
+<link rel="canonical" href="https://oxygenbytes.github.io/posts/java/io/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css" integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://oxygenbytes.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://oxygenbytes.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://oxygenbytes.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://oxygenbytes.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://oxygenbytes.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Java IO" />
+<meta property="og:description" content="一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 字符操作：Reader 和 Writer 对象操作：Seriali" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://oxygenbytes.github.io/posts/java/io/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-10-27T23:06:27+08:00" />
+<meta property="article:modified_time" content="2020-10-27T23:06:27+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java IO"/>
+<meta name="twitter:description" content="一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 字符操作：Reader 和 Writer 对象操作：Seriali"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "📚文章",
+      "item": "https://oxygenbytes.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Java IO",
+      "item": "https://oxygenbytes.github.io/posts/java/io/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Java IO",
+  "name": "Java IO",
+  "description": "一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 字符操作：Reader 和 Writer 对象操作：Seriali",
+  "keywords": [
+    "Java"
+  ],
+  "articleBody": "一、概览 Java 的 I/O 大概可以分成以下几类：\n磁盘操作：File 字节操作：InputStream 和 OutputStream 字符操作：Reader 和 Writer 对象操作：Serializable 网络操作：Socket 新的输入/输出：NIO 二、磁盘操作 File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。\n递归地列出一个目录下所有文件：\npublic static void listAllFiles(File dir) { if (dir == null || !dir.exists()) { return; } if (dir.isFile()) { System.out.println(dir.getName()); return; } for (File file : dir.listFiles()) { listAllFiles(file); } } 从 Java7 开始，可以使用 Paths 和 Files 代替 File。\n三、字节操作 实现文件复制 public static void copyFile(String src, String dist) throws IOException { FileInputStream in = new FileInputStream(src); FileOutputStream out = new FileOutputStream(dist); byte[] buffer = new byte[20 * 1024]; int cnt; // read() 最多读取 buffer.length 个字节 // 返回的是实际读取的个数 // 返回 -1 的时候表示读到 eof，即文件尾 while ((cnt = in.read(buffer, 0, buffer.length)) != -1) { out.write(buffer, 0, cnt); } in.close(); out.close(); } 装饰者模式 Java I/O 使用了装饰者模式来实现。以 InputStream 为例，\nInputStream 是抽象组件； FileInputStream 是 InputStream 的子类，属于具体组件，提供了字节流的输入操作； FilterInputStream 属于抽象装饰者，装饰者用于装饰组件，为组件提供额外的功能。例如 BufferedInputStream 为 FileInputStream 提供缓存的功能。 实例化一个具有缓存功能的字节流对象时，只需要在 FileInputStream 对象上再套一层 BufferedInputStream 对象即可。\nFileInputStream fileInputStream = new FileInputStream(filePath); BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream); DataInputStream 装饰者提供了对更多数据类型进行输入的操作，比如 int、double 等基本类型。\n四、字符操作 编码与解码 编码就是把字符转换为字节，而解码是把字节重新组合成字符。\n如果编码和解码过程使用不同的编码方式那么就出现了乱码。\nGBK 编码中，中文字符占 2 个字节，英文字符占 1 个字节； UTF-8 编码中，中文字符占 3 个字节，英文字符占 1 个字节； UTF-16be 编码中，中文字符和英文字符都占 2 个字节。 UTF-16be 中的 be 指的是 Big Endian，也就是大端。相应地也有 UTF-16le，le 指的是 Little Endian，也就是小端。\nJava 的内存编码使用双字节编码 UTF-16be，这不是指 Java 只支持这一种编码方式，而是说 char 这种类型使用 UTF-16be 进行编码。char 类型占 16 位，也就是两个字节，Java 使用这种双字节编码是为了让一个中文或者一个英文都能使用一个 char 来存储。\nString 的编码方式 String 可以看成一个字符序列，可以指定一个编码方式将它编码为字节序列，也可以指定一个编码方式将一个字节序列解码为 String。\nString str1 = \"中文\"; byte[] bytes = str1.getBytes(\"UTF-8\"); String str2 = new String(bytes, \"UTF-8\"); System.out.println(str2); 在调用无参数 getBytes() 方法时，默认的编码方式不是 UTF-16be。双字节编码的好处是可以使用一个 char 存储中文和英文，而将 String 转为 bytes[] 字节数组就不再需要这个好处，因此也就不再需要双字节编码。getBytes() 的默认编码方式与平台有关，一般为 UTF-8。\nbyte[] bytes = str1.getBytes(); Reader 与 Writer 不管是磁盘还是网络传输，最小的存储单元都是字节，而不是字符。但是在程序中操作的通常是字符形式的数据，因此需要提供对字符进行操作的方法。\nInputStreamReader 实现从字节流解码成字符流； OutputStreamWriter 实现字符流编码成为字节流。 实现逐行输出文本文件的内容 public static void readFileContent(String filePath) throws IOException { FileReader fileReader = new FileReader(filePath); BufferedReader bufferedReader = new BufferedReader(fileReader); String line; while ((line = bufferedReader.readLine()) != null) { System.out.println(line); } // 装饰者模式使得 BufferedReader 组合了一个 Reader 对象 // 在调用 BufferedReader 的 close() 方法时会去调用 Reader 的 close() 方法 // 因此只要一个 close() 调用即可 bufferedReader.close(); } 五、对象操作 序列化 序列化就是将一个对象转换成字节序列，方便存储和传输。\n序列化：ObjectOutputStream.writeObject() 反序列化：ObjectInputStream.readObject() 不会对静态变量进行序列化，因为序列化只是保存对象的状态，静态变量属于类的状态。\nSerializable 序列化的类需要实现 Serializable 接口，它只是一个标准，没有任何方法需要实现，但是如果不去实现它的话而进行序列化，会抛出异常。\npublic static void main(String[] args) throws IOException, ClassNotFoundException { A a1 = new A(123, \"abc\"); String objectFile = \"file/a1\"; ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(objectFile)); objectOutputStream.writeObject(a1); objectOutputStream.close(); ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(objectFile)); A a2 = (A) objectInputStream.readObject(); objectInputStream.close(); System.out.println(a2); } private static class A implements Serializable { private int x; private String y; A(int x, String y) { this.x = x; this.y = y; } @Override public String toString() { return \"x = \" + x + \" \" + \"y = \" + y; } } transient transient 关键字可以使一些属性不会被序列化。\nArrayList 中存储数据的数组 elementData 是用 transient 修饰的，因为这个数组是动态扩展的，并不是所有的空间都被使用，因此就不需要所有的内容都被序列化。通过重写序列化和反序列化方法，使得可以只序列化数组中有内容的那部分数据。\nprivate transient Object[] elementData; 六、网络操作 Java 中的网络支持：\nInetAddress：用于表示网络上的硬件资源，即 IP 地址； URL：统一资源定位符； Sockets：使用 TCP 协议实现网络通信； Datagram：使用 UDP 协议实现网络通信。 同步和异步：同步和异步是针对应用程序和内核的交互而言的，同步指的是用户进程触发IO 操作并等待或者轮询的去查看IO 操作是否就绪，而异步是指用户进程触发IO 操作以后便开始做自己的事情，而当IO 操作已经完成的时候会得到IO 完成的通知。\n以银行取款为例：\n同步 ： 自己亲自出马持银行卡到银行取钱（使用同步 IO 时，Java 自己处理IO 读写）；\n异步 ： 委托一小弟拿银行卡到银行取钱，然后给你（使用异步IO 时，Java 将 IO 读写委托给OS 处理，需要将数据缓冲区地址和大小传给OS(银行卡和密码)，OS 需要支持异步IO操作API）；\n阻塞和非阻塞：阻塞和非阻塞是针对于进程在访问数据的时候，根据IO操作的就绪状态来采取的不同方式，说白了是一种读取或者写入操作方法的实现方式，阻塞方式下读取或者写入函数将一直等待，而非阻塞方式下，读取或者写入方法会立即返回一个状态值。\n以银行取款为例：\n阻塞 ： ATM排队取款，你只能等待（使用阻塞IO时，Java调用会一直阻塞到读写完成才返回）；\n非阻塞 ： 柜台取款，取个号，然后坐在椅子上做其它事，等号广播会通知你办理，没到号你就不能去，你可以不断问大堂经理排到了没有，大堂经理如果说还没到你就不能去（使用非阻塞IO时，如果不能读写Java调用会马上返回，当IO事件分发器通知可读写时再继续进行读写，不断循环直到读写完成）\nInetAddress 没有公有的构造函数，只能通过静态方法来创建实例。\nInetAddress.getByName(String host); InetAddress.getByAddress(byte[] address); URL 可以直接从 URL 中读取字节流数据。\npublic static void main(String[] args) throws IOException { URL url = new URL(\"http://www.baidu.com\"); /* 字节流 */ InputStream is = url.openStream(); /* 字符流 */ InputStreamReader isr = new InputStreamReader(is, \"utf-8\"); /* 提供缓存功能 */ BufferedReader br = new BufferedReader(isr); String line; while ((line = br.readLine()) != null) { System.out.println(line); } br.close(); } Sockets ServerSocket：服务器端类 Socket：客户端类 服务器和客户端通过 InputStream 和 OutputStream 进行输入输出。 Datagram DatagramSocket：通信类 DatagramPacket：数据包类 七、NIO 新的输入/输出 (NIO) 库是在 JDK 1.4 中引入的，弥补了原来的 I/O 的不足，提供了高速的、面向块的 I/O。\n流与块 I/O 与 NIO 最重要的区别是数据打包和传输的方式，I/O 以流的方式处理数据，而 NIO 以块的方式处理数据。\n面向流的 I/O 一次处理一个字节数据：一个输入流产生一个字节数据，一个输出流消费一个字节数据。为流式数据创建过滤器非常容易，链接几个过滤器，以便每个过滤器只负责复杂处理机制的一部分。不利的一面是，面向流的 I/O 通常相当慢。\n面向块的 I/O 一次处理一个数据块，按块处理数据比按流处理数据要快得多。但是面向块的 I/O 缺少一些面向流的 I/O 所具有的优雅性和简单性。\nI/O 包和 NIO 已经很好地集成了，java.io.* 已经以 NIO 为基础重新实现了，所以现在它可以利用 NIO 的一些特性。例如，java.io.* 包中的一些类包含以块的形式读写数据的方法，这使得即使在面向流的系统中，处理速度也会更快。\n通道与缓冲区 1. 通道 通道 Channel 是对原 I/O 包中的流的模拟，可以通过它读取和写入数据。\n通道与流的不同之处在于，流只能在一个方向上移动(一个流必须是 InputStream 或者 OutputStream 的子类)，而通道是双向的，可以用于读、写或者同时用于读写。\n通道包括以下类型：\nFileChannel：从文件中读写数据； DatagramChannel：通过 UDP 读写网络中数据； SocketChannel：通过 TCP 读写网络中数据； ServerSocketChannel：可以监听新进来的 TCP 连接，对每一个新进来的连接都会创建一个 SocketChannel。 2. 缓冲区 发送给一个通道的所有数据都必须首先放到缓冲区中，同样地，从通道中读取的任何数据都要先读到缓冲区中。也就是说，不会直接对通道进行读写数据，而是要先经过缓冲区。\n缓冲区实质上是一个数组，但它不仅仅是一个数组。缓冲区提供了对数据的结构化访问，而且还可以跟踪系统的读/写进程。\n缓冲区包括以下类型：\nByteBuffer CharBuffer ShortBuffer IntBuffer LongBuffer FloatBuffer DoubleBuffer 缓冲区状态变量 capacity：最大容量； position：当前已经读写的字节数； limit：还可以读写的字节数。 文件 NIO 实例 以下展示了使用 NIO 快速复制文件的实例：\npublic static void fastCopy(String src, String dist) throws IOException { /* 获得源文件的输入字节流 */ FileInputStream fin = new FileInputStream(src); /* 获取输入字节流的文件通道 */ FileChannel fcin = fin.getChannel(); /* 获取目标文件的输出字节流 */ FileOutputStream fout = new FileOutputStream(dist); /* 获取输出字节流的文件通道 */ FileChannel fcout = fout.getChannel(); /* 为缓冲区分配 1024 个字节 */ ByteBuffer buffer = ByteBuffer.allocateDirect(1024); while (true) { /* 从输入通道中读取数据到缓冲区中 */ int r = fcin.read(buffer); /* read() 返回 -1 表示 EOF */ if (r == -1) { break; } /* 切换读写 */ buffer.flip(); /* 把缓冲区的内容写入输出文件中 */ fcout.write(buffer); /* 清空缓冲区 */ buffer.clear(); } } 选择器 NIO 常常被叫做非阻塞 IO，主要是因为 NIO 在网络通信中的非阻塞特性被广泛使用。\nNIO 实现了 IO 多路复用中的 Reactor 模型，一个线程 Thread 使用一个选择器 Selector 通过轮询的方式去监听多个通道 Channel 上的事件，从而让一个线程就可以处理多个事件。\n通过配置监听的通道 Channel 为非阻塞，那么当 Channel 上的 IO 事件还未到达时，就不会进入阻塞状态一直等待，而是继续轮询其它 Channel，找到 IO 事件已经到达的 Channel 执行。\n因为创建和切换线程的开销很大，因此使用一个线程来处理多个事件而不是一个线程处理一个事件，对于 IO 密集型的应用具有很好地性能。\n应该注意的是，只有套接字 Channel 才能配置为非阻塞，而 FileChannel 不能，为 FileChannel 配置非阻塞也没有意义。\n1. 创建选择器 Selector selector = Selector.open(); 2. 将通道注册到选择器上 ServerSocketChannel ssChannel = ServerSocketChannel.open(); ssChannel.configureBlocking(false); ssChannel.register(selector, SelectionKey.OP_ACCEPT); 通道必须配置为非阻塞模式，否则使用选择器就没有任何意义了，因为如果通道在某个事件上被阻塞，那么服务器就不能响应其它事件，必须等待这个事件处理完毕才能去处理其它事件，显然这和选择器的作用背道而驰。\n在将通道注册到选择器上时，还需要指定要注册的具体事件，主要有以下几类：\nSelectionKey.OP_CONNECT SelectionKey.OP_ACCEPT SelectionKey.OP_READ SelectionKey.OP_WRITE 它们在 SelectionKey 的定义如下：\npublic static final int OP_READ = 1 \u003c\u003c 0; public static final int OP_WRITE = 1 \u003c\u003c 2; public static final int OP_CONNECT = 1 \u003c\u003c 3; public static final int OP_ACCEPT = 1 \u003c\u003c 4; 可以看出每个事件可以被当成一个位域，从而组成事件集整数。例如：\nint interestSet = SelectionKey.OP_READ | SelectionKey.OP_WRITE; 3. 监听事件 int num = selector.select(); 使用 select() 来监听到达的事件，它会一直阻塞直到有至少一个事件到达。\n4. 获取到达的事件 Set\u003cSelectionKey\u003e keys = selector.selectedKeys(); Iterator\u003cSelectionKey\u003e keyIterator = keys.iterator(); while (keyIterator.hasNext()) { SelectionKey key = keyIterator.next(); if (key.isAcceptable()) { // ... } else if (key.isReadable()) { // ... } keyIterator.remove(); } 5. 事件循环 因为一次 select() 调用不能处理完所有的事件，并且服务器端有可能需要一直监听事件，因此服务器端处理事件的代码一般会放在一个死循环内。\nwhile (true) { int num = selector.select(); Set\u003cSelectionKey\u003e keys = selector.selectedKeys(); Iterator\u003cSelectionKey\u003e keyIterator = keys.iterator(); while (keyIterator.hasNext()) { SelectionKey key = keyIterator.next(); if (key.isAcceptable()) { // ... } else if (key.isReadable()) { // ... } keyIterator.remove(); } } 套接字 NIO 实例 public class NIOServer { public static void main(String[] args) throws IOException { Selector selector = Selector.open(); ServerSocketChannel ssChannel = ServerSocketChannel.open(); ssChannel.configureBlocking(false); ssChannel.register(selector, SelectionKey.OP_ACCEPT); ServerSocket serverSocket = ssChannel.socket(); InetSocketAddress address = new InetSocketAddress(\"127.0.0.1\", 8888); serverSocket.bind(address); while (true) { selector.select(); Set\u003cSelectionKey\u003e keys = selector.selectedKeys(); Iterator\u003cSelectionKey\u003e keyIterator = keys.iterator(); while (keyIterator.hasNext()) { SelectionKey key = keyIterator.next(); if (key.isAcceptable()) { ServerSocketChannel ssChannel1 = (ServerSocketChannel) key.channel(); // 服务器会为每个新连接创建一个 SocketChannel SocketChannel sChannel = ssChannel1.accept(); sChannel.configureBlocking(false); // 这个新连接主要用于从客户端读取数据 sChannel.register(selector, SelectionKey.OP_READ); } else if (key.isReadable()) { SocketChannel sChannel = (SocketChannel) key.channel(); System.out.println(readDataFromSocketChannel(sChannel)); sChannel.close(); } keyIterator.remove(); } } } private static String readDataFromSocketChannel(SocketChannel sChannel) throws IOException { ByteBuffer buffer = ByteBuffer.allocate(1024); StringBuilder data = new StringBuilder(); while (true) { buffer.clear(); int n = sChannel.read(buffer); if (n == -1) { break; } buffer.flip(); int limit = buffer.limit(); char[] dst = new char[limit]; for (int i = 0; i \u003c limit; i++) { dst[i] = (char) buffer.get(i); } data.append(dst); buffer.clear(); } return data.toString(); } } public class NIOClient { public static void main(String[] args) throws IOException { Socket socket = new Socket(\"127.0.0.1\", 8888); OutputStream out = socket.getOutputStream(); String s = \"hello world\"; out.write(s.getBytes()); out.close(); } } 内存映射文件 内存映射文件 I/O 是一种读和写文件数据的方法，它可以比常规的基于流或者基于通道的 I/O 快得多。\n向内存映射文件写入可能是危险的，只是改变数组的单个元素这样的简单操作，就可能会直接修改磁盘上的文件。修改数据与将数据保存到磁盘是没有分开的。\n下面代码行将文件的前 1024 个字节映射到内存中，map() 方法返回一个 MappedByteBuffer，它是 ByteBuffer 的子类。因此，可以像使用其他任何 ByteBuffer 一样使用新映射的缓冲区，操作系统会在需要时负责执行映射。\nMappedByteBuffer mbb = fc.map(FileChannel.MapMode.READ_WRITE, 0, 1024); 对比 NIO 与普通 I/O 的区别主要有以下两点：\nNIO 是非阻塞的； NIO 面向块，I/O 面向流。 ",
+  "wordCount" : "4653",
+  "inLanguage": "en",
+  "datePublished": "2020-10-27T23:06:27+08:00",
+  "dateModified": "2020-10-27T23:06:27+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://oxygenbytes.github.io/posts/java/io/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zxq's Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://oxygenbytes.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://oxygenbytes.github.io" accesskey="h" title="Zxq&#39;s Site (Alt + H)">Zxq&#39;s Site</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://oxygenbytes.github.io/" title="🏠主页">
+                    <span>🏠主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/posts" title="📚文章">
+                    <span>📚文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/archives/" title="⏱时间轴">
+                    <span>⏱时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/tags" title="🔖标签">
+                    <span>🔖标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://oxygenbytes.github.io/about" title="🙋🏻‍♂️关于">
+                    <span>🙋🏻‍♂️关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://oxygenbytes.github.io">Home</a>&nbsp;»&nbsp;<a href="https://oxygenbytes.github.io/posts/">📚文章</a></div>
+    <h1 class="post-title">
+      Java IO
+    </h1>
+    <div class="post-meta"><span title='2020-10-27 23:06:27 +0800 CST'>2020-10-27</span>&nbsp;·&nbsp;10 min
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%b8%80%e6%a6%82%e8%a7%88" aria-label="一、概览">一、概览</a></li>
+                <li>
+                    <a href="#%e4%ba%8c%e7%a3%81%e7%9b%98%e6%93%8d%e4%bd%9c" aria-label="二、磁盘操作">二、磁盘操作</a></li>
+                <li>
+                    <a href="#%e4%b8%89%e5%ad%97%e8%8a%82%e6%93%8d%e4%bd%9c" aria-label="三、字节操作">三、字节操作</a><ul>
+                        
+                <li>
+                    <a href="#%e5%ae%9e%e7%8e%b0%e6%96%87%e4%bb%b6%e5%a4%8d%e5%88%b6" aria-label="实现文件复制">实现文件复制</a></li>
+                <li>
+                    <a href="#%e8%a3%85%e9%a5%b0%e8%80%85%e6%a8%a1%e5%bc%8f" aria-label="装饰者模式">装饰者模式</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%9b%9b%e5%ad%97%e7%ac%a6%e6%93%8d%e4%bd%9c" aria-label="四、字符操作">四、字符操作</a><ul>
+                        
+                <li>
+                    <a href="#%e7%bc%96%e7%a0%81%e4%b8%8e%e8%a7%a3%e7%a0%81" aria-label="编码与解码">编码与解码</a></li>
+                <li>
+                    <a href="#string-%e7%9a%84%e7%bc%96%e7%a0%81%e6%96%b9%e5%bc%8f" aria-label="String 的编码方式">String 的编码方式</a></li>
+                <li>
+                    <a href="#reader-%e4%b8%8e-writer" aria-label="Reader 与 Writer">Reader 与 Writer</a></li>
+                <li>
+                    <a href="#%e5%ae%9e%e7%8e%b0%e9%80%90%e8%a1%8c%e8%be%93%e5%87%ba%e6%96%87%e6%9c%ac%e6%96%87%e4%bb%b6%e7%9a%84%e5%86%85%e5%ae%b9" aria-label="实现逐行输出文本文件的内容">实现逐行输出文本文件的内容</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%ba%94%e5%af%b9%e8%b1%a1%e6%93%8d%e4%bd%9c" aria-label="五、对象操作">五、对象操作</a><ul>
+                        
+                <li>
+                    <a href="#%e5%ba%8f%e5%88%97%e5%8c%96" aria-label="序列化">序列化</a></li>
+                <li>
+                    <a href="#serializable" aria-label="Serializable">Serializable</a></li>
+                <li>
+                    <a href="#transient" aria-label="transient">transient</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%85%ad%e7%bd%91%e7%bb%9c%e6%93%8d%e4%bd%9c" aria-label="六、网络操作">六、网络操作</a><ul>
+                        
+                <li>
+                    <a href="#inetaddress" aria-label="InetAddress">InetAddress</a></li>
+                <li>
+                    <a href="#url" aria-label="URL">URL</a></li>
+                <li>
+                    <a href="#sockets" aria-label="Sockets">Sockets</a></li>
+                <li>
+                    <a href="#datagram" aria-label="Datagram">Datagram</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%b8%83nio" aria-label="七、NIO">七、NIO</a><ul>
+                        
+                <li>
+                    <a href="#%e6%b5%81%e4%b8%8e%e5%9d%97" aria-label="流与块">流与块</a></li>
+                <li>
+                    <a href="#%e9%80%9a%e9%81%93%e4%b8%8e%e7%bc%93%e5%86%b2%e5%8c%ba" aria-label="通道与缓冲区">通道与缓冲区</a><ul>
+                        
+                <li>
+                    <a href="#1-%e9%80%9a%e9%81%93" aria-label="1. 通道">1. 通道</a></li>
+                <li>
+                    <a href="#2-%e7%bc%93%e5%86%b2%e5%8c%ba" aria-label="2. 缓冲区">2. 缓冲区</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%bc%93%e5%86%b2%e5%8c%ba%e7%8a%b6%e6%80%81%e5%8f%98%e9%87%8f" aria-label="缓冲区状态变量">缓冲区状态变量</a></li>
+                <li>
+                    <a href="#%e6%96%87%e4%bb%b6-nio-%e5%ae%9e%e4%be%8b" aria-label="文件 NIO 实例">文件 NIO 实例</a></li>
+                <li>
+                    <a href="#%e9%80%89%e6%8b%a9%e5%99%a8" aria-label="选择器">选择器</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%88%9b%e5%bb%ba%e9%80%89%e6%8b%a9%e5%99%a8" aria-label="1. 创建选择器">1. 创建选择器</a></li>
+                <li>
+                    <a href="#2-%e5%b0%86%e9%80%9a%e9%81%93%e6%b3%a8%e5%86%8c%e5%88%b0%e9%80%89%e6%8b%a9%e5%99%a8%e4%b8%8a" aria-label="2. 将通道注册到选择器上">2. 将通道注册到选择器上</a></li>
+                <li>
+                    <a href="#3-%e7%9b%91%e5%90%ac%e4%ba%8b%e4%bb%b6" aria-label="3. 监听事件">3. 监听事件</a></li>
+                <li>
+                    <a href="#4-%e8%8e%b7%e5%8f%96%e5%88%b0%e8%be%be%e7%9a%84%e4%ba%8b%e4%bb%b6" aria-label="4. 获取到达的事件">4. 获取到达的事件</a></li>
+                <li>
+                    <a href="#5-%e4%ba%8b%e4%bb%b6%e5%be%aa%e7%8e%af" aria-label="5. 事件循环">5. 事件循环</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%a5%97%e6%8e%a5%e5%ad%97-nio-%e5%ae%9e%e4%be%8b" aria-label="套接字 NIO 实例">套接字 NIO 实例</a></li>
+                <li>
+                    <a href="#%e5%86%85%e5%ad%98%e6%98%a0%e5%b0%84%e6%96%87%e4%bb%b6" aria-label="内存映射文件">内存映射文件</a></li>
+                <li>
+                    <a href="#%e5%af%b9%e6%af%94" aria-label="对比">对比</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="一概览">一、概览<a hidden class="anchor" aria-hidden="true" href="#一概览">#</a></h1>
+<p>Java 的 I/O 大概可以分成以下几类：</p>
+<ul>
+<li>磁盘操作：File</li>
+<li>字节操作：InputStream 和 OutputStream</li>
+<li>字符操作：Reader 和 Writer</li>
+<li>对象操作：Serializable</li>
+<li>网络操作：Socket</li>
+<li>新的输入/输出：NIO</li>
+</ul>
+<h1 id="二磁盘操作">二、磁盘操作<a hidden class="anchor" aria-hidden="true" href="#二磁盘操作">#</a></h1>
+<p>File 类可以用于表示文件和目录的信息，但是它不表示文件的内容。</p>
+<p>递归地列出一个目录下所有文件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">listAllFiles</span><span style="color:#f92672">(</span>File dir<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>dir <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span>dir<span style="color:#f92672">.</span><span style="color:#a6e22e">exists</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>dir<span style="color:#f92672">.</span><span style="color:#a6e22e">isFile</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>dir<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>File file <span style="color:#f92672">:</span> dir<span style="color:#f92672">.</span><span style="color:#a6e22e">listFiles</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        listAllFiles<span style="color:#f92672">(</span>file<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>从 Java7 开始，可以使用 Paths 和 Files 代替 File。</p>
+<h1 id="三字节操作">三、字节操作<a hidden class="anchor" aria-hidden="true" href="#三字节操作">#</a></h1>
+<h2 id="实现文件复制">实现文件复制<a hidden class="anchor" aria-hidden="true" href="#实现文件复制">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">copyFile</span><span style="color:#f92672">(</span>String src<span style="color:#f92672">,</span> String dist<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    FileInputStream in <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileInputStream<span style="color:#f92672">(</span>src<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    FileOutputStream out <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileOutputStream<span style="color:#f92672">(</span>dist<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> buffer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span><span style="color:#ae81ff">20</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1024</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> cnt<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// read() 最多读取 buffer.length 个字节
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 返回的是实际读取的个数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 返回 -1 的时候表示读到 eof，即文件尾
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">((</span>cnt <span style="color:#f92672">=</span> in<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>buffer<span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> buffer<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">))</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        out<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>buffer<span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> cnt<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    in<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    out<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="装饰者模式">装饰者模式<a hidden class="anchor" aria-hidden="true" href="#装饰者模式">#</a></h2>
+<p>Java I/O 使用了装饰者模式来实现。以 InputStream 为例，</p>
+<ul>
+<li>InputStream 是抽象组件；</li>
+<li>FileInputStream 是 InputStream 的子类，属于具体组件，提供了字节流的输入操作；</li>
+<li>FilterInputStream 属于抽象装饰者，装饰者用于装饰组件，为组件提供额外的功能。例如 BufferedInputStream 为 FileInputStream 提供缓存的功能。</li>
+</ul>
+<!-- raw HTML omitted -->
+<p>实例化一个具有缓存功能的字节流对象时，只需要在 FileInputStream 对象上再套一层 BufferedInputStream 对象即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>FileInputStream fileInputStream <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileInputStream<span style="color:#f92672">(</span>filePath<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>BufferedInputStream bufferedInputStream <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedInputStream<span style="color:#f92672">(</span>fileInputStream<span style="color:#f92672">);</span>
+</span></span></code></pre></div><p>DataInputStream 装饰者提供了对更多数据类型进行输入的操作，比如 int、double 等基本类型。</p>
+<h1 id="四字符操作">四、字符操作<a hidden class="anchor" aria-hidden="true" href="#四字符操作">#</a></h1>
+<h2 id="编码与解码">编码与解码<a hidden class="anchor" aria-hidden="true" href="#编码与解码">#</a></h2>
+<p>编码就是把字符转换为字节，而解码是把字节重新组合成字符。</p>
+<p>如果编码和解码过程使用不同的编码方式那么就出现了乱码。</p>
+<ul>
+<li>GBK 编码中，中文字符占 2 个字节，英文字符占 1 个字节；</li>
+<li>UTF-8 编码中，中文字符占 3 个字节，英文字符占 1 个字节；</li>
+<li>UTF-16be 编码中，中文字符和英文字符都占 2 个字节。</li>
+</ul>
+<p>UTF-16be 中的 be 指的是 Big Endian，也就是大端。相应地也有 UTF-16le，le 指的是 Little Endian，也就是小端。</p>
+<p>Java 的内存编码使用双字节编码 UTF-16be，这不是指 Java 只支持这一种编码方式，而是说 char 这种类型使用 UTF-16be 进行编码。char 类型占 16 位，也就是两个字节，Java 使用这种双字节编码是为了让一个中文或者一个英文都能使用一个 char 来存储。</p>
+<h2 id="string-的编码方式">String 的编码方式<a hidden class="anchor" aria-hidden="true" href="#string-的编码方式">#</a></h2>
+<p>String 可以看成一个字符序列，可以指定一个编码方式将它编码为字节序列，也可以指定一个编码方式将一个字节序列解码为 String。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>String str1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;中文&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> bytes <span style="color:#f92672">=</span> str1<span style="color:#f92672">.</span><span style="color:#a6e22e">getBytes</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>String str2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span>bytes<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>str2<span style="color:#f92672">);</span>
+</span></span></code></pre></div><p>在调用无参数 getBytes() 方法时，默认的编码方式不是 UTF-16be。双字节编码的好处是可以使用一个 char 存储中文和英文，而将 String 转为 bytes[] 字节数组就不再需要这个好处，因此也就不再需要双字节编码。getBytes() 的默认编码方式与平台有关，一般为 UTF-8。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> bytes <span style="color:#f92672">=</span> str1<span style="color:#f92672">.</span><span style="color:#a6e22e">getBytes</span><span style="color:#f92672">();</span>
+</span></span></code></pre></div><h2 id="reader-与-writer">Reader 与 Writer<a hidden class="anchor" aria-hidden="true" href="#reader-与-writer">#</a></h2>
+<p>不管是磁盘还是网络传输，最小的存储单元都是字节，而不是字符。但是在程序中操作的通常是字符形式的数据，因此需要提供对字符进行操作的方法。</p>
+<ul>
+<li>InputStreamReader 实现从字节流解码成字符流；</li>
+<li>OutputStreamWriter 实现字符流编码成为字节流。</li>
+</ul>
+<h2 id="实现逐行输出文本文件的内容">实现逐行输出文本文件的内容<a hidden class="anchor" aria-hidden="true" href="#实现逐行输出文本文件的内容">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">readFileContent</span><span style="color:#f92672">(</span>String filePath<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    FileReader fileReader <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileReader<span style="color:#f92672">(</span>filePath<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    BufferedReader bufferedReader <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedReader<span style="color:#f92672">(</span>fileReader<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    String line<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">((</span>line <span style="color:#f92672">=</span> bufferedReader<span style="color:#f92672">.</span><span style="color:#a6e22e">readLine</span><span style="color:#f92672">())</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>line<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 装饰者模式使得 BufferedReader 组合了一个 Reader 对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 在调用 BufferedReader 的 close() 方法时会去调用 Reader 的 close() 方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 因此只要一个 close() 调用即可
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    bufferedReader<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h1 id="五对象操作">五、对象操作<a hidden class="anchor" aria-hidden="true" href="#五对象操作">#</a></h1>
+<h2 id="序列化">序列化<a hidden class="anchor" aria-hidden="true" href="#序列化">#</a></h2>
+<p>序列化就是将一个对象转换成字节序列，方便存储和传输。</p>
+<ul>
+<li>序列化：ObjectOutputStream.writeObject()</li>
+<li>反序列化：ObjectInputStream.readObject()</li>
+</ul>
+<p>不会对静态变量进行序列化，因为序列化只是保存对象的状态，静态变量属于类的状态。</p>
+<h2 id="serializable">Serializable<a hidden class="anchor" aria-hidden="true" href="#serializable">#</a></h2>
+<p>序列化的类需要实现 Serializable 接口，它只是一个标准，没有任何方法需要实现，但是如果不去实现它的话而进行序列化，会抛出异常。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException<span style="color:#f92672">,</span> ClassNotFoundException <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    A a1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> A<span style="color:#f92672">(</span><span style="color:#ae81ff">123</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;abc&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    String objectFile <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;file/a1&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ObjectOutputStream objectOutputStream <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ObjectOutputStream<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> FileOutputStream<span style="color:#f92672">(</span>objectFile<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    objectOutputStream<span style="color:#f92672">.</span><span style="color:#a6e22e">writeObject</span><span style="color:#f92672">(</span>a1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    objectOutputStream<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ObjectInputStream objectInputStream <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ObjectInputStream<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> FileInputStream<span style="color:#f92672">(</span>objectFile<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    A a2 <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>A<span style="color:#f92672">)</span> objectInputStream<span style="color:#f92672">.</span><span style="color:#a6e22e">readObject</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    objectInputStream<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>a2<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> <span style="color:#66d9ef">implements</span> Serializable <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> x<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String y<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    A<span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> x<span style="color:#f92672">,</span> String y<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> x<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> y<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;x = &#34;</span> <span style="color:#f92672">+</span> x <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;  &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;y = &#34;</span> <span style="color:#f92672">+</span> y<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="transient">transient<a hidden class="anchor" aria-hidden="true" href="#transient">#</a></h2>
+<p>transient 关键字可以使一些属性不会被序列化。</p>
+<p>ArrayList 中存储数据的数组 elementData 是用 transient 修饰的，因为这个数组是动态扩展的，并不是所有的空间都被使用，因此就不需要所有的内容都被序列化。通过重写序列化和反序列化方法，使得可以只序列化数组中有内容的那部分数据。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">transient</span> Object<span style="color:#f92672">[]</span> elementData<span style="color:#f92672">;</span>
+</span></span></code></pre></div><h1 id="六网络操作">六、网络操作<a hidden class="anchor" aria-hidden="true" href="#六网络操作">#</a></h1>
+<p>Java 中的网络支持：</p>
+<ul>
+<li>InetAddress：用于表示网络上的硬件资源，即 IP 地址；</li>
+<li>URL：统一资源定位符；</li>
+<li>Sockets：使用 TCP 协议实现网络通信；</li>
+<li>Datagram：使用 UDP 协议实现网络通信。</li>
+</ul>
+<p>同步和异步：同步和异步是针对应用程序和内核的交互而言的，同步指的是用户进程触发IO 操作并等待或者轮询的去查看IO 操作是否就绪，而异步是指用户进程触发IO 操作以后便开始做自己的事情，而当IO 操作已经完成的时候会得到IO 完成的通知。</p>
+<p>以银行取款为例：</p>
+<p>同步 ： 自己亲自出马持银行卡到银行取钱（使用同步 IO 时，Java 自己处理IO 读写）；</p>
+<p>异步 ： 委托一小弟拿银行卡到银行取钱，然后给你（使用异步IO 时，Java 将 IO 读写委托给OS 处理，需要将数据缓冲区地址和大小传给OS(银行卡和密码)，OS 需要支持异步IO操作API）；</p>
+<p>阻塞和非阻塞：阻塞和非阻塞是针对于进程在访问数据的时候，根据IO操作的就绪状态来采取的不同方式，说白了是一种读取或者写入操作方法的实现方式，阻塞方式下读取或者写入函数将一直等待，而非阻塞方式下，读取或者写入方法会立即返回一个状态值。</p>
+<p>以银行取款为例：</p>
+<p>阻塞 ： ATM排队取款，你只能等待（使用阻塞IO时，Java调用会一直阻塞到读写完成才返回）；</p>
+<p>非阻塞 ： 柜台取款，取个号，然后坐在椅子上做其它事，等号广播会通知你办理，没到号你就不能去，你可以不断问大堂经理排到了没有，大堂经理如果说还没到你就不能去（使用非阻塞IO时，如果不能读写Java调用会马上返回，当IO事件分发器通知可读写时再继续进行读写，不断循环直到读写完成）</p>
+<h2 id="inetaddress">InetAddress<a hidden class="anchor" aria-hidden="true" href="#inetaddress">#</a></h2>
+<p>没有公有的构造函数，只能通过静态方法来创建实例。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>InetAddress<span style="color:#f92672">.</span><span style="color:#a6e22e">getByName</span><span style="color:#f92672">(</span>String host<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>InetAddress<span style="color:#f92672">.</span><span style="color:#a6e22e">getByAddress</span><span style="color:#f92672">(</span><span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> address<span style="color:#f92672">);</span>
+</span></span></code></pre></div><h2 id="url">URL<a hidden class="anchor" aria-hidden="true" href="#url">#</a></h2>
+<p>可以直接从 URL 中读取字节流数据。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    URL url <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> URL<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://www.baidu.com&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* 字节流 */</span>
+</span></span><span style="display:flex;"><span>    InputStream is <span style="color:#f92672">=</span> url<span style="color:#f92672">.</span><span style="color:#a6e22e">openStream</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* 字符流 */</span>
+</span></span><span style="display:flex;"><span>    InputStreamReader isr <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> InputStreamReader<span style="color:#f92672">(</span>is<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;utf-8&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* 提供缓存功能 */</span>
+</span></span><span style="display:flex;"><span>    BufferedReader br <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedReader<span style="color:#f92672">(</span>isr<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    String line<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">((</span>line <span style="color:#f92672">=</span> br<span style="color:#f92672">.</span><span style="color:#a6e22e">readLine</span><span style="color:#f92672">())</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>line<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    br<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="sockets">Sockets<a hidden class="anchor" aria-hidden="true" href="#sockets">#</a></h2>
+<ul>
+<li>ServerSocket：服务器端类</li>
+<li>Socket：客户端类</li>
+<li>服务器和客户端通过 InputStream 和 OutputStream 进行输入输出。</li>
+</ul>
+<h2 id="datagram">Datagram<a hidden class="anchor" aria-hidden="true" href="#datagram">#</a></h2>
+<ul>
+<li>DatagramSocket：通信类</li>
+<li>DatagramPacket：数据包类</li>
+</ul>
+<h1 id="七nio">七、NIO<a hidden class="anchor" aria-hidden="true" href="#七nio">#</a></h1>
+<p>新的输入/输出 (NIO) 库是在 JDK 1.4 中引入的，弥补了原来的 I/O 的不足，提供了高速的、面向块的 I/O。</p>
+<h2 id="流与块">流与块<a hidden class="anchor" aria-hidden="true" href="#流与块">#</a></h2>
+<p>I/O 与 NIO 最重要的区别是数据打包和传输的方式，I/O 以流的方式处理数据，而 NIO 以块的方式处理数据。</p>
+<p>面向流的 I/O 一次处理一个字节数据：一个输入流产生一个字节数据，一个输出流消费一个字节数据。为流式数据创建过滤器非常容易，链接几个过滤器，以便每个过滤器只负责复杂处理机制的一部分。不利的一面是，面向流的 I/O 通常相当慢。</p>
+<p>面向块的 I/O 一次处理一个数据块，按块处理数据比按流处理数据要快得多。但是面向块的 I/O 缺少一些面向流的 I/O 所具有的优雅性和简单性。</p>
+<p>I/O 包和 NIO 已经很好地集成了，java.io.* 已经以 NIO 为基础重新实现了，所以现在它可以利用 NIO 的一些特性。例如，java.io.* 包中的一些类包含以块的形式读写数据的方法，这使得即使在面向流的系统中，处理速度也会更快。</p>
+<h2 id="通道与缓冲区">通道与缓冲区<a hidden class="anchor" aria-hidden="true" href="#通道与缓冲区">#</a></h2>
+<h3 id="1-通道">1. 通道<a hidden class="anchor" aria-hidden="true" href="#1-通道">#</a></h3>
+<p>通道 Channel 是对原 I/O 包中的流的模拟，可以通过它读取和写入数据。</p>
+<p>通道与流的不同之处在于，流只能在一个方向上移动(一个流必须是 InputStream 或者 OutputStream 的子类)，而通道是双向的，可以用于读、写或者同时用于读写。</p>
+<p>通道包括以下类型：</p>
+<ul>
+<li>FileChannel：从文件中读写数据；</li>
+<li>DatagramChannel：通过 UDP 读写网络中数据；</li>
+<li>SocketChannel：通过 TCP 读写网络中数据；</li>
+<li>ServerSocketChannel：可以监听新进来的 TCP 连接，对每一个新进来的连接都会创建一个 SocketChannel。</li>
+</ul>
+<h3 id="2-缓冲区">2. 缓冲区<a hidden class="anchor" aria-hidden="true" href="#2-缓冲区">#</a></h3>
+<p>发送给一个通道的所有数据都必须首先放到缓冲区中，同样地，从通道中读取的任何数据都要先读到缓冲区中。也就是说，不会直接对通道进行读写数据，而是要先经过缓冲区。</p>
+<p>缓冲区实质上是一个数组，但它不仅仅是一个数组。缓冲区提供了对数据的结构化访问，而且还可以跟踪系统的读/写进程。</p>
+<p>缓冲区包括以下类型：</p>
+<ul>
+<li>ByteBuffer</li>
+<li>CharBuffer</li>
+<li>ShortBuffer</li>
+<li>IntBuffer</li>
+<li>LongBuffer</li>
+<li>FloatBuffer</li>
+<li>DoubleBuffer</li>
+</ul>
+<h2 id="缓冲区状态变量">缓冲区状态变量<a hidden class="anchor" aria-hidden="true" href="#缓冲区状态变量">#</a></h2>
+<ul>
+<li>capacity：最大容量；</li>
+<li>position：当前已经读写的字节数；</li>
+<li>limit：还可以读写的字节数。</li>
+</ul>
+<h2 id="文件-nio-实例">文件 NIO 实例<a hidden class="anchor" aria-hidden="true" href="#文件-nio-实例">#</a></h2>
+<p>以下展示了使用 NIO 快速复制文件的实例：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fastCopy</span><span style="color:#f92672">(</span>String src<span style="color:#f92672">,</span> String dist<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* 获得源文件的输入字节流 */</span>
+</span></span><span style="display:flex;"><span>    FileInputStream fin <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileInputStream<span style="color:#f92672">(</span>src<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* 获取输入字节流的文件通道 */</span>
+</span></span><span style="display:flex;"><span>    FileChannel fcin <span style="color:#f92672">=</span> fin<span style="color:#f92672">.</span><span style="color:#a6e22e">getChannel</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* 获取目标文件的输出字节流 */</span>
+</span></span><span style="display:flex;"><span>    FileOutputStream fout <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileOutputStream<span style="color:#f92672">(</span>dist<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* 获取输出字节流的文件通道 */</span>
+</span></span><span style="display:flex;"><span>    FileChannel fcout <span style="color:#f92672">=</span> fout<span style="color:#f92672">.</span><span style="color:#a6e22e">getChannel</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* 为缓冲区分配 1024 个字节 */</span>
+</span></span><span style="display:flex;"><span>    ByteBuffer buffer <span style="color:#f92672">=</span> ByteBuffer<span style="color:#f92672">.</span><span style="color:#a6e22e">allocateDirect</span><span style="color:#f92672">(</span><span style="color:#ae81ff">1024</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/* 从输入通道中读取数据到缓冲区中 */</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> r <span style="color:#f92672">=</span> fcin<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>buffer<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/* read() 返回 -1 表示 EOF */</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>r <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/* 切换读写 */</span>
+</span></span><span style="display:flex;"><span>        buffer<span style="color:#f92672">.</span><span style="color:#a6e22e">flip</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/* 把缓冲区的内容写入输出文件中 */</span>
+</span></span><span style="display:flex;"><span>        fcout<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>buffer<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/* 清空缓冲区 */</span>
+</span></span><span style="display:flex;"><span>        buffer<span style="color:#f92672">.</span><span style="color:#a6e22e">clear</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="选择器">选择器<a hidden class="anchor" aria-hidden="true" href="#选择器">#</a></h2>
+<p>NIO 常常被叫做非阻塞 IO，主要是因为 NIO 在网络通信中的非阻塞特性被广泛使用。</p>
+<p>NIO 实现了 IO 多路复用中的 Reactor 模型，一个线程 Thread 使用一个选择器 Selector 通过轮询的方式去监听多个通道 Channel 上的事件，从而让一个线程就可以处理多个事件。</p>
+<p>通过配置监听的通道 Channel 为非阻塞，那么当 Channel 上的 IO 事件还未到达时，就不会进入阻塞状态一直等待，而是继续轮询其它 Channel，找到 IO 事件已经到达的 Channel 执行。</p>
+<p>因为创建和切换线程的开销很大，因此使用一个线程来处理多个事件而不是一个线程处理一个事件，对于 IO 密集型的应用具有很好地性能。</p>
+<p>应该注意的是，只有套接字 Channel 才能配置为非阻塞，而 FileChannel 不能，为 FileChannel 配置非阻塞也没有意义。</p>
+<h3 id="1-创建选择器">1. 创建选择器<a hidden class="anchor" aria-hidden="true" href="#1-创建选择器">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Selector selector <span style="color:#f92672">=</span> Selector<span style="color:#f92672">.</span><span style="color:#a6e22e">open</span><span style="color:#f92672">();</span>
+</span></span></code></pre></div><h3 id="2-将通道注册到选择器上">2. 将通道注册到选择器上<a hidden class="anchor" aria-hidden="true" href="#2-将通道注册到选择器上">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ServerSocketChannel ssChannel <span style="color:#f92672">=</span> ServerSocketChannel<span style="color:#f92672">.</span><span style="color:#a6e22e">open</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>ssChannel<span style="color:#f92672">.</span><span style="color:#a6e22e">configureBlocking</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>ssChannel<span style="color:#f92672">.</span><span style="color:#a6e22e">register</span><span style="color:#f92672">(</span>selector<span style="color:#f92672">,</span> SelectionKey<span style="color:#f92672">.</span><span style="color:#a6e22e">OP_ACCEPT</span><span style="color:#f92672">);</span>
+</span></span></code></pre></div><p>通道必须配置为非阻塞模式，否则使用选择器就没有任何意义了，因为如果通道在某个事件上被阻塞，那么服务器就不能响应其它事件，必须等待这个事件处理完毕才能去处理其它事件，显然这和选择器的作用背道而驰。</p>
+<p>在将通道注册到选择器上时，还需要指定要注册的具体事件，主要有以下几类：</p>
+<ul>
+<li>SelectionKey.OP_CONNECT</li>
+<li>SelectionKey.OP_ACCEPT</li>
+<li>SelectionKey.OP_READ</li>
+<li>SelectionKey.OP_WRITE</li>
+</ul>
+<p>它们在 SelectionKey 的定义如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> OP_READ <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> OP_WRITE <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> OP_CONNECT <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> OP_ACCEPT <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">4</span><span style="color:#f92672">;</span>
+</span></span></code></pre></div><p>可以看出每个事件可以被当成一个位域，从而组成事件集整数。例如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> interestSet <span style="color:#f92672">=</span> SelectionKey<span style="color:#f92672">.</span><span style="color:#a6e22e">OP_READ</span> <span style="color:#f92672">|</span> SelectionKey<span style="color:#f92672">.</span><span style="color:#a6e22e">OP_WRITE</span><span style="color:#f92672">;</span>
+</span></span></code></pre></div><h3 id="3-监听事件">3. 监听事件<a hidden class="anchor" aria-hidden="true" href="#3-监听事件">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> num <span style="color:#f92672">=</span> selector<span style="color:#f92672">.</span><span style="color:#a6e22e">select</span><span style="color:#f92672">();</span>
+</span></span></code></pre></div><p>使用 select() 来监听到达的事件，它会一直阻塞直到有至少一个事件到达。</p>
+<h3 id="4-获取到达的事件">4. 获取到达的事件<a hidden class="anchor" aria-hidden="true" href="#4-获取到达的事件">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Set<span style="color:#f92672">&lt;</span>SelectionKey<span style="color:#f92672">&gt;</span> keys <span style="color:#f92672">=</span> selector<span style="color:#f92672">.</span><span style="color:#a6e22e">selectedKeys</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>Iterator<span style="color:#f92672">&lt;</span>SelectionKey<span style="color:#f92672">&gt;</span> keyIterator <span style="color:#f92672">=</span> keys<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>keyIterator<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    SelectionKey key <span style="color:#f92672">=</span> keyIterator<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>key<span style="color:#f92672">.</span><span style="color:#a6e22e">isAcceptable</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>key<span style="color:#f92672">.</span><span style="color:#a6e22e">isReadable</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    keyIterator<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="5-事件循环">5. 事件循环<a hidden class="anchor" aria-hidden="true" href="#5-事件循环">#</a></h3>
+<p>因为一次 select() 调用不能处理完所有的事件，并且服务器端有可能需要一直监听事件，因此服务器端处理事件的代码一般会放在一个死循环内。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> num <span style="color:#f92672">=</span> selector<span style="color:#f92672">.</span><span style="color:#a6e22e">select</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    Set<span style="color:#f92672">&lt;</span>SelectionKey<span style="color:#f92672">&gt;</span> keys <span style="color:#f92672">=</span> selector<span style="color:#f92672">.</span><span style="color:#a6e22e">selectedKeys</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    Iterator<span style="color:#f92672">&lt;</span>SelectionKey<span style="color:#f92672">&gt;</span> keyIterator <span style="color:#f92672">=</span> keys<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>keyIterator<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        SelectionKey key <span style="color:#f92672">=</span> keyIterator<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>key<span style="color:#f92672">.</span><span style="color:#a6e22e">isAcceptable</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>key<span style="color:#f92672">.</span><span style="color:#a6e22e">isReadable</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        keyIterator<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="套接字-nio-实例">套接字 NIO 实例<a hidden class="anchor" aria-hidden="true" href="#套接字-nio-实例">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NIOServer</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Selector selector <span style="color:#f92672">=</span> Selector<span style="color:#f92672">.</span><span style="color:#a6e22e">open</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ServerSocketChannel ssChannel <span style="color:#f92672">=</span> ServerSocketChannel<span style="color:#f92672">.</span><span style="color:#a6e22e">open</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        ssChannel<span style="color:#f92672">.</span><span style="color:#a6e22e">configureBlocking</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ssChannel<span style="color:#f92672">.</span><span style="color:#a6e22e">register</span><span style="color:#f92672">(</span>selector<span style="color:#f92672">,</span> SelectionKey<span style="color:#f92672">.</span><span style="color:#a6e22e">OP_ACCEPT</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ServerSocket serverSocket <span style="color:#f92672">=</span> ssChannel<span style="color:#f92672">.</span><span style="color:#a6e22e">socket</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        InetSocketAddress address <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> InetSocketAddress<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;127.0.0.1&#34;</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">8888</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        serverSocket<span style="color:#f92672">.</span><span style="color:#a6e22e">bind</span><span style="color:#f92672">(</span>address<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            selector<span style="color:#f92672">.</span><span style="color:#a6e22e">select</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            Set<span style="color:#f92672">&lt;</span>SelectionKey<span style="color:#f92672">&gt;</span> keys <span style="color:#f92672">=</span> selector<span style="color:#f92672">.</span><span style="color:#a6e22e">selectedKeys</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            Iterator<span style="color:#f92672">&lt;</span>SelectionKey<span style="color:#f92672">&gt;</span> keyIterator <span style="color:#f92672">=</span> keys<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>keyIterator<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                SelectionKey key <span style="color:#f92672">=</span> keyIterator<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>key<span style="color:#f92672">.</span><span style="color:#a6e22e">isAcceptable</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    ServerSocketChannel ssChannel1 <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>ServerSocketChannel<span style="color:#f92672">)</span> key<span style="color:#f92672">.</span><span style="color:#a6e22e">channel</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#75715e">// 服务器会为每个新连接创建一个 SocketChannel
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    SocketChannel sChannel <span style="color:#f92672">=</span> ssChannel1<span style="color:#f92672">.</span><span style="color:#a6e22e">accept</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>                    sChannel<span style="color:#f92672">.</span><span style="color:#a6e22e">configureBlocking</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#75715e">// 这个新连接主要用于从客户端读取数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    sChannel<span style="color:#f92672">.</span><span style="color:#a6e22e">register</span><span style="color:#f92672">(</span>selector<span style="color:#f92672">,</span> SelectionKey<span style="color:#f92672">.</span><span style="color:#a6e22e">OP_READ</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>key<span style="color:#f92672">.</span><span style="color:#a6e22e">isReadable</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    SocketChannel sChannel <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>SocketChannel<span style="color:#f92672">)</span> key<span style="color:#f92672">.</span><span style="color:#a6e22e">channel</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>                    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>readDataFromSocketChannel<span style="color:#f92672">(</span>sChannel<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>                    sChannel<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                keyIterator<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">readDataFromSocketChannel</span><span style="color:#f92672">(</span>SocketChannel sChannel<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ByteBuffer buffer <span style="color:#f92672">=</span> ByteBuffer<span style="color:#f92672">.</span><span style="color:#a6e22e">allocate</span><span style="color:#f92672">(</span><span style="color:#ae81ff">1024</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        StringBuilder data <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            buffer<span style="color:#f92672">.</span><span style="color:#a6e22e">clear</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> sChannel<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>buffer<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>n <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            buffer<span style="color:#f92672">.</span><span style="color:#a6e22e">flip</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> limit <span style="color:#f92672">=</span> buffer<span style="color:#f92672">.</span><span style="color:#a6e22e">limit</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">char</span><span style="color:#f92672">[]</span> dst <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">char</span><span style="color:#f92672">[</span>limit<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> limit<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                dst<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">char</span><span style="color:#f92672">)</span> buffer<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            data<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span>dst<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            buffer<span style="color:#f92672">.</span><span style="color:#a6e22e">clear</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> data<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NIOClient</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        Socket socket <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Socket<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;127.0.0.1&#34;</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">8888</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        OutputStream out <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span><span style="color:#a6e22e">getOutputStream</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        String s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hello world&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        out<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">getBytes</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>        out<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="内存映射文件">内存映射文件<a hidden class="anchor" aria-hidden="true" href="#内存映射文件">#</a></h2>
+<p>内存映射文件 I/O 是一种读和写文件数据的方法，它可以比常规的基于流或者基于通道的 I/O 快得多。</p>
+<p>向内存映射文件写入可能是危险的，只是改变数组的单个元素这样的简单操作，就可能会直接修改磁盘上的文件。修改数据与将数据保存到磁盘是没有分开的。</p>
+<p>下面代码行将文件的前 1024 个字节映射到内存中，map() 方法返回一个 MappedByteBuffer，它是 ByteBuffer 的子类。因此，可以像使用其他任何 ByteBuffer 一样使用新映射的缓冲区，操作系统会在需要时负责执行映射。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>MappedByteBuffer mbb <span style="color:#f92672">=</span> fc<span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>FileChannel<span style="color:#f92672">.</span><span style="color:#a6e22e">MapMode</span><span style="color:#f92672">.</span><span style="color:#a6e22e">READ_WRITE</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">1024</span><span style="color:#f92672">);</span>
+</span></span></code></pre></div><h2 id="对比">对比<a hidden class="anchor" aria-hidden="true" href="#对比">#</a></h2>
+<p>NIO 与普通 I/O 的区别主要有以下两点：</p>
+<ul>
+<li>NIO 是非阻塞的；</li>
+<li>NIO 面向块，I/O 面向流。</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://oxygenbytes.github.io/tags/java/">Java</a></li>
+    </ul>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Java IO on twitter"
+        href="https://twitter.com/intent/tweet/?text=Java%20IO&amp;url=https%3a%2f%2foxygenbytes.github.io%2fposts%2fjava%2fio%2f&amp;hashtags=Java">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Java IO on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2foxygenbytes.github.io%2fposts%2fjava%2fio%2f&amp;title=Java%20IO&amp;summary=Java%20IO&amp;source=https%3a%2f%2foxygenbytes.github.io%2fposts%2fjava%2fio%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Java IO on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2foxygenbytes.github.io%2fposts%2fjava%2fio%2f&title=Java%20IO">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Java IO on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2foxygenbytes.github.io%2fposts%2fjava%2fio%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Java IO on whatsapp"
+        href="https://api.whatsapp.com/send?text=Java%20IO%20-%20https%3a%2f%2foxygenbytes.github.io%2fposts%2fjava%2fio%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Java IO on telegram"
+        href="https://telegram.me/share/url?text=Java%20IO&amp;url=https%3a%2f%2foxygenbytes.github.io%2fposts%2fjava%2fio%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://oxygenbytes.github.io">Zxq&#39;s Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

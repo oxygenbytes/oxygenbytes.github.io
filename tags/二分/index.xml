@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 30 Jan 2021 21:49:10 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/%E4%BA%8C%E5%88%86/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>二分算法</title>
-      <link>https://oxygenbytes.github.io/posts/algorithms/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/</link>
+      <link>https://oxygenbytes.github.io/posts/algorithms/binarysearch/</link>
       <pubDate>Sat, 30 Jan 2021 21:49:10 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/algorithms/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://oxygenbytes.github.io/posts/algorithms/binarysearch/</guid>
       <description>二分算法 二分模板 二分模板一共有两个，分别适用于不同情况。 版本1 当我们将区间[l, r]划分成[l, mid]和[mid + 1, r]时，其更新操作是r</description>
     </item>
     

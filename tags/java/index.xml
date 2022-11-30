@@ -9,37 +9,37 @@
     <lastBuildDate>Tue, 27 Oct 2020 23:06:27 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java IO</title>
-      <link>https://oxygenbytes.github.io/posts/java/java-io/</link>
+      <link>https://oxygenbytes.github.io/posts/java/io/</link>
       <pubDate>Tue, 27 Oct 2020 23:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/java/java-io/</guid>
+      <guid>https://oxygenbytes.github.io/posts/java/io/</guid>
       <description>一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 字符操作：Reader 和 Writer 对象操作：Seriali</description>
     </item>
     
     <item>
       <title>Java 基础</title>
-      <link>https://oxygenbytes.github.io/posts/java/java-%E5%9F%BA%E7%A1%80/</link>
+      <link>https://oxygenbytes.github.io/posts/java/basic/</link>
       <pubDate>Tue, 27 Oct 2020 23:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/java/java-%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://oxygenbytes.github.io/posts/java/basic/</guid>
       <description>一、数据类型 基本类型 byte/8 char/16 short/16 int/32 float/32 long/64 double/64 boolean/~ boolean 只有两个值：true、false，可以使用 1 bit 来存储，但是具体大小没有明确规定。JVM 会在编译时期将 boolean</description>
     </item>
     
     <item>
       <title>Java 容器</title>
-      <link>https://oxygenbytes.github.io/posts/java/java-%E5%AE%B9%E5%99%A8/</link>
+      <link>https://oxygenbytes.github.io/posts/java/colllection/</link>
       <pubDate>Tue, 27 Oct 2020 23:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/java/java-%E5%AE%B9%E5%99%A8/</guid>
+      <guid>https://oxygenbytes.github.io/posts/java/colllection/</guid>
       <description>一、概览 容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。 1. Set TreeSet：基于红黑树实</description>
     </item>
     
     <item>
       <title>Java 网络编程</title>
-      <link>https://oxygenbytes.github.io/posts/java/java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
+      <link>https://oxygenbytes.github.io/posts/java/networkprogram/</link>
       <pubDate>Tue, 27 Oct 2020 23:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/java/java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
+      <guid>https://oxygenbytes.github.io/posts/java/networkprogram/</guid>
       <description>HTTP请求过程 以www.baidu.com为例子 1.chrome自己的缓存,存留时间大概1min Notes:chrome://net-in</description>
     </item>
     

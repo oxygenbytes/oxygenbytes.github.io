@@ -6,13 +6,31 @@
     <description>Recent content in 📚文章 on Zxq&#39;s Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-en</language>
-    <lastBuildDate>Sun, 13 Jun 2021 20:43:09 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Nov 2022 01:01:57 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redis</title>
+      <link>https://oxygenbytes.github.io/posts/redis/redis/</link>
+      <pubDate>Mon, 28 Nov 2022 01:01:57 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/redis/redis/</guid>
+      <description>Redis课程资料 Redis核心技术与实战</description>
+    </item>
+    
+    <item>
+      <title>Regex</title>
+      <link>https://oxygenbytes.github.io/posts/cs/regex/</link>
+      <pubDate>Mon, 28 Nov 2022 00:44:27 +0800</pubDate>
+      
+      <guid>https://oxygenbytes.github.io/posts/cs/regex/</guid>
+      <description>学习正则 学习正则 正则文档 MDN JavaScript正则</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43;标准模板库STL</title>
-      <link>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93stl/</link>
+      <link>https://oxygenbytes.github.io/posts/cplus/stl/</link>
       <pubDate>Sun, 13 Jun 2021 20:43:09 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93stl/</guid>
+      <guid>https://oxygenbytes.github.io/posts/cplus/stl/</guid>
       <description>注： size()、empty()是所有容器都有的，时间复杂度为 O(1)，并不是结果并非遍历得到，而是原本就有个变 量来存size，直接访问该变</description>
     </item>
     
@@ -54,73 +72,73 @@
     
     <item>
       <title>高途跟谁学面试复盘</title>
-      <link>https://oxygenbytes.github.io/posts/interview/%E9%AB%98%E9%80%94%E8%B7%9F%E8%B0%81%E5%AD%A6%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <link>https://oxygenbytes.github.io/posts/interview/gaotu/</link>
       <pubDate>Mon, 10 May 2021 22:49:50 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/interview/%E9%AB%98%E9%80%94%E8%B7%9F%E8%B0%81%E5%AD%A6%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <guid>https://oxygenbytes.github.io/posts/interview/gaotu/</guid>
       <description>笔试 忘了，似乎是五道题，有一道最长递增子序列没做出来（因为还让打印出序列），后来还被面试官拿出来鞭尸。。。其他简单题都做出来了 时间比较久了，</description>
     </item>
     
     <item>
       <title>美团优选面试复盘</title>
-      <link>https://oxygenbytes.github.io/posts/interview/%E7%BE%8E%E5%9B%A2%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <link>https://oxygenbytes.github.io/posts/interview/meituan/</link>
       <pubDate>Tue, 20 Apr 2021 19:22:23 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/interview/%E7%BE%8E%E5%9B%A2%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <guid>https://oxygenbytes.github.io/posts/interview/meituan/</guid>
       <description>时间比较久了，重点记一下算法题和答的不好的问题 笔试 忘记了，大概是4道编程题，全是ACM类型的题目，最后做出来1.4道，进面试了 一面 介绍自己 讲</description>
     </item>
     
     <item>
       <title>华为面试复盘</title>
-      <link>https://oxygenbytes.github.io/posts/interview/%E5%8D%8E%E4%B8%BA%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <link>https://oxygenbytes.github.io/posts/interview/huawei/</link>
       <pubDate>Fri, 02 Apr 2021 21:54:01 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/interview/%E5%8D%8E%E4%B8%BA%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <guid>https://oxygenbytes.github.io/posts/interview/huawei/</guid>
       <description>投递之后一直无消息，后来被华为财经部门捞了，面试的职位是 财经数字化工程师，凭印象简单写写 笔试（2021.03.24） 3道算法题, 第一题AC，</description>
     </item>
     
     <item>
       <title>Shoppe面试复盘</title>
-      <link>https://oxygenbytes.github.io/posts/interview/shoppe%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <link>https://oxygenbytes.github.io/posts/interview/shoppe/</link>
       <pubDate>Fri, 02 Apr 2021 09:35:00 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/interview/shoppe%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <guid>https://oxygenbytes.github.io/posts/interview/shoppe/</guid>
       <description>笔试（2021.03.10） 笔试应该是春招最早的几批，当天Shoppe的笔试平台还崩掉了，在牛客网上还有不少吐嘈，不过不久就恢复正常了，有一</description>
     </item>
     
     <item>
       <title>字节跳动面试复盘</title>
-      <link>https://oxygenbytes.github.io/posts/interview/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <link>https://oxygenbytes.github.io/posts/interview/bytedance/</link>
       <pubDate>Tue, 09 Mar 2021 12:46:52 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/interview/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <guid>https://oxygenbytes.github.io/posts/interview/bytedance/</guid>
       <description>一面（2021-02-24 18:00，1小时10分钟） 介绍自己 介绍项目，针对项目细节进行提问 浏览器输入一个地址，后面发生了什么？ 进程间通讯方</description>
     </item>
     
     <item>
       <title>排序算法</title>
-      <link>https://oxygenbytes.github.io/posts/algorithms/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
+      <link>https://oxygenbytes.github.io/posts/algorithms/sort/</link>
       <pubDate>Wed, 03 Mar 2021 22:35:34 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/algorithms/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://oxygenbytes.github.io/posts/algorithms/sort/</guid>
       <description>冒泡排序 #include &amp;lt;bits/stdc++.h&amp;gt; using namespace std; void bubblesort(vector&amp;lt;int&amp;gt;&amp;amp; nums){ int n = nums.size(); for(int i = n - 1;i &amp;gt; 0;i--){ for(int j = 0;j &amp;lt; i;j++){ if(nums[j] &amp;gt; nums[j+1]) swap(nums[j], nums[j+1]); } } } int main(){ vector&amp;lt;int&amp;gt; nums(10); srand(unsigned(time(0))); // srand((unsigned)time(NULL)) 也可以 for(int i = 0;i &amp;lt; 10;i++){ nums[i] = rand() % 20; cout&amp;lt;&amp;lt;nums[i]&amp;lt;&amp;lt;&amp;#34; &amp;#34;; } cout&amp;lt;&amp;lt;endl; bubblesort(nums); for(auto x : nums) cout&amp;lt;&amp;lt;x&amp;lt;&amp;lt;&amp;#34; &amp;#34;;</description>
     </item>
     
     <item>
       <title>蓝湖面试复盘</title>
-      <link>https://oxygenbytes.github.io/posts/interview/%E8%93%9D%E6%B9%96%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</link>
+      <link>https://oxygenbytes.github.io/posts/interview/lanhu/</link>
       <pubDate>Wed, 03 Mar 2021 19:46:52 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/interview/%E8%93%9D%E6%B9%96%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</guid>
+      <guid>https://oxygenbytes.github.io/posts/interview/lanhu/</guid>
       <description>时间比较久了，重点记一下算法题和答的不好的问题 一面 算法题：实现整数的sqrt函数， 使用二分法做 二面 算法题：算法题找出一个数组中，出现次数最多</description>
     </item>
     
     <item>
       <title>C&#43;&#43;对象模型</title>
-      <link>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/</link>
+      <link>https://oxygenbytes.github.io/posts/cplus/objectmodel/</link>
       <pubDate>Tue, 23 Feb 2021 17:38:43 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/</guid>
+      <guid>https://oxygenbytes.github.io/posts/cplus/objectmodel/</guid>
       <description>什么是C++对象模型? 语言中直接支持面向对象程序设计的部分。 对于各种支持的底层实现机制。 对象模型研究的是对象在存储上的空间与时间上的更优，并</description>
     </item>
     
@@ -153,46 +171,46 @@
     
     <item>
       <title>二分算法</title>
-      <link>https://oxygenbytes.github.io/posts/algorithms/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/</link>
+      <link>https://oxygenbytes.github.io/posts/algorithms/binarysearch/</link>
       <pubDate>Sat, 30 Jan 2021 21:49:10 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/algorithms/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://oxygenbytes.github.io/posts/algorithms/binarysearch/</guid>
       <description>二分算法 二分模板 二分模板一共有两个，分别适用于不同情况。 版本1 当我们将区间[l, r]划分成[l, mid]和[mid + 1, r]时，其更新操作是r</description>
     </item>
     
     <item>
       <title>Java IO</title>
-      <link>https://oxygenbytes.github.io/posts/java/java-io/</link>
+      <link>https://oxygenbytes.github.io/posts/java/io/</link>
       <pubDate>Tue, 27 Oct 2020 23:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/java/java-io/</guid>
+      <guid>https://oxygenbytes.github.io/posts/java/io/</guid>
       <description>一、概览 Java 的 I/O 大概可以分成以下几类： 磁盘操作：File 字节操作：InputStream 和 OutputStream 字符操作：Reader 和 Writer 对象操作：Seriali</description>
     </item>
     
     <item>
       <title>Java 基础</title>
-      <link>https://oxygenbytes.github.io/posts/java/java-%E5%9F%BA%E7%A1%80/</link>
+      <link>https://oxygenbytes.github.io/posts/java/basic/</link>
       <pubDate>Tue, 27 Oct 2020 23:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/java/java-%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://oxygenbytes.github.io/posts/java/basic/</guid>
       <description>一、数据类型 基本类型 byte/8 char/16 short/16 int/32 float/32 long/64 double/64 boolean/~ boolean 只有两个值：true、false，可以使用 1 bit 来存储，但是具体大小没有明确规定。JVM 会在编译时期将 boolean</description>
     </item>
     
     <item>
       <title>Java 容器</title>
-      <link>https://oxygenbytes.github.io/posts/java/java-%E5%AE%B9%E5%99%A8/</link>
+      <link>https://oxygenbytes.github.io/posts/java/colllection/</link>
       <pubDate>Tue, 27 Oct 2020 23:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/java/java-%E5%AE%B9%E5%99%A8/</guid>
+      <guid>https://oxygenbytes.github.io/posts/java/colllection/</guid>
       <description>一、概览 容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对（两个对象）的映射表。 1. Set TreeSet：基于红黑树实</description>
     </item>
     
     <item>
       <title>Java 网络编程</title>
-      <link>https://oxygenbytes.github.io/posts/java/java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
+      <link>https://oxygenbytes.github.io/posts/java/networkprogram/</link>
       <pubDate>Tue, 27 Oct 2020 23:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/java/java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
+      <guid>https://oxygenbytes.github.io/posts/java/networkprogram/</guid>
       <description>HTTP请求过程 以www.baidu.com为例子 1.chrome自己的缓存,存留时间大概1min Notes:chrome://net-in</description>
     </item>
     
@@ -234,46 +252,46 @@
     
     <item>
       <title>深搜&amp;&amp;广搜</title>
-      <link>https://oxygenbytes.github.io/posts/algorithms/bfsdfs/</link>
+      <link>https://oxygenbytes.github.io/posts/algorithms/search/</link>
       <pubDate>Mon, 27 Jul 2020 23:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/algorithms/bfsdfs/</guid>
+      <guid>https://oxygenbytes.github.io/posts/algorithms/search/</guid>
       <description>深搜和广搜是最重要的几种算法之一，理解深搜和广搜的关键在于理解 递归 ， 状态机 ， 容器适配器--堆&amp;amp;&amp;amp;栈 和 集合分类 四个概念。 在搜索</description>
     </item>
     
     <item>
       <title>C&#43;&#43;内存模型</title>
-      <link>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</link>
+      <link>https://oxygenbytes.github.io/posts/cplus/memorymodel/</link>
       <pubDate>Thu, 27 Jun 2019 09:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</guid>
+      <guid>https://oxygenbytes.github.io/posts/cplus/memorymodel/</guid>
       <description>内存模型所要表达的内容主要是这么描述： 一个内存操作的效果，在其他线程中的可见性问题。 C++ 内存模型 C分为四个区：堆，栈，静态全局变量区，常量区 C</description>
     </item>
     
     <item>
       <title>C&#43;&#43;基础知识</title>
-      <link>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <link>https://oxygenbytes.github.io/posts/cplus/basic/</link>
       <pubDate>Thu, 27 Jun 2019 09:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <guid>https://oxygenbytes.github.io/posts/cplus/basic/</guid>
       <description>const常引用（const + &amp;amp;）避免函数参数的双向传递 在c++可以使用引用传递作为函数的形参传入函数，相较于值传递的方式，引用传递</description>
     </item>
     
     <item>
       <title>C&#43;&#43;输入输出</title>
-      <link>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</link>
+      <link>https://oxygenbytes.github.io/posts/cplus/io/</link>
       <pubDate>Thu, 27 Jun 2019 09:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</guid>
+      <guid>https://oxygenbytes.github.io/posts/cplus/io/</guid>
       <description>使用cin来读取数据 ​cin 基本用法 ​cin遇到缓冲区中的[enter],[space],[tab]会结束当前输入，并舍弃[enter],[</description>
     </item>
     
     <item>
       <title>侯捷C&#43;&#43;程序设计</title>
-      <link>https://oxygenbytes.github.io/posts/cplus/%E4%BE%AF%E6%8D%B7c&#43;&#43;%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</link>
+      <link>https://oxygenbytes.github.io/posts/cplus/houjie/</link>
       <pubDate>Thu, 27 Jun 2019 09:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/cplus/%E4%BE%AF%E6%8D%B7c&#43;&#43;%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</guid>
+      <guid>https://oxygenbytes.github.io/posts/cplus/houjie/</guid>
       <description>课程链接 基本语法知识 &amp;lt;iostream&amp;gt; 尖括号是使用标准头文件 &amp;ldquo;matrix.h&amp;rdquo; 调用自给定头文件 构造函数可以重载(overload) 对于没有用到指针的类，一般不用写析构函数 构</description>
     </item>
     

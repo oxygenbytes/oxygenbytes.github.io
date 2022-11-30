@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 23 Feb 2021 17:38:43 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/cplus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43;对象模型</title>
-      <link>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/</link>
+      <link>https://oxygenbytes.github.io/posts/cplus/objectmodel/</link>
       <pubDate>Tue, 23 Feb 2021 17:38:43 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/</guid>
+      <guid>https://oxygenbytes.github.io/posts/cplus/objectmodel/</guid>
       <description>什么是C++对象模型? 语言中直接支持面向对象程序设计的部分。 对于各种支持的底层实现机制。 对象模型研究的是对象在存储上的空间与时间上的更优，并</description>
     </item>
     

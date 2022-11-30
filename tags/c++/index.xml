@@ -9,37 +9,37 @@
     <lastBuildDate>Thu, 27 Jun 2019 09:06:27 +0800</lastBuildDate><atom:link href="https://oxygenbytes.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43;内存模型</title>
-      <link>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</link>
+      <link>https://oxygenbytes.github.io/posts/cplus/memorymodel/</link>
       <pubDate>Thu, 27 Jun 2019 09:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</guid>
+      <guid>https://oxygenbytes.github.io/posts/cplus/memorymodel/</guid>
       <description>内存模型所要表达的内容主要是这么描述： 一个内存操作的效果，在其他线程中的可见性问题。 C++ 内存模型 C分为四个区：堆，栈，静态全局变量区，常量区 C</description>
     </item>
     
     <item>
       <title>C&#43;&#43;基础知识</title>
-      <link>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <link>https://oxygenbytes.github.io/posts/cplus/basic/</link>
       <pubDate>Thu, 27 Jun 2019 09:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <guid>https://oxygenbytes.github.io/posts/cplus/basic/</guid>
       <description>const常引用（const + &amp;amp;）避免函数参数的双向传递 在c++可以使用引用传递作为函数的形参传入函数，相较于值传递的方式，引用传递</description>
     </item>
     
     <item>
       <title>C&#43;&#43;输入输出</title>
-      <link>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</link>
+      <link>https://oxygenbytes.github.io/posts/cplus/io/</link>
       <pubDate>Thu, 27 Jun 2019 09:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/cplus/c&#43;&#43;%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</guid>
+      <guid>https://oxygenbytes.github.io/posts/cplus/io/</guid>
       <description>使用cin来读取数据 ​cin 基本用法 ​cin遇到缓冲区中的[enter],[space],[tab]会结束当前输入，并舍弃[enter],[</description>
     </item>
     
     <item>
       <title>侯捷C&#43;&#43;程序设计</title>
-      <link>https://oxygenbytes.github.io/posts/cplus/%E4%BE%AF%E6%8D%B7c&#43;&#43;%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</link>
+      <link>https://oxygenbytes.github.io/posts/cplus/houjie/</link>
       <pubDate>Thu, 27 Jun 2019 09:06:27 +0800</pubDate>
       
-      <guid>https://oxygenbytes.github.io/posts/cplus/%E4%BE%AF%E6%8D%B7c&#43;&#43;%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</guid>
+      <guid>https://oxygenbytes.github.io/posts/cplus/houjie/</guid>
       <description>课程链接 基本语法知识 &amp;lt;iostream&amp;gt; 尖括号是使用标准头文件 &amp;ldquo;matrix.h&amp;rdquo; 调用自给定头文件 构造函数可以重载(overload) 对于没有用到指针的类，一般不用写析构函数 构</description>
     </item>
     
